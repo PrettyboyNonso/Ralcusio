@@ -1,12 +1,9 @@
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 import {
-  faCaretRight,
-  faCertificate,
   faDollarSign,
   faGraduationCap,
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
-import { faCaretLeft } from "@fortawesome/free-solid-svg-icons/faCaretLeft";
 import { faLaptop } from "@fortawesome/free-solid-svg-icons/faLaptop";
 import { faVideo } from "@fortawesome/free-solid-svg-icons/faVideo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -61,15 +58,8 @@ export const TeacherSchedule = () => {
             <p>upcoming class</p>
             <h2>English Conversation</h2>
             <div className="level">
-              {/* <FontAwesomeIcon
-                icon={faCertificate}
-                style={{ color: "#ed7014" }}
-              /> */}
-              <p>upper intermediate (b2)</p>
+              <p>intermediate (b2)</p>
             </div>
-            <p style={{ textTransform: "capitalize", fontSize: "13px" }}>
-              duration - 60 minutes
-            </p>
           </div>
         </div>
         <div className="second-schedule-flex">
@@ -89,6 +79,9 @@ export const TeacherSchedule = () => {
               </div>
             </div>
             <div className="timing-starts">
+              {/* <p style={{ textTransform: "capitalize", fontSize: "13px" }}>
+                duration - 60 minutes
+              </p> */}
               <p>starts in 21 hours : 13 minutes</p>
             </div>
           </div>
@@ -157,21 +150,11 @@ export const TeacherSchedule = () => {
   const LatestPaymentHead = () => {
     return (
       <div className="payment_heads_compo">
-        <div className="first-payment-flex">
-          <div className="flex-payment-head">
-            <p>student</p>
-          </div>
-        </div>
-        <div className="second-payment-flex">
-          <div className="flex-payment-head">
-            <p>date</p>
-          </div>
-        </div>
-        <div className="third-payment-flex">
-          <div className="flex-payment-head">
-            <p>amount</p>
-          </div>
-        </div>
+        <p>billing to</p>
+        <p>status</p>
+        <p> date</p>
+        <p>amount</p>
+        <p>payment for</p>
       </div>
     );
   };
@@ -179,26 +162,11 @@ export const TeacherSchedule = () => {
   const LatestsPayments = () => {
     return (
       <div className="latest-payments">
-        <div className="payment-card">
-          <div className="first-payment-flex">
-            <div className="details-flex">
-              <div className="payment-img">
-                <img src={require("./images/smile-2072907_1280.jpg")} alt="" />
-              </div>
-              <p>mellisa hunter</p>
-            </div>
-          </div>
-          <div className="second-payment-flex">
-            <div className="details-payment">
-              <p>today, 10:01pm</p>
-            </div>
-          </div>
-          <div className="third-payment-flex">
-            <div className="details-payment">
-              <p style={{ color: "green" }}>$200</p>
-            </div>
-          </div>
-        </div>
+        <p>brooklyn . s</p>
+        <p style={{ color: "red" }}>pending</p>
+        <p>feb 5, 2023</p>
+        <p>$350</p>
+        <p>learning</p>
       </div>
     );
   };
@@ -230,16 +198,22 @@ export const TeacherSchedule = () => {
       <div className="app-first-body">
         <div className="created-classes">
           <div className="created-class-head">
-            <h2>{`${daysOfTheWeek[independentDay]},${monthsOfTheYear[independentMonth]} ${independentDate}`}</h2>
+            <h2>{`${daysOfTheWeek[independentDay]} ${monthsOfTheYear[independentMonth]} ${independentDate}`}</h2>
             <p>see all schedules</p>
           </div>
           <ScheduleCOmpo />
           <ScheduleCOmpo />
+          <div className=" responsive">
+            <Dates color={"rgb(226, 226, 226)"} />
+            <Analysis />
+          </div>
           <div className="latest-payment-head">
             <h2>latest payments</h2>
             <p>see all payments</p>
           </div>
           <LatestPaymentHead />
+          <LatestsPayments />
+          <LatestsPayments />
           <LatestsPayments />
           <LatestsPayments />
         </div>

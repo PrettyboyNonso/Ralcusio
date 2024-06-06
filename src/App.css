@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+.responsive {
+  display: none;
+}
 @keyframes lazyLoading {
   0% {
     background-color: rgba(226, 213, 196, 0.9);
@@ -691,6 +694,7 @@ aside {
 .teacherHeader h2 {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
+  font-size: 22px;
 }
 
 .profileName-img {
@@ -780,14 +784,14 @@ aside {
 .created-class-head h2 {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .created-class-head p {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
   color: #ed7014;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .schedule_component {
@@ -816,7 +820,7 @@ aside {
   border-radius: 5px;
   font-family: "Karla", sans-serif;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
   writing-mode: sideways-rl;
   display: flex;
   flex-direction: column;
@@ -839,7 +843,7 @@ aside {
 
 .schedule-head h2 {
   font-family: "Karla", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .level {
@@ -899,7 +903,7 @@ aside {
 .timing-starts {
   height: 55%;
   display: flex;
-  align-items: end;
+  align-items: center;
   padding-left: 1.5em;
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
@@ -907,9 +911,27 @@ aside {
 }
 
 .latest-payments {
-  border-left: 1px solid rgb(226, 226, 226);
+  display: flex;
+  margin-top: 0.4em;
+  /* gap: 2em; */
+  border: 1px solid rgb(227, 227, 227);
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  width: 100%;
+
+  /* border-left: 1px solid rgb(226, 226, 226);
   border-right: 1px solid rgb(226, 226, 226);
-  position: relative;
+  position: relative; */
+}
+
+.latest-payments p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+
+  flex: 0 0 20%;
+  display: flex;
+  justify-content: center;
 }
 
 .latest-payment-head {
@@ -923,26 +945,35 @@ aside {
 .latest-payment-head h2 {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .latest-payment-head p {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
   color: #ed7014;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .payment_heads_compo {
   margin-top: 1em;
-  width: 100%;
   display: flex;
+  margin-top: 1em;
+  /* gap: 2.3em; */
+  border: 1px solid rgb(227, 227, 227);
+  padding: 0.5em 1em;
+  border-radius: 8px;
   width: 100%;
-  padding: 0.5em 0.3em;
-  gap: 0.3em;
-  border: 1px solid rgb(226, 226, 226);
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+}
+
+.payment_heads_compo p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+  flex: 0 0 20%;
+
+  display: flex;
+  justify-content: center;
 }
 
 .payment-card {
@@ -1056,7 +1087,7 @@ aside {
 .calenderUi-head h3 {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  font-size: 18px;
+  font-size: 17px;
 }
 
 .calender-secondHead {
@@ -1091,10 +1122,10 @@ aside {
 .dates .days {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   width: 14%;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.4em;
   display: flex;
   justify-content: center;
 }
@@ -1106,7 +1137,7 @@ aside {
 .analysis-head h1 {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  font-size: 19px;
+  font-size: 18px;
   margin-left: 0.3em;
 }
 
@@ -1138,14 +1169,18 @@ aside {
 .analysis-card-head p {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .analysis-card h3 {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   margin-top: 0.3em;
+}
+
+.analysis-card p {
+  font-size: 13px;
 }
 
 .analysis-card :nth-child(3) {
@@ -2614,7 +2649,7 @@ aside {
 .all-classes-body p {
   flex: 0 0 25%;
   font-family: "Karla", sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   text-transform: capitalize;
   display: flex;
   justify-content: center;
@@ -2623,7 +2658,7 @@ aside {
 .payment-page {
   margin-left: 22em;
   width: 75%;
-  padding-right: 2em;
+  margin-right: 2em;
 }
 
 .payment-page-head {
@@ -2641,7 +2676,7 @@ aside {
 
 .payment-page-head button {
   display: flex;
-  width: 8em;
+  width: 10em;
   height: 2.5em;
   align-items: center;
   gap: 0.5em;
@@ -2654,6 +2689,271 @@ aside {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.payment-body-flex-account {
+  margin-top: 3em;
+  width: 100%;
+  display: flex;
+}
+
+.payment-body-flex-account .first-payment-flex-account {
+  width: 70%;
+}
+
+.first-payment-flex-account .account-summary-details {
+  width: 100%;
+  display: flex;
+  gap: 0.5em;
+}
+
+.account-summary {
+  width: 32%;
+  flex: 0 0 32%;
+  border: 1px solid rgb(227, 227, 227);
+  height: 5em;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-summary .first-child {
+  padding-top: 0.5em;
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.detail-flex-account {
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+  gap: 0.8em;
+  width: 100%;
+  justify-content: center;
+}
+
+.detail-flex-account h3 {
+  max-width: 60%;
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+}
+
+.detail-flex-account small {
+  display: flex;
+  gap: 0.3em;
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+}
+
+.second-payment-flex-account {
+  width: 33%;
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.second-payment-flex-account p {
+  padding-top: 0.5em;
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.second-payment-flex-account h3 {
+  margin-top: 0.2em;
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+}
+
+.account-informations-div {
+  margin-top: 2em;
+  width: 100%;
+  border: 1px solid rgb(227, 227, 227);
+
+  display: flex;
+  /* align-items: center; */
+  border-radius: 8px;
+}
+
+.account-info-div-1,
+.account-info-div-2,
+.account-info-div-3,
+.account-info-div-4 {
+  flex: 0 0 25%;
+  height: 100%;
+}
+
+.account-info-div-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.account-info-div-1 .first-part-account-info {
+  padding-top: 0.68em;
+  padding-bottom: 0.68em;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
+
+.account-info-div-1 .first-part-account-info p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
+.bank-icon-img {
+  height: 1.5em;
+  border: 1px solid rgb(227, 227, 227);
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  border-radius: 5px;
+}
+
+.bank-icon-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.account-info-div-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-info-div-2 .first-part-account-info {
+  padding-top: 1em;
+  padding-bottom: 1.36em;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+}
+
+.account-info-div-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account-info-div-3 .first-part-account-info {
+  font-family: "Karla", sans-serif;
+  padding-top: 1em;
+  padding-bottom: 1.36em;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.account-info-div-4 .first-part-account-info {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.other-bank-info {
+  width: 100%;
+  padding-top: 0.5em;
+  border-top: 1px solid rgb(227, 227, 227);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4em;
+  padding-bottom: 0.3em;
+}
+
+.other-bank-info p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
+.other-bank-info button {
+  width: 60%;
+  height: 2em;
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+  color: white;
+  background-color: #ed7014;
+  border: 1px solid grey;
+  border-radius: 3px;
+  outline: none;
+  margin-top: 0.5em;
+  cursor: pointer;
+}
+
+.other-bank-info .icon-flex-other-info {
+  display: flex;
+  gap: 1.5em;
+  margin-top: 0.5em;
+}
+
+.account-info-payment-history {
+  width: 100%;
+  margin-top: 3.5em;
+}
+
+.payment-history-head {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+}
+
+.payment-history-head h2 {
+  font-size: 20px;
+}
+
+.payment-history-head p {
+  font-size: 14px;
+  color: #ed7014;
+}
+
+.mini-payment-history-head {
+  display: flex;
+  margin-top: 1em;
+  gap: 2em;
+  border: 1px solid rgb(227, 227, 227);
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.mini-payment-history-head p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+  flex: 0 0 14%;
+}
+
+.payment-details-body {
+  display: flex;
+  margin-top: 0.4em;
+  gap: 2em;
+  border: 1px solid rgb(227, 227, 227);
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.payment-details-body p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+  flex: 0 0 14%;
+  width: 100%;
 }
 
 .curriculum {
@@ -3587,4 +3887,235 @@ aside {
   font-family: "Karla", sans-serif;
   text-transform: capitalize;
   font-size: 14px;
+}
+
+/* mobile phones */
+
+@media only screen and (max-width: 767px) {
+  .application {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-top: 2em;
+    flex-direction: column;
+  }
+
+  aside {
+    display: none;
+  }
+
+  .teacher-schedule {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0.4em;
+    padding-left: 1em;
+    position: absolute;
+    right: 0;
+    padding-bottom: 1em;
+  }
+
+  .profile-brief {
+    display: none;
+  }
+
+  .app-first-body {
+    margin-top: 3em;
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .created-classes {
+    width: 100%;
+  }
+
+  .schedule_component {
+    width: 100%;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 5px;
+    margin-top: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+    display: flex;
+  }
+
+  .first-schedule-flex {
+    display: flex;
+    width: 60%;
+    gap: 0.6em;
+  }
+
+  .schedule-time {
+    background-color: rgba(237, 112, 20, 0.8);
+    height: fit-content;
+    color: white;
+    margin-top: 0.8em;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    writing-mode: sideways-rl;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .schedule-head {
+    margin-top: 0.8em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+  }
+
+  .schedule-head p {
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+
+  .schedule-head h2 {
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+  }
+
+  .level {
+    display: flex;
+    gap: 0.4em;
+  }
+
+  .level p {
+    text-transform: capitalize;
+  }
+
+  .second-schedule-flex {
+    width: 50%;
+    margin-top: 0.5em;
+  }
+
+  .people-timing {
+    width: 100%;
+    height: 100%;
+  }
+
+  .people-heads {
+    width: 100%;
+    display: flex;
+    flex: 0 0 25%;
+    height: 2em;
+    justify-content: center;
+    position: relative;
+  }
+
+  .heads-people {
+    width: 23%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .heads-people:nth-child(1) {
+    left: 0.5em;
+  }
+  .heads-people:nth-child(2) {
+    left: 2em;
+  }
+  .heads-people:nth-child(3) {
+    left: 3.5em;
+  }
+  .heads-people:nth-child(4) {
+    left: 5em;
+  }
+
+  .heads-people img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .timing-starts {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 1.5em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+  }
+
+  .calender {
+    display: none;
+  }
+
+  .responsive {
+    display: block;
+    width: 100%;
+    margin-top: 0.9em;
+  }
+
+  .calenderUi {
+    width: 100%;
+    height: 13em;
+
+    padding-top: 0.5em;
+    border-radius: 5px;
+  }
+
+  .analysis {
+    margin-top: 1em;
+  }
+
+  .analysis-head h1 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 17px;
+    margin-left: 0.3em;
+  }
+
+  .analysis-flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 50%;
+    gap: 0.5em;
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  .payment_heads_compo {
+    margin-top: 1em;
+    display: flex;
+
+    /* gap: 2.3em; */
+    border: 1px solid rgb(227, 227, 227);
+    padding: 0.5em 0.3em;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .payment_heads_compo p:nth-child(5) {
+    display: none;
+  }
+
+  .payment_heads_compo p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    flex: 0 0 25%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .latest-payment-head h2 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 18px;
+  }
 }

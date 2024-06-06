@@ -49,6 +49,8 @@ export const Application = ({ handleWheel, handleTarget }) => {
     if (storedId) {
       setActiveLinkId(storedId);
       const activeLinkElement = document.getElementById(storedId);
+      console.log(storedId);
+      console.log(activeLinkElement);
       if (activeLinkElement) {
         activeLinkElement.classList.add("active");
       }
@@ -111,7 +113,11 @@ export const Application = ({ handleWheel, handleTarget }) => {
           </div>
 
           {userData.accountType === "Teacher Account" && (
-            <div className="links" id="payment" onClick={handleClick}>
+            <div
+              className={`links ${activeLinkId === "payment" ? "active" : ""}`}
+              id="payment"
+              onClick={handleClick}
+            >
               <FontAwesomeIcon
                 icon={faPaypal}
                 style={{
@@ -176,9 +182,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
       )}
       {activeLinkId === "book" && <CreateClass />}
       {activeLinkId === "payment" && <PaymentPage />}
-      {activeLinkId === "profile" && (
-        <Profile handleTarget={handleTarget} handleWheel={handleWheel} />
-      )}
+      {activeLinkId === "profile" && <Profile />}
     </div>
   );
 };
