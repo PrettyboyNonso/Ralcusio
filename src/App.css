@@ -4118,4 +4118,28 @@ aside {
     font-family: "Karla", sans-serif;
     font-size: 18px;
   }
+
+  .latest-payments {
+    display: flex;
+    margin-top: 0.4em;
+    /* gap: 2em; */
+    border: 1px solid rgb(227, 227, 227);
+    padding: 0.5em 0.3em;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .latest-payments p:nth-child(5){
+    display: none;
+  }
+
+  .latest-payments p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+  }
 }
