@@ -3908,8 +3908,8 @@ aside {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-left: 0.4em;
-    padding-left: 1em;
+    margin-left: 0em;
+    padding-left: 0em;
     position: absolute;
     right: 0;
     padding-bottom: 1em;
@@ -3938,15 +3938,15 @@ aside {
     border: 1px solid rgb(226, 226, 226);
     border-radius: 5px;
     margin-top: 1em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    padding-bottom: 0.5em;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    padding-bottom: 1em;
     display: flex;
   }
 
   .first-schedule-flex {
     display: flex;
-    width: 60%;
+    width: 75%;
     gap: 0.6em;
   }
 
@@ -3959,7 +3959,7 @@ aside {
     border-radius: 5px;
     font-family: "Karla", sans-serif;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 16px;
     writing-mode: sideways-rl;
     display: flex;
     flex-direction: column;
@@ -3977,12 +3977,12 @@ aside {
   .schedule-head p {
     font-family: "Karla", sans-serif;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .schedule-head h2 {
     font-family: "Karla", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .level {
@@ -3992,6 +3992,7 @@ aside {
 
   .level p {
     text-transform: capitalize;
+    font-size: 16px;
   }
 
   .second-schedule-flex {
@@ -4089,7 +4090,7 @@ aside {
 
   .payment_heads_compo {
     margin-top: 1em;
-    display: flex;
+    display: none;
 
     /* gap: 2.3em; */
     border: 1px solid rgb(227, 227, 227);
@@ -4117,10 +4118,11 @@ aside {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
     font-size: 18px;
+    display: none;
   }
 
   .latest-payments {
-    display: flex;
+    display: none;
     margin-top: 0.4em;
     /* gap: 2em; */
     border: 1px solid rgb(227, 227, 227);
@@ -4129,7 +4131,11 @@ aside {
     width: 100%;
   }
 
-  .latest-payments p:nth-child(5){
+  .latest-payments p:nth-child(5) {
+    display: none;
+  }
+
+  .latest-payment-head p {
     display: none;
   }
 
@@ -4139,7 +4145,7 @@ aside {
     font-size: 13px;
 
     flex: 0 0 25%;
-    display: flex;
+    display: none;
     justify-content: center;
   }
 }
