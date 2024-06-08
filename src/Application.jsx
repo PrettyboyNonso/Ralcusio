@@ -176,6 +176,63 @@ export const Application = ({ handleWheel, handleTarget }) => {
           />
         </div>
       </aside>
+      <footer>
+        <FontAwesomeIcon
+          icon={faChartLine}
+          style={{
+            color: "#ed7014",
+            fontSize: "23px",
+            border: "1px solid rgb(227, 227, 227)",
+            padding: "0.3em",
+            backgroundColor: "white",
+            borderRadius: "5px",
+          }}
+        />
+        <FontAwesomeIcon
+          icon={faMessage}
+          style={{
+            color: "#ed7014",
+            fontSize: "23px",
+            border: "1px solid rgb(227, 227, 227)",
+            padding: "0.3em",
+            backgroundColor: "white",
+            borderRadius: "5px",
+          }}
+        />
+        <FontAwesomeIcon
+          icon={faPaypal}
+          style={{
+            color: "#ed7014",
+            fontSize: "23px",
+            border: "1px solid rgb(227, 227, 227)",
+            padding: "0.3em",
+            backgroundColor: "white",
+            borderRadius: "5px",
+          }}
+        />
+        <FontAwesomeIcon
+          icon={faBookBookmark}
+          style={{
+            color: "#ed7014",
+            fontSize: "23px",
+            border: "1px solid rgb(227, 227, 227)",
+            padding: "0.3em",
+            backgroundColor: "white",
+            borderRadius: "5px",
+          }}
+        />
+        <FontAwesomeIcon
+          icon={faUser}
+          style={{
+            color: "#ed7014",
+            fontSize: "23px",
+            border: "1px solid rgb(227, 227, 227)",
+            padding: "0.3em",
+            backgroundColor: "white",
+            borderRadius: "5px",
+          }}
+        />
+      </footer>
       {activeLinkId === "house" && <AppSide />}
       {activeLinkId === "message" && (
         <Message handleTarget={handleTarget} handleWheel={handleWheel} />

@@ -7,6 +7,10 @@
 .responsive {
   display: none;
 }
+
+footer {
+  display: none;
+}
 @keyframes lazyLoading {
   0% {
     background-color: rgba(226, 213, 196, 0.9);
@@ -4244,5 +4248,21 @@ aside {
     flex: 0 0 25%;
     display: none;
     justify-content: center;
+  }
+
+  footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    justify-content: space-between;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
   }
 }

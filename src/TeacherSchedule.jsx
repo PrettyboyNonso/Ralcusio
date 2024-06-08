@@ -180,11 +180,11 @@ export const TeacherSchedule = () => {
             <div className="magnifyingglass">
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                style={{ fontSize: "15px" }}
+                style={{ fontSize: "16px" }}
               />
             </div>
             <div className="notificationBell">
-              <FontAwesomeIcon icon={faBell} style={{ fontSize: "15px" }} />
+              <FontAwesomeIcon icon={faBell} style={{ fontSize: "16px" }} />
             </div>
           </div>
           <div className="profile-brief">
