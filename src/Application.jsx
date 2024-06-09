@@ -185,7 +185,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
       </aside>
       <footer>
         <FiHome className="active-my-class" />
-        <TiMessages className="my-icons" />
+        <TiMessages className="my-icons" id="message" onClick={handleClick} />
         <IoCardOutline className="my-icons" />
         <GiBookmark className="my-icons" />
         <FiUsers className="my-icons" />
