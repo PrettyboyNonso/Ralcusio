@@ -1,4 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { CiHome } from "react-icons/ci";
+import { FiHome } from "react-icons/fi";
+import { TiMessages } from "react-icons/ti";
+import { GiBookmark } from "react-icons/gi";
+import { IoCardOutline } from "react-icons/io5";
+import { FiUsers } from "react-icons/fi";
 import {
   faArrowRightToBracket,
   faBookBookmark,
@@ -177,61 +184,11 @@ export const Application = ({ handleWheel, handleTarget }) => {
         </div>
       </aside>
       <footer>
-        <FontAwesomeIcon
-          icon={faChartLine}
-          style={{
-            color: "#ed7014",
-            fontSize: "23px",
-            border: "1px solid rgb(227, 227, 227)",
-            padding: "0.3em",
-            backgroundColor: "white",
-            borderRadius: "5px",
-          }}
-        />
-        <FontAwesomeIcon
-          icon={faMessage}
-          style={{
-            color: "#ed7014",
-            fontSize: "23px",
-            border: "1px solid rgb(227, 227, 227)",
-            padding: "0.3em",
-            backgroundColor: "white",
-            borderRadius: "5px",
-          }}
-        />
-        <FontAwesomeIcon
-          icon={faPaypal}
-          style={{
-            color: "#ed7014",
-            fontSize: "23px",
-            border: "1px solid rgb(227, 227, 227)",
-            padding: "0.3em",
-            backgroundColor: "white",
-            borderRadius: "5px",
-          }}
-        />
-        <FontAwesomeIcon
-          icon={faBookBookmark}
-          style={{
-            color: "#ed7014",
-            fontSize: "23px",
-            border: "1px solid rgb(227, 227, 227)",
-            padding: "0.3em",
-            backgroundColor: "white",
-            borderRadius: "5px",
-          }}
-        />
-        <FontAwesomeIcon
-          icon={faUser}
-          style={{
-            color: "#ed7014",
-            fontSize: "23px",
-            border: "1px solid rgb(227, 227, 227)",
-            padding: "0.3em",
-            backgroundColor: "white",
-            borderRadius: "5px",
-          }}
-        />
+        <FiHome className="active-my-class" />
+        <TiMessages className="my-icons" />
+        <IoCardOutline className="my-icons" />
+        <GiBookmark className="my-icons" />
+        <FiUsers className="my-icons" />
       </footer>
       {activeLinkId === "house" && <AppSide />}
       {activeLinkId === "message" && (

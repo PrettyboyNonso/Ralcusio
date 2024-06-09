@@ -4260,9 +4260,25 @@ aside {
     padding-bottom: 0.5em;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    justify-content: space-between;
-    border: 1px solid black;
+    justify-content: center;
+    gap: 2.5em;
+    border: 1px solid rgb(66, 66, 66);
     background-color: white;
-    border-radius: 5px;
+    align-items: center;
+  }
+
+  .active-my-class {
+    color: #ed7014;
+    font-size: 30px;
+    border: 1px solid rgb(227, 227, 227);
+    font-weight: lighter;
+  }
+
+  .my-icons {
+    color: rgb(59, 59, 59);
+
+    font-size: 30px;
+    border: 1px solid rgb(227, 227, 227);
+    font-weight: lighter;
   }
 }
