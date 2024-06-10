@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CiHome } from "react-icons/ci";
 import { FiHome } from "react-icons/fi";
 import { TiMessages } from "react-icons/ti";
-import { GiBookmark } from "react-icons/gi";
+import { FaChalkboardTeacher } from "react-icons/fa";
 import { IoCardOutline } from "react-icons/io5";
 import { FiUsers } from "react-icons/fi";
 import {
@@ -187,7 +187,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
         <FiHome className="active-my-class" />
         <TiMessages className="my-icons" id="message" onClick={handleClick} />
         <IoCardOutline className="my-icons" />
-        <GiBookmark className="my-icons" />
+        <FaChalkboardTeacher className="my-icons" />
         <FiUsers className="my-icons" />
       </footer>
       {activeLinkId === "house" && <AppSide />}

@@ -4081,6 +4081,7 @@ aside {
     font-family: "Karla", sans-serif;
     font-size: 18px;
     margin-left: 0.3em;
+    display: none;
   }
 
   .analysis-flex {
@@ -4117,18 +4118,18 @@ aside {
   .analysis-card h3 {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     margin-top: 0.3em;
   }
 
   .analysis-card p {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .analysis-card :nth-child(3) {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     margin-top: 0.5em;
   }
 
@@ -4181,7 +4182,7 @@ aside {
   .dates .days {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     width: 14%;
     margin-bottom: 0.4em;
@@ -4261,24 +4262,23 @@ aside {
     padding-left: 0.5em;
     padding-right: 0.5em;
     justify-content: center;
-    gap: 2.5em;
-    border: 1px solid rgb(66, 66, 66);
+    gap: 3em;
+    border: 1px solid rgb(227, 227, 227);
     background-color: white;
     align-items: center;
   }
 
   .active-my-class {
     color: #ed7014;
-    font-size: 30px;
-    border: 1px solid rgb(227, 227, 227);
+    font-size: 24px;
     font-weight: lighter;
+    cursor: pointer;
   }
 
   .my-icons {
-    color: rgb(59, 59, 59);
-
-    font-size: 30px;
-    border: 1px solid rgb(227, 227, 227);
+    font-size: 26px;
     font-weight: lighter;
+    color: rgb(41, 41, 41);
+    cursor: pointer;
   }
 }

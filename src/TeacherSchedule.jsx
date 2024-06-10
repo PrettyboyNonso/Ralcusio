@@ -204,7 +204,7 @@ export const TeacherSchedule = () => {
           <ScheduleCOmpo />
           <ScheduleCOmpo />
           <div className=" responsive">
-            <Dates color={"rgb(226, 226, 226)"} />
+            {/* <Dates color={"rgb(226, 226, 226)"} /> */}
             <Analysis />
           </div>
           <div className="latest-payment-head">
