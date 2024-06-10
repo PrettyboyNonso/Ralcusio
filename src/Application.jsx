@@ -184,8 +184,18 @@ export const Application = ({ handleWheel, handleTarget }) => {
         </div>
       </aside>
       <footer>
-        <FiHome className="active-my-class" />
-        <TiMessages className="my-icons" id="message" onClick={handleClick} />
+        <div
+          className={`links my-icons ${
+            activeLinkId === "house" ? "active" : ""
+          }`}
+          id="house"
+          onClick={handleClick}
+        >
+          <FiHome />
+        </div>
+        <div className="my-icons links" id="message" onClick={handleClick}>
+          <TiMessages />
+        </div>
         <IoCardOutline className="my-icons" />
         <FaChalkboardTeacher className="my-icons" />
         <FiUsers className="my-icons" />

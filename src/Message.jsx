@@ -52,6 +52,123 @@ export const Message = ({ handleWheel, handleTarget }) => {
       I aim to inspire curiosity and creativity, 
       guiding students toward a lifelong love of learning.`,
     },
+    user5: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user6: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user7: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user8: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user9: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user10: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user11: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user12: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user41: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user42: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user13: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user15: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
+    user16: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education. 
+      I aim to inspire curiosity and creativity, 
+      guiding students toward a lifelong love of learning.`,
+    },
   };
 
   const chatClick = (e) => {

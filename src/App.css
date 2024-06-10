@@ -3924,7 +3924,7 @@ aside {
   }
 
   .app-first-body {
-    margin-top: 3em;
+    margin-top: 2em;
     width: 100%;
     padding-left: 1em;
     padding-right: 1em;
@@ -4090,7 +4090,7 @@ aside {
     flex: 0 0 50%;
     gap: 0.5em;
     width: 100%;
-    margin-top: 1em;
+    margin-top: 1.5em;
   }
 
   .analysis-card {
@@ -4280,5 +4280,276 @@ aside {
     font-weight: lighter;
     color: rgb(41, 41, 41);
     cursor: pointer;
+  }
+  .links {
+    display: flex;
+    gap: 0em;
+    cursor: pointer;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    align-items: center;
+    margin-right: 0em;
+    padding-left: 0em;
+  }
+
+  .active {
+    border-radius: 0px;
+    color: #ed7014;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .messageDiv {
+    width: 100%;
+    margin-left: 0em;
+    padding-left: 0em;
+    padding-right: 0em;
+    margin-right: 0em;
+    position: static;
+    right: 0;
+    margin-top: 0em;
+    display: flex;
+  }
+
+  .chatflex {
+    width: 100%;
+    border: 1px solid black;
+  }
+  .chatflex-head {
+    position: static;
+    width: 100%;
+  }
+
+  .chatflex-head .first-chat-head {
+    position: fixed;
+    margin-top: -1.5em;
+    padding-top: 1.8em;
+    padding-bottom: 0.5em;
+    background-color: white;
+    top: 1.5em;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    gap: 0em;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+  }
+
+  .chatflex-head h2 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 20px;
+  }
+
+  .chat-icons {
+    background-color: rgb(226, 213, 196);
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -0.3em;
+    cursor: pointer;
+  }
+
+  .second-chat-head {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+  }
+
+  .chatflex .search {
+    margin-top: 0em;
+    width: 100%;
+    background-color: white;
+    width: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  .chatflex .search input {
+    width: 91%;
+    height: 2.8em;
+    border-radius: 5px;
+    border: 1px solid grey;
+    outline: none;
+    padding-left: 0.3em;
+    font-family: "Karla", sans-serif;
+    position: static;
+    top: 0em;
+  }
+
+  .chatcomponent-div {
+    margin-top: 8em;
+
+    width: fit-content;
+  }
+
+  .chatflex .chatscomponents {
+    width: 100%;
+    margin-bottom: 1.3em;
+    padding-top: 0.8em;
+    padding-bottom: 0.3em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    display: flex;
+    gap: 0.9em;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .chatscomponents .image {
+    width: 20%;
+    height: 2.6em;
+    margin-top: -0.4em;
+  }
+
+  .chatscomponents .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .chatscomponents .chat-title h3 {
+    font-family: "Karla", sans-serif;
+    font-size: 15px;
+    margin-bottom: 0.2em;
+    color: #4e4e4e;
+    text-transform: capitalize;
+  }
+
+  .chatscomponents .chat-title p {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    color: #4e4e4e;
+  }
+
+  .chat-active {
+    background-color: rgba(237, 112, 20, 0.2);
+  }
+
+  .messageBody {
+    width: 80%;
+    display: none;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+  }
+
+  .messageBodyHead {
+    padding-left: 3.5em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    padding-top: 2em;
+    margin-top: -3em;
+    background-color: white;
+  }
+
+  .first-messageBodyHead {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+  }
+
+  .messageBodyHead .imageDiv {
+    width: 5.5%;
+    height: 3.5em;
+  }
+
+  .imageDiv img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .chatBrief {
+    width: 90%;
+    align-self: center;
+    margin-top: 6em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 4em;
+  }
+
+  .chatBrief .imageDiv {
+    width: 12%;
+    height: 5em;
+  }
+
+  .chatBrief .chatPersonDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chatPersonDetails h2 {
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    margin-top: 1em;
+  }
+
+  .chatPersonDetails p {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+    margin-top: 0.4em;
+    text-align: center;
+  }
+
+  .chat-inputs {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    padding-left: 8em;
+    bottom: 1em;
+    background-color: white;
+  }
+
+  .chat-inputs textarea {
+    width: 40%;
+    height: 2.5em;
+    max-height: 10em;
+    padding-left: 0.8em;
+    padding-top: 0.5em;
+    padding-right: 0.8em;
+    padding-bottom: 0.5em;
+    resize: none;
+    overflow: hidden;
+    margin-left: 0.3em;
+    position: fixed;
+    bottom: 1em;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 8px;
+    font-family: "Karla", sans-serif;
+    line-height: 1.5em;
+  }
+
+  .chat-inputs .addfile {
+    position: fixed;
+    bottom: 1em;
+    left: 39.5em;
+  }
+
+  .message-receive-body {
+    width: 100%;
+    height: 100vh;
+
+    margin-bottom: 3em;
+    margin-top: 3em;
   }
 }
