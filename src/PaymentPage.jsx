@@ -62,6 +62,14 @@ export const PaymentPage = () => {
                 </small>
               </div>
             </div>
+
+            <div className="responsive-second-payment-flex-account">
+              <p>current account</p>
+              <h3>
+                <span>5432 </span>
+                <sup>****</sup> <sup>****</sup> <span>4089</span>
+              </h3>
+            </div>
           </div>
         </div>
         <div className="second-payment-flex-account">

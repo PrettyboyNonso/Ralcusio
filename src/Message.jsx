@@ -1,4 +1,5 @@
 import {
+  faAngleLeft,
   faCircleInfo,
   faEllipsis,
   faPaperPlane,
@@ -12,6 +13,7 @@ import { faFile } from "@fortawesome/free-regular-svg-icons";
 export const Message = ({ handleWheel, handleTarget }) => {
   const [elementClickedId, setElementClickedId] = useState("");
   const [inputValue, setInputValue] = useState("");
+  const [currentId, setCurrentId] = useState("");
 
   const users = {
     user1: {
@@ -176,6 +178,8 @@ export const Message = ({ handleWheel, handleTarget }) => {
 
     if (clickedElement) {
       const clickedId = clickedElement.id;
+      setCurrentId(clickedId);
+      sessionStorage.setItem("currentId", clickedId);
       setElementClickedId(clickedId);
       sessionStorage.setItem("element-clicked-Id", clickedId);
       if (clickedElement.classList.contains("chat-active")) {
@@ -195,9 +199,16 @@ export const Message = ({ handleWheel, handleTarget }) => {
     }
   };
 
+  const resetClick = () => {
+    sessionStorage.setItem("currentId", "");
+    setCurrentId("");
+  };
+
   useEffect(() => {
     const sessionStored = sessionStorage.getItem("element-clicked-Id");
-    if (sessionStored) {
+    const sessionStoredId = sessionStorage.getItem("currentId");
+    if (sessionStored || sessionStoredId) {
+      setCurrentId(sessionStoredId);
       setElementClickedId(sessionStored);
       const activeChat = document.getElementById(sessionStored);
       if (activeChat) {
@@ -298,9 +309,17 @@ export const Message = ({ handleWheel, handleTarget }) => {
           })}
         </div>
       </div>
+
       <div className="messageBody">
         <div className="messageBodyHead">
           <div className="first-messageBodyHead">
+            <div className="back-icon">
+              <FontAwesomeIcon
+                icon={faAngleLeft}
+                style={{ fontSize: "24px", color: "rgba(237, 112, 20, 0.8)" }}
+                onClick={() => setCurrentId("")}
+              />
+            </div>
             <div className="imageDiv">
               <img
                 src={
@@ -376,6 +395,151 @@ export const Message = ({ handleWheel, handleTarget }) => {
           />
         </div>
       </div>
+
+      {currentId === "" && (
+        <div className="responsive-chatflex">
+          <div className="chatflex-head">
+            <div className="first-chat-head">
+              <h2>Messages</h2>
+              <div className="chat-icons">
+                <FontAwesomeIcon
+                  icon={faEllipsis}
+                  style={{ fontSize: "18px", color: "#ed7014" }}
+                />
+              </div>
+            </div>
+            <div className="second-chat-head">
+              <div className="search">
+                {/* <FontAwesomeIcon
+                icon={faSearch}
+                style={{
+                  position: "fixed",
+                  right: "0.5em",
+                  top: "0.7em",
+                  color: "rgb(41, 41, 41)",
+                  cursor: "pointer",
+                  zIndex: "5",
+                }}
+              /> */}
+                <input type="text" placeholder="Search For Messages" />
+              </div>
+            </div>
+          </div>
+
+          <div className="chatcomponent-div">
+            {Object.keys(users).map((userID) => {
+              const user = users[userID];
+              return (
+                <ChatComponents
+                  title={user.title}
+                  image={user.image}
+                  titleMessage={user.titleMessage}
+                  id={user.id}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
+      {currentId !== "" && (
+        <div className="responsive-messageBody">
+          <div className="messageBodyHead">
+            <div className="first-messageBodyHead">
+              <div className="back-icon">
+                <FontAwesomeIcon
+                  icon={faAngleLeft}
+                  style={{ fontSize: "24px", color: "rgba(237, 112, 20, 0.8)" }}
+                  onClick={resetClick}
+                />
+              </div>
+              <div className="imageDiv">
+                <img
+                  src={
+                    elementClickedId &&
+                    require(`${users[elementClickedId].image}`)
+                  }
+                  alt=""
+                />
+              </div>
+              <h2>{elementClickedId && users[elementClickedId].title}</h2>
+            </div>
+            <FontAwesomeIcon
+              icon={faCircleInfo}
+              style={{
+                position: "fixed",
+                fontSize: "24px",
+                marginTop: "0.1em",
+                right: "2em",
+                paddingTop: ".1em",
+                color: "rgba(237, 112, 20, 0.8)",
+                cursor: "pointer",
+              }}
+            />
+          </div>
+          <div className="chatBrief">
+            <div className="imageDiv">
+              <img
+                src={
+                  elementClickedId &&
+                  require(`${users[elementClickedId].image}`)
+                }
+                alt=""
+              />
+            </div>
+            <div className="chatPersonDetails">
+              <h2>{elementClickedId && users[elementClickedId].title}</h2>
+              <p>{elementClickedId && users[elementClickedId].bio}</p>
+            </div>
+            <div className="message-receive-body">
+              <div className="received"></div>
+            </div>
+          </div>
+          <div className="chat-inputs">
+            <div className="addfile">
+              <FontAwesomeIcon
+                icon={faPlusCircle}
+                style={{
+                  fontSize: "24px",
+                  color: "#ed7014",
+                  marginRight: "0.4em",
+                }}
+              />
+              <FontAwesomeIcon
+                icon={faFile}
+                style={{ fontSize: "24px", color: "#ed7014" }}
+              />
+            </div>
+
+            <textarea
+              name="typing"
+              value={inputValue}
+              onChange={handleTyping}
+              placeholder="Write a message"
+            ></textarea>
+            <FontAwesomeIcon
+              icon={faPaperPlane}
+              style={{
+                position: "fixed",
+                right: "2.8em",
+                bottom: "1em",
+                fontSize: "24px",
+                color: "#ed7014",
+              }}
+            />
+            <FontAwesomeIcon
+              className="responsive-send"
+              icon={faPaperPlane}
+              style={{
+                position: "fixed",
+                right: "1em",
+                bottom: "3.3em",
+                fontSize: "22px",
+                color: "#ed7014",
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
