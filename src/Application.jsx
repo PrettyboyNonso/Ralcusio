@@ -192,13 +192,30 @@ export const Application = ({ handleWheel, handleTarget }) => {
           onClick={handleClick}
         >
           <FiHome />
+          <p>home</p>
         </div>
-        <div className="my-icons links" id="message" onClick={handleClick}>
+        <div
+          className={`links my-icons ${
+            activeLinkId === "message" ? "active" : ""
+          }`}
+          id="message"
+          onClick={handleClick}
+        >
           <TiMessages />
+          <p>messages</p>
         </div>
-        <IoCardOutline className="my-icons" />
-        <FaChalkboardTeacher className="my-icons" />
-        <FiUsers className="my-icons" />
+        <div className="my-icons links" id="payment" onClick={handleClick}>
+          <IoCardOutline />
+          <p>payments</p>
+        </div>
+        <div className="my-icons links" id="book" onClick={handleClick}>
+          <FaChalkboardTeacher />
+          <p>classes</p>
+        </div>
+        <div className="my-icons links" id="profile" onClick={handleClick}>
+          <FiUsers />
+          <p>profile</p>
+        </div>
       </footer>
       {activeLinkId === "house" && <AppSide />}
       {activeLinkId === "message" && (

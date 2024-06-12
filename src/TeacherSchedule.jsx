@@ -1,5 +1,7 @@
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 import {
+  faAngleDown,
+  faAngleUp,
   faDollarSign,
   faGraduationCap,
   faMagnifyingGlass,
@@ -47,6 +49,7 @@ export const TeacherSchedule = () => {
     setIndependentDate(currentDate.getDate());
   }, []);
   const ScheduleCOmpo = () => {
+    const [classesUp, setclassesUp] = useState(false);
     return (
       <div className="schedule_component">
         <div className="first-schedule-flex">
@@ -60,7 +63,23 @@ export const TeacherSchedule = () => {
             <div className="level">
               <p>intermediate (b2)</p>
             </div>
+            <div
+              className="responsive-timing"
+              style={{ display: classesUp ? "flex" : "none" }}
+            >
+              {/* <p style={{ textTransform: "capitalize", fontSize: "13px" }}>
+                duration - 60 minutes
+              </p> */}
+              <p>starts in 21 hours : 13 minutes</p>
+            </div>
           </div>
+        </div>
+        <div className="second-icon-flex">
+          <FontAwesomeIcon
+            icon={classesUp ? faAngleUp : faAngleDown}
+            style={{ fontSize: "24px" }}
+            onClick={() => setclassesUp(!classesUp)}
+          />
         </div>
         <div className="second-schedule-flex">
           <div className="people-timing">
