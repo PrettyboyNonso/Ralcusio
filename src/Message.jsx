@@ -178,10 +178,11 @@ export const Message = ({ handleWheel, handleTarget }) => {
 
     if (clickedElement) {
       const clickedId = clickedElement.id;
-      setCurrentId(clickedId);
-      sessionStorage.setItem("currentId", clickedId);
       setElementClickedId(clickedId);
       sessionStorage.setItem("element-clicked-Id", clickedId);
+      sessionStorage.setItem("currentId", clickedId);
+      const sessionCurentId = sessionStorage.getItem("currentId");
+      setCurrentId(sessionCurentId);
       if (clickedElement.classList.contains("chat-active")) {
         // do nothing
       } else if (!clickedElement.classList.contains("chat-active")) {
@@ -195,7 +196,6 @@ export const Message = ({ handleWheel, handleTarget }) => {
         );
         clickedElement.classList.add("chat-active");
       }
-      console.log(clickedElement);
     }
   };
 
@@ -516,23 +516,14 @@ export const Message = ({ handleWheel, handleTarget }) => {
               onChange={handleTyping}
               placeholder="Write a message"
             ></textarea>
-            <FontAwesomeIcon
-              icon={faPaperPlane}
-              style={{
-                position: "fixed",
-                right: "2.8em",
-                bottom: "1em",
-                fontSize: "24px",
-                color: "#ed7014",
-              }}
-            />
+
             <FontAwesomeIcon
               className="responsive-send"
               icon={faPaperPlane}
               style={{
-                position: "fixed",
-                right: "1em",
-                bottom: "3.3em",
+                position: "absolute",
+                right: ".5em",
+                bottom: "0.2em",
                 fontSize: "22px",
                 color: "#ed7014",
               }}

@@ -4307,7 +4307,7 @@ aside {
     padding-left: 0.5em;
     padding-right: 0.5em;
     justify-content: center;
-    gap: 1.3em;
+    gap: 1.5em;
     border: 1px solid rgb(227, 227, 227);
     background-color: white;
     align-items: center;
@@ -4315,7 +4315,7 @@ aside {
 
   .active-my-class {
     color: #ed7014;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: lighter;
     cursor: pointer;
   }
@@ -4331,6 +4331,7 @@ aside {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
     font-weight: bold;
+    font-size: small;
   }
   .links {
     display: flex;
@@ -4455,7 +4456,6 @@ aside {
     gap: 0.9em;
     cursor: pointer;
     border-radius: 5px;
-    border: 1px solid rgb(227, 227, 227);
   }
 
   .chatscomponents .image {
@@ -4581,12 +4581,12 @@ aside {
     display: flex;
     width: 100%;
     padding-left: 0em;
-    bottom: 0em;
+    bottom: 4em;
     background-color: white;
   }
 
   .chat-inputs textarea {
-    width: 65%;
+    width: 70%;
     height: 2.5em;
     max-height: 10em;
     padding-left: 0.8em;
@@ -4595,9 +4595,9 @@ aside {
     padding-bottom: 0.5em;
     resize: none;
     overflow: hidden;
-    left: 6em;
-    position: fixed;
-    bottom: 5em;
+    left: 5em;
+    position: absolute;
+    bottom: 0em;
     outline: none;
     border: 1px solid gray;
     border-radius: 8px;
@@ -4606,9 +4606,9 @@ aside {
   }
 
   .chat-inputs .addfile {
-    position: fixed;
-    bottom: 4.5em;
-    left: 1.5em;
+    position: absolute;
+    bottom: 0em;
+    left: 0.5em;
   }
 
   .responsive-send {
@@ -4628,6 +4628,7 @@ aside {
     margin-right: 0em;
     padding-left: 0.5em;
     padding-right: 0.5em;
+    padding-bottom: 5em;
   }
 
   .payment-page-head {
@@ -4649,6 +4650,7 @@ aside {
     height: 2.5em;
     align-items: center;
     gap: 0.5em;
+
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     font-size: 14px;
@@ -4754,6 +4756,7 @@ aside {
     display: flex;
     /* align-items: center; */
     border-radius: 8px;
+    flex-direction: column;
   }
 
   .account-info-div-1,
@@ -4769,10 +4772,11 @@ aside {
     flex-direction: column;
     align-items: center;
   }
+
   .account-info-div-1 .first-part-account-info {
     padding-top: 0.68em;
     padding-bottom: 0.68em;
-    display: flex;
+
     align-items: center;
     gap: 0.8em;
   }
@@ -4875,7 +4879,7 @@ aside {
 
   .account-info-payment-history {
     width: 100%;
-    margin-top: 3.5em;
+    margin-top: 2.8em;
   }
 
   .payment-history-head {
@@ -4898,9 +4902,9 @@ aside {
   .mini-payment-history-head {
     display: flex;
     margin-top: 1em;
-    gap: 2em;
+    gap: 0.35em;
     border: 1px solid rgb(227, 227, 227);
-    padding: 0.5em 1em;
+    padding: 0.5em 0.8em;
     border-radius: 8px;
     width: 100%;
   }
@@ -4909,15 +4913,19 @@ aside {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     font-size: 13px;
-    flex: 0 0 14%;
+    flex: 0 0 20%;
+  }
+
+  .mini-payment-history-head p:nth-child(5) {
+    display: none;
   }
 
   .payment-details-body {
     display: flex;
     margin-top: 0.4em;
-    gap: 2em;
+    gap: 0.35em;
     border: 1px solid rgb(227, 227, 227);
-    padding: 0.5em 1em;
+    padding: 0.5em 0.8em;
     border-radius: 8px;
     width: 100%;
   }
@@ -4926,7 +4934,14 @@ aside {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     font-size: 13px;
-    flex: 0 0 14%;
+    flex: 0 0 20%;
     width: 100%;
+    display: flex;
+  }
+  .payment-details-body p:nth-child(5) {
+    display: none;
+  }
+  .payment-details-body p:nth-child(4) {
+    padding-left: 0.5em;
   }
 }

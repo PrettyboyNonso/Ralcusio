@@ -5,7 +5,7 @@ export const PaymentDetailsBody = () => {
     <div className="payment-details-body">
       <p>brooklyn simons</p>
       <p style={{ color: "red" }}>pending</p>
-      <p>feb 5, 2023</p>
+      <p>feb 5, 23</p>
       <p>$350</p>
       <p>learning</p>
       <FontAwesomeIcon
