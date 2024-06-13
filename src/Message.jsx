@@ -239,7 +239,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
         className={`chatscomponents ${
           id && elementClickedId === id ? "chat-active" : ""
         }`}
-        onClick={chatClick}
+        onTouchEnd={chatClick}
       >
         <div className="image">
           <img src={require(`${image}`)} alt="" />
