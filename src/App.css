@@ -4586,7 +4586,7 @@ aside {
   }
 
   .chat-inputs textarea {
-    width: 70%;
+    width: 65%;
     height: 2.5em;
     max-height: 10em;
     padding-left: 0.8em;
@@ -4600,7 +4600,7 @@ aside {
     bottom: 0em;
     outline: none;
     border: 1px solid gray;
-    border-radius: 8px;
+    border-radius: 5px;
     font-family: "Karla", sans-serif;
     line-height: 1.5em;
   }

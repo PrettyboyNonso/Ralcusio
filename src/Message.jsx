@@ -179,10 +179,9 @@ export const Message = ({ handleWheel, handleTarget }) => {
     if (clickedElement) {
       const clickedId = clickedElement.id;
       setElementClickedId(clickedId);
+      setCurrentId(clickedId);
       sessionStorage.setItem("element-clicked-Id", clickedId);
       sessionStorage.setItem("currentId", clickedId);
-      const sessionCurentId = sessionStorage.getItem("currentId");
-      setCurrentId(sessionCurentId);
       if (clickedElement.classList.contains("chat-active")) {
         // do nothing
       } else if (!clickedElement.classList.contains("chat-active")) {
@@ -218,7 +217,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
       setElementClickedId("user1");
       sessionStorage.setItem("element-clicked-Id", "user1");
     }
-  }, [elementClickedId]);
+  }, []);
 
   const handleTyping = (e) => {
     const textArea = e.target;
@@ -522,7 +521,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
               icon={faPaperPlane}
               style={{
                 position: "absolute",
-                right: ".5em",
+                right: ".8em",
                 bottom: "0.2em",
                 fontSize: "22px",
                 color: "#ed7014",
