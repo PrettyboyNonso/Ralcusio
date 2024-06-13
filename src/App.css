@@ -4595,7 +4595,7 @@ aside {
     padding-bottom: 0.5em;
     resize: none;
     overflow: hidden;
-    left: 5em;
+    left: 5.5em;
     position: absolute;
     bottom: 0em;
     outline: none;
@@ -4609,6 +4609,7 @@ aside {
     position: absolute;
     bottom: 0em;
     left: 0.5em;
+    width: 20%;
   }
 
   .responsive-send {
@@ -4943,5 +4944,984 @@ aside {
   }
   .payment-details-body p:nth-child(4) {
     padding-left: 0.5em;
+  }
+
+  .create-class-teacher {
+    margin-left: 0em;
+    width: 100%;
+    padding: 0em 0.5em;
+  }
+
+  .create-class-head-teacher {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-right: 0em;
+    align-items: center;
+  }
+
+  .teacher-create-class-h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+  }
+
+  .teacher-create-class-h2 h2 {
+    font-size: 20.5px;
+  }
+
+  .teacher-create-class-h2 small {
+    background-color: wheat;
+    padding: 0.1em 0.4em;
+    border-radius: 5px;
+  }
+
+  .teacher-create-btn {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .teacher-create-btn button {
+    width: 6em;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    cursor: pointer;
+    border: 1px solid grey;
+  }
+
+  .teacher-create-btn .save-btn {
+    background-color: white;
+    border-radius: 5px;
+  }
+  .teacher-create-btn .publish-btn {
+    background-color: #ed7014;
+    border-radius: 5px;
+    color: white;
+  }
+
+  .create-class-navigation {
+    margin-top: 0.3em;
+  }
+
+  .create-class-navigation span {
+    color: #808080;
+  }
+
+  .create-class-navigation p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .create-class-type-sec {
+    margin-top: 1.5em;
+    display: flex;
+    width: 70%;
+    gap: 0.8em;
+  }
+
+  .first-flex-create-type-sec {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    background-color: rgb(255, 255, 255);
+    padding: 0.2em 0.5em;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    /* color: rgb(49, 49, 49); */
+    box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgb(226, 226, 226);
+  }
+
+  .create-type-sec-p {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .create-type-sec-lining {
+    width: 100%;
+    margin-top: 0.5em;
+    height: 0.15em;
+    border-radius: 5px;
+    transition: all ease-in 0.4s;
+  }
+
+  .lining-active {
+    background-color: #ed7014;
+  }
+
+  .active-create-navigation {
+    border: 1px solid #ed7014;
+    color: #ed7014;
+  }
+
+  .create-class-sec {
+    width: 99%;
+    display: flex;
+    padding-top: 2em;
+    gap: 0.8em;
+    border: 1px solid rgb(226, 226, 226);
+    box-shadow: 5px 2px 5px rgba (0, 0, 0, 0.3);
+    justify-content: space-between;
+    padding-right: 0.8em;
+    padding-left: 0.8em;
+    padding-bottom: 1em;
+    border-radius: 5px;
+    margin-top: 2em;
+  }
+
+  .class-create-details-sec {
+    width: 65%;
+    border: 1px solid rgb(226, 226, 226);
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.5em;
+    border-radius: 5px;
+    padding-bottom: 0.8em;
+  }
+
+  .class-create-details-head h2 {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 22px;
+  }
+  .class-create-details-head p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-top: 0.3em;
+    max-width: 90%;
+    line-height: 1.5em;
+  }
+
+  .class-create-details-sec form {
+    display: flex;
+    width: 100%;
+    border: 1px solid rgb(226, 226, 226);
+    margin-top: 1.5em;
+    padding-top: 0.8em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    flex-wrap: wrap;
+    padding: 0.8em;
+  }
+
+  .course-name {
+    width: 50%;
+  }
+
+  .course-name p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .course-name input {
+    width: 90%;
+    margin-top: 0.4em;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+  }
+
+  .class-date {
+    width: 50%;
+  }
+
+  .class-date p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .class-date select {
+    width: 90%;
+    margin-top: 0.4em;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+  }
+  .class-date input {
+    width: 90%;
+    margin-top: 0.4em;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+  }
+
+  .class-desc {
+    margin-top: 1.8em;
+    width: 100%;
+  }
+
+  .class-desc p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .class-desc textarea {
+    margin-top: 0.4em;
+    resize: none;
+    width: 100%;
+    height: 8em;
+    outline: none;
+    border: 1px solid grey;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+  }
+
+  .toggle-btn {
+    display: flex;
+    align-items: center;
+    margin-top: 3.5em;
+    gap: 0.3em;
+    width: 50%;
+    justify-content: space-between;
+  }
+
+  .toggle-btn p {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    text-transform: capitalize;
+  }
+
+  .toggle {
+    border: 1px solid gray;
+    width: 2em;
+    height: 1em;
+    border-radius: 8px;
+    display: flex;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    background-color: #cfcfcf;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: justify-content 0.5s;
+  }
+
+  .toggle-circle {
+    border: 1px solid gray;
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 50%;
+    background-color: white;
+  }
+
+  .toggle-on {
+    background-color: #ed7014;
+    justify-content: flex-end;
+  }
+
+  .continue-btn {
+    width: 100%;
+    text-align: right;
+    margin-top: 1.5em;
+  }
+
+  .continue-btn button {
+    width: 8em;
+    height: 2em;
+    cursor: pointer;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    text-transform: capitalize;
+    background-color: #ed7014;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: white;
+  }
+
+  .create-class-calender-sec {
+    /*  */
+    width: 32%;
+  }
+
+  .classScheduleSec {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(226, 226, 226);
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.5em;
+    border-radius: 5px;
+    padding-bottom: 0.8em;
+  }
+
+  .class-schedule-head h2 {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 22px;
+  }
+
+  .class-schedule-head p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-top: 0.3em;
+    max-width: 90%;
+    line-height: 1.5em;
+  }
+
+  .classScheduleSec form {
+    display: flex;
+    width: 100%;
+    border: 1px solid rgb(226, 226, 226);
+    margin-top: 1.5em;
+    padding-top: 0.8em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    flex-wrap: wrap;
+    padding: 0.8em;
+  }
+
+  .schedule-1 {
+    width: 50%;
+  }
+
+  .schedule-1 p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .schedule-1 input {
+    width: 90%;
+    margin-top: 0.4em;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+  }
+  .schedule-2 {
+    width: 50%;
+  }
+
+  .schedule-2 p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .schedule-2 input {
+    width: 90%;
+    margin-top: 0.4em;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+  }
+
+  .schedule-3 {
+    display: flex;
+    margin-top: 1.8em;
+    gap: 0.5em;
+    width: 100%;
+  }
+
+  .schedule-3 p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .course-level {
+    margin-top: 1.8em;
+    width: 100%;
+  }
+
+  .course-level p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .course-level select {
+    width: 60%;
+    margin-top: 0.4em;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+  }
+
+  .create-class-btn {
+    margin-top: 1.8em;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .create-class-btn button {
+    width: 8em;
+    height: 2em;
+    cursor: pointer;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    text-transform: capitalize;
+    background-color: #ed7014;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: white;
+  }
+
+  .course-curriculum {
+    margin-top: 2em;
+    width: 100%;
+  }
+
+  .course-curriculum form {
+    margin-top: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  .course-curriculum-head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .course-curriculum-head h3 {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+  }
+
+  .curri-btns {
+    display: flex;
+    gap: 0.8em;
+  }
+
+  .curri-btns button {
+    width: 6em;
+    height: 2em;
+    cursor: pointer;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    text-transform: capitalize;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: black;
+  }
+
+  .curri-input-1 {
+    margin-top: 0.8em;
+    width: 45%;
+  }
+
+  .curri-input-1 p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-bottom: 0.4em;
+  }
+
+  .curri-input-1 input {
+    width: 100%;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+  }
+
+  .curri-input-2 {
+    margin-top: 0.8em;
+    width: 25%;
+  }
+
+  .curri-input-2 p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-bottom: 0.4em;
+  }
+
+  .curri-input-3 {
+    margin-top: 0.8em;
+    width: 25%;
+  }
+
+  .curri-input-3 p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-bottom: 0.4em;
+  }
+
+  .curri-input-2 input {
+    width: 100%;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+  }
+
+  .curri-input-3 input {
+    width: 100%;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+  }
+
+  .course-pricing {
+    width: 65%;
+    height: 100%;
+    border: 1px solid rgb(226, 226, 226);
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.5em;
+    border-radius: 5px;
+    padding-bottom: 0.8em;
+  }
+
+  .course-pricing h2 {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 22px;
+  }
+  .course-pricing p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-top: 0.3em;
+    max-width: 80%;
+    line-height: 1.5em;
+  }
+
+  .course-pricing form {
+    display: flex;
+    width: 100%;
+    border: 1px solid rgb(226, 226, 226);
+    margin-top: 1.5em;
+    padding-top: 0.8em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    flex-wrap: wrap;
+    padding: 0.8em;
+  }
+
+  .pricing-head {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pricing-head h3 {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .free-toggle {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+  }
+
+  .add-price {
+    width: 100%;
+    margin-top: 1em;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+  }
+
+  .add-price label {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+  }
+
+  .price-input {
+    display: flex;
+    gap: 0.2em;
+    width: 60%;
+  }
+
+  .price-input select {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    border: 1px solid grey;
+    outline: none;
+    border-radius: 5px;
+  }
+
+  .price-input input {
+    width: 90%;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+  }
+
+  .add-discount-btn button {
+    width: 8em;
+    background-color: white;
+    display: flex;
+    gap: 0.2em;
+    align-items: center;
+    border: none;
+    outline: none;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    color: #ed7014;
+    cursor: pointer;
+  }
+
+  .discount-input {
+    display: flex;
+    gap: 0.3em;
+  }
+
+  .discount-input select {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    border: 1px solid grey;
+    outline: none;
+    border-radius: 5px;
+  }
+
+  .discount-input input {
+    width: 60%;
+    height: 2em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+  }
+
+  .price-btn {
+    margin-top: 0.8em;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .price-btn button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 2.8em;
+    gap: 0.3em;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    border: 1px solid grey;
+    outline: none;
+    font-size: 13px;
+    padding-left: 0.1em;
+    background-color: #ed7014;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .pricing-ui {
+    width: 100%;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 3px;
+  }
+
+  .pricing-ui-head {
+    padding-top: 0.5em;
+    padding-left: 0.4em;
+  }
+
+  .pricing-ui-head h2 {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 22px;
+  }
+
+  .pricing-ui-head p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-top: 0.4em;
+  }
+
+  .pricing-ui form {
+    border: 1px solid rgb(227, 227, 227);
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-top: 0.5em;
+    margin-bottom: 0.4em;
+    padding-bottom: 0.8em;
+    padding-left: 0.5em;
+    padding-top: 0.8em;
+  }
+
+  .pricing-subheading {
+  }
+  .pricing-subheading p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .discount-1 {
+    margin-top: 0.5em;
+  }
+
+  .discount-1 p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-top: 0.3em;
+  }
+
+  .discount-1 input {
+    width: 48%;
+    height: 2em;
+    margin-top: 0.4em;
+    border: 1px solid gray;
+    outline: none;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    border-radius: 3px;
+  }
+
+  .schedule-ui {
+    width: 100%;
+    border: 1px solid rgb(227, 227, 227);
+    height: 22em;
+    overflow: auto;
+    margin-bottom: 0.5em;
+    border-radius: 3px;
+    padding-bottom: 0.5em;
+    position: relative;
+  }
+
+  .schedule-curriculum-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 0.5em;
+  }
+
+  .schedule-curriculum {
+    max-width: 100%;
+    border: 1px solid rgb(227, 227, 227);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+
+    max-height: 100%;
+    padding: 0.4em;
+  }
+
+  .schedule-tag {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    background-color: wheat;
+    text-transform: capitalize;
+    width: fit-content;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 3px;
+  }
+
+  .course-title {
+    margin-top: 0.5em;
+
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  .course-title h3 {
+    max-width: 80%;
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+
+  .schedule-level {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 0.5em;
+  }
+
+  .schedule-level p {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    text-transform: capitalize;
+  }
+
+  .schedule-ui-head {
+    width: 100%;
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+  }
+
+  .schedule-ui-head h2 {
+    font-family: "Karla", sans-serif;
+    font-size: 22px;
+    text-transform: capitalize;
+  }
+
+  .all-classes {
+    width: 99%;
+    padding-top: 0.8em;
+    margin-top: 1.5em;
+    /* border: 1px solid rgb(227, 227, 227); */
+    height: 100%;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 4px;
+  }
+
+  .all-class-head {
+    width: 100%;
+  }
+
+  .all-class-head h2 {
+    font-family: "Karla", sans-serif;
+    font-size: 22px;
+    text-transform: capitalize;
+  }
+
+  .second-head-flex {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1em;
+    align-items: center;
+  }
+
+  .all-classes-second-head {
+    width: 50%;
+    display: flex;
+    gap: 0.8em;
+  }
+
+  .all-classes-second-head p {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    text-transform: capitalize;
+    border: 1px solid gray;
+    padding: 0.15em 0.8em;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: -0.3em;
+  }
+
+  .all-class-active p {
+    color: #ed7014;
+    border: 1px solid #ed7014;
+  }
+
+  .classes-icons {
+    width: 50%;
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-end;
+    margin-right: 2em;
+  }
+
+  .all-class-checkbox {
+    display: flex;
+    border: 1px solid rgb(227, 227, 227);
+    margin-right: 2em;
+    margin-top: 0.5em;
+    padding-left: 1em;
+    padding-right: 0.5em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+
+    gap: 0.8em;
+  }
+
+  .all-class-checkbox input {
+    cursor: pointer;
+  }
+
+  .all-classes-table-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .all-classes-table-head p {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    text-transform: capitalize;
+    flex: 0 0 25%;
+    max-width: 25%;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .all-class-body-checkbox {
+    display: flex;
+    border-left: 1px solid rgb(227, 227, 227);
+    border-right: 1px solid rgb(227, 227, 227);
+    border-bottom: 1px solid rgb(227, 227, 227);
+    margin-right: 2em;
+    padding-left: 1em;
+    padding-right: 0.5em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    gap: 0.8em;
+  }
+
+  .all-classes-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .all-classes-body p {
+    flex: 0 0 25%;
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
   }
 }
