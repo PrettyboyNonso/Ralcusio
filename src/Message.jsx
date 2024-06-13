@@ -179,9 +179,9 @@ export const Message = ({ handleWheel, handleTarget }) => {
     if (clickedElement) {
       const clickedId = clickedElement.id;
       setElementClickedId(clickedId);
-      setCurrentId(clickedId);
+      // setCurrentId(clickedId);
       sessionStorage.setItem("element-clicked-Id", clickedId);
-      sessionStorage.setItem("currentId", clickedId);
+      // sessionStorage.setItem("currentId", clickedId);
       if (clickedElement.classList.contains("chat-active")) {
         // do nothing
       } else if (!clickedElement.classList.contains("chat-active")) {
@@ -199,15 +199,15 @@ export const Message = ({ handleWheel, handleTarget }) => {
   };
 
   const resetClick = () => {
-    sessionStorage.setItem("currentId", "");
-    setCurrentId("");
+    sessionStorage.setItem("element-clicked-Id", "");
+    setElementClickedId("");
   };
 
   useEffect(() => {
     const sessionStored = sessionStorage.getItem("element-clicked-Id");
-    const sessionStoredId = sessionStorage.getItem("currentId");
-    if (sessionStored || sessionStoredId) {
-      setCurrentId(sessionStoredId);
+    // const sessionStoredId = sessionStorage.getItem("currentId");
+    if (sessionStored) {
+      // setCurrentId(sessionStoredId);
       setElementClickedId(sessionStored);
       const activeChat = document.getElementById(sessionStored);
       if (activeChat) {
@@ -240,6 +240,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
           id && elementClickedId === id ? "chat-active" : ""
         }`}
         onTouchEnd={chatClick}
+        onClick={chatClick}
       >
         <div className="image">
           <img src={require(`${image}`)} alt="" />
@@ -395,7 +396,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
         </div>
       </div>
 
-      {currentId === "" && (
+      {elementClickedId === "" && (
         <div className="responsive-chatflex">
           <div className="chatflex-head">
             <div className="first-chat-head">
@@ -440,7 +441,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
           </div>
         </div>
       )}
-      {currentId !== "" && (
+      {elementClickedId !== "" && (
         <div className="responsive-messageBody">
           <div className="messageBodyHead">
             <div className="first-messageBodyHead">
