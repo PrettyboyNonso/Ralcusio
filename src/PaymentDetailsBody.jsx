@@ -3,7 +3,7 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 export const PaymentDetailsBody = () => {
   return (
     <div className="payment-details-body">
-      <p>brooklyn simons</p>
+      <p>brooklyn</p>
       <p style={{ color: "red" }}>pending</p>
       <p>feb 5, 23</p>
       <p>$350</p>

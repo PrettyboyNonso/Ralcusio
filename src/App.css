@@ -20,6 +20,9 @@
   display: none;
 }
 
+.responsive-create-class-type-sec {
+  display: none;
+}
 .second-icon-flex {
   display: none;
 }
@@ -1756,6 +1759,9 @@ aside {
 .teacher-create-btn .save-btn {
   background-color: white;
   border-radius: 5px;
+  width: fit-content;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 .teacher-create-btn .publish-btn {
   background-color: #ed7014;
@@ -4586,7 +4592,7 @@ aside {
   }
 
   .chat-inputs textarea {
-    width: 65%;
+    width: 70%;
     height: 2.5em;
     max-height: 10em;
     padding-left: 0.8em;
@@ -4627,8 +4633,8 @@ aside {
     margin-left: 0em;
     width: 100%;
     margin-right: 0em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
     padding-bottom: 5em;
   }
 
@@ -4642,16 +4648,16 @@ aside {
   .payment-page-head h2 {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .payment-page-head button {
     display: flex;
-    width: 10em;
+    width: fit-content;
     height: 2.5em;
     align-items: center;
     gap: 0.5em;
-
+    padding: 0.5em;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     font-size: 14px;
@@ -4695,7 +4701,7 @@ aside {
     padding-top: 0.5em;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
   }
 
@@ -4712,6 +4718,7 @@ aside {
     max-width: 60%;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
+    font-size: 19px;
   }
 
   .detail-flex-account small {
@@ -4739,7 +4746,7 @@ aside {
     padding-top: 0.5em;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
   }
 
@@ -4747,6 +4754,7 @@ aside {
     margin-top: 0.2em;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
+    font-size: 19px;
   }
 
   .account-informations-div {
@@ -4754,7 +4762,7 @@ aside {
     width: 100%;
     border: 1px solid rgb(227, 227, 227);
 
-    display: flex;
+    display: none;
     /* align-items: center; */
     border-radius: 8px;
     flex-direction: column;
@@ -4892,7 +4900,7 @@ aside {
   }
 
   .payment-history-head h2 {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .payment-history-head p {
@@ -4913,7 +4921,7 @@ aside {
   .mini-payment-history-head p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 15px;
     flex: 0 0 20%;
   }
 
@@ -4934,10 +4942,11 @@ aside {
   .payment-details-body p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 15px;
     flex: 0 0 20%;
-    width: 100%;
+    max-width: 20%;
     display: flex;
+    flex-wrap: wrap;
   }
   .payment-details-body p:nth-child(5) {
     display: none;
@@ -4949,14 +4958,15 @@ aside {
   .create-class-teacher {
     margin-left: 0em;
     width: 100%;
-    padding: 0em 0.5em;
+    padding: 0em;
   }
 
   .create-class-head-teacher {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding-right: 0em;
+    padding-right: 0.8em;
+    padding-left: 0.8em;
     align-items: center;
   }
 
@@ -4995,6 +5005,9 @@ aside {
   .teacher-create-btn .save-btn {
     background-color: white;
     border-radius: 5px;
+    width: fit-content;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   }
   .teacher-create-btn .publish-btn {
     background-color: #ed7014;
@@ -5004,6 +5017,7 @@ aside {
 
   .create-class-navigation {
     margin-top: 0.3em;
+    padding-left: 0.8em;
   }
 
   .create-class-navigation span {
@@ -5017,10 +5031,16 @@ aside {
   }
 
   .create-class-type-sec {
+    display: none;
+  }
+  .responsive-create-class-type-sec {
     margin-top: 1.5em;
     display: flex;
-    width: 70%;
-    gap: 0.8em;
+    width: 100%;
+    gap: 0.2em;
+    justify-content: space-between;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
   }
 
   .first-flex-create-type-sec {
@@ -5031,7 +5051,7 @@ aside {
     padding: 0.2em 0.5em;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
     border-radius: 5px;
     cursor: pointer;
     /* color: rgb(49, 49, 49); */
@@ -5062,39 +5082,40 @@ aside {
   }
 
   .create-class-sec {
-    width: 99%;
+    width: 100%;
     display: flex;
-    padding-top: 2em;
+    flex-direction: column;
+    padding-top: 0.5em;
     gap: 0.8em;
-    border: 1px solid rgb(226, 226, 226);
+    border: none;
     box-shadow: 5px 2px 5px rgba (0, 0, 0, 0.3);
     justify-content: space-between;
     padding-right: 0.8em;
     padding-left: 0.8em;
     padding-bottom: 1em;
     border-radius: 5px;
-    margin-top: 2em;
+    margin-top: 1em;
   }
 
   .class-create-details-sec {
-    width: 65%;
+    width: 100%;
     border: 1px solid rgb(226, 226, 226);
-    padding-left: 0.8em;
-    padding-right: 0.8em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
     padding-top: 0.5em;
     border-radius: 5px;
-    padding-bottom: 0.8em;
+    padding-bottom: 3.8em;
   }
 
   .class-create-details-head h2 {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 22px;
+    font-size: 20px;
   }
   .class-create-details-head p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 0.3em;
     max-width: 90%;
     line-height: 1.5em;
@@ -5104,62 +5125,63 @@ aside {
     display: flex;
     width: 100%;
     border: 1px solid rgb(226, 226, 226);
-    margin-top: 1.5em;
+    margin-top: 0.8em;
     padding-top: 0.8em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
     flex-wrap: wrap;
     padding: 0.8em;
+    gap: 0.4em;
   }
 
   .course-name {
-    width: 50%;
+    width: 48%;
   }
 
   .course-name p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .course-name input {
-    width: 90%;
+    width: 100%;
     margin-top: 0.4em;
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
     border: 1px solid gray;
   }
 
   .class-date {
-    width: 50%;
+    width: 48%;
   }
 
   .class-date p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .class-date select {
-    width: 90%;
+    width: 100%;
     margin-top: 0.4em;
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
     border: 1px solid gray;
   }
   .class-date input {
-    width: 90%;
+    width: 100%;
     margin-top: 0.4em;
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
     border: 1px solid gray;
   }
@@ -5172,7 +5194,7 @@ aside {
   .class-desc p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .class-desc textarea {
@@ -5183,7 +5205,7 @@ aside {
     outline: none;
     border: 1px solid grey;
     font-family: "Karla", sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     padding-left: 0.5em;
     padding-top: 0.5em;
   }
@@ -5251,15 +5273,17 @@ aside {
 
   .create-class-calender-sec {
     /*  */
-    width: 32%;
+    width: 100%;
+    padding-bottom: 3.5em;
+    display: flex;
   }
 
   .classScheduleSec {
     width: 100%;
     height: 100%;
     border: 1px solid rgb(226, 226, 226);
-    padding-left: 0.8em;
-    padding-right: 0.8em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
     padding-top: 0.5em;
     border-radius: 5px;
     padding-bottom: 0.8em;
@@ -5268,13 +5292,13 @@ aside {
   .class-schedule-head h2 {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .class-schedule-head p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 0.3em;
     max-width: 90%;
     line-height: 1.5em;
@@ -5286,40 +5310,43 @@ aside {
     border: 1px solid rgb(226, 226, 226);
     margin-top: 1.5em;
     padding-top: 0.8em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
     flex-wrap: wrap;
     padding: 0.8em;
+    gap: 0.8em;
   }
 
   .schedule-1 {
-    width: 50%;
+    width: 48%;
   }
 
   .schedule-1 p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
+    max-width: 80%;
   }
 
   .schedule-1 input {
-    width: 90%;
+    width: 100%;
     margin-top: 0.4em;
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
     border: 1px solid gray;
   }
   .schedule-2 {
-    width: 50%;
+    width: 48%;
   }
 
   .schedule-2 p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
+    width: 80%;
   }
 
   .schedule-2 input {
@@ -5328,7 +5355,7 @@ aside {
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
     border: 1px solid gray;
   }
@@ -5343,7 +5370,7 @@ aside {
   .schedule-3 p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .course-level {
@@ -5354,7 +5381,7 @@ aside {
   .course-level p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .course-level select {
@@ -5363,7 +5390,7 @@ aside {
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
     border: 1px solid gray;
   }
@@ -5396,7 +5423,7 @@ aside {
     margin-top: 0.5em;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5em;
+    gap: 0.8em;
   }
 
   .course-curriculum-head {
@@ -5431,13 +5458,13 @@ aside {
 
   .curri-input-1 {
     margin-top: 0.8em;
-    width: 45%;
+    width: 100%;
   }
 
   .curri-input-1 p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 0.4em;
   }
 
@@ -5446,32 +5473,32 @@ aside {
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
     border: 1px solid gray;
   }
 
   .curri-input-2 {
     margin-top: 0.8em;
-    width: 25%;
+    width: 45%;
   }
 
   .curri-input-2 p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 0.4em;
   }
 
   .curri-input-3 {
     margin-top: 0.8em;
-    width: 25%;
+    width: 45%;
   }
 
   .curri-input-3 p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
     margin-bottom: 0.4em;
   }
 
@@ -5480,7 +5507,7 @@ aside {
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
     border: 1px solid gray;
   }
@@ -5490,13 +5517,13 @@ aside {
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 13px;
+    font-size: 14px;
     outline: none;
     border: 1px solid gray;
   }
 
   .course-pricing {
-    width: 65%;
+    width: 100%;
     height: 100%;
     border: 1px solid rgb(226, 226, 226);
     padding-left: 0.8em;
@@ -5509,12 +5536,12 @@ aside {
   .course-pricing h2 {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 22px;
+    font-size: 20px;
   }
   .course-pricing p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 0.3em;
     max-width: 80%;
     line-height: 1.5em;
@@ -5542,7 +5569,7 @@ aside {
   .pricing-head h3 {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .free-toggle {
@@ -5557,31 +5584,32 @@ aside {
     display: flex;
     gap: 0.5em;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .add-price label {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .price-input {
     display: flex;
     gap: 0.2em;
-    width: 60%;
+    width: 61%;
   }
 
   .price-input select {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
     border: 1px solid grey;
     outline: none;
     border-radius: 5px;
   }
 
   .price-input input {
-    width: 90%;
+    width: 100%;
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
@@ -5608,19 +5636,20 @@ aside {
   .discount-input {
     display: flex;
     gap: 0.3em;
+    margin-bottom: 0.2em;
   }
 
   .discount-input select {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 13px;
+    font-size: 14px;
     border: 1px solid grey;
     outline: none;
     border-radius: 5px;
   }
 
   .discount-input input {
-    width: 60%;
+    width: 61%;
     height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;

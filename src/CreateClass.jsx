@@ -613,8 +613,8 @@ export const CreateClass = () => {
           <small>draft</small>
         </div>
         <div className="teacher-create-btn">
-          <button className="save-btn">save</button>
-          <button className="publish-btn">publish</button>
+          <button className="save-btn">save to Drafts</button>
+          {/* <button className="publish-btn">publish</button> */}
         </div>
       </div>
       <div className="create-class-navigation">
@@ -622,6 +622,79 @@ export const CreateClass = () => {
           <span>classes</span> / create class
         </p>
       </div>
+
+      <div className="responsive-create-class-type-sec">
+        <div className="create-type-sec-p">
+          <div
+            className="first-flex-create-type-sec"
+            id="create-your-course"
+            onClick={handleClassNavCursor}
+          >
+            <FontAwesomeIcon
+              icon={faCircleCheck}
+              style={{ color: "#ed7014" }}
+            />
+            <p>planning</p>
+          </div>
+          <div
+            className={`create-type-sec-lining ${
+              activeNav === `create-your-course` && `lining-active`
+            }`}
+          ></div>
+        </div>
+
+        <div className="create-type-sec-p">
+          <div
+            className="first-flex-create-type-sec"
+            id="pricing-planning"
+            onClick={handleClassNavCursor}
+          >
+            <FontAwesomeIcon icon={faCreditCard} style={{ color: "#ed7014" }} />
+            <p>pricing</p>
+          </div>
+          <div
+            className={`create-type-sec-lining ${
+              activeNav === `pricing-planning` && `lining-active`
+            }`}
+          ></div>
+        </div>
+
+        <div className="create-type-sec-p">
+          <div
+            className="first-flex-create-type-sec"
+            id="schedule-planning"
+            onClick={handleClassNavCursor}
+          >
+            <FontAwesomeIcon
+              icon={faCalendarDays}
+              style={{ color: "#ed7014" }}
+            />
+            <p>schedule</p>
+          </div>
+          <div
+            className={`create-type-sec-lining ${
+              activeNav === `schedule-planning` && `lining-active`
+            }`}
+          ></div>
+        </div>
+
+        <div className="create-type-sec-p">
+          <div
+            className="first-flex-create-type-sec"
+            id="all-classes"
+            onClick={handleClassNavCursor}
+          >
+            <FontAwesomeIcon icon={faPeopleLine} style={{ color: "#ed7014" }} />
+            <p>classes</p>
+          </div>
+          <div
+            className={`create-type-sec-lining ${
+              activeNav === `all-classes` && `lining-active`
+            }`}
+          ></div>
+        </div>
+      </div>
+
       <div className="create-class-type-sec">
         <div className="create-type-sec-p">
           <div

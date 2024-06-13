@@ -214,7 +214,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
         activeChat.classList.add("chat-active");
       }
     } else {
-      setElementClickedId("user1");
+      // setElementClickedId("user1");
       sessionStorage.setItem("element-clicked-Id", "user1");
     }
   }, []);
@@ -239,7 +239,6 @@ export const Message = ({ handleWheel, handleTarget }) => {
         className={`chatscomponents ${
           id && elementClickedId === id ? "chat-active" : ""
         }`}
-        onTouchEnd={chatClick}
         onClick={chatClick}
       >
         <div className="image">
@@ -469,7 +468,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                 position: "fixed",
                 fontSize: "24px",
                 marginTop: "0.1em",
-                right: "2em",
+                right: ".8em",
                 paddingTop: ".1em",
                 color: "rgba(237, 112, 20, 0.8)",
                 cursor: "pointer",
