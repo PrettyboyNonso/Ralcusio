@@ -6016,7 +6016,7 @@ aside {
   }
 
   .profile-image-div {
-    width: 24%;
+    width: 30%;
   }
 
   .profile-image-div img {
@@ -6075,15 +6075,15 @@ aside {
 
   .following-people {
     width: 100%;
-    height: 2em;
-    margin-top: 0.8em;
+    height: 1.5em;
+    margin-top: 1.2em;
     display: flex;
     position: static;
   }
 
   .following-people .img {
     position: relative;
-    width: 12%;
+    width: 9%;
     height: 100%;
   }
 
@@ -6100,7 +6100,7 @@ aside {
     border: 1px solid gray;
     color: white;
     border-radius: 3px;
-    margin-left: 2.5em;
+    margin-left: 1.5em;
   }
 
   .img img {

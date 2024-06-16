@@ -1,5 +1,6 @@
 import {
   faAngleLeft,
+  faCamera,
   faCircleInfo,
   faEllipsis,
   faPaperPlane,
@@ -273,6 +274,15 @@ export const Message = ({ handleWheel, handleTarget }) => {
           <h3>{title}</h3>
           <p>{titleMessage} </p>
         </div>
+        <FontAwesomeIcon
+          icon={faCamera}
+          style={{
+            alignSelf: "center",
+            fontSize: "20px",
+            marginLeft: "4em",
+            color: "#ed7014",
+          }}
+        />
       </div>
     );
   };
