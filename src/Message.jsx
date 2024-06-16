@@ -209,10 +209,10 @@ export const Message = ({ handleWheel, handleTarget }) => {
     }
   };
 
-  const resetClick = () => {
-    sessionStorage.setItem("currentId", "");
-    setCurrentId("");
-  };
+  // const resetClick = () => {
+  //   sessionStorage.setItem("currentId", "");
+  //   setCurrentId("");
+  // };
 
   useEffect(() => {
     const sessionStored = sessionStorage.getItem("element-clicked-Id");
@@ -285,143 +285,13 @@ export const Message = ({ handleWheel, handleTarget }) => {
   //     );
   //   };
   return (
-    <div
-      className="messageDiv"
-      onMouseMove={handleTarget}
-      onWheel={handleWheel}
-    >
-      <div className="chatflex">
-        <div className="chatflex-head">
-          <div className="first-chat-head">
-            <h2>Messages</h2>
-            <div className="chat-icons">
-              <FontAwesomeIcon
-                icon={faEllipsis}
-                style={{ fontSize: "18px", color: "#ed7014" }}
-              />
-            </div>
-          </div>
-          <div className="second-chat-head">
-            <div className="search">
-              {/* <FontAwesomeIcon
-                icon={faSearch}
-                style={{
-                  position: "fixed",
-                  right: "0.5em",
-                  top: "0.7em",
-                  color: "rgb(41, 41, 41)",
-                  cursor: "pointer",
-                  zIndex: "5",
-                }}
-              /> */}
-              <input type="text" placeholder="Search For Messages" />
-            </div>
-          </div>
-        </div>
-
-        <div className="chatcomponent-div">
-          {Object.keys(users).map((userID) => {
-            const user = users[userID];
-            return (
-              <ChatComponents
-                title={user.title}
-                image={user.image}
-                titleMessage={user.titleMessage}
-                id={user.id}
-              />
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="messageBody">
-        <div className="messageBodyHead">
-          <div className="first-messageBodyHead">
-            <div className="back-icon">
-              <FontAwesomeIcon
-                icon={faAngleLeft}
-                style={{ fontSize: "24px", color: "rgba(237, 112, 20, 0.8)" }}
-                onClick={() => setCurrentId("")}
-              />
-            </div>
-            <div className="imageDiv">
-              <img
-                src={
-                  elementClickedId &&
-                  require(`${users[elementClickedId].image}`)
-                }
-                alt=""
-              />
-            </div>
-            <h2>{elementClickedId && users[elementClickedId].title}</h2>
-          </div>
-          <FontAwesomeIcon
-            icon={faCircleInfo}
-            style={{
-              position: "fixed",
-              fontSize: "24px",
-              marginTop: "0.1em",
-              right: "2em",
-              paddingTop: ".1em",
-              color: "rgba(237, 112, 20, 0.8)",
-              cursor: "pointer",
-            }}
-          />
-        </div>
-        <div className="chatBrief">
-          <div className="imageDiv">
-            <img
-              src={
-                elementClickedId && require(`${users[elementClickedId].image}`)
-              }
-              alt=""
-            />
-          </div>
-          <div className="chatPersonDetails">
-            <h2>{elementClickedId && users[elementClickedId].title}</h2>
-            <p>{elementClickedId && users[elementClickedId].bio}</p>
-          </div>
-          <div className="message-receive-body">
-            <div className="received"></div>
-          </div>
-        </div>
-        <div className="chat-inputs">
-          <div className="addfile">
-            <FontAwesomeIcon
-              icon={faPlusCircle}
-              style={{
-                fontSize: "24px",
-                color: "#ed7014",
-                marginRight: "0.4em",
-              }}
-            />
-            <FontAwesomeIcon
-              icon={faFile}
-              style={{ fontSize: "24px", color: "#ed7014" }}
-            />
-          </div>
-
-          <textarea
-            name="typing"
-            value={inputValue}
-            onChange={handleTyping}
-            placeholder="Write a message"
-          ></textarea>
-          <FontAwesomeIcon
-            icon={faPaperPlane}
-            style={{
-              position: "fixed",
-              right: "2.8em",
-              bottom: "1em",
-              fontSize: "24px",
-              color: "#ed7014",
-            }}
-          />
-        </div>
-      </div>
-
-      {currentId === "" && (
-        <div className="responsive-chatflex">
+    <>
+      <div
+        className="messageDiv"
+        onMouseMove={handleTarget}
+        onWheel={handleWheel}
+      >
+        <div className="chatflex">
           <div className="chatflex-head">
             <div className="first-chat-head">
               <h2>Messages</h2>
@@ -454,7 +324,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
             {Object.keys(users).map((userID) => {
               const user = users[userID];
               return (
-                <ResponsiveChatComponents
+                <ChatComponents
                   title={user.title}
                   image={user.image}
                   titleMessage={user.titleMessage}
@@ -464,25 +334,27 @@ export const Message = ({ handleWheel, handleTarget }) => {
             })}
           </div>
         </div>
-      )}
-      {currentId !== "" && (
-        <div className="responsive-messageBody">
+
+        <div className="messageBody">
           <div className="messageBodyHead">
             <div className="first-messageBodyHead">
               <div className="back-icon">
                 <FontAwesomeIcon
                   icon={faAngleLeft}
                   style={{ fontSize: "24px", color: "rgba(237, 112, 20, 0.8)" }}
-                  onClick={resetClick}
+                  onClick={() => setCurrentId("")}
                 />
               </div>
               <div className="imageDiv">
                 <img
-                  src={currentId && require(`${users[currentId].image}`)}
+                  src={
+                    elementClickedId &&
+                    require(`${users[elementClickedId].image}`)
+                  }
                   alt=""
                 />
               </div>
-              <h2>{currentId && users[currentId].title}</h2>
+              <h2>{elementClickedId && users[elementClickedId].title}</h2>
             </div>
             <FontAwesomeIcon
               icon={faCircleInfo}
@@ -490,7 +362,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                 position: "fixed",
                 fontSize: "24px",
                 marginTop: "0.1em",
-                right: ".8em",
+                right: "2em",
                 paddingTop: ".1em",
                 color: "rgba(237, 112, 20, 0.8)",
                 cursor: "pointer",
@@ -500,13 +372,16 @@ export const Message = ({ handleWheel, handleTarget }) => {
           <div className="chatBrief">
             <div className="imageDiv">
               <img
-                src={currentId && require(`${users[currentId].image}`)}
+                src={
+                  elementClickedId &&
+                  require(`${users[elementClickedId].image}`)
+                }
                 alt=""
               />
             </div>
             <div className="chatPersonDetails">
-              <h2>{currentId && users[currentId].title}</h2>
-              <p>{currentId && users[currentId].bio}</p>
+              <h2>{elementClickedId && users[elementClickedId].title}</h2>
+              <p>{elementClickedId && users[elementClickedId].bio}</p>
             </div>
             <div className="message-receive-body">
               <div className="received"></div>
@@ -534,22 +409,155 @@ export const Message = ({ handleWheel, handleTarget }) => {
               onChange={handleTyping}
               placeholder="Write a message"
             ></textarea>
+            <FontAwesomeIcon
+              icon={faPaperPlane}
+              style={{
+                position: "fixed",
+                right: "2.8em",
+                bottom: "1em",
+                fontSize: "24px",
+                color: "#ed7014",
+              }}
+            />
+          </div>
+        </div>
+      </div>
 
-            <div className="responsive-send">
-              <FontAwesomeIcon
-                icon={faPaperPlane}
+      <div className="messageDiv">
+        {currentId === "" && (
+          <div className="responsive-chatflex">
+            <div className="chatflex-head">
+              <div className="first-chat-head">
+                <h2>Messages</h2>
+                <div className="chat-icons">
+                  <FontAwesomeIcon
+                    icon={faEllipsis}
+                    style={{ fontSize: "18px", color: "#ed7014" }}
+                  />
+                </div>
+              </div>
+              <div className="second-chat-head">
+                <div className="search">
+                  {/* <FontAwesomeIcon
+                icon={faSearch}
                 style={{
-                  position: "static",
+                  position: "fixed",
+                  right: "0.5em",
+                  top: "0.7em",
+                  color: "rgb(41, 41, 41)",
+                  cursor: "pointer",
+                  zIndex: "5",
+                }}
+              /> */}
+                  <input type="text" placeholder="Search For Messages" />
+                </div>
+              </div>
+            </div>
+
+            <div className="chatcomponent-div">
+              {Object.keys(users).map((userID) => {
+                const user = users[userID];
+                return (
+                  <ResponsiveChatComponents
+                    title={user.title}
+                    image={user.image}
+                    titleMessage={user.titleMessage}
+                    id={user.id}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        )}
+        {currentId !== "" && (
+          <div className="responsive-messageBody">
+            <div className="messageBodyHead">
+              <div className="first-messageBodyHead">
+                <div className="back-icon">
+                  <FontAwesomeIcon
+                    icon={faAngleLeft}
+                    style={{
+                      fontSize: "24px",
+                      color: "rgba(237, 112, 20, 0.8)",
+                    }}
+                    // onClick={resetClick}
+                  />
+                </div>
+                <div className="imageDiv">
+                  <img
+                    src={currentId && require(`${users[currentId].image}`)}
+                    alt=""
+                  />
+                </div>
+                <h2>{currentId && users[currentId].title}</h2>
+              </div>
+              <FontAwesomeIcon
+                icon={faCircleInfo}
+                style={{
+                  position: "fixed",
+                  fontSize: "24px",
+                  marginTop: "0.1em",
                   right: ".8em",
-                  bottom: "0.2em",
-                  fontSize: "22px",
-                  color: "#ed7014",
+                  paddingTop: ".1em",
+                  color: "rgba(237, 112, 20, 0.8)",
+                  cursor: "pointer",
                 }}
               />
             </div>
+            <div className="chatBrief">
+              <div className="imageDiv">
+                <img
+                  src={currentId && require(`${users[currentId].image}`)}
+                  alt=""
+                />
+              </div>
+              <div className="chatPersonDetails">
+                <h2>{currentId && users[currentId].title}</h2>
+                <p>{currentId && users[currentId].bio}</p>
+              </div>
+              <div className="message-receive-body">
+                <div className="received"></div>
+              </div>
+            </div>
+            <div className="chat-inputs">
+              <div className="addfile">
+                <FontAwesomeIcon
+                  icon={faPlusCircle}
+                  style={{
+                    fontSize: "24px",
+                    color: "#ed7014",
+                    marginRight: "0.4em",
+                  }}
+                />
+                <FontAwesomeIcon
+                  icon={faFile}
+                  style={{ fontSize: "24px", color: "#ed7014" }}
+                />
+              </div>
+
+              <textarea
+                name="typing"
+                value={inputValue}
+                onChange={handleTyping}
+                placeholder="Write a message"
+              ></textarea>
+
+              <div className="responsive-send">
+                <FontAwesomeIcon
+                  icon={faPaperPlane}
+                  style={{
+                    position: "static",
+                    right: ".8em",
+                    bottom: "0.2em",
+                    fontSize: "22px",
+                    color: "#ed7014",
+                  }}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
