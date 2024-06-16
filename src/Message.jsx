@@ -203,21 +203,22 @@ export const Message = ({ handleWheel, handleTarget }) => {
 
     if (clickedElement) {
       const clickedId = clickedElement.id;
-      setCurrentId(clickedId);
-      sessionStorage.setItem("currentId", clickedId);
+      setElementClickedId(clickedId);
+      sessionStorage.setItem("element-clicked-Id", clickedId);
+      console.log(elementClickedId);
     }
   };
 
   const resetClick = () => {
-    sessionStorage.setItem("currentId", "");
-    setCurrentId("");
+    sessionStorage.setItem("element-clicked-Id", "");
+    setElementClickedId("");
   };
 
   useEffect(() => {
     const sessionStored = sessionStorage.getItem("element-clicked-Id");
-    const sessionStoredId = sessionStorage.getItem("currentId");
+    // const sessionStoredId = sessionStorage.getItem("currentId");
     if (sessionStored) {
-      setCurrentId(sessionStoredId);
+      // setCurrentId(sessionStoredId);
       setElementClickedId(sessionStored);
       const activeChat = document.getElementById(sessionStored);
       if (activeChat) {
@@ -419,7 +420,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
         </div>
       </div>
 
-      {currentId === "" && (
+      {elementClickedId === "" && (
         <div className="responsive-chatflex">
           <div className="chatflex-head">
             <div className="first-chat-head">
@@ -464,7 +465,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
           </div>
         </div>
       )}
-      {currentId !== "" && (
+      {elementClickedId !== "" && (
         <div className="responsive-messageBody">
           <div className="messageBodyHead">
             <div className="first-messageBodyHead">
@@ -477,11 +478,14 @@ export const Message = ({ handleWheel, handleTarget }) => {
               </div>
               <div className="imageDiv">
                 <img
-                  src={currentId && require(`${users[currentId].image}`)}
+                  src={
+                    elementClickedId &&
+                    require(`${users[elementClickedId].image}`)
+                  }
                   alt=""
                 />
               </div>
-              <h2>{currentId && users[currentId].title}</h2>
+              <h2>{elementClickedId && users[elementClickedId].title}</h2>
             </div>
             <FontAwesomeIcon
               icon={faCircleInfo}
@@ -499,13 +503,16 @@ export const Message = ({ handleWheel, handleTarget }) => {
           <div className="chatBrief">
             <div className="imageDiv">
               <img
-                src={currentId && require(`${users[currentId].image}`)}
+                src={
+                  elementClickedId &&
+                  require(`${users[elementClickedId].image}`)
+                }
                 alt=""
               />
             </div>
             <div className="chatPersonDetails">
-              <h2>{currentId && users[currentId].title}</h2>
-              <p>{currentId && users[currentId].bio}</p>
+              <h2>{elementClickedId && users[elementClickedId].title}</h2>
+              <p>{elementClickedId && users[elementClickedId].bio}</p>
             </div>
             <div className="message-receive-body">
               <div className="received"></div>
