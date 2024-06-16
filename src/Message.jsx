@@ -240,6 +240,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
           id && elementClickedId === id ? "chat-active" : ""
         }`}
         onClick={chatClick}
+        onTouchStart={chatClick}
       >
         <div className="image">
           <img src={require(`${image}`)} alt="" />
