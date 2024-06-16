@@ -205,14 +205,13 @@ export const Message = ({ handleWheel, handleTarget }) => {
       const clickedId = clickedElement.id;
       setCurrentId(clickedId);
       sessionStorage.setItem("currentId", clickedId);
-      console.log(currentId);
     }
   };
 
-  // const resetClick = () => {
-  //   sessionStorage.setItem("currentId", "");
-  //   setCurrentId("");
-  // };
+  const resetClick = () => {
+    sessionStorage.setItem("currentId", "");
+    setCurrentId("exit");
+  };
 
   useEffect(() => {
     const sessionStored = sessionStorage.getItem("element-clicked-Id");
@@ -424,7 +423,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
       </div>
 
       <div className="messageDiv">
-        {currentId === "" && (
+        {currentId === "exit" && (
           <div className="responsive-chatflex">
             <div className="chatflex-head">
               <div className="first-chat-head">
@@ -469,7 +468,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
             </div>
           </div>
         )}
-        {currentId !== "" && (
+        {currentId !== "exit" && (
           <div className="responsive-messageBody">
             <div className="messageBodyHead">
               <div className="first-messageBodyHead">
@@ -480,7 +479,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                       fontSize: "24px",
                       color: "rgba(237, 112, 20, 0.8)",
                     }}
-                    // onClick={resetClick}
+                    onClick={resetClick}
                   />
                 </div>
                 <div className="imageDiv">
