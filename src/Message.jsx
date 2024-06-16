@@ -541,17 +541,18 @@ export const Message = ({ handleWheel, handleTarget }) => {
               placeholder="Write a message"
             ></textarea>
 
-            <FontAwesomeIcon
-              className="responsive-send"
-              icon={faPaperPlane}
-              style={{
-                position: "static",
-                right: ".8em",
-                bottom: "0.2em",
-                fontSize: "22px",
-                color: "#ed7014",
-              }}
-            />
+            <div className="responsive-send">
+              <FontAwesomeIcon
+                icon={faPaperPlane}
+                style={{
+                  position: "static",
+                  right: ".8em",
+                  bottom: "0.2em",
+                  fontSize: "22px",
+                  color: "#ed7014",
+                }}
+              />
+            </div>
           </div>
         </div>
       )}

@@ -4621,9 +4621,13 @@ aside {
   }
 
   .responsive-send {
-    display: block;
-    margin-top: 0.3em;
-    margin-left: 0.4em;
+    position: static;
+    bottom: 0em;
+    left: 0em;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .message-receive-body {
