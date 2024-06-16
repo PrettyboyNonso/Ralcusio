@@ -209,23 +209,24 @@ export const Message = ({ handleWheel, handleTarget }) => {
   };
 
   const resetClick = () => {
-    sessionStorage.setItem("currentId", "");
+    sessionStorage.setItem("currentId", "exit");
     setCurrentId("exit");
   };
 
   useEffect(() => {
     const sessionStored = sessionStorage.getItem("element-clicked-Id");
-    // const sessionStoredId = sessionStorage.getItem("currentId");
+    const sessionStoredId = sessionStorage.getItem("currentId");
     if (sessionStored) {
-      // setCurrentId(sessionStoredId);
+      setCurrentId(sessionStoredId);
       setElementClickedId(sessionStored);
       const activeChat = document.getElementById(sessionStored);
       if (activeChat) {
         activeChat.classList.add("chat-active");
       }
     } else {
-      // setElementClickedId("user1");
+      // setElementClickedId("user1"); i think it is redundant
       sessionStorage.setItem("element-clicked-Id", "user1");
+      sessionStorage.setItem("currentId", "exit");
     }
   }, []);
 
@@ -546,8 +547,6 @@ export const Message = ({ handleWheel, handleTarget }) => {
                   icon={faPaperPlane}
                   style={{
                     position: "static",
-                    right: ".8em",
-                    bottom: "0.2em",
                     fontSize: "22px",
                     color: "#ed7014",
                   }}
