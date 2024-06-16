@@ -198,16 +198,16 @@ export const Message = ({ handleWheel, handleTarget }) => {
     }
   };
 
-  const responsiveChatClick = (e) => {
-    const clickedElement = e.target.closest(".chatscomponents");
+  // const responsiveChatClick = (e) => {
+  //   const clickedElement = e.target.closest(".chatscomponents");
 
-    if (clickedElement) {
-      const clickedId = clickedElement.id;
-      setElementClickedId(clickedId);
-      sessionStorage.setItem("element-clicked-Id", clickedId);
-      console.log(elementClickedId);
-    }
-  };
+  //   if (clickedElement) {
+  //     const clickedId = clickedElement.id;
+  //     setElementClickedId(clickedId);
+  //     sessionStorage.setItem("element-clicked-Id", clickedId);
+  //     console.log(elementClickedId);
+  //   }
+  // };
 
   const resetClick = () => {
     sessionStorage.setItem("element-clicked-Id", "");
@@ -263,19 +263,19 @@ export const Message = ({ handleWheel, handleTarget }) => {
       </div>
     );
   };
-  const ResponsiveChatComponents = ({ id, title, titleMessage, image }) => {
-    return (
-      <div id={id} className="chatscomponents" onClick={responsiveChatClick}>
-        <div className="image">
-          <img src={require(`${image}`)} alt="" />
-        </div>
-        <div className="chat-title">
-          <h3>{title}</h3>
-          <p>{titleMessage} </p>
-        </div>
-      </div>
-    );
-  };
+  // const ResponsiveChatComponents = ({ id, title, titleMessage, image }) => {
+  //   return (
+  //     <div id={id} className="chatscomponents" onClick={responsiveChatClick}>
+  //       <div className="image">
+  //         <img src={require(`${image}`)} alt="" />
+  //       </div>
+  //       <div className="chat-title">
+  //         <h3>{title}</h3>
+  //         <p>{titleMessage} </p>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   //   const ChatBrief = ({ users }) => {
   //     const currentUser = users[elementClickedId];
@@ -454,7 +454,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
             {Object.keys(users).map((userID) => {
               const user = users[userID];
               return (
-                <ResponsiveChatComponents
+                <ChatComponents
                   title={user.title}
                   image={user.image}
                   titleMessage={user.titleMessage}
