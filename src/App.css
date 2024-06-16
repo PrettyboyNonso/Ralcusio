@@ -5975,6 +5975,8 @@ aside {
     flex-direction: column;
     width: 100%;
     gap: 1.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   }
 
   .first-profile-view {
@@ -5983,6 +5985,7 @@ aside {
     padding-bottom: 0.8em;
     border-radius: 5px;
     background-color: white;
+    padding-top: 0.5em;
   }
 
   .cover-photo {
@@ -6080,7 +6083,7 @@ aside {
 
   .following-people .img {
     position: relative;
-    width: 10%;
+    width: 12%;
     height: 100%;
   }
 
@@ -6140,7 +6143,8 @@ aside {
     border-radius: 5px;
     background-color: white;
     height: 100%;
-    margin-right: 0em;
+    margin-right: 0.5em;
+
     margin-top: 0em;
   }
 
