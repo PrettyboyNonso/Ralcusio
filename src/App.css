@@ -4466,7 +4466,7 @@ aside {
 
   .chatscomponents .image {
     width: 19%;
-    height: 4em;
+    height: 3.8em;
     margin-top: -0.8em;
   }
 
@@ -4592,7 +4592,7 @@ aside {
   }
 
   .chat-inputs textarea {
-    width: 70%;
+    width: 68%;
     height: 2.5em;
     max-height: 10em;
     padding-left: 0.8em;
@@ -4601,8 +4601,7 @@ aside {
     padding-bottom: 0.5em;
     resize: none;
     overflow: hidden;
-    left: 5.5em;
-    position: absolute;
+    position: static;
     bottom: 0em;
     outline: none;
     border: 1px solid gray;
@@ -4612,14 +4611,19 @@ aside {
   }
 
   .chat-inputs .addfile {
-    position: absolute;
+    position: static;
     bottom: 0em;
-    left: 0.5em;
-    width: 20%;
+    left: 0em;
+    width: 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .responsive-send {
     display: block;
+    margin-top: 0.3em;
+    margin-left: 0.4em;
   }
 
   .message-receive-body {
