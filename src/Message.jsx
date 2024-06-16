@@ -14,7 +14,7 @@ import { faFile } from "@fortawesome/free-regular-svg-icons";
 export const Message = ({ handleWheel, handleTarget }) => {
   const [elementClickedId, setElementClickedId] = useState("");
   const [inputValue, setInputValue] = useState("");
-  const [currentId, setCurrentId] = useState("");
+  const [currentId, setCurrentId] = useState("exit");
 
   const users = {
     user1: {
