@@ -73,8 +73,10 @@ export const CreateClass = () => {
   };
 
   const CoursePlanning = () => {
-    const handleChangeInSelect = (e) => {
-      e.target.value === "other" ? setShowOther(true) : setShowOther(false);
+    const handleChangeInSelect = (selectedOption) => {
+      selectedOption.value === "other"
+        ? setShowOther(true)
+        : setShowOther(false);
       console.log(showOther);
     };
     const optionsLevel = [
@@ -96,11 +98,87 @@ export const CreateClass = () => {
       },
     ];
 
+    const optionsCourseArea = [
+      {
+        label: "Technology",
+        options: [
+          { value: "web-development", label: "Web Development" },
+          { value: "data-science", label: "Data Science" },
+          { value: "cyber-security", label: "Cyber Security" },
+          { value: "software-engineering", label: "Software Engineering" },
+        ],
+      },
+      {
+        label: "Personal Development",
+        options: [
+          { value: "personal-relationship", label: "Personal Relationship" },
+          { value: "mental-wellness", label: "Mental Wellness" },
+          { value: "time-management", label: "Time Management" },
+          { value: "leadership", label: "Leadership" },
+        ],
+      },
+      {
+        label: "Business",
+        options: [
+          { value: "entrepreneurship", label: "Entrepreneurship" },
+          { value: "marketing", label: "Marketing" },
+          { value: "finance", label: "Finance" },
+          { value: "management", label: "Management" },
+        ],
+      },
+      {
+        label: "Arts",
+        options: [
+          { value: "visual-arts", label: "Visual Arts" },
+          { value: "music", label: "Music" },
+          { value: "literature", label: "Literature" },
+          { value: "performing-arts", label: "Performing Arts" },
+        ],
+      },
+      {
+        label: "Science",
+        options: [
+          { value: "biology", label: "Biology" },
+          { value: "chemistry", label: "Chemistry" },
+          { value: "physics", label: "Physics" },
+          { value: "environmental-science", label: "Environmental Science" },
+        ],
+      },
+      {
+        label: "Health",
+        options: [
+          { value: "nutrition", label: "Nutrition" },
+          { value: "fitness", label: "Fitness" },
+          { value: "public-health", label: "Public Health" },
+          { value: "medicine", label: "Medicine" },
+        ],
+      },
+      {
+        label: "Language",
+        options: [
+          { value: "english", label: "English" },
+          { value: "spanish", label: "Spanish" },
+          { value: "french", label: "French" },
+          { value: "german", label: "German" },
+        ],
+      },
+      {
+        label: "Education",
+        options: [
+          { value: "teaching-methods", label: "Teaching Methods" },
+          { value: "curriculum-design", label: "Curriculum Design" },
+          { value: "educational-technology", label: "Educational Technology" },
+          { value: "special-education", label: "Special Education" },
+        ],
+      },
+      { value: "other", label: "Other" },
+    ];
+
     const customStyle = {
       container: (provided) => ({
         ...provided,
         width: "95%",
-        marginTop: "0.4em",
+        marginTop: "0.3em",
       }),
       control: (provided, state) => ({
         ...provided,
@@ -110,6 +188,8 @@ export const CreateClass = () => {
         fontFamily: "Karla, sans-serif",
         fontSize: "13px",
         outline: "none",
+        borderRadius: "0px",
+        cursor: "pointer",
       }),
       option: (provided, state) => ({
         ...provided,
@@ -151,70 +231,16 @@ export const CreateClass = () => {
               <>
                 <p>Select Course Area</p>
 
-                <select
+                <Select
                   id="course-area"
                   name="course-area"
                   className="course-select"
+                  options={optionsCourseArea}
+                  placeholder="Select an area"
+                  styles={customStyle}
+                  isSearchable={false}
                   onChange={handleChangeInSelect}
-                >
-                  <optgroup label="Technology">
-                    <option value="web-development">Web Development</option>
-                    <option value="data-science">Data Science</option>
-                    <option value="cyber-security">Cyber Security</option>
-                    <option value="software-engineering">
-                      Software Engineering
-                    </option>
-                  </optgroup>
-                  <optgroup label="Personal Development">
-                    <option value="personal-relationship">
-                      Personal Relationship
-                    </option>
-                    <option value="mental-wellness">Mental Wellness</option>
-                    <option value="time-management">Time Management</option>
-                    <option value="leadership">Leadership</option>
-                  </optgroup>
-                  <optgroup label="Business">
-                    <option value="entrepreneurship">Entrepreneurship</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="finance">Finance</option>
-                    <option value="management">Management</option>
-                  </optgroup>
-                  <optgroup label="Arts">
-                    <option value="visual-arts">Visual Arts</option>
-                    <option value="music">Music</option>
-                    <option value="literature">Literature</option>
-                    <option value="performing-arts">Performing Arts</option>
-                  </optgroup>
-                  <optgroup label="Science">
-                    <option value="biology">Biology</option>
-                    <option value="chemistry">Chemistry</option>
-                    <option value="physics">Physics</option>
-                    <option value="environmental-science">
-                      Environmental Science
-                    </option>
-                  </optgroup>
-                  <optgroup label="Health">
-                    <option value="nutrition">Nutrition</option>
-                    <option value="fitness">Fitness</option>
-                    <option value="public-health">Public Health</option>
-                    <option value="medicine">Medicine</option>
-                  </optgroup>
-                  <optgroup label="Language">
-                    <option value="english">English</option>
-                    <option value="spanish">Spanish</option>
-                    <option value="french">French</option>
-                    <option value="german">German</option>
-                  </optgroup>
-                  <optgroup label="Education">
-                    <option value="teaching-methods">Teaching Methods</option>
-                    <option value="curriculum-design">Curriculum Design</option>
-                    <option value="educational-technology">
-                      Educational Technology
-                    </option>
-                    <option value="special-education">Special Education</option>
-                  </optgroup>
-                  <option value="other">Other</option>
-                </select>
+                ></Select>
               </>
             )}
 
@@ -233,17 +259,6 @@ export const CreateClass = () => {
 
           <div className="course-level">
             <p>Select Course Level</p>
-            {/* <select
-              id="course-level"
-              name="course-level"
-              className="level-select"
-            >
-              <option value="general">General</option>
-              <option value="beginner">Beginner</option>
-              <option value="intermediate">Intermediate</option>
-              <option value="advanced">Advanced</option>
-              <option value="expert">Expert</option>
-            </select> */}
             <Select
               placeholder="Select a level"
               styles={customStyle}

@@ -5044,8 +5044,8 @@ aside {
     display: flex;
     width: 100%;
     gap: 0.5em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
     scroll-behavior: smooth;
     flex-wrap: nowrap;
     scroll-snap-type: x mandatory;
@@ -5063,7 +5063,7 @@ aside {
     gap: 0.5em;
     background-color: rgb(255, 255, 255);
     padding: 0.2em 0.5em;
-    
+
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     font-size: 13px;
@@ -5323,8 +5323,8 @@ aside {
     width: 100%;
     height: 100%;
     border: 1px solid rgb(226, 226, 226);
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
     padding-top: 0.5em;
     border-radius: 5px;
     padding-bottom: 0.8em;
@@ -5333,12 +5333,12 @@ aside {
   .course-pricing h2 {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 19px;
+    font-size: 16px;
   }
   .course-pricing p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 0.4em;
     max-width: 90%;
     line-height: 1.5em;
@@ -5385,19 +5385,19 @@ aside {
   .add-price label {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .price-input {
     display: flex;
     gap: 0.2em;
-    width: 68%;
+    width: 65%;
   }
 
   .price-input select {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
     border: 1px solid grey;
     outline: none;
     border-radius: 5px;
@@ -5405,7 +5405,7 @@ aside {
 
   .price-input input {
     width: 100%;
-    height: 2.5em;
+    height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
     font-size: 13px;
@@ -5430,7 +5430,8 @@ aside {
     padding-left: 0.4em;
     padding-right: 0.4em;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 13px;
+    margin-top: 0.3em;
   }
 
   .discount-input {
@@ -5442,17 +5443,17 @@ aside {
   .discount-input select {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
     border: 1px solid grey;
     outline: none;
     border-radius: 5px;
-    height: 2.3em;
+    height: 2em;
     margin-top: 0.7em;
   }
 
   .discount-input input {
     width: 68%;
-    height: 2.3em;
+    height: 2em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
     font-size: 13px;
