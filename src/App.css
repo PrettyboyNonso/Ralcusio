@@ -5110,7 +5110,7 @@ aside {
     padding-left: 0.5em;
     padding-bottom: 1em;
     border-radius: 5px;
-    margin-top: 0.5em;
+    margin-top: 1em;
   }
 
   .class-create-details-sec {
@@ -5132,7 +5132,7 @@ aside {
   .class-create-details-head p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 0.3em;
     max-width: 90%;
     line-height: 1.5em;
@@ -5155,16 +5155,16 @@ aside {
   .course-name p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .course-name input {
-    width: 100%;
+    width: 95%;
     margin-top: 0.5em;
     height: 2.3em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 14px;
+    font-size: 13px;
     outline: none;
     border: 1px solid gray;
   }
@@ -5176,7 +5176,7 @@ aside {
   .class-date p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .class-date select {
@@ -5185,7 +5185,7 @@ aside {
     height: 2.3em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 14px;
+    font-size: 13px;
     outline: none;
     border: 1px solid gray;
   }
@@ -5195,7 +5195,7 @@ aside {
     height: 2.3em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 14px;
+    font-size: 13px;
     outline: none;
     border: 1px solid gray;
   }
@@ -5208,7 +5208,7 @@ aside {
   .course-level p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .course-level select {
@@ -5217,7 +5217,7 @@ aside {
     height: 2.3em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
-    font-size: 14px;
+    font-size: 13px;
     outline: none;
     border: 1px solid gray;
   }
@@ -5230,7 +5230,7 @@ aside {
   .class-desc p {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .class-desc textarea {
@@ -5241,7 +5241,7 @@ aside {
     outline: none;
     border: 1px solid grey;
     font-family: "Karla", sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     padding-left: 0.5em;
     padding-top: 0.5em;
   }
