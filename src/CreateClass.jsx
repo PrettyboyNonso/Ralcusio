@@ -773,7 +773,10 @@ export const CreateClass = () => {
             <CoursePlanning />
             <div className="create-class-calender-sec">
               {activeNav === "create-your-course" && (
-                <Dates color={"rgb(227, 227, 227)"} />
+                <Dates
+                  color={"rgb(227, 227, 227)"}
+                  className="responsive-date"
+                />
               )}
             </div>
           </div>

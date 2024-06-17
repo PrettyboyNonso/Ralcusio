@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
-export const Dates = ({ color }) => {
+export const Dates = ({ color, className = "" }) => {
   const [dayOfWeek, setDayOfWeek] = useState([]);
   const [days, setDays] = useState([]);
   const [currentMonthState, setcurrentMonth] = useState("");
@@ -99,7 +99,10 @@ export const Dates = ({ color }) => {
   };
 
   return (
-    <div className="calenderUi" style={{ border: `1px solid ${color}` }}>
+    <div
+      className={`calenderUi ${className}`}
+      style={{ border: `1px solid ${color}` }}
+    >
       <div className="calenderUi-head">
         <h3>{`${monthsOfTheYear[currentMonthState]} ${currentYearState}`}</h3>
         <div className="arrow-calender">

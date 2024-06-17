@@ -5000,8 +5000,8 @@ aside {
   }
 
   .teacher-create-btn button {
-    width: 6em;
-    height: 2em;
+    width: 7em;
+    height: 2.5em;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     cursor: pointer;
@@ -5043,10 +5043,18 @@ aside {
     margin-top: 1.5em;
     display: flex;
     width: 100%;
-    gap: 0.2em;
-    justify-content: space-between;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
+    gap: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    overflow: auto;
+    scrollbar-width: none;
+  }
+
+  .responsive-create-class-type-sec::-webkit-scrollbar {
+    display: none;
   }
 
   .first-flex-create-type-sec {
@@ -5060,7 +5068,7 @@ aside {
     font-size: 14px;
     border-radius: 5px;
     cursor: pointer;
-    /* color: rgb(49, 49, 49); */
+    justify-content: center;
     box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.3);
     border: 1px solid rgb(226, 226, 226);
   }
@@ -5068,6 +5076,8 @@ aside {
   .create-type-sec-p {
     display: flex;
     flex-direction: column;
+    flex: 0 0 30%;
+    scroll-snap-align: center;
   }
 
   .create-type-sec-lining {
@@ -5096,27 +5106,28 @@ aside {
     border: none;
     box-shadow: 5px 2px 5px rgba (0, 0, 0, 0.3);
     justify-content: space-between;
-    padding-right: 0.8em;
-    padding-left: 0.8em;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
     padding-bottom: 1em;
     border-radius: 5px;
-    margin-top: 1em;
+    margin-top: 0.5em;
   }
 
   .class-create-details-sec {
     width: 100%;
-    border: 1px solid rgb(226, 226, 226);
-    padding-left: 0.3em;
-    padding-right: 0.3em;
+    border: none;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     padding-top: 0.5em;
     border-radius: 5px;
-    padding-bottom: 3.8em;
+    padding-bottom: 1.5em;
+    border: 1px solid rgb(226, 226, 226);
   }
 
   .class-create-details-head h2 {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 20px;
+    font-size: 19px;
   }
   .class-create-details-head p {
     font-family: "Karla", sans-serif;
@@ -5130,18 +5141,15 @@ aside {
   .class-create-details-sec form {
     display: flex;
     width: 100%;
-    border: 1px solid rgb(226, 226, 226);
-    margin-top: 0.8em;
-    padding-top: 0.8em;
-    padding-left: 0.2em;
-    padding-right: 0.2em;
+    border: none;
+    margin-top: 1em;
     flex-wrap: wrap;
-    padding: 0.8em;
-    gap: 0.4em;
+    padding: 0em;
+    gap: 1.3em;
   }
 
   .course-name {
-    width: 48%;
+    width: 100%;
   }
 
   .course-name p {
@@ -5152,8 +5160,8 @@ aside {
 
   .course-name input {
     width: 100%;
-    margin-top: 0.4em;
-    height: 2em;
+    margin-top: 0.5em;
+    height: 2.3em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
     font-size: 14px;
@@ -5162,7 +5170,7 @@ aside {
   }
 
   .class-date {
-    width: 48%;
+    width: 100%;
   }
 
   .class-date p {
@@ -5173,8 +5181,8 @@ aside {
 
   .class-date select {
     width: 100%;
-    margin-top: 0.4em;
-    height: 2em;
+    margin-top: 0.5em;
+    height: 2.3em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
     font-size: 14px;
@@ -5183,8 +5191,30 @@ aside {
   }
   .class-date input {
     width: 100%;
-    margin-top: 0.4em;
-    height: 2em;
+    margin-top: 0.5em;
+    height: 2.3em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 14px;
+    outline: none;
+    border: 1px solid gray;
+  }
+
+  .course-level {
+    margin-top: 0.5em;
+    width: 100%;
+  }
+
+  .course-level p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 14px;
+  }
+
+  .course-level select {
+    width: 100%;
+    margin-top: 0.5em;
+    height: 2.3em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
     font-size: 14px;
@@ -5193,7 +5223,7 @@ aside {
   }
 
   .class-desc {
-    margin-top: 1.8em;
+    margin-top: 0.8em;
     width: 100%;
   }
 
@@ -5204,7 +5234,7 @@ aside {
   }
 
   .class-desc textarea {
-    margin-top: 0.4em;
+    margin-top: 0.5em;
     resize: none;
     width: 100%;
     height: 8em;
@@ -5261,12 +5291,12 @@ aside {
   .continue-btn {
     width: 100%;
     text-align: right;
-    margin-top: 1.5em;
+    margin-top: 1.2em;
   }
 
   .continue-btn button {
     width: 8em;
-    height: 2em;
+    height: 2.5em;
     cursor: pointer;
     font-family: "Karla", sans-serif;
     font-size: 13px;
@@ -5277,11 +5307,249 @@ aside {
     color: white;
   }
 
+  .responsive-date {
+    display: none;
+  }
+
   .create-class-calender-sec {
     /*  */
     width: 100%;
     padding-bottom: 3.5em;
     display: flex;
+  }
+
+  .course-pricing {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(226, 226, 226);
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.5em;
+    border-radius: 5px;
+    padding-bottom: 0.8em;
+  }
+
+  .course-pricing h2 {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 19px;
+  }
+  .course-pricing p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 14px;
+    margin-top: 0.4em;
+    max-width: 90%;
+    line-height: 1.5em;
+  }
+
+  .course-pricing form {
+    display: flex;
+    width: 100%;
+    border: none;
+    margin-top: 1.5em;
+
+    flex-wrap: wrap;
+    padding: 0em;
+  }
+
+  .pricing-head {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pricing-head h3 {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 15px;
+  }
+
+  .free-toggle {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+  }
+
+  .add-price {
+    width: 100%;
+    margin-top: 1.5em;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .add-price label {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 14px;
+  }
+
+  .price-input {
+    display: flex;
+    gap: 0.2em;
+    width: 68%;
+  }
+
+  .price-input select {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 14px;
+    border: 1px solid grey;
+    outline: none;
+    border-radius: 5px;
+  }
+
+  .price-input input {
+    width: 100%;
+    height: 2.5em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+  }
+
+  .add-discount-btn button {
+    width: 100%;
+    background-color: #ed7014;
+    display: flex;
+    gap: 0.2em;
+    align-items: center;
+    border: none;
+    outline: none;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    color: white;
+    cursor: pointer;
+    height: 2.5em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  .discount-input {
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 0.23em;
+  }
+
+  .discount-input select {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 14px;
+    border: 1px solid grey;
+    outline: none;
+    border-radius: 5px;
+    height: 2.3em;
+    margin-top: 0.7em;
+  }
+
+  .discount-input input {
+    width: 68%;
+    height: 2.3em;
+    font-family: "Karla", sans-serif;
+    padding-left: 0.4em;
+    font-size: 13px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+    margin-top: 0.8em;
+  }
+
+  .price-btn {
+    margin-top: 0.8em;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .price-btn button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 2.8em;
+    gap: 0.3em;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    border: 1px solid grey;
+    outline: none;
+    font-size: 13px;
+    padding-left: 0.1em;
+    background-color: #ed7014;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .pricing-ui {
+    width: 100%;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 3px;
+  }
+
+  .pricing-ui-head {
+    padding-top: 0.5em;
+    padding-left: 0.4em;
+  }
+
+  .pricing-ui-head h2 {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 22px;
+  }
+
+  .pricing-ui-head p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-top: 0.4em;
+  }
+
+  .pricing-ui form {
+    border: 1px solid rgb(227, 227, 227);
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-top: 0.5em;
+    margin-bottom: 0.4em;
+    padding-bottom: 0.8em;
+    padding-left: 0.5em;
+    padding-top: 0.8em;
+  }
+
+  .pricing-subheading {
+  }
+  .pricing-subheading p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .discount-1 {
+    margin-top: 0.5em;
+  }
+
+  .discount-1 p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin-top: 0.3em;
+  }
+
+  .discount-1 input {
+    width: 48%;
+    height: 2em;
+    margin-top: 0.4em;
+    border: 1px solid gray;
+    outline: none;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    border-radius: 3px;
   }
 
   .classScheduleSec {
@@ -5377,28 +5645,6 @@ aside {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     font-size: 14px;
-  }
-
-  .course-level {
-    margin-top: 1.8em;
-    width: 100%;
-  }
-
-  .course-level p {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 14px;
-  }
-
-  .course-level select {
-    width: 60%;
-    margin-top: 0.4em;
-    height: 2em;
-    font-family: "Karla", sans-serif;
-    padding-left: 0.4em;
-    font-size: 14px;
-    outline: none;
-    border: 1px solid gray;
   }
 
   .create-class-btn {
@@ -5526,234 +5772,6 @@ aside {
     font-size: 14px;
     outline: none;
     border: 1px solid gray;
-  }
-
-  .course-pricing {
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgb(226, 226, 226);
-    padding-left: 0.8em;
-    padding-right: 0.8em;
-    padding-top: 0.5em;
-    border-radius: 5px;
-    padding-bottom: 0.8em;
-  }
-
-  .course-pricing h2 {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 20px;
-  }
-  .course-pricing p {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 14px;
-    margin-top: 0.3em;
-    max-width: 80%;
-    line-height: 1.5em;
-  }
-
-  .course-pricing form {
-    display: flex;
-    width: 100%;
-    border: 1px solid rgb(226, 226, 226);
-    margin-top: 1.5em;
-    padding-top: 0.8em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    flex-wrap: wrap;
-    padding: 0.8em;
-  }
-
-  .pricing-head {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .pricing-head h3 {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 15px;
-  }
-
-  .free-toggle {
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
-  }
-
-  .add-price {
-    width: 100%;
-    margin-top: 1em;
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .add-price label {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 14px;
-  }
-
-  .price-input {
-    display: flex;
-    gap: 0.2em;
-    width: 61%;
-  }
-
-  .price-input select {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 14px;
-    border: 1px solid grey;
-    outline: none;
-    border-radius: 5px;
-  }
-
-  .price-input input {
-    width: 100%;
-    height: 2em;
-    font-family: "Karla", sans-serif;
-    padding-left: 0.4em;
-    font-size: 13px;
-    outline: none;
-    border: 1px solid gray;
-    border-radius: 3px;
-  }
-
-  .add-discount-btn button {
-    width: 8em;
-    background-color: white;
-    display: flex;
-    gap: 0.2em;
-    align-items: center;
-    border: none;
-    outline: none;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    color: #ed7014;
-    cursor: pointer;
-  }
-
-  .discount-input {
-    display: flex;
-    gap: 0.3em;
-    margin-bottom: 0.2em;
-  }
-
-  .discount-input select {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 14px;
-    border: 1px solid grey;
-    outline: none;
-    border-radius: 5px;
-  }
-
-  .discount-input input {
-    width: 61%;
-    height: 2em;
-    font-family: "Karla", sans-serif;
-    padding-left: 0.4em;
-    font-size: 13px;
-    outline: none;
-    border: 1px solid gray;
-    border-radius: 3px;
-  }
-
-  .price-btn {
-    margin-top: 0.8em;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-  .price-btn button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 95%;
-    height: 2.8em;
-    gap: 0.3em;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    border: 1px solid grey;
-    outline: none;
-    font-size: 13px;
-    padding-left: 0.1em;
-    background-color: #ed7014;
-    color: white;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-  .pricing-ui {
-    width: 100%;
-    border: 1px solid rgb(227, 227, 227);
-    border-radius: 3px;
-  }
-
-  .pricing-ui-head {
-    padding-top: 0.5em;
-    padding-left: 0.4em;
-  }
-
-  .pricing-ui-head h2 {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 22px;
-  }
-
-  .pricing-ui-head p {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 13px;
-    margin-top: 0.4em;
-  }
-
-  .pricing-ui form {
-    border: 1px solid rgb(227, 227, 227);
-    margin-left: 0.4em;
-    margin-right: 0.4em;
-    margin-top: 0.5em;
-    margin-bottom: 0.4em;
-    padding-bottom: 0.8em;
-    padding-left: 0.5em;
-    padding-top: 0.8em;
-  }
-
-  .pricing-subheading {
-  }
-  .pricing-subheading p {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 13px;
-    font-weight: bold;
-  }
-
-  .discount-1 {
-    margin-top: 0.5em;
-  }
-
-  .discount-1 p {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 13px;
-    margin-top: 0.3em;
-  }
-
-  .discount-1 input {
-    width: 48%;
-    height: 2em;
-    margin-top: 0.4em;
-    border: 1px solid gray;
-    outline: none;
-    font-family: "Karla", sans-serif;
-    font-size: 13px;
-    border-radius: 3px;
   }
 
   .schedule-ui {
