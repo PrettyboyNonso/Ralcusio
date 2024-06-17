@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Dates } from "./DateUI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import reactSelect from "react-select";
+import Select from "react-select";
 import {
   faArrowRight,
   faCalendarDays,
@@ -13,7 +13,11 @@ import {
   faSort,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
-import { faPlus } from "@fortawesome/free-solid-svg-icons/faPlus";
+import {
+  faPlus,
+  height,
+  width,
+} from "@fortawesome/free-solid-svg-icons/faPlus";
 
 export const CreateClass = () => {
   const [activeNav, setActiveNav] = useState("");
@@ -72,6 +76,50 @@ export const CreateClass = () => {
     const handleChangeInSelect = (e) => {
       e.target.value === "other" ? setShowOther(true) : setShowOther(false);
       console.log(showOther);
+    };
+    const optionsLevel = [
+      {
+        value: "general",
+        option: "General",
+      },
+      {
+        value: "beginner",
+        option: "Beginner",
+      },
+      {
+        value: "intermediate",
+        option: "Intermediate",
+      },
+      {
+        value: "advanced",
+        option: "Advanced",
+      },
+    ];
+
+    const customStyle = {
+      container: (provided) => ({
+        ...provided,
+        width: "95%",
+        marginTop: "0.4em",
+      }),
+      control: (provided, state) => ({
+        ...provided,
+        height: "2.3em",
+        minHeight: "2.3em",
+        color: "#000000",
+        fontFamily: "Karla, sans-serif",
+        fontSize: "13px",
+      }),
+      option: (provided, state) => ({
+        ...provided,
+        paddingTop: "0.5em",
+        color: "#000000",
+      }),
+      placeholder: (provided) => ({
+        ...provided,
+        color: "#000000",
+        paddingBottom: "0.5em",
+      }),
     };
 
     return (
@@ -176,7 +224,7 @@ export const CreateClass = () => {
 
           <div className="course-level">
             <p>Select Course Level</p>
-            <select
+            {/* <select
               id="course-level"
               name="course-level"
               className="level-select"
@@ -186,7 +234,13 @@ export const CreateClass = () => {
               <option value="intermediate">Intermediate</option>
               <option value="advanced">Advanced</option>
               <option value="expert">Expert</option>
-            </select>
+            </select> */}
+            <Select
+              placeholder="Select a level"
+              styles={customStyle}
+              isSearchable={false}
+              options={optionsLevel}
+            ></Select>
           </div>
 
           <div className="class-desc">
