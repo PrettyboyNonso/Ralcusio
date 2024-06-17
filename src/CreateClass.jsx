@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Dates } from "./DateUI";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import reactSelect from "react-select";
 import {
   faArrowRight,
   faCalendarDays,
@@ -72,6 +73,7 @@ export const CreateClass = () => {
       e.target.value === "other" ? setShowOther(true) : setShowOther(false);
       console.log(showOther);
     };
+
     return (
       <div className="class-create-details-sec">
         <div className="class-create-details-head">
