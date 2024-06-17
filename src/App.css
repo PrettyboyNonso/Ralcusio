@@ -5106,8 +5106,8 @@ aside {
     border: none;
     box-shadow: 5px 2px 5px rgba (0, 0, 0, 0.3);
     justify-content: space-between;
-    padding-right: 0.5em;
-    padding-left: 0.5em;
+    padding-right: 0.8em;
+    padding-left: 0.8em;
     padding-bottom: 1em;
     border-radius: 5px;
     margin-top: 1em;
@@ -5180,7 +5180,7 @@ aside {
   }
 
   .class-date select {
-    width: 100%;
+    width: 95%;
     margin-top: 0.5em;
     height: 2.3em;
     font-family: "Karla", sans-serif;
@@ -5190,7 +5190,7 @@ aside {
     border: 1px solid gray;
   }
   .class-date input {
-    width: 100%;
+    width: 95%;
     margin-top: 0.5em;
     height: 2.3em;
     font-family: "Karla", sans-serif;
@@ -5212,7 +5212,7 @@ aside {
   }
 
   .course-level select {
-    width: 100%;
+    width: 95%;
     margin-top: 0.5em;
     height: 2.3em;
     font-family: "Karla", sans-serif;
