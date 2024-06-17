@@ -80,19 +80,19 @@ export const CreateClass = () => {
     const optionsLevel = [
       {
         value: "general",
-        option: "General",
+        label: "General",
       },
       {
         value: "beginner",
-        option: "Beginner",
+        label: "Beginner",
       },
       {
         value: "intermediate",
-        option: "Intermediate",
+        label: "Intermediate",
       },
       {
         value: "advanced",
-        option: "Advanced",
+        label: "Advanced",
       },
     ];
 
@@ -109,17 +109,26 @@ export const CreateClass = () => {
         color: "#000000",
         fontFamily: "Karla, sans-serif",
         fontSize: "13px",
+        outline: "none",
       }),
       option: (provided, state) => ({
         ...provided,
-        paddingTop: "0.5em",
+        backgroundColor: state.isFocused ? "#fff" : "#fff",
         color: "#000000",
+        fontFamily: "Karla, sans-serif",
+        fontSize: "13px",
       }),
       placeholder: (provided) => ({
         ...provided,
         color: "#000000",
         paddingBottom: "0.5em",
       }),
+      singleValue: (provided) => ({
+        ...provided,
+        color: "#000000",
+        paddingBottom: "0.5em",
+      }),
+      indicatorSeparator: () => ({ display: "none" }),
     };
 
     return (
