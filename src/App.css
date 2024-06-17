@@ -5128,6 +5128,7 @@ aside {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     font-size: 19px;
+    display: none;
   }
   .class-create-details-head p {
     font-family: "Karla", sans-serif;
