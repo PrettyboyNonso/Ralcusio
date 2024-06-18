@@ -179,7 +179,7 @@ export const CreateClass = () => {
     const customStyle = {
       container: (provided) => ({
         ...provided,
-        width: "95%",
+        width: "100%",
         marginTop: "0.3em",
       }),
       control: (provided, state) => ({
@@ -453,18 +453,6 @@ export const CreateClass = () => {
   };
 
   const PricingUi = () => {
-    const currentdate = new Date();
-    const fullDate = currentdate.getDate();
-    const fullMonth = currentdate.getMonth();
-    const fullYear = currentdate.getFullYear();
-    const newDate = `${fullDate}/${fullMonth + 1}/${fullYear}`;
-
-    const addPlaceholder = (element) => {
-      // if (!element.value) {
-      //   element.value = placeholderText;
-      // }
-      console.log(element);
-    };
     return (
       <div className="pricing-ui">
         <div className="pricing-ui-head">
@@ -496,11 +484,7 @@ export const CreateClass = () => {
 
           <div className="discount-1">
             <p>start date</p>
-            <input
-              type="date"
-              style={{ marginRight: "0.6em" }}
-              onBlur={() => addPlaceholder(this)}
-            />
+            <input type="date" style={{ marginRight: "0.6em" }} />
             <input type="time" />
           </div>
           <div className="discount-1">
