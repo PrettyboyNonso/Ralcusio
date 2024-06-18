@@ -5876,6 +5876,7 @@ aside {
     font-family: "Karla", sans-serif;
     font-size: 16px;
     text-transform: capitalize;
+    display: none;
   }
 
   .second-head-flex {
