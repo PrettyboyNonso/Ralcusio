@@ -453,6 +453,18 @@ export const CreateClass = () => {
   };
 
   const PricingUi = () => {
+    const currentdate = new Date();
+    const fullDate = currentdate.getDate();
+    const fullMonth = currentdate.getMonth();
+    const fullYear = currentdate.getFullYear();
+    const newDate = `${fullDate}/${fullMonth + 1}/${fullYear}`;
+
+    const addPlaceholder = (element) => {
+      // if (!element.value) {
+      //   element.value = placeholderText;
+      // }
+      console.log(element);
+    };
     return (
       <div className="pricing-ui">
         <div className="pricing-ui-head">
@@ -487,7 +499,7 @@ export const CreateClass = () => {
             <input
               type="date"
               style={{ marginRight: "0.6em" }}
-              placeholder="mm/dd/yyyy"
+              onBlur={() => addPlaceholder(this)}
             />
             <input type="time" />
           </div>

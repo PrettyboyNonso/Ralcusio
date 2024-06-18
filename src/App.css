@@ -4001,7 +4001,7 @@ aside {
     border-radius: 5px;
     font-family: "Karla", sans-serif;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 14px;
     writing-mode: sideways-rl;
     display: flex;
     flex-direction: column;
@@ -4019,12 +4019,12 @@ aside {
   .schedule-head p {
     font-family: "Karla", sans-serif;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .schedule-head h2 {
     font-family: "Karla", sans-serif;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .level {
@@ -4034,7 +4034,7 @@ aside {
 
   .level p {
     text-transform: capitalize;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .second-schedule-flex {
@@ -4130,7 +4130,7 @@ aside {
   .analysis-head h1 {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     margin-left: 0.3em;
     display: none;
   }
@@ -4163,24 +4163,24 @@ aside {
   .analysis-card-head p {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .analysis-card h3 {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     margin-top: 0.3em;
   }
 
   .analysis-card p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .analysis-card :nth-child(3) {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     margin-top: 0.5em;
   }
 
