@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Dates } from "./DateUI";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Select from "react-select";
 import {
@@ -482,7 +484,11 @@ export const CreateClass = () => {
 
           <div className="discount-1">
             <p>start date</p>
-            <input type="date" style={{ marginRight: "0.6em" }} />
+            <input
+              type="date"
+              style={{ marginRight: "0.6em" }}
+              placeholder="mm/dd/yyyy"
+            />
             <input type="time" />
           </div>
           <div className="discount-1">
