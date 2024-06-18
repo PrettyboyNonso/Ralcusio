@@ -5913,7 +5913,7 @@ aside {
     display: flex;
     gap: 0.5em;
     justify-content: flex-end;
-    margin-right: 2em;
+    margin-right: 0em;
   }
 
   .all-class-checkbox {
@@ -5973,12 +5973,21 @@ aside {
   }
 
   .all-classes-body p {
-    flex: 0 0 25%;
+    flex: 0 0 24%;
     font-family: "Karla", sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     text-transform: capitalize;
     display: flex;
     justify-content: center;
+  }
+
+  .all-classes-body p:nth-child(2) {
+    /* padding-left: 0.8em; */
+    text-align: center;
+  }
+  .all-classes-body p:nth-child(1) {
+    /* padding-left: 0.8em; */
+    text-align: center;
   }
 
   /* profile */
