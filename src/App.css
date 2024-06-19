@@ -4424,7 +4424,7 @@ aside {
   }
 
   .responsive-chatflex .search {
-    margin-top: 3em;
+    margin-top: 2em;
     width: 100%;
     background-color: white;
     width: 100%;
@@ -4434,21 +4434,58 @@ aside {
   }
   .responsive-chatflex .search input {
     width: 100%;
-    height: 2.8em;
-    border-radius: 5px;
+    height: 3em;
+    border-radius: 3px;
     border: 1px solid grey;
     outline: none;
-    padding-left: 0.3em;
+    padding-left: 3em;
     font-family: "Karla", sans-serif;
     position: static;
     top: 0em;
+    font-size: 13px;
   }
 
   .chatcomponent-div {
-    margin-top: 7em;
+    margin-top: 6em;
     width: 100%;
     padding-left: 1em;
     padding-right: 1em;
+  }
+
+  .active-peeps {
+    width: 100%;
+    padding-left: 0.3em;
+    padding-top: 0.2em;
+    height: 100%;
+    margin-bottom: 1.3em;
+    display: flex;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    gap: 0.55em;
+  }
+
+  .active-peeps-child-div {
+    flex: 0 0 18%;
+    height: 90%;
+    scroll-snap-align: start;
+    border-radius: 50%;
+  }
+
+  .active-peeps-child-div:nth-child(1) {
+    border: 3px dashed #ed7014;
+    padding-top: 0.85em;
+    padding-bottom: 0.85em;
+    display: flex;
+    justify-content: center;
+  }
+  .active-peep-image {
+    width: 100%;
+  }
+
+  .active-peep-image img {
+    width: 100%;
+    height: 10vh;
   }
 
   .responsive-chatflex .chatscomponents {
@@ -5014,6 +5051,7 @@ aside {
     width: fit-content;
     padding-left: 0.5em;
     padding-right: 0.5em;
+    display: none;
   }
   .teacher-create-btn .publish-btn {
     background-color: #ed7014;
@@ -5983,19 +6021,10 @@ aside {
   }
 
   .all-classes-body p:nth-child(2) {
-    /* padding-left: 0.8em; */
     text-align: center;
   }
   .all-classes-body p:nth-child(1) {
-    /* padding-left: 0.8em; */
     text-align: center;
-  }
-  .all-classes-body p:nth-child(3) {
-    /* padding-left: 0.8em; */
-
-    background-color: green;
-    color: white;
-    border-radius: 15px;
   }
 
   /* profile */

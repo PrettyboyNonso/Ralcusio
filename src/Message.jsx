@@ -4,7 +4,9 @@ import {
   faCircleInfo,
   faEllipsis,
   faPaperPlane,
+  faPlus,
   faPlusCircle,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -55,123 +57,123 @@ export const Message = ({ handleWheel, handleTarget }) => {
       I aim to inspire curiosity and creativity, 
       guiding students toward a lifelong love of learning.`,
     },
-    // user5: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user6: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user7: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user8: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user9: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user10: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user11: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user12: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user41: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user42: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user13: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user15: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
-    // user16: {
-    //   id: "user4",
-    //   title: "Jane Adolphus",
-    //   image: "./images/smile-2072907_1280.jpg",
-    //   titleMessage: "start a conversation",
-    //   bio: `Passionate educator who believes in the transformative power of education.
-    //   I aim to inspire curiosity and creativity,
-    //   guiding students toward a lifelong love of learning.`,
-    // },
+    user5: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user6: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user7: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user8: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user9: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user10: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user11: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user12: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user41: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user42: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user13: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user15: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
+    user16: {
+      id: "user4",
+      title: "Jane Adolphus",
+      image: "./images/smile-2072907_1280.jpg",
+      titleMessage: "start a conversation",
+      bio: `Passionate educator who believes in the transformative power of education.
+      I aim to inspire curiosity and creativity,
+      guiding students toward a lifelong love of learning.`,
+    },
   };
 
   const chatClick = (e) => {
@@ -315,16 +317,19 @@ export const Message = ({ handleWheel, handleTarget }) => {
             <div className="second-chat-head">
               <div className="search">
                 {/* <FontAwesomeIcon
-                icon={faSearch}
-                style={{
-                  position: "fixed",
-                  right: "0.5em",
-                  top: "0.7em",
-                  color: "rgb(41, 41, 41)",
-                  cursor: "pointer",
-                  zIndex: "5",
-                }}
-              /> */}
+                  icon={faSearch}
+                  style={{
+                    position: "absolute",
+                    right: "-.18em",
+                    paddingRight: "0.5em",
+                    paddingLeft: "0.5em",
+                    top: "-.7em",
+                    color: "rgb(41, 41, 41)",
+                    cursor: "pointer",
+                    zIndex: "5",
+                    backgroundColor: "white",
+                  }}
+                /> */}
                 <input type="text" placeholder="Search For Messages" />
               </div>
             </div>
@@ -448,23 +453,87 @@ export const Message = ({ handleWheel, handleTarget }) => {
               </div>
               <div className="second-chat-head">
                 <div className="search">
-                  {/* <FontAwesomeIcon
-                icon={faSearch}
-                style={{
-                  position: "fixed",
-                  right: "0.5em",
-                  top: "0.7em",
-                  color: "rgb(41, 41, 41)",
-                  cursor: "pointer",
-                  zIndex: "5",
-                }}
-              /> */}
+                  <FontAwesomeIcon
+                    icon={faSearch}
+                    style={{
+                      position: "absolute",
+                      left: "1.5em",
+                      top: ".8em",
+                      color: "grey",
+                      cursor: "pointer",
+                      zIndex: "5",
+                    }}
+                  />
                   <input type="text" placeholder="Search For Messages" />
                 </div>
               </div>
             </div>
 
             <div className="chatcomponent-div">
+              <div className="active-peeps">
+                <div className="active-peeps-child-div">
+                  <FontAwesomeIcon
+                    icon={faPlus}
+                    style={{
+                      fontSize: "26px",
+                      color: "#4e4e4e",
+                    }}
+                  />
+                </div>
+                <div className="active-peeps-child-div">
+                  <div className="active-peep-image">
+                    <img
+                      src={require("./images/beard-1845166_1280.jpg")}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="active-peeps-child-div">
+                  <div className="active-peep-image">
+                    <img
+                      src={require("./images/man-1690965_1280.jpg")}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="active-peeps-child-div">
+                  <div className="active-peep-image">
+                    <img
+                      src={require("./images/man-3803551_1280.jpg")}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="active-peeps-child-div">
+                  <div className="active-peep-image">
+                    <img
+                      src={require("./images/girl-2961959_1280.jpg")}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="active-peeps-child-div">
+                  <div className="active-peep-image">
+                    <img
+                      src={require("./images/adult-1851571_1280.jpg")}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="active-peeps-child-div">
+                  <div className="active-peep-image">
+                    <img src={require("./images/fb.jpg")} alt="" />
+                  </div>
+                </div>
+                <div className="active-peeps-child-div">
+                  <div className="active-peep-image">
+                    <img
+                      src={require("./images/portrait-3204843_1280.jpg")}
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </div>
               {Object.keys(users).map((userID) => {
                 const user = users[userID];
                 return (
