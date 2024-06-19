@@ -5723,7 +5723,7 @@ aside {
 
   .curri-input-1 input {
     width: 100%;
-    height: 2em;
+    height: 2.5em;
     font-family: "Karla", sans-serif;
     padding-left: 0.4em;
     font-size: 13px;
@@ -5989,6 +5989,13 @@ aside {
   .all-classes-body p:nth-child(1) {
     /* padding-left: 0.8em; */
     text-align: center;
+  }
+  .all-classes-body p:nth-child(3) {
+    /* padding-left: 0.8em; */
+
+    background-color: green;
+    color: white;
+    border-radius: 15px;
   }
 
   /* profile */
