@@ -4463,6 +4463,7 @@ aside {
     gap: 0.5em;
     margin-bottom: 1em;
     overflow-y: hidden;
+    padding-right: 0.5em;
   }
 
   .active-peeps-child-div {
@@ -4477,7 +4478,7 @@ aside {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dashed #ed7014;
+    border: 1px dashed #ed7014;
   }
   .active-peep-image {
     height: 100%;
