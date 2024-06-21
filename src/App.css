@@ -4463,7 +4463,7 @@ aside {
     gap: 0.6em;
     margin-bottom: 1em;
     overflow-y: hidden;
-    padding-right: 0.5em;
+    padding-right: 1em;
     -ms-overflow-style: none;
   }
 
@@ -4538,7 +4538,7 @@ aside {
   }
 
   .chatscomponents .chat-title {
-    flex: 0 0 60%;
+    flex: 0 0 66%;
   }
 
   .chatscomponents .chat-title h3 {
