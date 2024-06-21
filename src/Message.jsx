@@ -487,6 +487,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                       alt=""
                     />
                   </div>
+                  <div className="active-status-color"></div>
                 </div>
                 <div className="active-peeps-child-div">
                   <div className="active-peep-image">
@@ -495,6 +496,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                       alt=""
                     />
                   </div>
+                  <div className="active-status-color"></div>
                 </div>
                 <div className="active-peeps-child-div">
                   <div className="active-peep-image">
@@ -503,6 +505,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                       alt=""
                     />
                   </div>
+                  <div className="active-status-color"></div>
                 </div>
                 <div className="active-peeps-child-div">
                   <div className="active-peep-image">
@@ -511,6 +514,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                       alt=""
                     />
                   </div>
+                  <div className="active-status-color"></div>
                 </div>
                 <div className="active-peeps-child-div">
                   <div className="active-peep-image">
@@ -519,11 +523,13 @@ export const Message = ({ handleWheel, handleTarget }) => {
                       alt=""
                     />
                   </div>
+                  <div className="active-status-color"></div>
                 </div>
                 <div className="active-peeps-child-div">
                   <div className="active-peep-image">
                     <img src={require("./images/fb.jpg")} alt="" />
                   </div>
+                  <div className="active-status-color"></div>
                 </div>
                 <div className="active-peeps-child-div">
                   <div className="active-peep-image">
@@ -532,6 +538,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                       alt=""
                     />
                   </div>
+                  <div className="active-status-color"></div>
                 </div>
               </div>
               {Object.keys(users).map((userID) => {
