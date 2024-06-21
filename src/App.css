@@ -4460,7 +4460,7 @@ aside {
     scrollbar-width: none;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    gap: 0.5em;
+    gap: 0.6em;
     margin-bottom: 1em;
     overflow-y: hidden;
     padding-right: 0.5em;
@@ -4513,7 +4513,7 @@ aside {
     width: 100%;
     margin-bottom: 0.7em;
     padding-top: 1em;
-    padding-bottom: 0.8em;
+    padding-bottom: 0.5em;
     padding-left: 0em;
     padding-right: 0em;
     display: flex;
