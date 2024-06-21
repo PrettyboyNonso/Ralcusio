@@ -475,7 +475,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                   <FontAwesomeIcon
                     icon={faPlus}
                     style={{
-                      fontSize: "26px",
+                      fontSize: "22px",
                       color: "#4e4e4e",
                     }}
                   />

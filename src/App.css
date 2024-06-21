@@ -4455,55 +4455,52 @@ aside {
 
   .active-peeps {
     width: 100%;
-    height: 8vh;
-    margin-bottom: 1.3em;
     display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    overflow-x: auto;
-    gap: 0.55em;
-    padding: 0em;
+    gap: 0.5em;
+    margin-bottom: 1em;
+    overflow-y: hidden;
   }
 
   .active-peeps-child-div {
-    flex: 0 0 15%;
-    height: 100%;
+    flex: 0 0 11.5%;
+    height: 6vh;
     scroll-snap-align: start;
     border-radius: 50%;
     position: relative;
-    z-index: 1;
-    padding-bottom: 0em;
   }
 
   .active-peeps-child-div:nth-child(1) {
-    border: 2px dashed #ed7014;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    border: 2px dashed #ed7014;
   }
   .active-peep-image {
-    width: 100%;
     height: 100%;
+    width: 100%;
+    border-radius: 50%;
   }
 
   .active-peep-image img {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
     object-fit: cover;
-    object-position: center;
+    border-radius: 50%;
   }
 
   .active-status-color {
-    height: 0.8em;
-    width: 0.8em;
+    height: 0.6em;
+    width: 0.6em;
     position: absolute;
     bottom: 0em;
-    right: 0.3em;
+    right: 0.2em;
     border-radius: 50%;
     background-color: green;
     z-index: 6;
-    display: none;
   }
 
   .responsive-chatflex .chatscomponents {
