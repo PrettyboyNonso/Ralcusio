@@ -4464,6 +4464,11 @@ aside {
     margin-bottom: 1em;
     overflow-y: hidden;
     padding-right: 0.5em;
+    -ms-overflow-style: none;
+  }
+
+  .active-peeps::-webkit-scrollbar {
+    display: none;
   }
 
   .active-peeps-child-div {
