@@ -4511,21 +4511,23 @@ aside {
 
   .responsive-chatflex .chatscomponents {
     width: 100%;
-    margin-bottom: 1.3em;
+    margin-bottom: 0.7em;
     padding-top: 1em;
     padding-bottom: 0.8em;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding-left: 0em;
+    padding-right: 0em;
     display: flex;
     gap: 0.9em;
     cursor: pointer;
     border-radius: 5px;
+    align-items: center;
   }
 
   .chatscomponents .image {
-    width: 17%;
-    height: 3.5em;
-    margin-top: -0.8em;
+    width: 15%;
+    height: 6.5vh;
+    margin-top: 0em;
+    flex: 0 0 15%;
   }
 
   .chatscomponents .image img {
@@ -4535,9 +4537,13 @@ aside {
     border-radius: 50%;
   }
 
+  .chatscomponents .chat-title {
+    flex: 0 0 60%;
+  }
+
   .chatscomponents .chat-title h3 {
     font-family: "Karla", sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     margin-bottom: 0.2em;
     color: #4e4e4e;
     text-transform: capitalize;
@@ -4545,7 +4551,22 @@ aside {
 
   .chatscomponents .chat-title p {
     font-family: "Karla", sans-serif;
-    font-size: 15px;
+    font-size: 13px;
+    color: #4e4e4e;
+  }
+
+  .message-time-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 0 0 10%;
+    gap: 0.2em;
+  }
+
+  .message-time-icon p {
+    font-size: 13px;
+    font-family: "Karla", sans-serif;
     color: #4e4e4e;
   }
 

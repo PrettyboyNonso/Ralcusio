@@ -282,7 +282,6 @@ export const Message = ({ handleWheel, handleTarget }) => {
           <FontAwesomeIcon
             icon={faCheckDouble}
             style={{
-              alignSelf: "center",
               fontSize: "18px",
               color: "#ed7014",
             }}
