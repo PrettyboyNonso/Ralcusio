@@ -4467,7 +4467,7 @@ aside {
 
   .active-peeps-child-div {
     flex: 0 0 11.5%;
-    height: 6vh;
+    height: 4vh;
     scroll-snap-align: start;
     border-radius: 50%;
     position: relative;
@@ -4500,7 +4500,7 @@ aside {
     right: 0.2em;
     border-radius: 50%;
     background-color: green;
-    z-index: 6;
+    z-index: 3;
   }
 
   .responsive-chatflex .chatscomponents {
