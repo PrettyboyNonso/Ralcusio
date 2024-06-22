@@ -1,11 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { CiHome } from "react-icons/ci";
-import { FiHome } from "react-icons/fi";
-import { TiMessages } from "react-icons/ti";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { IoCardOutline } from "react-icons/io5";
-import { FiUsers } from "react-icons/fi";
 import {
   faArrowRightToBracket,
   faBookBookmark,
@@ -25,31 +18,12 @@ import { faPaypal } from "@fortawesome/free-brands-svg-icons/faPaypal";
 import { StudentSchedule } from "./StudentSchedule";
 import { CreateClass } from "./CreateClass";
 import { PaymentPage } from "./PaymentPage";
+import MessageClickProvider from "./MessageClickProvider";
+import { FooterComponent } from "./FooterComponent";
+
 export const Application = ({ handleWheel, handleTarget }) => {
-  const [activeLinkId, setActiveLinkId] = useState("");
-  const { userData, signOutUser } = useContext(Devices);
-
-  const handleClick = (e) => {
-    let clickedElement = e.target.closest(".links");
-    if (clickedElement) {
-      const clickedElementId = clickedElement.id;
-      setActiveLinkId(clickedElementId);
-      sessionStorage.setItem("activeLinkId", clickedElementId);
-      if (clickedElement.classList.contains("active")) {
-        //   do nothing
-      } else if (!clickedElement.classList.contains("active")) {
-        const allLinks = Array.from(document.querySelectorAll(".links"));
-        allLinks.map(
-          (value) =>
-            value.classList.contains("active") &&
-            value.classList.remove("active")
-        );
-
-        clickedElement.classList.add("active");
-      }
-    }
-    console.log(activeLinkId);
-  };
+  const { userData, signOutUser, setActiveLinkId, activeLinkId, handleClick } =
+    useContext(Devices);
 
   useEffect(() => {
     const storedId = sessionStorage.getItem("activeLinkId");
@@ -76,94 +50,99 @@ export const Application = ({ handleWheel, handleTarget }) => {
   };
 
   return (
-    <div className="application">
-      <aside className="aside" onWheel={handleWheel}>
-        <div className="logo" onClick={() => (window.location.href = "/")}>
-          <img
-            src={require("./images/Beige_Black_Bold_Minimalist_Brand_Signature_Logo-removebg-preview.png")}
-            alt="logo"
-          />
-        </div>
-        <div className="navs">
-          <div
-            className={`links ${activeLinkId === "house" ? "active" : ""}`}
-            id="house"
-            onClick={handleClick}
-          >
-            <FontAwesomeIcon
-              icon={
-                userData.accountType === "Teacher Account"
-                  ? faChartLine
-                  : faHouse
-              }
-              style={{
-                color: activeLinkId === "house" ? "white" : "rgb(78, 78, 78)",
-                fontSize: "17px",
-              }}
+    <MessageClickProvider>
+      <div className="application">
+        <aside className="aside" onWheel={handleWheel}>
+          <div className="logo" onClick={() => (window.location.href = "/")}>
+            <img
+              src={require("./images/Beige_Black_Bold_Minimalist_Brand_Signature_Logo-removebg-preview.png")}
+              alt="logo"
             />
-            <p>
-              {userData.accountType === "Teacher Account"
-                ? "dashboard"
-                : "home"}
-            </p>
           </div>
-
-          <div className="links" id="message" onClick={handleClick}>
-            <FontAwesomeIcon
-              icon={faMessage}
-              style={{
-                color: activeLinkId === "message" ? "white" : "rgb(78, 78, 78)",
-                fontSize: "17px",
-              }}
-            />
-            <p>messages</p>
-          </div>
-
-          {userData.accountType === "Teacher Account" && (
+          <div className="navs">
             <div
-              className={`links ${activeLinkId === "payment" ? "active" : ""}`}
-              id="payment"
+              className={`links ${activeLinkId === "house" ? "active" : ""}`}
+              id="house"
               onClick={handleClick}
             >
               <FontAwesomeIcon
-                icon={faPaypal}
+                icon={
+                  userData.accountType === "Teacher Account"
+                    ? faChartLine
+                    : faHouse
+                }
                 style={{
-                  color:
-                    activeLinkId === "payment" ? "white" : "rgb(78, 78, 78)",
+                  color: activeLinkId === "house" ? "white" : "rgb(78, 78, 78)",
                   fontSize: "17px",
                 }}
               />
-              <p>payments</p>
+              <p>
+                {userData.accountType === "Teacher Account"
+                  ? "dashboard"
+                  : "home"}
+              </p>
             </div>
-          )}
 
-          <div className="links" id="book" onClick={handleClick}>
-            <FontAwesomeIcon
-              icon={faBookBookmark}
-              style={{
-                color: activeLinkId === "book" ? "white" : "rgb(78, 78, 78)",
-                fontSize: "17px",
-              }}
-            />
-            <p>
-              {userData.accountType === "Teacher Account"
-                ? "classes"
-                : "curriculum"}
-            </p>
-          </div>
+            <div className="links" id="message" onClick={handleClick}>
+              <FontAwesomeIcon
+                icon={faMessage}
+                style={{
+                  color:
+                    activeLinkId === "message" ? "white" : "rgb(78, 78, 78)",
+                  fontSize: "17px",
+                }}
+              />
+              <p>messages</p>
+            </div>
 
-          <div className="links" id="profile" onClick={handleClick}>
-            <FontAwesomeIcon
-              icon={faUser}
-              style={{
-                color: activeLinkId === "profile" ? "white" : "rgb(78, 78, 78)",
-                fontSize: "17px",
-              }}
-            />
-            <p>profile</p>
-          </div>
+            {userData.accountType === "Teacher Account" && (
+              <div
+                className={`links ${
+                  activeLinkId === "payment" ? "active" : ""
+                }`}
+                id="payment"
+                onClick={handleClick}
+              >
+                <FontAwesomeIcon
+                  icon={faPaypal}
+                  style={{
+                    color:
+                      activeLinkId === "payment" ? "white" : "rgb(78, 78, 78)",
+                    fontSize: "17px",
+                  }}
+                />
+                <p>payments</p>
+              </div>
+            )}
 
-          {/* <div className="links" id="arrow" onClick={handleClick}>
+            <div className="links" id="book" onClick={handleClick}>
+              <FontAwesomeIcon
+                icon={faBookBookmark}
+                style={{
+                  color: activeLinkId === "book" ? "white" : "rgb(78, 78, 78)",
+                  fontSize: "17px",
+                }}
+              />
+              <p>
+                {userData.accountType === "Teacher Account"
+                  ? "classes"
+                  : "curriculum"}
+              </p>
+            </div>
+
+            <div className="links" id="profile" onClick={handleClick}>
+              <FontAwesomeIcon
+                icon={faUser}
+                style={{
+                  color:
+                    activeLinkId === "profile" ? "white" : "rgb(78, 78, 78)",
+                  fontSize: "17px",
+                }}
+              />
+              <p>profile</p>
+            </div>
+
+            {/* <div className="links" id="arrow" onClick={handleClick}>
             <FontAwesomeIcon
               icon={faPeopleArrows}
               style={{
@@ -173,57 +152,29 @@ export const Application = ({ handleWheel, handleTarget }) => {
             />
             <p>Groups</p>
           </div> */}
-        </div>
+          </div>
 
-        <div className="logout" onClick={() => signOutUser()}>
-          <p>log out</p>
-          <FontAwesomeIcon
-            icon={faArrowRightToBracket}
-            style={{ color: "white", fontSize: "17px", paddingRight: "0.8em" }}
-          />
-        </div>
-      </aside>
-      <footer>
-        <div
-          className={`links my-icons ${
-            activeLinkId === "house" ? "active" : ""
-          }`}
-          id="house"
-          onClick={handleClick}
-        >
-          <FiHome />
-          <p>home</p>
-        </div>
-        <div
-          className={`links my-icons ${
-            activeLinkId === "message" ? "active" : ""
-          }`}
-          id="message"
-          onClick={handleClick}
-        >
-          <TiMessages />
-          <p>messages</p>
-        </div>
-        <div className="my-icons links" id="payment" onClick={handleClick}>
-          <IoCardOutline />
-          <p>payments</p>
-        </div>
-        <div className="my-icons links" id="book" onClick={handleClick}>
-          <FaChalkboardTeacher />
-          <p>classes</p>
-        </div>
-        <div className="my-icons links" id="profile" onClick={handleClick}>
-          <FiUsers />
-          <p>profile</p>
-        </div>
-      </footer>
-      {activeLinkId === "house" && <AppSide />}
-      {activeLinkId === "message" && (
-        <Message handleTarget={handleTarget} handleWheel={handleWheel} />
-      )}
-      {activeLinkId === "book" && <CreateClass />}
-      {activeLinkId === "payment" && <PaymentPage />}
-      {activeLinkId === "profile" && <Profile />}
-    </div>
+          <div className="logout" onClick={() => signOutUser()}>
+            <p>log out</p>
+            <FontAwesomeIcon
+              icon={faArrowRightToBracket}
+              style={{
+                color: "white",
+                fontSize: "17px",
+                paddingRight: "0.8em",
+              }}
+            />
+          </div>
+        </aside>
+        <FooterComponent />
+        {activeLinkId === "house" && <AppSide />}
+        {activeLinkId === "message" && (
+          <Message handleTarget={handleTarget} handleWheel={handleWheel} />
+        )}
+        {activeLinkId === "book" && <CreateClass />}
+        {activeLinkId === "payment" && <PaymentPage />}
+        {activeLinkId === "profile" && <Profile />}
+      </div>
+    </MessageClickProvider>
   );
 };

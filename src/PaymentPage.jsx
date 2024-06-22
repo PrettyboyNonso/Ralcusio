@@ -12,6 +12,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PaymentHeadComp } from "./PaymentHeadComp";
 import { PaymentDetailsBody } from "./PaymentDetailsBody";
+import { ResponsivePayment } from "./images/ResponsivePayment";
 export const PaymentPage = () => {
   const [toggleUp, setToggleUp] = useState(false);
 
@@ -80,6 +81,7 @@ export const PaymentPage = () => {
           </h3>
         </div>
       </div>
+      <ResponsivePayment />
       <div className="account-informations-div">
         <div className="account-info-div-1">
           <div className="first-part-account-info">

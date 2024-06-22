@@ -38,6 +38,7 @@ function App() {
   const [classLoaded, setClassLoaded] = useState(false);
   const [classView, setClassView] = useState(false);
   const [classViewLoading, setClassViewLoading] = useState(true);
+  const [activeLinkId, setActiveLinkId] = useState("");
   const loginFormRef = useRef();
   const classFormRef = useRef();
 
@@ -259,6 +260,28 @@ function App() {
     // console.log(microphonesState, speakerState, videoState);
   }
 
+  const handleClick = (e) => {
+    let clickedElement = e.target.closest(".links");
+    if (clickedElement) {
+      const clickedElementId = clickedElement.id;
+      setActiveLinkId(clickedElementId);
+      sessionStorage.setItem("activeLinkId", clickedElementId);
+      if (clickedElement.classList.contains("active")) {
+        //   do nothing
+      } else if (!clickedElement.classList.contains("active")) {
+        const allLinks = Array.from(document.querySelectorAll(".links"));
+        allLinks.map(
+          (value) =>
+            value.classList.contains("active") &&
+            value.classList.remove("active")
+        );
+
+        clickedElement.classList.add("active");
+      }
+    }
+    console.log(activeLinkId);
+  };
+
   useEffect(() => {
     const userFound = sessionStorage.getItem("user");
     const userIsLoggedIn = sessionStorage.getItem("userIn");
@@ -299,6 +322,9 @@ function App() {
         setClassView,
         classViewLoading,
         setClassViewLoading,
+        setActiveLinkId,
+        activeLinkId,
+        handleClick,
       }}
     >
       <BrowserRouter>
