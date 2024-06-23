@@ -138,11 +138,7 @@ export const ResponsivePayment = () => {
       <div className="transactions">
         <div className="transaction-head">
           <h2>transactions</h2>
-          <Select
-            options={optionLevel}
-            isSearchable={false}
-            styles={style}
-          ></Select>
+          <p>see all</p>
         </div>
       </div>
       <Transaction />

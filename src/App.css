@@ -4729,6 +4729,7 @@ aside {
     display: block;
     padding-left: 1em;
     padding-right: 1em;
+    padding-bottom: 2em;
   }
 
   .responsive-head {
@@ -4882,8 +4883,13 @@ aside {
     justify-content: space-between;
     align-items: center;
   }
-  .transactions h2 {
+  .transaction-head h2 {
     font-size: 16px;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+  }
+  .transaction-head p {
+    font-size: 13px;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
   }
@@ -4932,6 +4938,8 @@ aside {
 
   .amount-paid {
     width: 30%;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .amount-paid h2 {
