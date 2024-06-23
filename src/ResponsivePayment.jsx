@@ -92,7 +92,7 @@ export const ResponsivePayment = () => {
   return (
     <div className="responsive-payment">
       <div className="responsive-head">
-        <h2>hi, fortune😊</h2>
+        <h2>hi, darlington😊</h2>
         <div className="chat-icons">
           <FontAwesomeIcon
             icon={faEllipsis}

@@ -193,7 +193,7 @@ export const TeacherSchedule = () => {
   return (
     <div className="teacher-schedule">
       <div className="teacherHeader">
-        <h2>dashboard</h2>
+        <h2>welcome back🌴</h2>
         <div className="profileName-img">
           <div className="searchbar-notification">
             <div className="magnifyingglass">

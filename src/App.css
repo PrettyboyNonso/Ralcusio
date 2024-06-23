@@ -732,13 +732,13 @@ aside {
 .teacherHeader h2 {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .profileName-img {
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 50%;
   justify-content: flex-end;
   gap: 1.5em;
 }
@@ -4406,7 +4406,7 @@ aside {
   .chatflex-head h2 {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .chat-icons {
@@ -4620,7 +4620,14 @@ aside {
 
   .messageBodyHead .imageDiv {
     width: 12%;
-    height: 3.5em;
+    height: 3.3em;
+  }
+
+  .title-online p {
+    color: green;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
   }
 
   .imageDiv img {
@@ -4642,7 +4649,7 @@ aside {
 
   .chatBrief .imageDiv {
     width: 22%;
-    height: 5em;
+    height: 4.5em;
   }
 
   .chatBrief .chatPersonDetails {
@@ -4672,13 +4679,13 @@ aside {
     display: flex;
     width: 100%;
     padding-left: 0em;
-    bottom: 0.25em;
+    bottom: 0.5em;
     background-color: white;
   }
 
   .chat-inputs textarea {
     width: 70%;
-    height: 2.5em;
+    height: 3em;
     max-height: 10em;
     padding-left: 0.8em;
     padding-top: 0.5em;
@@ -4715,7 +4722,7 @@ aside {
 
   .message-receive-body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin-bottom: 3em;
     margin-top: 3em;
   }
@@ -4973,7 +4980,7 @@ aside {
   }
 
   .teacher-create-class-h2 h2 {
-    font-size: 20.5px;
+    font-size: 18px;
   }
 
   .teacher-create-class-h2 small {
@@ -6296,5 +6303,259 @@ aside {
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     font-size: 14px;
+  }
+
+  .app-side {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0.4em;
+    padding-left: 1em;
+    padding-right: 1em;
+    position: static;
+  }
+
+  .app-side-head {
+    display: flex;
+    width: 100%;
+    justify-content: unset;
+  }
+
+  .app-side-head h2 {
+    text-transform: capitalize;
+    margin-left: 0.3em;
+    font-family: "Karla", sans-serif;
+    color: rgb(41, 41, 41);
+    font-size: 18px;
+    width: 50%;
+  }
+
+  .app-second-head {
+    display: flex;
+    margin-right: 4em;
+    gap: 1.5em;
+  }
+
+  .app-second-head .bars {
+    display: none;
+  }
+
+  .app-second-head input {
+    width: 100%;
+    outline: none;
+    padding-left: 0.4em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    border-radius: 3px;
+    border: 1px solid grey;
+
+    height: 2.5em;
+  }
+
+  .search {
+    position: relative;
+    width: fit-content;
+  }
+
+  .upcoming-classes {
+    width: 100%;
+    height: 40vh;
+    margin-top: 2em;
+  }
+
+  .upcoming-head {
+    margin-top: 1em;
+    margin-left: 0.3em;
+  }
+
+  .upcoming-head h3 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    color: #ed7014;
+    font-size: 20px;
+  }
+
+  .upcoming-head p {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+    margin-top: 0.5em;
+  }
+
+  .profile {
+    width: 2em;
+    height: 2em;
+    border: 1px solid gray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ed7014;
+    cursor: pointer;
+  }
+
+  .add-class-cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .add-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 40%;
+    height: 22vh;
+    margin-top: 2em;
+    border-radius: 8px;
+  }
+
+  .add-class p {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(41, 41, 41);
+    margin-top: 1em;
+    text-align: center;
+    color: black;
+  }
+
+  .add-class small {
+    margin-top: 0.5em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+
+    color: black;
+  }
+
+  .student-groups {
+    width: 70%;
+  }
+
+  .student-group-head h3 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    color: #ed7014;
+    font-size: 20px;
+  }
+
+  .student-group-head p {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+    margin-top: 0.5em;
+  }
+
+  .groups {
+    margin-top: 1.5em;
+    width: 100%;
+
+    padding-left: 0.5em;
+    padding-right: 2em;
+    height: 100%;
+    padding-bottom: 0.5em;
+
+    padding-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .group {
+    width: 100%;
+    gap: 0.6em;
+    background-color: antiquewhite;
+    padding-bottom: 0.5em;
+    border-radius: 5px;
+
+    box-shadow: 5px 5px 10px rgb(71, 71, 71);
+  }
+  .group-first-flex {
+    display: flex;
+    width: 100%;
+  }
+
+  .group-first-flex h3 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+
+    color: rgb(78, 78, 78);
+    margin-top: 0.45em;
+    width: 40%;
+    margin-left: 0.3em;
+  }
+  .image-flex {
+    display: flex;
+    width: 60%;
+    margin-top: 0.45em;
+    height: 100%;
+    margin-right: 0.5em;
+    justify-content: flex-end;
+  }
+
+  .imageBox {
+    display: flex;
+    width: 9%;
+    height: 2.3em;
+  }
+
+  .imageBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .image-flex .number {
+    display: flex;
+    width: 9%;
+    height: 2.3em;
+
+    object-fit: cover;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-left: -0.4em;
+    color: #ed7014;
+    background-color: rgb(226, 213, 196);
+  }
+
+  .image-flex .number p {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-weight: bold;
+  }
+
+  .second-group-flex {
+    margin-top: 1.5em;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .second-group-flex p {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    width: 40%;
+
+    display: flex;
+    align-items: center;
+    color: rgb(78, 78, 78);
+    font-size: 15px;
+    margin-left: 0.3em;
+  }
+
+  .second-div-icon {
+    width: 60%;
+
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1em;
   }
 }

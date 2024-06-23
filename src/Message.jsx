@@ -435,7 +435,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                   <FontAwesomeIcon
                     icon={faAngleLeft}
                     style={{
-                      fontSize: "24px",
+                      fontSize: "28px",
                       color: "rgba(237, 112, 20, 0.8)",
                     }}
                     onClick={resetClick}
@@ -447,7 +447,10 @@ export const Message = ({ handleWheel, handleTarget }) => {
                     alt=""
                   />
                 </div>
-                <h2>{currentId && users[currentId].title}</h2>
+                <div className="title-online">
+                  <h2>{currentId && users[currentId].title}</h2>
+                  <p>online</p>
+                </div>
               </div>
               <FontAwesomeIcon
                 icon={faCircleInfo}

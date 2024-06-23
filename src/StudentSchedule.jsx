@@ -133,7 +133,7 @@ export const StudentSchedule = () => {
   return (
     <div className="app-side">
       <div className="app-side-head">
-        <h2>{userIn && `hi, ${userData.firstname}`}</h2>
+        <h2>welcome back!</h2>
         <div className="app-second-head">
           <div className="search">
             <input type="text" placeholder="search for people" />
@@ -157,6 +157,7 @@ export const StudentSchedule = () => {
               marginTop: "0.15em",
               cursor: "pointer",
             }}
+            className="bars"
             onClick={() => setAccountTypeView(!accountTypeView)}
           />
           {accountTypeView && (
