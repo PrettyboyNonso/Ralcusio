@@ -4739,14 +4739,14 @@ aside {
   }
 
   .responsive-head h2 {
-    font-size: 16px;
+    font-size: 18px;
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
   }
 
   .withdraw-card {
     border: 1px solid rgb(227, 227, 227);
-    margin-top: 2em;
+    margin-top: 1.5em;
     border-radius: 8px;
     padding-left: 1em;
     padding-right: 1em;
@@ -4765,7 +4765,7 @@ aside {
     align-items: center;
   }
   .withdraw-head p {
-    font-size: 14px;
+    font-size: 13px;
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
     color: white;
@@ -4788,7 +4788,7 @@ aside {
   .withdraw-amount h1 {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    font-size: 28px;
+    font-size: 25px;
     color: white;
   }
 
@@ -4825,7 +4825,7 @@ aside {
     border-radius: 10px;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -4919,7 +4919,7 @@ aside {
   }
 
   .name-date h2 {
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
   }
@@ -4935,7 +4935,7 @@ aside {
   }
 
   .amount-paid h2 {
-    font-size: 18px;
+    font-size: 14px;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
     color: green;
