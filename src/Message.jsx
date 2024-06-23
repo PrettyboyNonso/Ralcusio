@@ -315,7 +315,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
           <div className="responsive-chatflex">
             <div className="chatflex-head">
               <div className="first-chat-head">
-                <h2>Messages</h2>
+                <h2>Chats</h2>
                 <div className="chat-icons">
                   <FontAwesomeIcon
                     icon={faEllipsis}
@@ -329,7 +329,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                     icon={faSearch}
                     style={{
                       position: "absolute",
-                      left: "1.5em",
+                      left: "1.8em",
                       top: ".8em",
                       color: "grey",
                       cursor: "pointer",

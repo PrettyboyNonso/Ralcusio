@@ -4410,7 +4410,8 @@ aside {
   }
 
   .chat-icons {
-    background-color: rgb(226, 213, 196);
+    background-color: rgb(247, 247, 247);
+    box-shadow: 2px 5px 5px rgb(227, 227, 227);
     width: 2em;
     height: 2em;
     border-radius: 50%;
@@ -4448,6 +4449,7 @@ aside {
     position: static;
     top: 0em;
     font-size: 13px;
+    border-radius: 20px;
   }
 
   .chatcomponent-div {
@@ -4528,10 +4530,10 @@ aside {
   }
 
   .chatscomponents .image {
-    width: 15%;
+    width: 14%;
     height: 6.5vh;
     margin-top: 0em;
-    flex: 0 0 15%;
+    flex: 0 0 14%;
   }
 
   .chatscomponents .image img {
