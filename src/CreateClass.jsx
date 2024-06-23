@@ -200,11 +200,7 @@ export const CreateClass = () => {
         fontFamily: "Karla, sans-serif",
         fontSize: "13px",
       }),
-      placeholder: (provided) => ({
-        ...provided,
-        color: "#000000",
-        paddingBottom: "0.5em",
-      }),
+
       singleValue: (provided) => ({
         ...provided,
         color: "#000000",

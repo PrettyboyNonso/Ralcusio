@@ -4331,7 +4331,7 @@ aside {
   }
 
   .my-icons {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: lighter;
     color: rgb(41, 41, 41);
     cursor: pointer;
@@ -4721,386 +4721,224 @@ aside {
   }
 
   .payment-page {
-    margin-left: 0em;
-    width: 100%;
-    margin-right: 0em;
-    padding-left: 0.8em;
-    padding-right: 0.8em;
-    padding-bottom: 5em;
-  }
-
-  .payment-page-head {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .payment-page-head h2 {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 20px;
-  }
-
-  .payment-page-head button {
-    display: flex;
-    width: fit-content;
-    height: 2.5em;
-    align-items: center;
-    gap: 0.5em;
-    padding: 0.5em;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 14px;
-    justify-content: center;
-    background-color: #ed7014;
-    border: 1px solid grey;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
     display: none;
   }
 
   .responsive-payment {
-    display: flex;
     width: 100%;
-    height: 100%;
-    overflow-x: scroll;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
+    display: block;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .responsive-head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .responsive-head h2 {
+    font-size: 16px;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+  }
+
+  .withdraw-card {
+    border: 1px solid rgb(227, 227, 227);
     margin-top: 2em;
-    gap: 1em;
-  }
-
-  .responsive-payment::-webkit-scrollbar {
-    display: none;
-  }
-
-  .responsive-payment-child {
-    background-color: rgb(226, 213, 196);
-    border: 1px solid rgb(227, 227, 227);
-    flex: 0 0 53%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    scroll-snap-align: start;
-    height: 100%;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
-    border-radius: 10px;
-    gap: 0.7em;
-  }
-
-  .responsive-pay-icon {
-    border: 1px solid rgb(227, 227, 227);
-    padding: 0.5em 0.6em;
-    border-radius: 50%;
-    background-color: white;
-  }
-
-  .responsive-h2 {
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
-  }
-
-  .responsive-h2 h2 {
-    font-size: 18px;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-  }
-
-  .responsive-h2 small {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-  }
-
-  .payment-body-flex-account {
-    margin-top: 3em;
-    width: 100%;
-    display: none;
-    flex-direction: column;
-  }
-
-  .payment-body-flex-account .first-payment-flex-account {
-    width: 100%;
-  }
-
-  .first-payment-flex-account .account-summary-details {
-    width: 100%;
-    display: flex;
-    gap: 0.5em;
-    flex-wrap: wrap;
-  }
-
-  .account-summary {
-    border: 1px solid rgb(227, 227, 227);
-    height: 5em;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 0 0 48.5%;
-  }
-
-  .account-summary .first-child {
-    padding-top: 0.5em;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 15px;
-    font-weight: bold;
-  }
-
-  .detail-flex-account {
-    display: flex;
-    align-items: center;
-    margin-top: 1em;
-    gap: 0.8em;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .detail-flex-account h3 {
-    max-width: 60%;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 19px;
-  }
-
-  .detail-flex-account small {
-    display: flex;
-    gap: 0.3em;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-  }
-
-  .second-payment-flex-account {
-    display: none;
-  }
-
-  .responsive-second-payment-flex-account {
-    width: 49%;
-    border: 1px solid rgb(227, 227, 227);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 0.5em;
-  }
-
-  .responsive-second-payment-flex-account p {
-    padding-top: 0.5em;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 15px;
-    font-weight: bold;
-  }
-
-  .responsive-second-payment-flex-account h3 {
-    margin-top: 0.2em;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 19px;
-  }
-
-  .account-informations-div {
-    margin-top: 2em;
-    width: 100%;
-    border: 1px solid rgb(227, 227, 227);
-
-    display: none;
-    /* align-items: center; */
     border-radius: 8px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #ed7014;
+    display: flex;
     flex-direction: column;
-  }
-
-  .account-info-div-1,
-  .account-info-div-2,
-  .account-info-div-3,
-  .account-info-div-4 {
-    flex: 0 0 25%;
     height: 100%;
   }
 
-  .account-info-div-1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .account-info-div-1 .first-part-account-info {
-    padding-top: 0.68em;
-    padding-bottom: 0.68em;
-
-    align-items: center;
-    gap: 0.8em;
-  }
-
-  .account-info-div-1 .first-part-account-info p {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 13px;
-  }
-
-  .bank-icon-img {
-    height: 1.5em;
-    border: 1px solid rgb(227, 227, 227);
-    padding-left: 0.4em;
-    padding-right: 0.4em;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
-    border-radius: 5px;
-  }
-
-  .bank-icon-img img {
+  .withdraw-head {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .account-info-div-2 {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
   }
-
-  .account-info-div-2 .first-part-account-info {
-    padding-top: 1em;
-    padding-bottom: 1.36em;
-    font-family: "Karla", sans-serif;
-    font-size: 13px;
-  }
-
-  .account-info-div-3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .account-info-div-3 .first-part-account-info {
-    font-family: "Karla", sans-serif;
-    padding-top: 1em;
-    padding-bottom: 1.36em;
-    font-size: 13px;
+  .withdraw-head p {
+    font-size: 14px;
     text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    color: white;
   }
-
-  .account-info-div-4 .first-part-account-info {
+  .transparent {
+    background-color: transparent;
+    width: 2em;
+    height: 2em;
     display: flex;
     justify-content: center;
-    gap: 1.5em;
-
-    padding-top: 1em;
-    padding-bottom: 1em;
-  }
-
-  .other-bank-info {
-    width: 100%;
-    padding-top: 0.5em;
-    border-top: 1px solid rgb(227, 227, 227);
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.4em;
-    padding-bottom: 0.3em;
-  }
-
-  .other-bank-info p {
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 13px;
-  }
-
-  .other-bank-info button {
-    width: 60%;
-    height: 2em;
-    font-family: "Karla", sans-serif;
-    text-transform: capitalize;
-    font-size: 13px;
-    color: white;
-    background-color: #ed7014;
-    border: 1px solid grey;
-    border-radius: 3px;
-    outline: none;
-    margin-top: 0.5em;
+    margin-top: -0.3em;
     cursor: pointer;
   }
 
-  .other-bank-info .icon-flex-other-info {
-    display: flex;
-    gap: 1.5em;
+  .withdraw-amount {
     margin-top: 0.5em;
   }
 
-  .account-info-payment-history {
-    width: 100%;
-    margin-top: 2.8em;
-  }
-
-  .payment-history-head {
-    width: 100%;
-    justify-content: space-between;
-    display: flex;
-    font-family: "Karla", sans-serif;
+  .withdraw-amount h1 {
     text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 28px;
+    color: white;
   }
 
-  .payment-history-head h2 {
-    font-size: 19px;
-  }
-
-  .payment-history-head p {
-    font-size: 14px;
-    color: #ed7014;
-  }
-
-  .mini-payment-history-head {
+  .account-number {
+    align-self: flex-end;
     display: flex;
+    align-items: center;
+    margin-top: 0.9em;
+  }
+
+  .account-number .dots {
+    width: 0.3em;
+    height: 0.3em;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 0.2em;
+  }
+  .account-number p {
+    color: white;
+    font-family: "Karla", sans-serif;
+  }
+
+  .withdraw-btns {
     margin-top: 1em;
-    gap: 0.35em;
-    border: 1px solid rgb(227, 227, 227);
-    padding: 0.5em 0.8em;
-    border-radius: 8px;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 
-  .mini-payment-history-head p {
+  .withdraw-btns button {
+    flex: 0 0 45%;
+    height: 3em;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 10px;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 15px;
-    flex: 0 0 20%;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
   }
 
-  .mini-payment-history-head p:nth-child(5) {
+  .request-money {
+    width: 100%;
+    display: flex;
+    margin-top: 1.8em;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 0.5em;
+  }
+
+  .request-peeps {
+    flex: 0 0 14.5%;
+    height: 3em;
+    scroll-snap-align: start;
+    border-radius: 50%;
+  }
+
+  .request-peeps:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #ed7014;
+  }
+
+  .request-money::-webkit-scrollbar {
     display: none;
   }
 
-  .payment-details-body {
-    display: flex;
-    margin-top: 0.4em;
-    gap: 0.35em;
-    border: 1px solid rgb(227, 227, 227);
-    padding: 0.5em 0.8em;
-    border-radius: 8px;
+  .request-peeps img {
     width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
-  .payment-details-body p {
+  .transactions {
+    margin-top: 2.3em;
+    margin-bottom: 2em;
+  }
+
+  .transaction-head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .transactions h2 {
+    font-size: 16px;
     font-family: "Karla", sans-serif;
     text-transform: capitalize;
-    font-size: 15px;
-    flex: 0 0 20%;
-    max-width: 20%;
+  }
+
+  .transactionBody {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    gap: 0.8em;
+    align-items: center;
+    margin-bottom: 1.5em;
   }
-  .payment-details-body p:nth-child(5) {
-    display: none;
+
+  .person-image-div {
+    width: 17%;
+    height: 3em;
+    background-color: #cfcfcf;
+    padding: 0.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
   }
-  .payment-details-body p:nth-child(4) {
-    padding-left: 0.5em;
+
+  .person-image-div img {
+    width: 70%;
+    height: 90%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .name-date {
+    width: 50%;
+  }
+
+  .name-date h2 {
+    font-size: 16px;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+  }
+
+  .name-date p {
+    font-size: 13px;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+  }
+
+  .amount-paid {
+    width: 30%;
+  }
+
+  .amount-paid h2 {
+    font-size: 18px;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    color: green;
   }
 
   .create-class-teacher {

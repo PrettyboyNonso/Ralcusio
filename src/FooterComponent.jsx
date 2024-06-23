@@ -1,6 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Devices } from "./App";
-import { CiHome } from "react-icons/ci";
 import { FiHome } from "react-icons/fi";
 import { TiMessages } from "react-icons/ti";
 import { FaChalkboardTeacher } from "react-icons/fa";
