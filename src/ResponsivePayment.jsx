@@ -31,7 +31,7 @@ export const ResponsivePayment = () => {
           <div className="transparent">
             <FontAwesomeIcon
               icon={faEllipsis}
-              style={{ fontSize: "18px", color: "white" }}
+              style={{ fontSize: "18px", color: "black" }}
             />
           </div>
         </div>
@@ -39,12 +39,18 @@ export const ResponsivePayment = () => {
           <h1>$30,000 USD</h1>
         </div>
 
-        <div className="account-number">
-          <div className="dots"></div>
-          <div className="dots"></div>
-          <div className="dots"></div>
-          <div className="dots"></div>
-          <p>6753</p>
+        <div className="witdraw-card-end">
+          <div className="account-holder-name-pay">
+            <p>darlington obi</p>
+          </div>
+
+          <div className="account-number">
+            <div className="dots"></div>
+            <div className="dots"></div>
+            <div className="dots"></div>
+            <div className="dots"></div>
+            <p>6753</p>
+          </div>
         </div>
       </div>
     );

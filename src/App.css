@@ -4761,9 +4761,12 @@ aside {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     background-color: #ed7014;
+    background-color: transparent;
+    background-color: #cfcfcf;
     display: flex;
     flex-direction: column;
     height: 100%;
+    box-shadow: 3px 2px 5px rgb(126, 126, 126);
   }
 
   .withdraw-head {
@@ -4777,6 +4780,7 @@ aside {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
     color: white;
+    color: black;
   }
   .transparent {
     background-color: transparent;
@@ -4798,6 +4802,28 @@ aside {
     font-family: "Karla", sans-serif;
     font-size: 25px;
     color: white;
+    color: black;
+  }
+
+  .witdraw-card-end {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5em;
+  }
+
+  .account-holder-name-pay {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    margin-top: 0.9em;
+  }
+
+  .account-holder-name-pay p {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    text-transform: capitalize;
   }
 
   .account-number {
@@ -4811,12 +4837,15 @@ aside {
     width: 0.3em;
     height: 0.3em;
     background-color: white;
+    background-color: black;
     border-radius: 50%;
     margin-right: 0.2em;
   }
   .account-number p {
     color: white;
+    color: black;
     font-family: "Karla", sans-serif;
+    font-size: 13px;
   }
 
   .withdraw-btns {
