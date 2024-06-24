@@ -31,7 +31,7 @@ export const ResponsivePayment = () => {
           <div className="transparent">
             <FontAwesomeIcon
               icon={faEllipsis}
-              style={{ fontSize: "18px", color: "black" }}
+              style={{ fontSize: "18px", color: "white" }}
             />
           </div>
         </div>

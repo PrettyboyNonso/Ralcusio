@@ -4760,9 +4760,8 @@ aside {
     padding-right: 1em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    background-color: #ed7014;
-    background-color: transparent;
-    background-color: #cfcfcf;
+    background-color: rgba(237, 112, 20, 0.5);
+
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -4780,7 +4779,6 @@ aside {
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
     color: white;
-    color: black;
   }
   .transparent {
     background-color: transparent;
@@ -4802,7 +4800,6 @@ aside {
     font-family: "Karla", sans-serif;
     font-size: 25px;
     color: white;
-    color: black;
   }
 
   .witdraw-card-end {
@@ -4823,6 +4820,7 @@ aside {
   .account-holder-name-pay p {
     font-family: "Karla", sans-serif;
     font-size: 13px;
+    color: white;
     text-transform: capitalize;
   }
 
@@ -4837,13 +4835,12 @@ aside {
     width: 0.3em;
     height: 0.3em;
     background-color: white;
-    background-color: black;
     border-radius: 50%;
     margin-right: 0.2em;
   }
   .account-number p {
     color: white;
-    color: black;
+
     font-family: "Karla", sans-serif;
     font-size: 13px;
   }
@@ -5967,6 +5964,16 @@ aside {
     width: 100%;
   }
 
+  .all-classes-table-head p:nth-child(2) {
+    display: none;
+  }
+  .all-classes-table-head p:nth-child(3) {
+    display: none;
+  }
+  .all-classes-table-head p:nth-child(4) {
+    display: none;
+  }
+
   .all-classes-table-head p {
     font-family: "Karla", sans-serif;
     font-size: 13px;
@@ -5997,10 +6004,11 @@ aside {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    flex-wrap: wrap;
   }
 
   .all-classes-body p {
-    flex: 0 0 24%;
+    flex: unset;
     font-family: "Karla", sans-serif;
     font-size: 13px;
     text-transform: capitalize;
@@ -6008,11 +6016,23 @@ aside {
     justify-content: center;
   }
 
-  .all-classes-body p:nth-child(2) {
-    text-align: center;
-  }
   .all-classes-body p:nth-child(1) {
-    text-align: center;
+    flex: 0 0 100%;
+    font-weight: bold;
+  }
+
+  .all-classes-body p:nth-child(2) {
+    flex: 0 0 30%;
+    margin-top: 0.8em;
+  }
+  .all-classes-body p:nth-child(3) {
+    flex: 0 0 30%;
+    margin-top: 0.8em;
+  }
+  .all-classes-body p:nth-child(4) {
+    flex: 0 0 30%;
+
+    margin-top: 0.8em;
   }
 
   /* profile */
