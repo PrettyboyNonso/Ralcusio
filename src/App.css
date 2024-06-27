@@ -4637,7 +4637,7 @@ aside {
 
   .active-peeps-child-div {
     flex: 0 0 15%;
-    height: 6.5vh;
+    height: 3em;
     scroll-snap-align: start;
     border-radius: 50%;
     position: relative;
