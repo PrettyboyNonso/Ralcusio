@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import { Dates } from "./DateUI";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -20,6 +20,8 @@ import {
   height,
   width,
 } from "@fortawesome/free-solid-svg-icons/faPlus";
+import { Devices } from "./App";
+import StudentClass from "./StudentClass";
 
 export const CreateClass = () => {
   const [activeNav, setActiveNav] = useState("");
@@ -28,18 +30,27 @@ export const CreateClass = () => {
   const [discountClick, setDiscountClick] = useState(false);
   const [showOther, setShowOther] = useState(false);
   const [typeOfClass, setTypeOfClass] = useState("");
+  const [reducerState, dispatch] = useReducer(reducer, { toggleOn: false });
+  const [reducerStateCurri, dispatchCurri] = useReducer(reducer, {
+    toggleOn: false,
+  });
 
+  const { userData } = useContext(Devices);
+
+  function reducer(reducerState) {
+    return { toggleOn: !reducerState.toggleOn };
+  }
   const addDiscount = () => {
     setDiscountClick(!discountClick);
   };
 
-  const handleToggleCourse = () => {
-    setToggleOnCourse(!toggleOnCourse);
-  };
+  // const handleToggleCourse = () => {
+  //   setToggleOnCourse(!toggleOnCourse);
+  // };
 
-  const handleToggleSchedule = () => {
-    setToggleOnSchedule(!toggleOnSchedule);
-  };
+  // const handleToggleSchedule = () => {
+  //   setToggleOnSchedule(!toggleOnSchedule);
+  // };
 
   const handleClassNavCursor = (e) => {
     const clickedElem = e.target.closest(".first-flex-create-type-sec");
@@ -276,8 +287,8 @@ export const CreateClass = () => {
             >
               <p>free course</p>
               <ToggleBtn
-                toggleFunc={handleToggleCourse}
-                toggleState={toggleOnCourse}
+                toggleFunc={() => dispatch()}
+                toggleState={reducerState.toggleOn}
               />
             </div>
 
@@ -304,8 +315,8 @@ export const CreateClass = () => {
             <div className="free-toggle">
               <h3>free</h3>
               <ToggleBtn
-                toggleFunc={handleToggleCourse}
-                toggleState={toggleOnCourse}
+                toggleFunc={() => dispatch()}
+                toggleState={reducerState.toggleOn}
               />
             </div>
           </div>
@@ -435,11 +446,11 @@ export const CreateClass = () => {
           <div className="schedule-3">
             <p>create a curriculum</p>
             <ToggleBtn
-              toggleFunc={handleToggleSchedule}
-              toggleState={toggleOnSchedule}
+              toggleFunc={() => dispatchCurri()}
+              toggleState={reducerStateCurri.toggleOn}
             />
           </div>
-          {toggleOnSchedule && <CourseCurriculum />}
+          {reducerStateCurri.toggleOn && <CourseCurriculum />}
           <div className="create-class-btn">
             <button>create class</button>
           </div>
@@ -697,7 +708,7 @@ export const CreateClass = () => {
       </div>
       <div className="create-class-navigation">
         <p>
-          <span>classes</span> / create class
+          <span>classes</span> / {document.getElementById(activeNav)?.innerText}
         </p>
       </div>
 

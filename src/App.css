@@ -1249,16 +1249,21 @@ aside {
   margin-left: 0.3em;
   font-family: "Karla", sans-serif;
   color: rgb(41, 41, 41);
+  font-size: 18px;
+  flex: 0 0 30%;
 }
 
 .app-second-head {
   display: flex;
   margin-right: 4em;
   gap: 1.5em;
+
+  justify-content: end;
+  flex: 0 0 65%;
 }
 
 .app-second-head input {
-  width: 18em;
+  width: 35em;
   outline: none;
   padding-left: 0.4em;
   text-transform: capitalize;
@@ -1274,206 +1279,224 @@ aside {
   width: fit-content;
 }
 
-.upcoming-classes {
-  width: 100%;
-  height: 40vh;
+.motivation-of-the-day {
+  border: 1px solid rgb(227, 227, 227);
+  width: 96%;
   margin-top: 2em;
+  height: 19vh;
+  position: relative;
+  border-radius: 10px;
 }
 
-.upcoming-head {
-  margin-top: 1em;
-  margin-left: 0.3em;
+.top-left-corner {
+  width: 4em;
+  height: 4em;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(237, 112, 20, 0.6);
 }
 
-.upcoming-head h3 {
-  text-transform: capitalize;
-  font-family: "Karla", sans-serif;
-  color: #ed7014;
-  font-size: 20px;
-}
-
-.upcoming-head p {
-  text-transform: capitalize;
-  font-family: "Karla", sans-serif;
-  font-size: 14px;
-  margin-top: 0.5em;
-}
-
-.profile {
-  width: 2em;
-  height: 2em;
-  border: 1px solid gray;
+.top-left-corner-effect {
+  width: 4em;
+  height: 6.5em;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ed7014;
-  cursor: pointer;
+  position: absolute;
+
+  top: -0.5em;
+  background-color: transparent;
+  background-color: white;
+  transform: rotate(45deg);
+  left: 0.7em;
 }
 
-.add-class-cont {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.add-class {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  width: 40%;
-  height: 22vh;
-  margin-top: 2em;
-  border-radius: 8px;
-}
-
-.add-class p {
+.facts-head {
+  position: absolute;
+  left: 1.7em;
+  top: 1em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
   font-size: 14px;
   font-weight: bold;
-  color: rgb(41, 41, 41);
-  margin-top: 1em;
-  text-align: center;
-  color: black;
 }
 
-.add-class small {
-  margin-top: 0.5em;
+.actual-fact {
+  position: absolute;
+  left: 1.5em;
+  top: 2.8em;
+}
+
+.actual-fact h2 {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  font-weight: 500;
-  font-size: 12px;
+  font-size: 18px;
+  color: #ed7014;
+}
 
-  color: black;
+.actual-fact p {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  margin-top: 0.8em;
+}
+
+.next-motivation-flex {
+  position: absolute;
+  right: 0;
+  width: 18em;
+  height: 19vh;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 150px;
+  border-bottom-right-radius: 10px;
+  background-color: rgba(237, 112, 20, 0.6);
+}
+
+.font-motivation {
+  width: fit-content;
+  padding: 0.4em;
+  position: absolute;
+  left: 7em;
+  top: 1.5em;
+  background-color: rgba(237, 112, 20, 0.6);
+  border-radius: 5px;
+}
+
+.next-motivation-flex button {
+  position: absolute;
+  left: 12em;
+  top: 1.9em;
+  background-color: rgba(237, 112, 20, 0.6);
+  border-radius: 5px;
+  padding: 0.5em;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  color: white;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
 }
 
 .student-groups {
-  width: 70%;
+  width: 95%;
+  margin-top: 3em;
+  display: flex;
+  gap: 1em;
 }
 
-.student-group-head h3 {
-  text-transform: capitalize;
-  font-family: "Karla", sans-serif;
-  color: #ed7014;
-  font-size: 20px;
-}
-
-.student-group-head p {
-  text-transform: capitalize;
-  font-family: "Karla", sans-serif;
+.student-groups .student-p {
+  text-align: center;
+  width: 100%;
+  margin-top: 5em;
   font-size: 14px;
+  font-weight: bold;
+  font-family: "Karla", sans-serif;
+}
+
+.student-classes {
+  width: 50%;
+  border: 1px solid rgb(227, 227, 227);
+  width: 100%;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 8px;
+  box-shadow: 3px 3px rgb(227, 227, 227);
+}
+
+.specific-class {
+  width: 100%;
+}
+
+.specific-class p {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #808080;
+}
+
+.date-class-state {
+  margin-top: 0.5em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-class-state p {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 12px;
+}
+
+.date-class-state p:nth-child(2) {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 5px;
+}
+
+.class-title-name {
+  max-width: 90%;
   margin-top: 0.5em;
 }
 
-.groups {
-  margin-top: 1.5em;
-  width: 100%;
-
-  padding-left: 0.5em;
-  padding-right: 2em;
-  height: 100%;
-  padding-bottom: 0.5em;
-
-  padding-top: 0.5em;
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-}
-
-.group {
-  width: 100%;
-  gap: 0.6em;
-  background-color: antiquewhite;
-  padding-bottom: 0.5em;
-  border-radius: 5px;
-
-  box-shadow: 5px 5px 10px rgb(71, 71, 71);
-}
-.group-first-flex {
-  display: flex;
-  width: 100%;
-}
-
-.group-first-flex h3 {
+.class-title-name h2 {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  display: flex;
-  align-items: center;
   font-size: 16px;
-
-  color: rgb(78, 78, 78);
-  margin-top: 0.45em;
-  width: 40%;
-  margin-left: 0.3em;
+  color: #303030;
 }
-.image-flex {
-  display: flex;
-  width: 60%;
-  margin-top: 0.45em;
-  height: 100%;
-  margin-right: 0.5em;
-  justify-content: flex-end;
+.student-class-detail {
+  margin-top: 0.8em;
 }
 
-.imageBox {
-  display: flex;
-  width: 9%;
-  height: 2.3em;
-}
-
-.imageBox img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.image-flex .number {
-  display: flex;
-  width: 9%;
-  height: 2.3em;
-
-  object-fit: cover;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  margin-left: -0.4em;
-  color: #ed7014;
-  background-color: rgb(226, 213, 196);
-}
-
-.image-flex .number p {
+.student-class-detail p:nth-child(1) {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
+  font-size: 13px;
+  color: #808080;
+  margin-bottom: 1em;
+}
+
+.student-class-detail p:nth-child(2) {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 0.8em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  color: #303030;
   font-weight: bold;
+  align-items: center;
 }
-
-.second-group-flex {
-  margin-top: 1.5em;
+.student-class-detail p:nth-child(3) {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.second-group-flex p {
+  gap: 0.5em;
+  margin-top: 0.8em;
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
-  width: 40%;
-
-  display: flex;
+  font-size: 13px;
+  color: #303030;
+  font-weight: bold;
   align-items: center;
-  color: rgb(78, 78, 78);
-  font-size: 15px;
-  margin-left: 0.3em;
 }
-
-.second-div-icon {
-  width: 60%;
-
+.student-class-detail p:nth-child(4) {
   display: flex;
-  justify-content: flex-end;
-  margin-right: 1em;
+  gap: 0.5em;
+  margin-top: 0.8em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  color: #303030;
+  font-weight: bold;
+  align-items: center;
 }
 
 /* message components */
@@ -1505,6 +1528,9 @@ aside {
   display: flex;
   justify-content: space-between;
   gap: 7em;
+}
+.chatflex-head .first-chat-head h2 {
+  font-size: 18px;
 }
 
 .chatflex-head h2 {
@@ -1737,7 +1763,7 @@ aside {
 }
 
 .teacher-create-class-h2 h2 {
-  font-size: 20.5px;
+  font-size: 18px;
 }
 
 .teacher-create-class-h2 small {
@@ -2584,14 +2610,133 @@ aside {
   border-radius: 4px;
 }
 
+.join-class {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.join-class-head {
+  max-width: 50%;
+}
+
+.join-class-head h2 {
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.join-class-head p {
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  margin-top: 0.3em;
+  text-transform: capitalize;
+  line-height: 1.5em;
+}
+
+.input-for-class {
+  align-self: center;
+  width: 60%;
+  border: 1px solid rgb(227, 227, 227);
+  margin-top: 4em;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+  padding-top: 0.8em;
+  padding-bottom: 1em;
+  border-radius: 5px;
+}
+
+.input-for-class-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-for-class-head h2 {
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.input-for-class input {
+  width: 100%;
+  margin-top: 2em;
+  height: 2.5em;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border: 1px solid gray;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+}
+
+.input-for-class button {
+  margin-top: 1.5em;
+  width: 100%;
+  background-color: #ed7014;
+  color: white;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  height: 2.5em;
+  border-radius: 5px;
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
+.student-all-classes {
+  width: 99%;
+  padding-top: 0.8em;
+
+  /* border: 1px solid rgb(227, 227, 227); */
+  height: 100%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 4px;
+}
+
 .all-class-head {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.all-class-head button {
+  height: fit-content;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  text-transform: capitalize;
+  /* border: 1px solid rgb(227, 227, 227); */
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .all-class-head h2 {
   font-family: "Karla", sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   text-transform: capitalize;
+}
+
+.all-class-head small {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+}
+
+.student-second-head-flex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 2em;
+  align-items: center;
 }
 
 .second-head-flex {
@@ -2630,6 +2775,19 @@ aside {
   gap: 0.5em;
   justify-content: flex-end;
   margin-right: 2em;
+}
+
+.classes-icons button {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  text-transform: capitalize;
+  border: none;
+  background-color: #ed7014;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .all-class-checkbox {
@@ -4530,8 +4688,8 @@ aside {
   }
 
   .chatscomponents .image {
-    width: 14%;
-    height: 6.5vh;
+    width: 13%;
+    height: 7vh;
     margin-top: 0em;
     flex: 0 0 14%;
   }
@@ -5879,6 +6037,32 @@ aside {
     text-transform: capitalize;
   }
 
+  .join-class {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .join-class-head {
+    max-width: 100%;
+  }
+
+  .join-class-head h2 {
+    font-size: 16px;
+  }
+  .join-class-head p {
+    max-width: 100%;
+    margin-top: 0.7em;
+  }
+
+  .input-for-class {
+    width: 100%;
+    margin-top: 2em;
+  }
+
+  .input-for-class-head h2 {
+    font-size: 16px;
+  }
+
   .all-classes {
     width: 100%;
     padding-top: 0em;
@@ -5891,6 +6075,10 @@ aside {
     padding-bottom: 3em;
   }
 
+  .student-all-classes {
+    margin-top: -1em;
+  }
+
   .all-class-head {
     width: 100%;
   }
@@ -5899,7 +6087,6 @@ aside {
     font-family: "Karla", sans-serif;
     font-size: 16px;
     text-transform: capitalize;
-    display: none;
   }
 
   .second-head-flex {

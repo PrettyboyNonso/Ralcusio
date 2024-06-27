@@ -20,6 +20,7 @@ import { CreateClass } from "./CreateClass";
 import { PaymentPage } from "./PaymentPage";
 import MessageClickProvider from "./MessageClickProvider";
 import { FooterComponent } from "./FooterComponent";
+import { StudentClass } from "./StudentClass";
 
 export const Application = ({ handleWheel, handleTarget }) => {
   const { userData, signOutUser, setActiveLinkId, activeLinkId, handleClick } =
@@ -123,11 +124,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
                   fontSize: "17px",
                 }}
               />
-              <p>
-                {userData.accountType === "Teacher Account"
-                  ? "classes"
-                  : "curriculum"}
-              </p>
+              <p>classes</p>
             </div>
 
             <div className="links" id="profile" onClick={handleClick}>
@@ -171,7 +168,10 @@ export const Application = ({ handleWheel, handleTarget }) => {
         {activeLinkId === "message" && (
           <Message handleTarget={handleTarget} handleWheel={handleWheel} />
         )}
-        {activeLinkId === "book" && <CreateClass />}
+        {activeLinkId === "book" &&
+          userData.accountType === "Teacher Account" && <CreateClass />}
+        {activeLinkId === "book" &&
+          userData?.accountType === "Student Account" && <StudentClass />}
         {activeLinkId === "payment" && <PaymentPage />}
         {activeLinkId === "profile" && <Profile />}
       </div>
