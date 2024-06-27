@@ -33,7 +33,7 @@ export const FooterComponent = () => {
           <TiMessages />
           <p>messages</p>
         </div>
-        {userData.accountType === "Teacher Account" && (
+        {userData.accountType === "Student Account" && (
           <div className="my-icons links" id="payment" onClick={handleClick}>
             <IoCardOutline />
             <p>payments</p>
