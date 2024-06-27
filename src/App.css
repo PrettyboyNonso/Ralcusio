@@ -6075,9 +6075,18 @@ aside {
     padding-bottom: 3em;
   }
 
+  
   .student-all-classes {
-    margin-top: -1em;
+    width: 99%;
+    padding-top: 0.8em;
+  
+    /* border: 1px solid rgb(227, 227, 227); */
+    height: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 4px;
   }
+  
 
   .all-class-head {
     width: 100%;
@@ -6131,7 +6140,7 @@ aside {
     display: flex;
     border: 1px solid rgb(227, 227, 227);
     margin-right: 2em;
-    margin-top: 0.5em;
+    margin-top: 1em;
     padding-left: 1em;
     padding-right: 0.5em;
     padding-top: 0.3em;
