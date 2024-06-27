@@ -12,6 +12,7 @@ import {
   faUser,
   faBook,
   faClock,
+  faBell,
 } from "@fortawesome/free-solid-svg-icons";
 import { Devices } from "./App";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
@@ -115,6 +116,18 @@ export const StudentSchedule = () => {
                 color: "rgb(41, 41, 41)",
                 cursor: "pointer",
               }}
+            />
+          </div>
+          <div className=" responsive-search">
+            <FontAwesomeIcon
+              icon={faSearch}
+              style={{ fontSize: "16px", cursor: "pointer" }}
+            />
+          </div>
+          <div className="notificationBell">
+            <FontAwesomeIcon
+              icon={faBell}
+              style={{ fontSize: "16px", cursor: "pointer" }}
             />
           </div>
         </div>

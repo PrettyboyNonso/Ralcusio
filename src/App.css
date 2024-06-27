@@ -8,6 +8,10 @@
   display: none;
 }
 
+.responsive-search {
+  display: none;
+}
+
 .responsive-payment {
   display: none;
 }
@@ -4091,6 +4095,308 @@ aside {
 /* mobile phones */
 
 @media only screen and (max-width: 767px) {
+  .app-side {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    position: static;
+  }
+
+  .app-side-head {
+    display: flex;
+    width: 100%;
+    justify-content: unset;
+  }
+
+  .app-side-head h2 {
+    text-transform: capitalize;
+    margin-left: 0.3em;
+    font-family: "Karla", sans-serif;
+    color: rgb(41, 41, 41);
+    font-size: 16px;
+    flex: 0 0 50%;
+  }
+
+  .app-second-head {
+    display: flex;
+    margin-right: 0em;
+    gap: 0.5em;
+    flex: 0 0 50%;
+    padding-right: 0.5em;
+  }
+
+  .app-second-head input {
+    width: 100%;
+    outline: none;
+    padding-left: 0.4em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    border-radius: 3px;
+    border: 1px solid grey;
+    display: none;
+    height: 2.5em;
+  }
+
+  .app-second-head .search {
+    position: relative;
+    width: fit-content;
+    display: none;
+  }
+
+  .responsive-search {
+    border: 1px solid rgb(226, 226, 226);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    border-radius: 5px;
+  }
+
+  .motivation-of-the-day {
+    border: 1px solid rgb(227, 227, 227);
+    width: 100%;
+    margin-top: 2em;
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+  }
+
+  .top-left-corner {
+    width: 4em;
+    height: 4em;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(237, 112, 20, 0.6);
+  }
+
+  .top-left-corner-effect {
+    width: 4em;
+    height: 6.5em;
+    border-radius: 50%;
+    position: absolute;
+
+    top: -0.5em;
+    background-color: transparent;
+    background-color: white;
+    transform: rotate(45deg);
+    left: 0.7em;
+  }
+
+  .facts-head {
+    position: absolute;
+    left: 1.7em;
+    top: 1.2em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .actual-fact {
+    position: absolute;
+    left: 1.5em;
+    top: 2.8em;
+    max-width: 80%;
+  }
+
+  .actual-fact h2 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+    color: #ed7014;
+  }
+
+  .actual-fact p {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    margin-top: 0.8em;
+    font-weight: bold;
+    line-height: 1.5em;
+  }
+
+  .next-motivation-flex {
+    position: absolute;
+    right: 0;
+    width: 15em;
+    height: 19vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 150px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(237, 112, 20, 0.6);
+  }
+
+  .font-motivation {
+    width: fit-content;
+    padding: 0.35em;
+    position: absolute;
+    left: unset;
+    top: 0.8em;
+    right: 0.5em;
+    background-color: rgba(237, 112, 20, 0.6);
+    border-radius: 5px;
+  }
+
+  .next-motivation-flex button {
+    position: absolute;
+    left: 12em;
+    top: 1.4em;
+    right: 0.5em;
+    background-color: rgba(237, 112, 20, 0.6);
+    border-radius: 5px;
+    padding: 0.5em;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    display: none;
+  }
+
+  .student-groups {
+    width: 100%;
+    margin-top: 10em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    display: flex;
+    scrollbar-width: none;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    gap: 1em;
+  }
+
+  .student-groups::-webkit-scrollbar {
+    display: none;
+  }
+
+  .student-groups .student-p {
+    text-align: center;
+    width: 100%;
+    margin-top: 5em;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Karla", sans-serif;
+  }
+
+  .student-classes {
+    width: unset;
+    flex: 0 0 90%;
+    border: 1px solid rgb(227, 227, 227);
+    width: 100%;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 8px;
+    box-shadow: 3px 3px rgb(227, 227, 227);
+    scroll-snap-align: start;
+  }
+
+  .specific-class {
+    width: 100%;
+  }
+
+  .specific-class p {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #808080;
+  }
+
+  .date-class-state {
+    margin-top: 0.5em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .date-class-state p {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 12px;
+  }
+
+  .date-class-state p:nth-child(2) {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.25em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 5px;
+  }
+
+  .class-title-name {
+    max-width: 90%;
+    margin-top: 0.5em;
+  }
+
+  .class-title-name h2 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+    color: #303030;
+  }
+  .student-class-detail {
+    margin-top: 0.8em;
+  }
+
+  .student-class-detail p:nth-child(1) {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    color: #808080;
+    margin-bottom: 1em;
+  }
+
+  .student-class-detail p:nth-child(2) {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 0.8em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    color: #303030;
+    font-weight: bold;
+    align-items: center;
+  }
+  .student-class-detail p:nth-child(3) {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 0.8em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    color: #303030;
+    font-weight: bold;
+    align-items: center;
+  }
+  .student-class-detail p:nth-child(4) {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 0.8em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    color: #303030;
+    font-weight: bold;
+    align-items: center;
+  }
+
   .application {
     width: 100%;
     height: 100%;
@@ -4474,7 +4780,7 @@ aside {
     padding-bottom: 0.5em;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    justify-content: center;
+    justify-content: space-around;
     gap: 1.5em;
     border: 1px solid rgb(227, 227, 227);
     background-color: white;
@@ -6075,18 +6381,16 @@ aside {
     padding-bottom: 3em;
   }
 
-  
   .student-all-classes {
     width: 99%;
     padding-top: 0.8em;
-  
+
     /* border: 1px solid rgb(227, 227, 227); */
     height: 100%;
     padding-left: 1em;
     padding-right: 1em;
     border-radius: 4px;
   }
-  
 
   .all-class-head {
     width: 100%;
@@ -6550,58 +6854,6 @@ aside {
     font-size: 14px;
   }
 
-  .app-side {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-left: 0.4em;
-    padding-left: 1em;
-    padding-right: 1em;
-    position: static;
-  }
-
-  .app-side-head {
-    display: flex;
-    width: 100%;
-    justify-content: unset;
-  }
-
-  .app-side-head h2 {
-    text-transform: capitalize;
-    margin-left: 0.3em;
-    font-family: "Karla", sans-serif;
-    color: rgb(41, 41, 41);
-    font-size: 18px;
-    width: 50%;
-  }
-
-  .app-second-head {
-    display: flex;
-    margin-right: 4em;
-    gap: 1.5em;
-  }
-
-  .app-second-head .bars {
-    display: none;
-  }
-
-  .app-second-head input {
-    width: 100%;
-    outline: none;
-    padding-left: 0.4em;
-    text-transform: capitalize;
-    font-family: "Karla", sans-serif;
-    border-radius: 3px;
-    border: 1px solid grey;
-
-    height: 2.5em;
-  }
-
-  .search {
-    position: relative;
-    width: fit-content;
-  }
-
   .upcoming-classes {
     width: 100%;
     height: 40vh;
@@ -6674,10 +6926,6 @@ aside {
     font-size: 12px;
 
     color: black;
-  }
-
-  .student-groups {
-    width: 70%;
   }
 
   .student-group-head h3 {

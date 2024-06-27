@@ -7,7 +7,7 @@ import { IoCardOutline } from "react-icons/io5";
 import { FiUsers } from "react-icons/fi";
 import { messageContext } from "./MessageClickContext";
 export const FooterComponent = () => {
-  const { activeLinkId, handleClick } = useContext(Devices);
+  const { userData, activeLinkId, handleClick } = useContext(Devices);
   const { currentId } = useContext(messageContext);
 
   return (
@@ -33,10 +33,12 @@ export const FooterComponent = () => {
           <TiMessages />
           <p>messages</p>
         </div>
-        <div className="my-icons links" id="payment" onClick={handleClick}>
-          <IoCardOutline />
-          <p>payments</p>
-        </div>
+        {userData.accountType === "Teacher Account" && (
+          <div className="my-icons links" id="payment" onClick={handleClick}>
+            <IoCardOutline />
+            <p>payments</p>
+          </div>
+        )}
         <div className="my-icons links" id="book" onClick={handleClick}>
           <FaChalkboardTeacher />
           <p>classes</p>
