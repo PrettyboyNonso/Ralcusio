@@ -4159,7 +4159,7 @@ aside {
   }
 
   .motivation-of-the-day {
-    border: 1px solid rgb(227, 227, 227);
+    border: none;
     width: 100%;
     margin-top: 2em;
     height: 100%;
@@ -4266,8 +4266,6 @@ aside {
   .student-groups {
     width: 100%;
     margin-top: 10em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
     display: flex;
     scrollbar-width: none;
     overflow-x: scroll;
@@ -4292,7 +4290,7 @@ aside {
 
   .student-classes {
     width: unset;
-    flex: 0 0 95%;
+    flex: 0 0 100%;
     border: 1px solid rgb(227, 227, 227);
     width: 100%;
     padding-top: 0.8em;
@@ -4300,7 +4298,7 @@ aside {
     padding-left: 0.5em;
     padding-right: 0.5em;
     border-radius: 8px;
-    box-shadow: 3px 3px rgb(227, 227, 227);
+    box-shadow: none;
     scroll-snap-align: start;
   }
 
