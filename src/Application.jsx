@@ -52,7 +52,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
 
   const AccountType = () => {
     return (
-      <>
+      <div className="account-type">
         <div className="set-up-steps">
           <p>step 2/3</p>
         </div>
@@ -80,13 +80,13 @@ export const Application = ({ handleWheel, handleTarget }) => {
           </div>
         </div>
         <button>continue</button>
-      </>
+      </div>
     );
   };
 
   const ProfileImageSetUp = () => {
     return (
-      <>
+      <div className="profile-setup-div">
         <div className="set-up-steps">
           <p>step 3/3</p>
         </div>
@@ -103,13 +103,13 @@ export const Application = ({ handleWheel, handleTarget }) => {
           <button>skip</button>
           <button>continue</button>
         </div>
-      </>
+      </div>
     );
   };
 
   const NameHeadline = () => {
     return (
-      <>
+      <div className="name-headline-div">
         <div className="profile-image-head">
           <p>start by telling us your name</p>
         </div>
@@ -136,7 +136,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
             <button>continue</button>
           </form>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -145,9 +145,11 @@ export const Application = ({ handleWheel, handleTarget }) => {
       <div className="finish-setup">
         <div className="setup-div">
           <h2>finish setting up your account</h2>
-          {/* <AccountType /> */}
-          {/* <ProfileImageSetUp /> */}
-          <NameHeadline />
+          <div className="flex-item">
+            <NameHeadline />
+            <AccountType />
+            <ProfileImageSetUp />
+          </div>
         </div>
       </div>
     );
