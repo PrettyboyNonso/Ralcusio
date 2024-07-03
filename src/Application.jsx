@@ -79,7 +79,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
             <p>tutor account</p>
           </div>
         </div>
-        <button>continue</button>
+        <button style={{ marginTop: "3em" }}>continue</button>
       </div>
     );
   };
@@ -110,11 +110,11 @@ export const Application = ({ handleWheel, handleTarget }) => {
   const NameHeadline = () => {
     return (
       <div className="name-headline-div">
-        <div className="profile-image-head">
-          <p>start by telling us your name</p>
-        </div>
         <div className="set-up-steps">
           <p>step 1/3</p>
+        </div>
+        <div className="profile-image-head">
+          <p>start by telling us your name</p>
         </div>
         <div className="name-headline">
           <form action="">

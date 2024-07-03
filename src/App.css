@@ -4657,6 +4657,72 @@ aside {
     outline: none;
   }
 
+  .type-of-account-div {
+    width: 100%;
+    margin-top: 1.5em;
+    align-self: center;
+    height: 55%;
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .type-of-account-child {
+    flex: 0 0 49%;
+    cursor: pointer;
+  }
+
+  .type-of-account-child p {
+    text-align: center;
+    margin-top: 0.3em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+  }
+
+  .type-of-account-child div {
+    height: 90%;
+  }
+
+  .type-of-account-child div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid rgb(227, 227, 227);
+    object-fit: cover;
+  }
+
+  .profile-picture-placeholder {
+    border: 1px solid rgb(227, 227, 227);
+    width: 12em;
+    height: 12em;
+    border-radius: 50%;
+    align-self: center;
+    margin-top: 1em;
+    cursor: pointer;
+    background-color: whitesmoke;
+    margin-top: 1.5em;
+  }
+
+  .profile-picture-placeholder img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+  }
+
+  .profile-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+  }
+
+  .profile-btns button:nth-child(1) {
+    background-color: transparent;
+    border: 1px solid #ed7014;
+    color: black;
+  }
+
   .app-side {
     display: flex;
     flex-direction: column;
