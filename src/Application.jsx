@@ -50,9 +50,113 @@ export const Application = ({ handleWheel, handleTarget }) => {
     );
   };
 
+  const AccountType = () => {
+    return (
+      <>
+        <div className="set-up-steps">
+          <p>step 2/3</p>
+        </div>
+        <div className="setup-div-head">
+          <p>choose your preferred account type</p>
+        </div>
+        <div className="type-of-account-div">
+          <div className="type-of-account-child">
+            <div>
+              <img
+                src={require("./images/undraw_mathematics_4otb-removebg-preview.png")}
+                alt=""
+              />
+            </div>
+            <p>learner account</p>
+          </div>
+          <div className="type-of-account-child">
+            <div>
+              <img
+                src={require("./images/undraw_Teacher_re_sico-removebg-preview.png")}
+                alt=""
+              />
+            </div>
+            <p>tutor account</p>
+          </div>
+        </div>
+        <button>continue</button>
+      </>
+    );
+  };
+
+  const ProfileImageSetUp = () => {
+    return (
+      <>
+        <div className="set-up-steps">
+          <p>step 3/3</p>
+        </div>
+        <div className="profile-image-head">
+          <p>add a profile picture</p>
+        </div>
+        <div className="profile-picture-placeholder">
+          <img
+            src={require("./images/966-9665317_placeholder-image-person-jpg-removebg-preview.png")}
+            alt=""
+          />
+        </div>
+        <div className="profile-btns">
+          <button>skip</button>
+          <button>continue</button>
+        </div>
+      </>
+    );
+  };
+
+  const NameHeadline = () => {
+    return (
+      <>
+        <div className="profile-image-head">
+          <p>start by telling us your name</p>
+        </div>
+        <div className="set-up-steps">
+          <p>step 1/3</p>
+        </div>
+        <div className="name-headline">
+          <form action="">
+            <div>
+              <label htmlFor="">first name</label>
+              <input type="text" placeholder="First name" />
+            </div>
+            <div>
+              <label htmlFor="">last name</label>
+              <input type="text" placeholder="Last name" />
+            </div>
+            <div>
+              <label htmlFor="">headline</label>
+              <input
+                type="text"
+                placeholder="Write a brief description about yourself "
+              />
+            </div>
+            <button>continue</button>
+          </form>
+        </div>
+      </>
+    );
+  };
+
+  const FinishSetup = () => {
+    return (
+      <div className="finish-setup">
+        <div className="setup-div">
+          <h2>finish setting up your account</h2>
+          {/* <AccountType /> */}
+          {/* <ProfileImageSetUp /> */}
+          <NameHeadline />
+        </div>
+      </div>
+    );
+  };
+
   return (
     <MessageClickProvider>
       <div className="application">
+        <FinishSetup />
         <aside className="aside" onWheel={handleWheel}>
           <div className="logo" onClick={() => (window.location.href = "/")}>
             <img
@@ -96,25 +200,21 @@ export const Application = ({ handleWheel, handleTarget }) => {
               <p>messages</p>
             </div>
 
-            {userData.accountType === "Teacher Account" && (
-              <div
-                className={`links ${
-                  activeLinkId === "payment" ? "active" : ""
-                }`}
-                id="payment"
-                onClick={handleClick}
-              >
-                <FontAwesomeIcon
-                  icon={faPaypal}
-                  style={{
-                    color:
-                      activeLinkId === "payment" ? "white" : "rgb(78, 78, 78)",
-                    fontSize: "17px",
-                  }}
-                />
-                <p>payments</p>
-              </div>
-            )}
+            <div
+              className={`links ${activeLinkId === "payment" ? "active" : ""}`}
+              id="payment"
+              onClick={handleClick}
+            >
+              <FontAwesomeIcon
+                icon={faPaypal}
+                style={{
+                  color:
+                    activeLinkId === "payment" ? "white" : "rgb(78, 78, 78)",
+                  fontSize: "17px",
+                }}
+              />
+              <p>payments</p>
+            </div>
 
             <div className="links" id="book" onClick={handleClick}>
               <FontAwesomeIcon
