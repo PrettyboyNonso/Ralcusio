@@ -85,12 +85,28 @@ footer {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   display: flex;
-  flex-direction: column;
   padding-left: 1em;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.signin-side::-webkit-scrollbar {
+  display: none;
+}
+
+.register-child {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  transition: all ease-in 0.2s;
 }
 
 .sign-in-head {
-  margin-top: 3.5em;
+  margin-top: 2em;
 }
 
 .sign-in-head h2 {
@@ -106,47 +122,24 @@ footer {
   text-transform: capitalize;
   margin-top: 0.5em;
   font-size: 13px;
+  max-width: 80%;
+  line-height: 1.4em;
 }
 
-.signin-side form {
+.signin-btn {
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.account-type-btn {
+  align-self: center;
+}
+
+.signin-side .signin-btn button {
+  width: 70%;
+  height: 2.5em;
   margin-top: 2em;
-  gap: 1.2em;
-}
-
-.signin-side div {
-  display: flex;
-  flex-direction: column;
-}
-
-.signin-side .input-icons {
-  position: relative;
-}
-
-.signin-side label {
-  font-family: "Karla", sans-serif;
-  text-transform: capitalize;
-  font-size: 13px;
-  color: white;
-}
-
-.signin-side input {
-  width: 70%;
-  height: 2.5em;
-  padding-left: 1.7em;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-  box-shadow: none;
-  margin-top: 0.3em;
-  font-family: "Karla", sans-serif;
-}
-
-.signin-side button {
-  width: 70%;
-  height: 2.5em;
-  margin-top: 1em;
   border-radius: 5px;
   background-color: white;
   color: #ed7014;
@@ -157,6 +150,99 @@ footer {
   outline: none;
   box-shadow: none;
   cursor: pointer;
+}
+.name-form {
+  margin-top: 1em;
+  display: flex;
+  gap: 0.5em;
+}
+
+.name-form input {
+  height: 2.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  box-shadow: none;
+  border: none;
+  border-radius: 5px;
+  outline: 1px solid #ed7014;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+}
+
+.gender-form {
+  display: flex;
+  margin-top: 1.2em;
+  gap: 1.5em;
+}
+
+.gender-form div {
+  display: flex;
+  gap: 0.3em;
+  align-items: center;
+}
+
+.gender-form div label {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.gender-form div input {
+  cursor: pointer;
+}
+
+.account-type {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+}
+
+.type-of-account-div {
+  width: 100%;
+  margin-top: 1em;
+  align-self: center;
+  height: 55%;
+  display: flex;
+  gap: 0.5em;
+}
+
+.type-of-account-child {
+  flex: 0 0 45%;
+  cursor: pointer;
+}
+
+.type-of-account-child p {
+  text-align: center;
+  margin-top: 0.3em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 15px;
+}
+
+.type-of-account-child div {
+  height: 90%;
+  border-radius: 10px;
+}
+
+.type-of-account-child div img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.date-picker {
+  margin-top: 1.2em;
+  height: 2.5em;
+  padding-left: 0.5em;
+  width: 25em;
+  font-family: "Karla", sans-serif;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
 }
 
 .login-side {
@@ -192,7 +278,7 @@ footer {
   display: flex;
   flex-direction: column;
   margin-top: 2em;
-  gap: 1.2em;
+  gap: 1em;
 }
 
 .login-side div {
@@ -213,7 +299,7 @@ footer {
 
 .login-side input {
   width: 70%;
-  height: 2.5em;
+  height: 2.8em;
   padding-left: 1.7em;
   border-radius: 5px;
   outline: none;
@@ -245,6 +331,38 @@ footer {
   color: white;
   font-size: 13px;
   font-style: italic;
+}
+
+.email-form {
+  display: flex;
+  margin-top: 1.2em;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.email-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-form div label {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  color: white;
+  font-size: 14px;
+}
+
+.email-form div input {
+  height: 2.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  box-shadow: none;
+  border: none;
+  border-radius: 5px;
+  outline: 1px solid #ed7014;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  width: 70%;
 }
 
 .undraw-side {
@@ -887,232 +1005,6 @@ header {
   display: flex;
   padding-top: 2em;
   position: relative;
-}
-
-.finish-setup {
-  width: 100%;
-  position: absolute;
-  height: 100dvh;
-  z-index: 20;
-  background-color: rgba(0, 0, 0, 0.8);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-item {
-  display: flex;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-}
-
-.account-type {
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 100%;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  scroll-snap-align: start;
-}
-
-.profile-setup-div {
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
-
-.name-headline-div {
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
-
-.setup-div {
-  border-radius: 10px;
-  width: 45%;
-  height: fit-content;
-  flex-direction: column;
-  background-color: white;
-  display: flex;
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-bottom: 2em;
-}
-
-.setup-div h2 {
-  font-family: "Karla", sans-serif;
-  text-transform: capitalize;
-  font-size: 20px;
-  text-align: center;
-  padding-top: 1em;
-}
-
-.setup-div-head {
-  align-self: center;
-  margin-top: 0.8em;
-}
-
-.setup-div-head p {
-  font-family: "Karla", sans-serif;
-  text-transform: capitalize;
-  font-size: 13px;
-}
-
-.type-of-account-div {
-  width: 90%;
-  margin-top: 1em;
-  align-self: center;
-  height: 55%;
-  display: flex;
-  gap: 0.5em;
-}
-
-.type-of-account-child {
-  flex: 0 0 50%;
-  cursor: pointer;
-}
-
-.type-of-account-child p {
-  text-align: center;
-  margin-top: 0.3em;
-  text-transform: capitalize;
-  font-family: "Karla", sans-serif;
-  font-size: 15px;
-}
-
-.type-of-account-child div {
-  height: 90%;
-}
-
-.type-of-account-child div img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  border: 1px solid rgb(227, 227, 227);
-  object-fit: cover;
-}
-.setup-div button {
-  width: 25%;
-  align-self: flex-end;
-  margin-right: 2em;
-  margin-top: 3em;
-  height: 2.2em;
-  text-transform: capitalize;
-  font-family: "Karla", sans-serif;
-  cursor: pointer;
-  border: none;
-  box-shadow: none;
-  background-color: #ed7014;
-  color: white;
-  border-radius: 5px;
-}
-
-.profile-image-head {
-  margin-top: 0.5em;
-  align-self: center;
-}
-.profile-image-head p {
-  font-family: "Karla", sans-serif;
-  text-transform: capitalize;
-  font-size: 13px;
-}
-
-.profile-picture-placeholder {
-  border: 1px solid rgb(227, 227, 227);
-  width: 12em;
-  height: 12em;
-  border-radius: 50%;
-  align-self: center;
-  margin-top: 1em;
-  cursor: pointer;
-  background-color: whitesmoke;
-}
-
-.profile-picture-placeholder img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: contain;
-}
-
-.profile-btns {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.profile-btns button:nth-child(1) {
-  background-color: transparent;
-  border: 1px solid #ed7014;
-  color: black;
-}
-
-.name-headline {
-  margin-top: 2em;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.name-headline form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8em;
-  width: 100%;
-}
-
-.name-headline div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.name-headline div label {
-  width: 65%;
-  align-self: center;
-
-  font-family: "Karla", sans-serif;
-  font-size: 13px;
-  text-transform: capitalize;
-}
-.name-headline div input {
-  width: 65%;
-  align-self: center;
-  margin-top: 0.2em;
-  height: 2.5em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  border-radius: 3px;
-  border: 1px solid grey;
-  font-family: "Karla", sans-serif;
-  font-size: 13px;
-  outline: none;
-}
-
-.set-up-steps {
-  align-self: center;
-  margin-top: 0.8em;
-  width: fit-content;
-  padding: 0.5em 0.8em;
-  background-color: #ed7014;
-  color: white;
-  font-family: "Karla", sans-serif;
-  font-size: 13px;
-  text-transform: capitalize;
-  border-radius: 5px;
 }
 
 aside {
@@ -4565,164 +4457,6 @@ aside {
 /* mobile phones */
 
 @media only screen and (max-width: 767px) {
-  .finish-setup {
-    width: 100%;
-    position: absolute;
-    height: 100dvh;
-    z-index: 20;
-    background-color: rgba(0, 0, 0, 0.8);
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: unset;
-    display: flex;
-  }
-
-  .setup-div {
-    border-radius: unset;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 100%;
-    height: 70%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-bottom: 2em;
-    position: fixed;
-    bottom: 0;
-  }
-
-  .setup-div button {
-    width: 30%;
-    align-self: flex-end;
-    margin-right: 0em;
-    margin-top: 1em;
-    height: 2.5em;
-    text-transform: capitalize;
-    font-family: "Karla", sans-serif;
-    cursor: pointer;
-    border: none;
-    box-shadow: none;
-    background-color: #ed7014;
-    color: white;
-    border-radius: 5px;
-  }
-
-  .name-headline {
-    margin-top: 1.5em;
-    display: flex;
-    width: 100%;
-    height: 100%;
-  }
-
-  .name-headline form {
-    display: flex;
-    flex-direction: column;
-    align-items: unset;
-    gap: 0.8em;
-    width: 100%;
-  }
-
-  .name-headline div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .name-headline div label {
-    width: 65%;
-    align-self: unset;
-
-    font-family: "Karla", sans-serif;
-    font-size: 13px;
-    text-transform: capitalize;
-  }
-  .name-headline div input {
-    width: 100%;
-    align-self: unset;
-    margin-top: 0.4em;
-    height: 3em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    border-radius: 3px;
-    border: 1px solid grey;
-    font-family: "Karla", sans-serif;
-    font-size: 13px;
-    outline: none;
-  }
-
-  .type-of-account-div {
-    width: 100%;
-    margin-top: 1.5em;
-    align-self: center;
-    height: 55%;
-    display: flex;
-    gap: 0.5em;
-  }
-
-  .type-of-account-child {
-    flex: 0 0 49%;
-    cursor: pointer;
-  }
-
-  .type-of-account-child p {
-    text-align: center;
-    margin-top: 0.3em;
-    text-transform: capitalize;
-    font-family: "Karla", sans-serif;
-    font-size: 13px;
-  }
-
-  .type-of-account-child div {
-    height: 90%;
-  }
-
-  .type-of-account-child div img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    border: 1px solid rgb(227, 227, 227);
-    object-fit: cover;
-  }
-
-  .profile-picture-placeholder {
-    border: 1px solid rgb(227, 227, 227);
-    width: 12em;
-    height: 12em;
-    border-radius: 50%;
-    align-self: center;
-    margin-top: 1em;
-    cursor: pointer;
-    background-color: whitesmoke;
-    margin-top: 1.5em;
-  }
-
-  .profile-picture-placeholder img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: contain;
-  }
-
-  .profile-btns {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2em;
-  }
-
-  .profile-btns button:nth-child(1) {
-    background-color: transparent;
-    border: 1px solid #ed7014;
-    color: black;
-  }
-
   .app-side {
     display: flex;
     flex-direction: column;
