@@ -1,91 +1,136 @@
 import {
-  faArrowLeft,
-  faBriefcase,
   faCakeCandles,
+  faCameraRetro,
   faCircleInfo,
   faGraduationCap,
   faImage,
   faLocationDot,
+  faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Devices } from "./App";
+import { faNewspaper } from "@fortawesome/free-regular-svg-icons";
 
 export const Profile = () => {
+  const [userDataState, setUserData] = useState(
+    JSON.parse(sessionStorage.getItem("userData"))
+  );
+  const birthday = convertToReadable();
+  const refBirthday = useRef(birthday);
+  const { setInvisible } = useContext(Devices);
+  const headline = useRef(null);
+
+  function convertToReadable() {
+    let readableDate = userDataState?.dateOfBirth.seconds;
+    const seconds = readableDate;
+    const date = new Date(seconds * 1000);
+    readableDate = date.toString();
+    const showingdate = readableDate.substr(4, 11);
+    return showingdate;
+  }
+
+  useEffect(() => {
+    convertToReadable();
+    setUserData(JSON.parse(sessionStorage.getItem("userData")));
+  }, []);
+
   return (
     <div className="profile-page">
       <div className="first-profile-view-flex">
         <div className="first-profile-view">
-          <div className="cover-photo"></div>
+          <div className="cover-photo">
+            <img
+              src={
+                !userDataState.coverUrl
+                  ? require("./images/olive-wood-364426_1280.jpg")
+                  : userDataState.coverUrl
+              }
+              alt=""
+            />
+            <FontAwesomeIcon
+              icon={faPenToSquare}
+              style={{
+                position: "absolute",
+                right: "0.5em",
+                top: "0.2em",
+                fontSize: "28px",
+                cursor: "pointer",
+              }}
+            />
+          </div>
+
           <div className="profile-firstinfo">
-            <div className="profile-image-div">
-              <img src={require("./images/fb.jpg")} alt="" />
-            </div>
+            {userDataState?.profileUrl && (
+              <div
+                className="profile-image-div"
+                style={{
+                  position: !userDataState?.profileUrl && "relative",
+                }}
+              >
+                {userDataState.profileUrl && (
+                  <img src={`${userDataState?.profileUrl}`} alt="" />
+                )}
+              </div>
+            )}
+
+            {!userDataState.profileUrl && (
+              <div className="camera-icon">
+                <FontAwesomeIcon
+                  icon={faCameraRetro}
+                  style={{
+                    fontSize: "40px",
+                    cursor: "pointer",
+                    // color: "#808080",
+                  }}
+                />
+              </div>
+            )}
 
             <div className="name-and-followers">
-              <h2>Darlington Obi</h2>
+              <h2>{`${userDataState.firstName} ${userDataState.lastName}`}</h2>
               <div className="followers-following">
-                <p>1.3k followers</p>
+                <p>{`${userDataState.followers} followers`}</p>
                 <div className="dot"></div>
-                <p>300 following</p>
+                <p>{`${userDataState.following} following`}</p>
               </div>
-              {/* <button>edit profile</button> */}
-              <div className="following-people">
-                <div className="img">
-                  <img
-                    src={require("./images/beard-1845166_1280.jpg")}
-                    alt=""
-                  />
-                </div>
-                <div className="img">
-                  <img
-                    src={require("./images/woman-8643502_1280.png")}
-                    alt=""
-                  />
-                </div>
-                <div className="img">
-                  <img
-                    src={require("./images/portrait-3353699_1280.jpg")}
-                    alt=""
-                  />
-                </div>
-                <div className="img">
-                  <img
-                    src={require("./images/woman-8643502_1280.png")}
-                    alt=""
-                  />
-                </div>
-                <div className="img">
-                  <img
-                    src={require("./images/woman-8552807_1280.jpg")}
-                    alt=""
-                  />
-                </div>
-
-                <button>edit profile</button>
-              </div>
+              <button
+                style={{ cursor: "pointer", border: "none" }}
+                onClick={() => setInvisible(false)}
+              >
+                edit profile
+              </button>
             </div>
           </div>
           <div className="other-profile-info">
-            <div className="category">
-              <FontAwesomeIcon
-                icon={faBriefcase}
-                style={{ color: "#ed7014" }}
-              />
-              <p>programming/software development</p>
-            </div>
+            {userDataState.headline && (
+              <div className="category" style={{ alignItems: "center" }}>
+                <FontAwesomeIcon
+                  icon={faNewspaper}
+                  style={{ color: "#ed7014" }}
+                />
+                <p>{userDataState.headline}</p>
+              </div>
+            )}
             <div className="category">
               <FontAwesomeIcon
                 icon={faCakeCandles}
                 style={{ color: "#ed7014" }}
               />
-              <p>birthday 21-May</p>
+              <p>
+                birthday <b>- </b>
+                {refBirthday.current}
+              </p>
             </div>
-            <div className="category">
-              <FontAwesomeIcon
-                icon={faLocationDot}
-                style={{ color: "#ed7014" }}
-              />
-              <p>lives in ogun, Nigeria</p>
-            </div>
+            {userDataState.countryOfResidence && (
+              <div className="category">
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  style={{ color: "#ed7014" }}
+                />
+                <p>{`lives in ${userDataState.countryOfResidence}`}</p>
+              </div>
+            )}
           </div>
         </div>
 
@@ -93,11 +138,28 @@ export const Profile = () => {
 
         <div className="bio">
           <h2>intro</h2>
-          <p className="paragraph">
-            Creative professional with a passion for technology and design.
-            Enjoys coding, learning, and collaborating.
-          </p>
-          <button>edit bio</button>
+          {userDataState.bio ? (
+            <p className="paragraph" style={{ textTransform: "unset" }}>
+              {userDataState.bio}
+            </p>
+          ) : (
+            <p
+              className="paragraph"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              tell us about yourself
+            </p>
+          )}
+          <button
+            onClick={() => setInvisible(false)}
+            style={{ cursor: "pointer" }}
+          >
+            edit bio
+          </button>
           <div className="education-work">
             <div className="education">
               <FontAwesomeIcon
@@ -105,25 +167,39 @@ export const Profile = () => {
                 style={{ color: "#ed7014" }}
               />
               <p>
-                Profile - <b>tutor</b>
+                Profile -{" "}
+                <b>
+                  {userDataState.accountType === "Teacher Account"
+                    ? "tutor"
+                    : "learner"}
+                </b>
               </p>
             </div>
 
-            <div className="education">
-              <FontAwesomeIcon
-                icon={faGraduationCap}
-                style={{ color: "#ed7014" }}
-              />
-              <p>studied at D.s Adegbenro Ict Polytechnic, Itori, Ogun State</p>
-            </div>
-            <div className="education">
-              <FontAwesomeIcon
-                icon={faLocationDot}
-                style={{ color: "#ed7014" }}
-              />
-              <p>from imo state</p>
-            </div>
-            <button>edit details</button>
+            {userDataState.education && (
+              <div className="education">
+                <FontAwesomeIcon
+                  icon={faGraduationCap}
+                  style={{ color: "#ed7014" }}
+                />
+                <p>{userDataState.education}</p>
+              </div>
+            )}
+            {userDataState.countryOfOrigin && (
+              <div className="education">
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  style={{ color: "#ed7014" }}
+                />
+                <p>{`from ${userDataState.countryOfOrigin}`}</p>
+              </div>
+            )}
+            <button
+              onClick={() => setInvisible(false)}
+              style={{ cursor: "pointer" }}
+            >
+              edit details
+            </button>
           </div>
         </div>
       </div>
@@ -133,7 +209,7 @@ export const Profile = () => {
           <div className="add-post">
             <div className="first-add-post">
               <div className="first-add-post-img">
-                <img src={require("./images/fb.jpg")} alt="" />
+                {<img src={userDataState.profileUrl} alt="" />}
               </div>
               <input type="text" placeholder="What Is On Your Mind" />
             </div>

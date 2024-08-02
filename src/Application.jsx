@@ -21,11 +21,17 @@ import { PaymentPage } from "./PaymentPage";
 import MessageClickProvider from "./MessageClickProvider";
 import { FooterComponent } from "./FooterComponent";
 import { StudentClass } from "./StudentClass";
+import { EditProfile } from "./EditProfile";
 
 export const Application = ({ handleWheel, handleTarget }) => {
-  const { userData, signOutUser, setActiveLinkId, activeLinkId, handleClick } =
-    useContext(Devices);
-
+  const {
+    signOutUser,
+    setActiveLinkId,
+    activeLinkId,
+    handleClick,
+    invisible,
+    userDataState,
+  } = useContext(Devices);
   useEffect(() => {
     const storedId = sessionStorage.getItem("activeLinkId");
     if (storedId) {
@@ -43,7 +49,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
   }, []);
 
   const AppSide = () => {
-    return userData.accountType === "Teacher Account" ? (
+    return userDataState.accountType === "Teacher Account" ? (
       <TeacherSchedule />
     ) : (
       <StudentSchedule />
@@ -68,7 +74,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
             >
               <FontAwesomeIcon
                 icon={
-                  userData.accountType === "Teacher Account"
+                  userDataState.accountType === "Teacher Account"
                     ? faChartLine
                     : faHouse
                 }
@@ -78,7 +84,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
                 }}
               />
               <p>
-                {userData.accountType === "Teacher Account"
+                {userDataState.accountType === "Teacher Account"
                   ? "dashboard"
                   : "home"}
               </p>
@@ -165,11 +171,12 @@ export const Application = ({ handleWheel, handleTarget }) => {
           <Message handleTarget={handleTarget} handleWheel={handleWheel} />
         )}
         {activeLinkId === "book" &&
-          userData.accountType === "Teacher Account" && <CreateClass />}
+          userDataState.accountType === "Teacher Account" && <CreateClass />}
         {activeLinkId === "book" &&
-          userData?.accountType === "Student Account" && <StudentClass />}
+          userDataState?.accountType === "Student Account" && <StudentClass />}
         {activeLinkId === "payment" && <PaymentPage />}
-        {activeLinkId === "profile" && <Profile />}
+        {invisible && activeLinkId === "profile" && <Profile />}
+        {!invisible && <EditProfile />}
       </div>
     </MessageClickProvider>
   );

@@ -53,16 +53,14 @@ export const StudentClass = () => {
       }
     }
   };
-
   const AllClasses = () => {
     const handleTypeOfClass = (e) => {
       const targetVal = e.target.closest(".second-head");
       const targetId = targetVal.id;
-
+      console.log(targetId);
       setTypeOfClass(targetId);
       sessionStorage.setItem("classTypeId", targetId);
       const clickedElem = document.getElementById(targetId);
-
       if (clickedElem) {
         if (clickedElem.classList.contains("all-class-active")) {
           // do nothing
@@ -87,8 +85,8 @@ export const StudentClass = () => {
         sessionStorage.setItem("classTypeId", "all");
         setTypeOfClass("all");
       }
-      console.log(typeOfClass);
     }, []);
+
     const AllClassesBody = () => {
       return (
         <div className="all-class-body-checkbox">
@@ -134,14 +132,28 @@ export const StudentClass = () => {
         </div>
         <div className="student-second-head-flex">
           <div className="all-classes-second-head">
-            <div className="second-head" id="all" onClick={handleTypeOfClass}>
+            <div
+              className={`second-head ${
+                typeOfClass === "all" && "all-class-active"
+              }`}
+              id="all"
+              onClick={handleTypeOfClass}
+            >
               <p>all</p>
             </div>
-            <div className="second-head" id="draft" onClick={handleTypeOfClass}>
+            <div
+              className={`second-head ${
+                typeOfClass === "draft" && "all-class-active"
+              }`}
+              id="draft"
+              onClick={handleTypeOfClass}
+            >
               <p>free </p>
             </div>
             <div
-              className="second-head"
+              className={`second-head ${
+                typeOfClass === "archived" && "all-class-active"
+              }`}
               id="archived"
               onClick={handleTypeOfClass}
             >
@@ -200,6 +212,7 @@ export const StudentClass = () => {
       sessionStorage.setItem("activeNav", "create-your-course");
       setActiveNav("create-your-course");
     }
+    console.log("re-rendered");
   }, [activeNav]);
 
   const JoinClass = () => {

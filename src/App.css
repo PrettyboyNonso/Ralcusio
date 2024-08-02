@@ -8,6 +8,10 @@
   display: none;
 }
 
+.responsive-login-page {
+  display: none;
+}
+
 .responsive-search {
   display: none;
 }
@@ -49,6 +53,29 @@
 footer {
   display: none;
 }
+
+@keyframes Spinner {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(45deg);
+  }
+
+  50% {
+    transform: rotate(90deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.spin {
+  animation: Spinner 0.5s infinite;
+}
+
 @keyframes lazyLoading {
   0% {
     background-color: rgba(226, 213, 196, 0.9);
@@ -4153,6 +4180,263 @@ aside {
   margin-top: -1.5em;
   height: 100%;
   padding-bottom: 1em;
+  position: relative;
+}
+
+.edit-profile {
+  width: 100%;
+  margin-left: 21em;
+  margin-top: -1.5em;
+  height: 100%;
+  padding-bottom: 1em;
+  margin-right: 1em;
+}
+.edit-profile-flex {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 2em;
+}
+
+.edit-profile-header {
+  margin-bottom: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-profile-header button {
+  width: fit-content;
+  padding: 0.4em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  border: none;
+  background-color: #808080;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-profile-header-icon {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.info-head-edit {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.info-head-edit button {
+  width: fit-content;
+  padding: 0.4em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  border: none;
+  background-color: #808080;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-profile-header-icon h2 {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+}
+
+.edit-profile-first-flex {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.edit-profile-second-flex {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.edit-profile-page {
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 5px;
+  padding-bottom: 0.5em;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.edit-cover-photo {
+  width: 100%;
+  height: 8em;
+  position: relative;
+}
+
+.edit-cover-photo img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  object-fit: cover;
+}
+
+.edit-camera-icon {
+  width: 8%;
+  height: 6.5em;
+  margin-top: -2.5em;
+  border-radius: 50%;
+  border: 1px solid rgb(227, 227, 227);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 20;
+  margin-left: 0.3em;
+}
+
+.edit-camera-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.other-profile-edit-info {
+  padding-left: 0.6em;
+  padding-right: 0.5em;
+  margin-top: 4.5em;
+}
+
+.other-profile-edit-info h2 {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+}
+.other-profile-edit-info p {
+  margin-top: 0.5em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+}
+
+.other-profile-edit-info input {
+  margin-top: 0.8em;
+  width: fit-content;
+  padding: 0.4em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  border: none;
+  background-color: #808080;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.edit-personal-information {
+  width: 100%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border: 1px solid rgb(227, 227, 227);
+  padding-top: 0.5em;
+  padding-bottom: 0.8em;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.edit-other-information {
+  width: 100%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border: 1px solid rgb(227, 227, 227);
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.edit-other-information h2 {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+}
+
+.edit-date-picker {
+  margin-top: 1.2em;
+  height: 2.5em;
+  padding-left: 0.5em;
+  width: 35em;
+  font-family: "Karla", sans-serif;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+}
+
+.edit-personal-information h2 {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+}
+.edit-personal-form {
+  width: 100%;
+  margin-top: 0.8em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+}
+
+.forms label {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+}
+
+.forms input {
+  margin-top: 0.3em;
+  height: 2.5em;
+  border: 1px solid rgb(227, 227, 227);
+  outline: none;
+  border-radius: 3px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+}
+
+.edit-bio {
+  border: 1px solid rgb(227, 227, 227);
+  padding: 0.5em;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.edit-bio h2 {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+}
+
+.edit-bio textarea {
+  resize: none;
+  width: 100%;
+  height: 8em;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  padding: 0.5em;
+  outline: none;
+  border: 1px solid rgb(227, 227, 227);
 }
 
 .first-profile-view-flex {
@@ -4170,13 +4454,11 @@ aside {
 }
 
 .cover-photo {
-  height: 32vh;
+  height: 30vh;
   width: 100%;
-  background-image: url(./images/emotions-3490223_1280.jpg);
-  background-size: cover;
-  background-position: center;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  position: relative;
 }
 
 .cover-photo img {
@@ -4184,6 +4466,8 @@ aside {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .profile-firstinfo {
@@ -4196,15 +4480,31 @@ aside {
 }
 
 .profile-image-div {
-  width: 24%;
+  width: 22%;
+  height: 8.5em;
+  margin-top: -1.5em;
+  border-radius: 50%;
+  z-index: 10;
 }
 
 .profile-image-div img {
   width: 100%;
-  margin-top: -3em;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.camera-icon {
+  width: 24%;
+  height: 9em;
+  margin-top: -3em;
+  border-radius: 50%;
+  border: 1px solid rgb(227, 227, 227);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }
 
 .name-and-followers {
@@ -4216,6 +4516,116 @@ aside {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
   font-size: 18px;
+}
+
+.show-undone-profile-settings {
+  width: 62%;
+  height: 100%;
+  margin-top: 1em;
+  border: 1px solid rgb(227, 227, 227);
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+.show-undone-profile-settings h2 {
+  font-size: 16px;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+}
+.show-undone-profile-settings p {
+  font-size: 13px;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  margin-top: 0.3em;
+}
+
+.setup-flex {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.setup-flex::-webkit-scrollbar {
+  display: none;
+}
+
+.setup {
+  flex: 0 0 100%;
+  margin-top: 0.5em;
+  border: 1px solid rgb(227, 227, 227);
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  border-radius: 5px;
+  scroll-snap-align: start;
+  transition: all ease-in 0.2s;
+}
+
+.setup-header {
+  display: flex;
+  gap: 0.3em;
+  align-items: center;
+  width: 100%;
+}
+
+.setup-image {
+  width: 28%;
+  height: 5.5em;
+  /* border: 1px solid rgb(227, 227, 227); */
+}
+
+.setup-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.setup-header-brief h4 {
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+}
+.setup-header-brief p {
+  margin-top: 0.5em;
+  text-transform: capitalize;
+  font-size: 13pxs;
+}
+
+.setup button {
+  margin-top: 1em;
+  width: fit-content;
+  padding: 0.4em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  border: 1px solid gray;
+  color: white;
+  /* background-color: #ed7014; */
+  background-color: #808080;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.slider-div {
+  width: 30%;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 0.5em;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.slider {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: #808080;
+  cursor: pointer;
 }
 
 .followers-following {
@@ -4267,19 +4677,17 @@ aside {
   height: 100%;
 }
 
-.following-people button {
+.name-and-followers button {
   width: 8em;
   height: 2.5em;
-  align-self: center;
-  position: absolute;
-  right: 0.1em;
-  top: 0.6em;
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
   background-color: #ed7014;
   border: 1px solid gray;
   color: white;
   border-radius: 3px;
+
+  margin-top: 0.6em;
 }
 
 .img img {
@@ -4339,6 +4747,8 @@ aside {
   font-family: "Karla", sans-serif;
   font-size: 14px;
   margin-bottom: 0.2em;
+  min-height: 3em;
+  max-height: 100%;
 }
 
 .bio button {
@@ -4405,6 +4815,7 @@ aside {
 
 .first-add-post-img {
   width: 11%;
+  height: 3em;
 }
 
 .first-add-post-img img {
@@ -4527,24 +4938,28 @@ aside {
     height: 100%;
     position: relative;
     border-radius: 10px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
   }
 
   .top-left-corner {
     width: 4em;
     height: 4em;
     border-radius: 10px;
-    position: absolute;
+    position: unset;
     left: 0;
     top: 0;
     background-color: rgba(237, 112, 20, 0.6);
+    display: none;
   }
 
   .top-left-corner-effect {
     width: 4em;
     height: 6.5em;
+    height: 100%;
     border-radius: 50%;
-    position: absolute;
-
+    position: unset;
+    display: none;
     top: -0.5em;
     background-color: transparent;
     background-color: white;
@@ -4553,7 +4968,7 @@ aside {
   }
 
   .facts-head {
-    position: absolute;
+    position: unset;
     left: 1.7em;
     top: 1.2em;
     text-transform: capitalize;
@@ -4563,7 +4978,7 @@ aside {
   }
 
   .actual-fact {
-    position: absolute;
+    position: unset;
     left: 1.5em;
     top: 2.8em;
     max-width: 80%;
@@ -4589,11 +5004,12 @@ aside {
     position: absolute;
     right: 0;
     width: 15em;
-    height: 19vh;
+    height: 100%;
     border-top-right-radius: 10px;
     border-top-left-radius: 150px;
     border-bottom-right-radius: 10px;
     background-color: rgba(237, 112, 20, 0.6);
+    top: 0;
   }
 
   .font-motivation {
@@ -4609,9 +5025,12 @@ aside {
 
   .next-motivation-flex button {
     position: absolute;
-    left: 12em;
-    top: 1.4em;
+    left: 10em;
+    top: 1em;
     right: 0.5em;
+    width: fit-content;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     background-color: rgba(237, 112, 20, 0.6);
     border-radius: 5px;
     padding: 0.5em;
@@ -4622,12 +5041,11 @@ aside {
     color: white;
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    display: none;
   }
 
   .student-groups {
     width: 100%;
-    margin-top: 10em;
+    margin-top: 4em;
     display: flex;
     scrollbar-width: none;
     overflow-x: scroll;
@@ -6944,18 +7362,18 @@ aside {
     height: 100%;
     display: flex;
     gap: 0.5em;
-    padding-left: 0.5em;
+    padding-left: 0em;
     padding-right: 0.5em;
     margin-top: -0.5em;
   }
 
   .profile-image-div {
-    width: 30%;
+    width: 45%;
   }
 
   .profile-image-div img {
     width: 100%;
-    margin-top: -3em;
+    margin-top: 0em;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
@@ -7163,7 +7581,8 @@ aside {
   }
 
   .first-add-post-img {
-    width: 11%;
+    width: 16%;
+    height: 2.5em;
   }
 
   .first-add-post-img img {
@@ -7409,5 +7828,609 @@ aside {
     display: flex;
     justify-content: flex-end;
     margin-right: 1em;
+  }
+
+  /* homepage */
+
+  .homepage-login-div {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  .responsive-login-page {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .login-side {
+    flex: unset;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .login-form-head {
+    margin-top: 3.5em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-form-head h2 {
+    color: black;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 16px;
+  }
+  .login-form-head p {
+    color: #ed7014;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    margin-top: 0.5em;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .login-side form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.8em;
+    gap: 1em;
+    border: 1px solid rgb(227, 227, 227);
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+  }
+
+  .login-side div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-side .input-icons {
+    position: relative;
+  }
+
+  .login-side label {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    color: black;
+  }
+
+  .login-side input {
+    width: 100%;
+    height: 3em;
+    padding-left: 2em;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ed7014;
+    box-shadow: none;
+    margin-top: 0.5em;
+    font-family: "Karla", sans-serif;
+    color: black;
+  }
+
+  .login-side button {
+    width: 100%;
+    height: 3em;
+    margin-top: 1em;
+    border-radius: 5px;
+    background-color: #ed7014;
+    color: white;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  .login-side form p {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    color: #ed7014;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .responsive-logo {
+    width: 4em;
+    height: 4em;
+    margin-top: 5em;
+    margin-bottom: 1em;
+  }
+
+  .responsive-logo img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .log-in-signup-div {
+    width: 60%;
+    height: 70%;
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+  }
+
+  .signin-side {
+    flex: unset;
+    width: 100%;
+    height: 100%;
+    background-color: unset;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .signin-side::-webkit-scrollbar {
+    display: none;
+  }
+
+  .register-child {
+    flex: 0 0 100%;
+    width: 100%;
+    scroll-snap-align: center;
+    transition: all ease-in 0.2s;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    height: 100%;
+    padding-bottom: 1em;
+    border: 1px solid rgb(227, 227, 227);
+  }
+
+  .sign-in-head p {
+    color: black;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    margin-top: 0em;
+    font-size: 13px;
+    max-width: 100%;
+    line-height: 1.4em;
+  }
+
+  .signin-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .account-type-btn {
+    align-self: center;
+  }
+
+  .signin-side .signin-btn button {
+    width: 100%;
+    height: 2.5em;
+    margin-top: 2em;
+    border-radius: 5px;
+    background-color: #ed7014;
+    color: white;
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+  }
+  .name-form {
+    margin-top: 0em;
+    display: flex;
+    gap: 0.5em;
+    width: 100%;
+  }
+
+  .name-form input {
+    height: 2.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid #ed7014;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    flex: 0 0 49%;
+  }
+
+  .gender-form {
+    display: flex;
+    margin-top: 0em;
+    gap: 1.5em;
+  }
+
+  .gender-form div {
+    display: flex;
+    gap: 0.3em;
+    align-items: center;
+  }
+
+  .gender-form div label {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .gender-form div input {
+    cursor: pointer;
+  }
+
+  .account-type {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+  }
+
+  .type-of-account-div {
+    width: 100%;
+    margin-top: 0em;
+    align-self: center;
+    height: 55%;
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .type-of-account-child {
+    flex: 0 0 49%;
+    cursor: pointer;
+  }
+
+  .type-of-account-child p {
+    text-align: center;
+    margin-top: 0.3em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 15px;
+    color: black;
+  }
+
+  .type-of-account-child div {
+    height: 90%;
+    border-radius: 10px;
+  }
+
+  .type-of-account-child div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .date-picker {
+    margin-top: 0em;
+    height: 3em;
+    padding-left: 0.5em;
+    width: 27em;
+    font-family: "Karla", sans-serif;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid #ed7014;
+  }
+
+  .email-form {
+    display: flex;
+    margin-top: -2em;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .email-form div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .email-form div label {
+    font-family: "Karla", sans-serif;
+    text-transform: capitalize;
+    color: black;
+    font-size: 14px;
+  }
+
+  .email-form div input {
+    height: 3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid #ed7014;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    width: 100%;
+    margin-top: 0.2em;
+  }
+
+  .edit-profile {
+    width: 100%;
+    margin-left: 0em;
+    margin-top: -1.5em;
+    height: 100%;
+    padding-bottom: 5em;
+    margin-right: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+  .edit-profile-flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .edit-profile-header {
+    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .edit-profile-header button {
+    width: fit-content;
+    padding: 0.4em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    border: none;
+    background-color: #808080;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .edit-profile-header-icon {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .edit-profile-header-icon h2 {
+    margin: 0 auto;
+  }
+
+  .info-head-edit {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: space-between;
+  }
+
+  .info-head-edit button {
+    width: fit-content;
+    padding: 0.4em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    border: none;
+    background-color: #808080;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .edit-profile-header-icon h2 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+  }
+
+  .edit-profile-first-flex {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .edit-profile-second-flex {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .edit-profile-page {
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 5px;
+    padding-bottom: 0.5em;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .edit-cover-photo {
+    width: 100%;
+    height: 8em;
+    position: relative;
+  }
+
+  .edit-cover-photo img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: cover;
+  }
+
+  .edit-camera-icon {
+    width: 28%;
+    height: 6.5em;
+    margin-top: -2.5em;
+    border-radius: 50%;
+    border: 1px solid rgb(227, 227, 227);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 20;
+    margin-left: 0.3em;
+  }
+
+  .edit-camera-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .other-profile-edit-info {
+    padding-left: 0.6em;
+    padding-right: 0.5em;
+    margin-top: 4.5em;
+  }
+
+  .other-profile-edit-info h2 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+  }
+  .other-profile-edit-info p {
+    margin-top: 0.5em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+  }
+
+  .other-profile-edit-info input {
+    margin-top: 0.8em;
+    width: fit-content;
+    padding: 0.4em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    border: none;
+    background-color: #808080;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .edit-personal-information {
+    width: 100%;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border: 1px solid rgb(227, 227, 227);
+    padding-top: 0.5em;
+    padding-bottom: 0.8em;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  .edit-other-information {
+    width: 100%;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border: 1px solid rgb(227, 227, 227);
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .edit-other-information h2 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+  }
+
+  .edit-date-picker {
+    margin-top: 1.2em;
+    height: 2.5em;
+    padding-left: 0.5em;
+    width: 35em;
+    font-family: "Karla", sans-serif;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: none;
+    border: none;
+  }
+
+  .edit-personal-information h2 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+  }
+  .edit-personal-form {
+    width: 100%;
+    margin-top: 0.8em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .forms {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .forms label {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+  }
+
+  .forms input {
+    margin-top: 0.3em;
+    height: 2.5em;
+    border: 1px solid rgb(227, 227, 227);
+    outline: none;
+    border-radius: 3px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+  }
+
+  .edit-bio {
+    border: 1px solid rgb(227, 227, 227);
+    padding: 0.5em;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .edit-bio h2 {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 16px;
+  }
+
+  .edit-bio textarea {
+    resize: none;
+    width: 100%;
+    height: 8em;
+    border-radius: 5px;
+    margin-top: 0.5em;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    padding: 0.5em;
+    outline: none;
+    border: 1px solid rgb(227, 227, 227);
   }
 }

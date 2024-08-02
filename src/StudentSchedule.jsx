@@ -1,13 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
-import { ColorRing } from "react-loader-spinner";
 import {
   faSearch,
-  faBars,
-  faX,
-  faCirclePlus,
-  faSquarePlus,
-  faCheck,
   faCircleCheck,
   faUser,
   faBook,
@@ -16,13 +10,37 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Devices } from "./App";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { useEffect } from "react";
+import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
+import { database } from "./backend";
 export const StudentSchedule = () => {
-  const { listenToClasses, handleClassAdd } = useContext(Devices);
+  const { userDataState, FetchFacts, fetchedFact, setFetchedFact } =
+    useContext(Devices);
 
-  const handleAddToClass = (e) => {
-    handleClassAdd(e);
-    listenToClasses();
+  const [loading, setLoading] = useState(false);
+  const [lovedQuote, setLovedQuote] = useState(false);
+  const [userInput, setUserInput] = useState("");
+  const findPeople = async (e) => {
+    setUserInput(e.target.value);
+    const dataBaseRef = collection(database, "users");
+    const SearchQuery = query(dataBaseRef, where("firstName", "==", userInput));
+    const Users = await getDocs(SearchQuery);
+    Users.forEach((snap) => {
+      console.log(snap.data());
+    });
   };
+
+  async function MoreQuotes() {
+    try {
+      setLoading(true);
+      const newfact = await FetchFacts();
+      sessionStorage.setItem("dataFact", JSON.stringify(newfact));
+      setFetchedFact(JSON.parse(sessionStorage.getItem("dataFact")));
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const Classes = [
     {
@@ -44,6 +62,21 @@ export const StudentSchedule = () => {
       classDate: "Wednesday Apr 15",
     },
   ];
+
+  const Spinner = () => {
+    return (
+      <div
+        className="spin"
+        style={{
+          width: "1.3em",
+          height: "1.3em",
+          border: "2px solid black",
+          borderTop: "2px solid white",
+          borderRadius: "50%",
+        }}
+      ></div>
+    );
+  };
 
   const StudentClasses = ({ classObj }) => {
     return (
@@ -105,7 +138,8 @@ export const StudentSchedule = () => {
           <div className="search">
             <input
               type="text"
-              placeholder="search for courses, teachers, fellows"
+              placeholder="search for teachers or fellows"
+              onChange={(e) => findPeople(e)}
             />
             <FontAwesomeIcon
               icon={faSearch}
@@ -115,6 +149,7 @@ export const StudentSchedule = () => {
                 top: "0.5em",
                 color: "rgb(41, 41, 41)",
                 cursor: "pointer",
+                backgroundColor: "white",
               }}
             />
           </div>
@@ -137,18 +172,24 @@ export const StudentSchedule = () => {
         <div className="top-left-corner"></div>
         <div className="top-left-corner-effect"></div>
         <div className="facts-head">
-          <p>facts of the day</p>
+          <p>quote of the day</p>
         </div>
         <div className="actual-fact">
-          <h2>physics</h2>
-          <p>light from the earth takes just 1255 seconds to reach the moon</p>
+          <h2>{fetchedFact[0]?.author}</h2>
+          <p>{`"${fetchedFact[0]?.quote}"`}</p>
         </div>
 
         <div className="next-motivation-flex">
-          <div className="font-motivation">
-            <FontAwesomeIcon icon={faHeart} style={{ color: "white" }} />
-          </div>
-          <button>more quotes</button>
+          {/* <div className="font-motivation">
+            <FontAwesomeIcon
+              icon={faHeart}
+              style={{ color: lovedQuote ? "red" : "white", cursor: "pointer" }}
+              onClick={quoteFunc}
+            />
+          </div> */}
+          <button onClick={MoreQuotes}>
+            {loading ? <Spinner /> : "more quotes"}
+          </button>
         </div>
       </div>
 
