@@ -34,9 +34,13 @@ export const ResponsiveSignIn = () => {
     dateError,
   } = useContext(Devices);
 
-  useEffect(() => {
-    console.log("rendered");
-  });
+  function Checked(e) {
+    const parentdiv = e.target.closest("div");
+    const parentDivId = parentdiv.id;
+    const parentElem = document.querySelector(`#${parentDivId}`);
+    const inputElem = parentElem.lastElementChild;
+    inputElem.checked = true;
+  }
   const AccountType = () => {
     const ClickedTutorType = () => {
       setAccountType("Teacher Account");
@@ -44,6 +48,7 @@ export const ResponsiveSignIn = () => {
     const ClickedStudentType = () => {
       setAccountType("Student Account");
     };
+
     return (
       <div className="account-type">
         <div className="type-of-account-div">
@@ -88,8 +93,13 @@ export const ResponsiveSignIn = () => {
               style={{
                 marginBottom: "0em",
                 fontSize: "20px",
-                color: "#ed7014",
+                color: "white",
                 cursor: "pointer",
+                backgroundColor: "#ed7014",
+                padding: "0.5em",
+                paddingTop: "0.3em",
+                paddingBottom: "0.3em",
+                borderRadius: "5px",
               }}
               onClick={() => dispatch({ type: "LOGIN" })}
             />
@@ -115,8 +125,13 @@ export const ResponsiveSignIn = () => {
               style={{
                 marginBottom: "0em",
                 fontSize: "20px",
-                color: "#ed7014",
+                color: "white",
                 cursor: "pointer",
+                backgroundColor: "#ed7014",
+                padding: "0.5em",
+                paddingTop: "0.3em",
+                paddingBottom: "0.3em",
+                borderRadius: "5px",
               }}
               onClick={() => dispatchMargin({ type: "DECREASE" })}
             />
@@ -159,22 +174,27 @@ export const ResponsiveSignIn = () => {
               style={{
                 marginBottom: "0em",
                 fontSize: "20px",
-                color: "#ed7014",
+                color: "white",
                 cursor: "pointer",
+                backgroundColor: "#ed7014",
+                padding: "0.5em",
+                paddingTop: "0.3em",
+                paddingBottom: "0.3em",
+                borderRadius: "5px",
               }}
               onClick={() => dispatchMargin({ type: "DECREASE" })}
             />
             <h2>tell us your gender</h2>
             <form action="" className="gender-form" ref={ResponsivegenderRef}>
-              <div className="genders-html-div">
+              <div id="gender-male" onClick={(e) => Checked(e)}>
                 <label htmlFor="">male</label>
                 <input type="radio" name="gender" value="male" id="male" />
               </div>
-              <div>
+              <div id="gender-female" onClick={(e) => Checked(e)}>
                 <label htmlFor="">female</label>
                 <input type="radio" name="gender" value="female" id="female" />
               </div>
-              <div>
+              <div id="gender-gay-mfers" onClick={(e) => Checked(e)}>
                 <label htmlFor="">I prefer not to say</label>
                 <input type="radio" name="gender" value="custom" id="custom" />
               </div>
@@ -203,8 +223,13 @@ export const ResponsiveSignIn = () => {
               style={{
                 marginBottom: "0em",
                 fontSize: "20px",
-                color: "#ed7014",
+                color: "white",
                 cursor: "pointer",
+                backgroundColor: "#ed7014",
+                padding: "0.5em",
+                paddingTop: "0.3em",
+                paddingBottom: "0.3em",
+                borderRadius: "5px",
               }}
               onClick={() => dispatchMargin({ type: "DECREASE" })}
             />
@@ -238,8 +263,13 @@ export const ResponsiveSignIn = () => {
               style={{
                 marginBottom: "0em",
                 fontSize: "20px",
-                color: "#ed7014",
+                color: "white",
                 cursor: "pointer",
+                backgroundColor: "#ed7014",
+                padding: "0.5em",
+                paddingTop: "0.3em",
+                paddingBottom: "0.3em",
+                borderRadius: "5px",
               }}
               onClick={() => dispatchMargin({ type: "DECREASE" })}
             />
@@ -278,8 +308,13 @@ export const ResponsiveSignIn = () => {
               style={{
                 marginBottom: "0em",
                 fontSize: "20px",
-                color: "#ed7014",
+                color: "white",
                 cursor: "pointer",
+                backgroundColor: "#ed7014",
+                padding: "0.5em",
+                paddingTop: "0.3em",
+                paddingBottom: "0.3em",
+                borderRadius: "5px",
               }}
               onClick={() => dispatchMargin({ type: "DECREASE" })}
             />
