@@ -87,7 +87,7 @@ export const ResponsiveSignIn = () => {
             <FontAwesomeIcon
               icon={faAngleLeft}
               style={{
-                marginBottom: "1em",
+                marginBottom: "0em",
                 fontSize: "20px",
                 color: "#ed7014",
                 cursor: "pointer",
@@ -114,7 +114,7 @@ export const ResponsiveSignIn = () => {
             <FontAwesomeIcon
               icon={faAngleLeft}
               style={{
-                marginBottom: "1em",
+                marginBottom: "0em",
                 fontSize: "20px",
                 color: "#ed7014",
                 cursor: "pointer",
@@ -158,7 +158,7 @@ export const ResponsiveSignIn = () => {
             <FontAwesomeIcon
               icon={faAngleLeft}
               style={{
-                marginBottom: "1em",
+                marginBottom: "0em",
                 fontSize: "20px",
                 color: "#ed7014",
                 cursor: "pointer",
@@ -167,7 +167,7 @@ export const ResponsiveSignIn = () => {
             />
             <h2>tell us your gender</h2>
             <form action="" className="gender-form" ref={ResponsivegenderRef}>
-              <div>
+              <div className="genders-html-div">
                 <label htmlFor="">male</label>
                 <input type="radio" name="gender" value="male" id="male" />
               </div>
@@ -202,7 +202,7 @@ export const ResponsiveSignIn = () => {
             <FontAwesomeIcon
               icon={faAngleLeft}
               style={{
-                marginBottom: "1em",
+                marginBottom: "0em",
                 fontSize: "20px",
                 color: "#ed7014",
                 cursor: "pointer",
@@ -237,7 +237,7 @@ export const ResponsiveSignIn = () => {
             <FontAwesomeIcon
               icon={faAngleLeft}
               style={{
-                marginBottom: "1em",
+                marginBottom: "0em",
                 fontSize: "20px",
                 color: "#ed7014",
                 cursor: "pointer",
@@ -276,7 +276,7 @@ export const ResponsiveSignIn = () => {
             <FontAwesomeIcon
               icon={faAngleLeft}
               style={{
-                marginBottom: "1em",
+                marginBottom: "0em",
                 fontSize: "20px",
                 color: "#ed7014",
                 cursor: "pointer",
