@@ -1,9 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { Devices } from "./App";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import LearnerImage from "./images/undraw_mathematics_4otb-removebg-preview.png";
+import TeacherImage from "./images//undraw_Teacher_re_sico-removebg-preview.png";
 export const ResponsiveSignIn = () => {
   const {
     dateState,
@@ -32,6 +34,9 @@ export const ResponsiveSignIn = () => {
     dateError,
   } = useContext(Devices);
 
+  useEffect(() => {
+    console.log("rendered");
+  });
   const AccountType = () => {
     const ClickedTutorType = () => {
       setAccountType("Teacher Account");
@@ -51,10 +56,7 @@ export const ResponsiveSignIn = () => {
                     : "1px solid black",
               }}
             >
-              <img
-                src={require("./images/undraw_mathematics_4otb-removebg-preview.png")}
-                alt=""
-              />
+              <img src={LearnerImage} alt="" />
             </div>
             <p>learner account</p>
           </div>
@@ -67,10 +69,7 @@ export const ResponsiveSignIn = () => {
                     : "1px solid black",
               }}
             >
-              <img
-                src={require("./images/undraw_Teacher_re_sico-removebg-preview.png")}
-                alt=""
-              />
+              <img src={TeacherImage} alt="" />
             </div>
             <p>tutor account</p>
           </div>
@@ -252,6 +251,7 @@ export const ResponsiveSignIn = () => {
               showYearDropdown
               maxDate={new Date()}
               className="date-picker"
+              dropdownMode="select"
             />
           </div>
 
