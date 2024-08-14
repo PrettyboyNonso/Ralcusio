@@ -378,9 +378,9 @@ export const EditProfile = () => {
             </div>
             <button
               style={{
-                width: "25%",
+                width: "30%",
                 marginTop: "1em",
-                height: "2em",
+                height: "3em",
                 marginLeft: "1em",
                 fontFamily: "Karla, sans-serif",
                 textTransform: "capitalize",
@@ -389,6 +389,7 @@ export const EditProfile = () => {
                 border: "none",
                 cursor: "pointer",
                 borderRadius: "3px",
+                fontSize: "14px",
               }}
               onClick={uploadProfileImage}
             >
@@ -415,7 +416,25 @@ export const EditProfile = () => {
           <div className="edit-personal-information">
             <div className="info-head-edit">
               <h2>personal informations</h2>
-              <button onClick={saveName}>save changes</button>
+              <button
+                onClick={saveName}
+                style={{
+                  width: "30%",
+                  marginTop: "1em",
+                  height: "3em",
+                  marginLeft: "1em",
+                  fontFamily: "Karla, sans-serif",
+                  textTransform: "capitalize",
+                  color: "white",
+                  backgroundColor: "#808080",
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "3px",
+                  fontSize: "14px",
+                }}
+              >
+                save changes
+              </button>
             </div>
             <div className="edit-personal-form">
               <div className="forms" style={{ flexDirection: "row" }}>
@@ -470,7 +489,25 @@ export const EditProfile = () => {
           <div className="edit-bio">
             <div className="info-head-edit">
               <h2> bio</h2>
-              <button onClick={saveBio}>save changes</button>
+              <button
+                onClick={saveBio}
+                style={{
+                  width: "30%",
+                  marginTop: "1em",
+                  height: "3em",
+                  marginLeft: "1em",
+                  fontFamily: "Karla, sans-serif",
+                  textTransform: "capitalize",
+                  color: "white",
+                  backgroundColor: "#808080",
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "3px",
+                  fontSize: "14px",
+                }}
+              >
+                save changes
+              </button>
             </div>
             <textarea
               type="text"
@@ -497,7 +534,25 @@ export const EditProfile = () => {
           <div className="edit-other-information">
             <div className="info-head-edit">
               <h2>add a headline</h2>
-              <button onClick={saveHeadline}>save changes</button>
+              <button
+                onClick={saveHeadline}
+                style={{
+                  width: "30%",
+                  marginTop: "1em",
+                  height: "3em",
+                  marginLeft: "1em",
+                  fontFamily: "Karla, sans-serif",
+                  textTransform: "capitalize",
+                  color: "white",
+                  backgroundColor: "#808080",
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "3px",
+                  fontSize: "14px",
+                }}
+              >
+                save changes
+              </button>
             </div>
             <div className="edit-personal-form">
               <div className="forms">
@@ -538,7 +593,25 @@ export const EditProfile = () => {
           <div className="edit-other-information">
             <div className="info-head-edit">
               <h2>education</h2>
-              <button onClick={saveSchooling}>save changes</button>
+              <button
+                onClick={saveSchooling}
+                style={{
+                  width: "30%",
+                  marginTop: "1em",
+                  height: "3em",
+                  marginLeft: "1em",
+                  fontFamily: "Karla, sans-serif",
+                  textTransform: "capitalize",
+                  color: "white",
+                  backgroundColor: "#808080",
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "3px",
+                  fontSize: "14px",
+                }}
+              >
+                save changes
+              </button>
             </div>
             <div className="edit-personal-form">
               <div className="forms">
@@ -571,7 +644,25 @@ export const EditProfile = () => {
           <div className="edit-other-information">
             <div className="info-head-edit">
               <h2>country of origin</h2>
-              <button onClick={saveOrigin}>save changes</button>
+              <button
+                onClick={saveOrigin}
+                style={{
+                  width: "30%",
+                  marginTop: "1em",
+                  height: "3em",
+                  marginLeft: "1em",
+                  fontFamily: "Karla, sans-serif",
+                  textTransform: "capitalize",
+                  color: "white",
+                  backgroundColor: "#808080",
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "3px",
+                  fontSize: "14px",
+                }}
+              >
+                save changes
+              </button>
             </div>
             <div className="edit-personal-form">
               <div className="forms">
@@ -641,7 +732,25 @@ export const EditProfile = () => {
           <div className="edit-personal-information">
             <div className="info-head-edit" style={{ marginBottom: "0.5em" }}>
               <h2>where do you live?</h2>
-              <button onClick={saveCountry}>save changes</button>
+              <button
+                onClick={saveCountry}
+                style={{
+                  width: "30%",
+                  marginTop: "1em",
+                  height: "3em",
+                  marginLeft: "1em",
+                  fontFamily: "Karla, sans-serif",
+                  textTransform: "capitalize",
+                  color: "white",
+                  backgroundColor: "#808080",
+                  border: "none",
+                  cursor: "pointer",
+                  borderRadius: "3px",
+                  fontSize: "14px",
+                }}
+              >
+                save changes
+              </button>
             </div>
             <div className="forms">
               <label htmlFor="">location</label>
