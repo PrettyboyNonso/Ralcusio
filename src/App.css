@@ -5042,6 +5042,10 @@ aside {
   font-size: 14px;
 }
 
+.responsive-search-two {
+  display: none;
+}
+
 /* mobile phones */
 
 @media only screen and (max-width: 767px) {
@@ -5124,6 +5128,7 @@ aside {
     position: relative;
     margin-left: 1em;
     margin-right: 1em;
+    display: block;
   }
 
   .responsive-search-two input {

@@ -6,6 +6,7 @@ import {
   faGraduationCap,
   faMagnifyingGlass,
   faSearch,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLaptop } from "@fortawesome/free-solid-svg-icons/faLaptop";
 import { faVideo } from "@fortawesome/free-solid-svg-icons/faVideo";
@@ -18,6 +19,7 @@ export const TeacherSchedule = () => {
   const [independentDay, setIndependentDay] = useState("");
   const [independentMonth, setIndependentMonth] = useState("");
   const [independentDate, setIndependentDate] = useState("");
+  const [openUp, setOpenUp] = useState(false);
   const { userDataState, searchInput, findPeople } = useContext(Devices);
   const monthsOfTheYear = {
     0: "january",
@@ -192,6 +194,9 @@ export const TeacherSchedule = () => {
     );
   };
 
+  const openSearch = () => {
+    setOpenUp(!openUp);
+  };
   return (
     <div className="teacher-schedule">
       <div className="teacherHeader">
@@ -219,9 +224,9 @@ export const TeacherSchedule = () => {
             </div>
             <div className=" responsive-search">
               <FontAwesomeIcon
-                icon={faSearch}
+                icon={openUp ? faXmark : faSearch}
                 style={{ fontSize: "16px", cursor: "pointer" }}
-                onClick={findPeople}
+                onClick={openSearch}
               />
             </div>
             <div className="notificationBell">
@@ -238,25 +243,27 @@ export const TeacherSchedule = () => {
         </div>
       </div>
 
-      <div className="responsive-search-two">
-        <input
-          type="text"
-          placeholder="search for teachers or fellows"
-          ref={searchInput}
-        />
-        <FontAwesomeIcon
-          icon={faSearch}
-          style={{
-            position: "absolute",
-            right: "0.5em",
-            top: "0.5em",
-            color: "rgb(41, 41, 41)",
-            cursor: "pointer",
-            backgroundColor: "white",
-          }}
-          onClick={findPeople}
-        />
-      </div>
+      {openUp && (
+        <div className="responsive-search-two">
+          <input
+            type="text"
+            placeholder="search for teachers or fellows"
+            ref={searchInput}
+          />
+          <FontAwesomeIcon
+            icon={faSearch}
+            style={{
+              position: "absolute",
+              right: "0.5em",
+              top: "0.5em",
+              color: "rgb(41, 41, 41)",
+              cursor: "pointer",
+              backgroundColor: "white",
+            }}
+            onClick={findPeople}
+          />
+        </div>
+      )}
       <div className="app-first-body">
         <div className="created-classes">
           <div className="created-class-head">
