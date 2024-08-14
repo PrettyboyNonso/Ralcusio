@@ -222,11 +222,10 @@ export const TeacherSchedule = () => {
                 onClick={findPeople}
               />
             </div>
-            <div className=" responsive-search">
+            <div className=" responsive-search" onClick={openSearch}>
               <FontAwesomeIcon
                 icon={openUp ? faXmark : faSearch}
                 style={{ fontSize: "16px", cursor: "pointer" }}
-                onClick={openSearch}
               />
             </div>
             <div className="notificationBell">
@@ -255,7 +254,7 @@ export const TeacherSchedule = () => {
             style={{
               position: "absolute",
               right: "0.5em",
-              top: "0.5em",
+              top: "0.8em",
               color: "rgb(41, 41, 41)",
               cursor: "pointer",
               backgroundColor: "white",

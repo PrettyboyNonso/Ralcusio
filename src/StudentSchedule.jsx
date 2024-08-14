@@ -9,6 +9,7 @@ import {
   faBell,
   faAngleLeft,
   faAngleRight,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { Devices } from "./App";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
@@ -28,6 +29,7 @@ export const StudentSchedule = () => {
 
   const [loading, setLoading] = useState(false);
   const [lovedQuote, setLovedQuote] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
 
   async function MoreQuotes() {
     try {
@@ -153,11 +155,13 @@ export const StudentSchedule = () => {
               onClick={findPeople}
             />
           </div>
-          <div className=" responsive-search">
+          <div
+            className=" responsive-search"
+            onClick={() => setOpenSearch(!openSearch)}
+          >
             <FontAwesomeIcon
-              icon={faSearch}
+              icon={openSearch ? faXmark : faSearch}
               style={{ fontSize: "16px", cursor: "pointer" }}
-              onClick={findPeople}
             />
           </div>
           <div className="notificationBell">
@@ -168,6 +172,28 @@ export const StudentSchedule = () => {
           </div>
         </div>
       </div>
+
+      {openSearch && (
+        <div className="responsive-search-two">
+          <input
+            type="text"
+            placeholder="search for teachers or fellows"
+            ref={searchInput}
+          />
+          <FontAwesomeIcon
+            icon={faSearch}
+            style={{
+              position: "absolute",
+              right: "0.5em",
+              top: "0.8em",
+              color: "rgb(41, 41, 41)",
+              cursor: "pointer",
+              backgroundColor: "white",
+            }}
+            onClick={findPeople}
+          />
+        </div>
+      )}
 
       <div className="motivation-of-the-day">
         <div className="top-left-corner"></div>
