@@ -40,7 +40,7 @@ export const Profile = () => {
       <div className="first-profile-view-flex">
         <div className="first-profile-view">
           <div className="cover-photo">
-            <img src={userDataState.coverUrl} alt="" />
+            <img src={userDataState?.coverUrl} alt="" />
             <FontAwesomeIcon
               icon={faPenToSquare}
               style={{
@@ -54,16 +54,14 @@ export const Profile = () => {
           </div>
 
           <div className="profile-firstinfo">
-            {userDataState?.profileUrl && (
-              <div
-                className="profile-image-div"
-                style={{
-                  position: !userDataState?.profileUrl && "relative",
-                }}
-              >
-                <img src={`${userDataState?.profileUrl}`} alt="" />
-              </div>
-            )}
+            <div
+              className="profile-image-div"
+              style={{
+                position: !userDataState?.profileUrl && "relative",
+              }}
+            >
+              <img src={`${userDataState?.profileUrl}`} alt="" />
+            </div>
 
             <div className="name-and-followers">
               <h2>{`${userDataState?.firstName} ${userDataState?.lastName}`}</h2>
@@ -187,7 +185,7 @@ export const Profile = () => {
           <div className="add-post">
             <div className="first-add-post">
               <div className="first-add-post-img">
-                {<img src={userDataState.profileUrl} alt="" />}
+                <img src={userDataState.profileUrl} alt="" />
               </div>
               <input type="text" placeholder="What Is On Your Mind" />
             </div>
