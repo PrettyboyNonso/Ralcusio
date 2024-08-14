@@ -275,15 +275,15 @@ export const TeacherSchedule = () => {
             {/* <Dates color={"rgb(226, 226, 226)"} /> */}
             <Analysis />
           </div>
-          <div className="latest-payment-head">
+          {/* <div className="latest-payment-head">
             <h2>latest payments</h2>
             <p>see all payments</p>
-          </div>
-          <LatestPaymentHead />
+          </div> */}
+          {/* <LatestPaymentHead />
           <LatestsPayments />
           <LatestsPayments />
           <LatestsPayments />
-          <LatestsPayments />
+          <LatestsPayments /> */}
         </div>
         <div className="calender">
           <Dates color={"rgb(226, 226, 226)"} />
