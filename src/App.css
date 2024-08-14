@@ -7626,6 +7626,11 @@ aside {
     font-size: 18px;
   }
 
+  .name-and-followers button {
+    font-size: 14px;
+    height: 3em;
+  }
+
   .followers-following {
     display: flex;
     gap: 0.4em;
