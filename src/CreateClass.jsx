@@ -1,4 +1,10 @@
-import { useContext, useEffect, useReducer, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import { Dates } from "./DateUI";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -22,27 +28,102 @@ import {
 } from "@fortawesome/free-solid-svg-icons/faPlus";
 import { Devices } from "./App";
 import StudentClass from "./StudentClass";
+import { stringify, v4 } from "uuid";
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  query,
+  where,
+} from "firebase/firestore";
+import { database } from "./backend";
 
 export const CreateClass = () => {
   const [activeNav, setActiveNav] = useState("");
   const [toggleOnCourse, setToggleOnCourse] = useState(false);
   const [toggleOnSchedule, setToggleOnSchedule] = useState(false);
-  const [discountClick, setDiscountClick] = useState(false);
-  const [showOther, setShowOther] = useState(false);
   const [typeOfClass, setTypeOfClass] = useState("");
+  const [coursePlanningError, setCoursePlanningError] = useState(false);
+  const [pricePlanningError, setPricePlanningError] = useState(false);
   const [reducerState, dispatch] = useReducer(reducer, { toggleOn: false });
   const [reducerStateCurri, dispatchCurri] = useReducer(reducer, {
     toggleOn: false,
   });
+  const [courseStartdate, setCourseStartDate] = useState("");
+  const [courseEndDate, setCourseEndDate] = useState("");
+  const [startdate, setStartDate] = useState("");
+  const [Enddate, setEndDate] = useState("");
+  const [courseNameState, setCourseNamestate] = useState("");
+  const [courseDescstate, setCourseDescstate] = useState("");
+  const [courseAreastate, setCourseAreastate] = useState("");
+  const [BatchState, setCourseBatchstate] = useState("");
+  const courseName = useRef(null);
+  const courseDescription = useRef(null);
+  const pricingRef = useRef(null);
+  const selectRef = useRef(null);
+  const curriculumTitleRef = useRef(null);
+  const curriculumDescriptionRef = useRef(null);
+  const [curriculumStartDate, setCurriculumStartDate] = useState("");
+  const [curriculumEndDate, setCurriculumEndDate] = useState("");
+  const [classObjectState, setclassObject] = useState(
+    JSON.parse(sessionStorage.getItem("classObject"))
+  );
 
-  const { userData } = useContext(Devices);
+  const [classArray, setClassArray] = useState(
+    JSON.parse(sessionStorage.getItem("classArray"))
+  );
+
+  let classObject = {};
+
+  const handlePricePlanning = () => {
+    if (!pricingRef.current?.value.trim() <= 0 && startdate && Enddate) {
+      const newClassObject = JSON.parse(sessionStorage.getItem("classObject"));
+      newClassObject.price = `${selectRef.current?.value} ${pricingRef.current?.value}`;
+      newClassObject.PricingstartDate = startdate;
+      newClassObject.PricingendDate = Enddate;
+      sessionStorage.setItem("classObject", JSON.stringify(newClassObject));
+      console.log(JSON.parse(sessionStorage.getItem("classObject")));
+      setActiveNav("schedule-planning");
+      sessionStorage.setItem("activeNav", "schedule-planning");
+    } else {
+      setPricePlanningError(true);
+    }
+  };
+
+  const handleCoursePlanning = (e) => {
+    e.preventDefault();
+    if (
+      courseName.current?.value.trim() <= 0 ||
+      courseDescription.current?.value?.trim() <= 0 ||
+      !courseAreastate ||
+      !BatchState
+    ) {
+      setCoursePlanningError(true);
+    } else {
+      classObject.courseName = courseName.current?.value;
+      classObject.courseDescription = courseDescription.current?.value;
+      classObject.courseArea = courseAreastate.label;
+      classObject.batchState = BatchState.label;
+      classObject.curriculum = [];
+      classObject.participants = [];
+      if (reducerState.toggleOn) {
+        classObject.coursePrice = 0;
+        setActiveNav("schedule-planning");
+        sessionStorage.setItem("activeNav", "schedule-planning");
+      } else {
+        setActiveNav("price-planning");
+        sessionStorage.setItem("activeNav", "pricing-planning");
+      }
+      sessionStorage.setItem("classObject", JSON.stringify(classObject));
+      console.log(JSON.parse(sessionStorage.getItem("classObject")));
+    }
+  };
+
+  const { userDataState } = useContext(Devices);
 
   function reducer(reducerState) {
     return { toggleOn: !reducerState.toggleOn };
   }
-  const addDiscount = () => {
-    setDiscountClick(!discountClick);
-  };
 
   // const handleToggleCourse = () => {
   //   setToggleOnCourse(!toggleOnCourse);
@@ -85,29 +166,134 @@ export const CreateClass = () => {
     );
   };
 
+  useEffect(() => {
+    sessionStorage.setItem("courseArea", courseAreastate);
+  }, [courseAreastate]);
+
+  useEffect(() => {
+    sessionStorage.setItem("courseBatch", BatchState);
+  }, [BatchState]);
+
+  useEffect(() => {
+    sessionStorage.setItem("courseName", courseNameState);
+    courseName.current?.focus();
+  }, [courseNameState]);
+
+  useEffect(() => {
+    sessionStorage.setItem("courseDesc", courseDescstate);
+    courseDescription.current?.focus();
+    const length = courseDescription.current?.value.length;
+    courseDescription.current?.setSelectionRange(length, length);
+  }, [courseDescstate]);
+
+  const retainInput = () => {
+    setCourseNamestate(courseName.current?.value);
+  };
+
+  const retainDescInput = () => {
+    setCourseDescstate(courseDescription.current?.value);
+  };
+
+  const handleChangeInSelect = (selectedOption) => {
+    setCourseAreastate(selectedOption);
+  };
+
+  const handleChangeBatch = (selectedOption) => {
+    setCourseBatchstate(selectedOption);
+  };
+
+  const publishCurriculum = (e) => {
+    e.preventDefault();
+
+    if (
+      curriculumStartDate !== "" &&
+      curriculumEndDate !== "" &&
+      curriculumDescriptionRef.current?.value.trim().length > 0 &&
+      curriculumTitleRef.current?.value.trim().length > 0
+    ) {
+      let currentObj = JSON.parse(sessionStorage.getItem("classObject"));
+      let curriObj = {
+        id: v4(),
+        title: curriculumTitleRef.current?.value,
+        description: curriculumDescriptionRef.current?.value,
+        startDate: curriculumStartDate
+          .toString()
+          .split(" ")
+          .splice(0, 4)
+          .join(" "),
+        endDate: curriculumEndDate.toString().split(" ").splice(0, 4).join(" "),
+      };
+      currentObj?.curriculum.push(curriObj);
+      setclassObject(currentObj);
+      sessionStorage.setItem("classObject", JSON.stringify(currentObj));
+    }
+    console.log(JSON.parse(sessionStorage.getItem("classObject")));
+  };
+
+  async function createClassAction(e) {
+    e.preventDefault();
+    if (courseStartdate && courseEndDate) {
+      if (courseStartdate < courseEndDate) {
+        let classObj = JSON.parse(sessionStorage.getItem("classObject"));
+        classObj.courseStartdate = courseStartdate
+          .toString()
+          .split(" ")
+          .splice(0, 4)
+          .join(" ");
+        classObj.courseEndDate = courseEndDate
+          .toString()
+          .split(" ")
+          .splice(0, 4)
+          .join(" ");
+        setclassObject(classObj);
+        sessionStorage.setItem("classObject", JSON.stringify(classObj));
+        sessionStorage.setItem("activeNav", "all-classes");
+        try {
+          const dbRef = await addDoc(collection(database, "classes"), {
+            id: userDataState?.userId,
+            ...classObj,
+          });
+
+          console.log(dbRef);
+        } catch (error) {
+          console.log(error);
+        }
+
+        setActiveNav("all-classes");
+      }
+    }
+  }
+
+  useEffect(() => {
+    const collectionRef = collection(database, "classes");
+    const q = query(collectionRef, where("id", "==", userDataState?.userId));
+    onSnapshot(q, (snapshot) => {
+      const classArray = snapshot.docs.map((value) => ({
+        ...value.data(),
+      }));
+      setClassArray(classArray);
+      sessionStorage.setItem("classArray", JSON.stringify(classArray));
+      console.log(classArray);
+    });
+  }, []);
+
   const CoursePlanning = () => {
-    const handleChangeInSelect = (selectedOption) => {
-      selectedOption.value === "other"
-        ? setShowOther(true)
-        : setShowOther(false);
-      console.log(showOther);
-    };
     const optionsLevel = [
       {
-        value: "general",
-        label: "General",
+        value: "early bird",
+        label: "Early Bird",
       },
       {
-        value: "beginner",
-        label: "Beginner",
+        value: "batch a",
+        label: "Batch A",
       },
       {
-        value: "intermediate",
-        label: "Intermediate",
+        value: "batch b",
+        label: "Batch B",
       },
       {
-        value: "advanced",
-        label: "Advanced",
+        value: "batch c",
+        label: "Batch C",
       },
     ];
 
@@ -184,7 +370,6 @@ export const CreateClass = () => {
           { value: "special-education", label: "Special Education" },
         ],
       },
-      { value: "other", label: "Other" },
     ];
 
     const customStyle = {
@@ -229,56 +414,57 @@ export const CreateClass = () => {
             name, descriptions, etc
           </p>
         </div>
-        <form action="">
+        <form onSubmit={(e) => e.preventDefault()}>
           <div className="course-name">
             <p htmlFor="">course name</p>
-            <input type="text" placeholder="Example - Financial Growth" />
+            <input
+              type="text"
+              placeholder="Example - Financial Growth"
+              ref={courseName}
+              value={courseNameState}
+              onChange={retainInput}
+            />
           </div>
 
           <div className="class-date">
-            {!showOther && (
-              <>
-                <p>Select Course Area</p>
+            <>
+              <p>Select Course Area</p>
 
-                <Select
-                  id="course-area"
-                  name="course-area"
-                  className="course-select"
-                  options={optionsCourseArea}
-                  placeholder="Select an area"
-                  styles={customStyle}
-                  isSearchable={false}
-                  onChange={handleChangeInSelect}
-                ></Select>
-              </>
-            )}
-
-            {showOther && (
-              <>
-                <p>Please specify</p>
-                <input
-                  type="text"
-                  id="other-course-area"
-                  name="other-course-area"
-                  placeholder="Specify your course area"
-                />
-              </>
-            )}
+              <Select
+                id="course-area"
+                name="course-area"
+                className="course-select"
+                options={optionsCourseArea}
+                placeholder="Select an area"
+                styles={customStyle}
+                isSearchable={false}
+                onChange={handleChangeInSelect}
+                value={courseAreastate}
+              ></Select>
+            </>
           </div>
 
           <div className="course-level">
-            <p>Select Course Level</p>
+            <p>Select Course Batch</p>
             <Select
               placeholder="Select a level"
               styles={customStyle}
               isSearchable={false}
               options={optionsLevel}
+              onChange={handleChangeBatch}
+              value={BatchState}
             ></Select>
           </div>
 
           <div className="class-desc">
-            <p htmlFor="">course description</p>
-            <textarea name="" id=""></textarea>
+            <p htmlFor="">course description (optional)</p>
+            <textarea
+              name="courseDescription"
+              id=""
+              ref={courseDescription}
+              onChange={retainDescInput}
+              value={courseDescstate}
+            ></textarea>
           </div>
 
           <div className="toggle-btn continue-btn">
@@ -292,7 +478,7 @@ export const CreateClass = () => {
               />
             </div>
 
-            <button>continue</button>
+            <button onClick={(e) => handleCoursePlanning(e)}>continue</button>
           </div>
         </form>
       </div>
@@ -312,67 +498,27 @@ export const CreateClass = () => {
         <form action="">
           <div className="pricing-head">
             <h3>price</h3>
-            <div className="free-toggle">
-              <h3>free</h3>
-              <ToggleBtn
-                toggleFunc={() => dispatch()}
-                toggleState={reducerState.toggleOn}
-              />
-            </div>
           </div>
           <div className="add-price">
             <label htmlFor="price">normal price</label>
             <FontAwesomeIcon icon={faArrowRight} />
             <div className="price-input">
-              <select name="" id="">
+              <select name="" id="" ref={selectRef}>
                 <option value="usd">USD</option>
                 <option value="ngn">NGN</option>
                 <option value="gbp">GBP</option>
               </select>
-              <input type="number" />
+              <input type="number" ref={pricingRef} />
             </div>
-            <div className="add-discount-btn">
-              <button onClick={addDiscount}>
-                <FontAwesomeIcon icon={faPlus} />
-                add discount
-              </button>
-            </div>
+            <div className="add-discount-btn"></div>
           </div>
-
-          {discountClick && (
-            <div className="add-price">
-              <label htmlFor="price">discount</label>
-              <FontAwesomeIcon icon={faArrowRight} />
-              <div className="price-input">
-                <select name="" id="">
-                  <option value="usd">USD</option>
-                  <option value="ngn">NGN</option>
-                  <option value="gbp">GBP</option>
-                </select>
-                <input type="number" disabled />
-              </div>
-              <div className="discount-input">
-                <select name="" id="">
-                  <option value="5%">5%</option>
-                  <option value="10%">10%</option>
-                  <option value="20%">20%</option>
-                  <option value="30%">30%</option>
-                  <option value="40%">40%</option>
-                  <option value="50%">50%</option>
-                  <option value="60%">60%</option>
-                  <option value="70%">70%</option>
-                  <option value="80%">80%</option>
-                </select>
-                <input type="text" disabled />
-              </div>
-            </div>
-          )}
         </form>
       </div>
     );
   };
 
   const CourseSchedule = () => {
+    const { dateState } = useContext(Devices);
     const CourseCurriculum = () => {
       return (
         <div className="course-curriculum">
@@ -393,7 +539,10 @@ export const CreateClass = () => {
                 />
                 add new
               </button>
-              <button style={{ backgroundColor: "#ed7014", color: "white" }}>
+              <button
+                style={{ backgroundColor: "#ed7014", color: "white" }}
+                onClick={(e) => publishCurriculum(e)}
+              >
                 publish
               </button>
             </div>
@@ -404,20 +553,41 @@ export const CreateClass = () => {
               <input
                 type="text"
                 placeholder="Lesson one - Learning The Basics"
+                ref={curriculumTitleRef}
               />
             </div>
             <div className="curri-input-2">
               <p>start date</p>
-              <input type="date" />
+              <DatePicker
+                showYearDropdown
+                minDate={new Date()}
+                placeholderText={dateState}
+                selected={curriculumStartDate}
+                onChange={(curriculumStartDate) =>
+                  setCurriculumStartDate(curriculumStartDate)
+                }
+              />
             </div>
             <div className="curri-input-3">
               <p>end date</p>
-              <input type="date" />
+              {curriculumStartDate ? (
+                <DatePicker
+                  showYearDropdown
+                  minDate={curriculumStartDate}
+                  placeholderText={dateState}
+                  selected={curriculumEndDate}
+                  onChange={(curriculumEndDate) =>
+                    setCurriculumEndDate(curriculumEndDate)
+                  }
+                />
+              ) : (
+                <p>-- ---- --- ---- </p>
+              )}
             </div>
 
             <div className="class-desc">
               <p htmlFor="">add a description</p>
-              <textarea name="" id=""></textarea>
+              <textarea name="" id="" ref={curriculumDescriptionRef}></textarea>
             </div>
           </form>
         </div>
@@ -437,11 +607,29 @@ export const CreateClass = () => {
         <form action="">
           <div className="schedule-1">
             <p>when does your course start?</p>
-            <input type="date" />
+            <DatePicker
+              showYearDropdown
+              minDate={new Date()}
+              placeholderText={dateState}
+              selected={courseStartdate}
+              onChange={(courseStartdate) =>
+                setCourseStartDate(courseStartdate)
+              }
+            />
           </div>
           <div className="schedule-2">
             <p>when does your course end?</p>
-            <input type="date" />
+            {courseStartdate ? (
+              <DatePicker
+                showYearDropdown
+                minDate={courseStartdate}
+                placeholderText={dateState}
+                selected={courseEndDate}
+                onChange={(courseEndDate) => setCourseEndDate(courseEndDate)}
+              />
+            ) : (
+              <p style={{ marginTop: "1em" }}>-- --- --- --- --- </p>
+            )}
           </div>
           <div className="schedule-3">
             <p>create a curriculum</p>
@@ -452,7 +640,7 @@ export const CreateClass = () => {
           </div>
           {reducerStateCurri.toggleOn && <CourseCurriculum />}
           <div className="create-class-btn">
-            <button>create class</button>
+            <button onClick={(e) => createClassAction(e)}>create class</button>
           </div>
         </form>
       </div>
@@ -460,6 +648,7 @@ export const CreateClass = () => {
   };
 
   const PricingUi = () => {
+    const { dateState } = useContext(Devices);
     return (
       <div className="pricing-ui">
         <div className="pricing-ui-head">
@@ -469,40 +658,35 @@ export const CreateClass = () => {
 
         <form action="">
           <div className="pricing-subheading">
-            <p>discount price</p>
-          </div>
-
-          <div className="discount-1">
-            <p>start date</p>
-            <input type="date" style={{ marginRight: "0.6em" }} />
-            <input type="time" />
-          </div>
-          <div className="discount-1">
-            <p>end date</p>
-            <input type="date" style={{ marginRight: "0.6em" }} />
-            <input type="time" />
-          </div>
-        </form>
-
-        <form action="">
-          <div className="pricing-subheading">
             <p>normal price</p>
           </div>
 
           <div className="discount-1">
             <p>start date</p>
-            <input type="date" style={{ marginRight: "0.6em" }} />
-            <input type="time" />
+            <DatePicker
+              showYearDropdown
+              minDate={new Date()}
+              placeholderText={dateState}
+              selected={startdate}
+              onChange={(startdate) => setStartDate(startdate)}
+            />
           </div>
           <div className="discount-1">
             <p>end date</p>
-            <input type="date" style={{ marginRight: "0.6em" }} />
-            <input type="time" />
+            {startdate && (
+              <DatePicker
+                showYearDropdown
+                minDate={startdate}
+                placeholderText={dateState}
+                selected={Enddate}
+                onChange={(Enddate) => setEndDate(Enddate)}
+              />
+            )}
           </div>
         </form>
 
         <div className="price-btn">
-          <button>
+          <button onClick={handlePricePlanning}>
             <FontAwesomeIcon icon={faPlus} />
             add new plan
           </button>
@@ -511,35 +695,73 @@ export const CreateClass = () => {
     );
   };
 
-  const ScheduleUi = () => {
-    const ScheduleCurriculum = () => {
+  function deleteCurriculum(Itemid) {
+    let currentObj = JSON.parse(sessionStorage.getItem("classObject"));
+    const newCurriculum = currentObj.curriculum.filter(
+      (item) => item?.id !== Itemid
+    );
+    currentObj.curriculum = newCurriculum;
+    setclassObject(currentObj);
+    sessionStorage.setItem("classObject", JSON.stringify(currentObj));
+  }
+
+  class ScheduleCurriculum extends React.Component {
+    render() {
       return (
         <div className="schedule-curriculum">
           <div className="schedule-tag">
-            <p>language</p>
+            <p>{classObjectState?.batchState}</p>
           </div>
           <div className="course-title">
-            <h3>the history of france and their language</h3>
-            <FontAwesomeIcon icon={faTrashCan} style={{ color: "#ed7014" }} />
+            <h3>{this.props?.curriculum?.title}</h3>
+            <FontAwesomeIcon
+              icon={faTrashCan}
+              style={{ color: "#ed7014" }}
+              onClick={() => deleteCurriculum(this?.props?.curriculum.id)}
+            />
           </div>
           <div className="schedule-level">
-            <p>level :</p>
-            <p>intermediate</p>
+            <p>{`${this.props?.curriculum?.startDate} - `}</p>
+            <p>{this.props?.curriculum?.endDate}</p>
           </div>
         </div>
       );
-    };
+    }
+  }
 
+  // const ScheduleCurriculum = ({ curriculum }) => {
+  //   return (
+  //     <div className="schedule-curriculum">
+  //       <div className="schedule-tag">
+  //         <p>{classObjectState?.batchState}</p>
+  //       </div>
+  //       <div className="course-title">
+  //         <h3>{curriculum?.title}</h3>
+  //         <FontAwesomeIcon
+  //           icon={faTrashCan}
+  //           style={{ color: "#ed7014" }}
+  //           onClick={() => console.log(this)}
+  //         />
+  //       </div>
+  //       <div className="schedule-level">
+  //         <p>{`${curriculum.startDate} - `}</p>
+  //         <p>{curriculum.endDate}</p>
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
+  const ScheduleUi = () => {
     return (
       <div className="schedule-ui">
         <div className="schedule-ui-head">
           <h2>curriculums</h2>
         </div>
-        <div className="schedule-curriculum-flex">
-          <ScheduleCurriculum />
-          <ScheduleCurriculum />
-          <ScheduleCurriculum />
-        </div>
+        {classObjectState?.curriculum?.map((value, index) => (
+          <div className="schedule-curriculum-flex">
+            <ScheduleCurriculum curriculum={value} />
+          </div>
+        ))}
       </div>
     );
   };
@@ -578,18 +800,28 @@ export const CreateClass = () => {
         setTypeOfClass("all");
       }
     }, []);
-    const AllClassesBody = () => {
+    const AllClassesBody = ({ Myclass }) => {
       return (
         <div className="all-class-body-checkbox">
           <input type="checkbox" />
           <div className="all-classes-body">
-            <p>learning and setting example as a leader - full course</p>
+            <p>{Myclass?.courseName}</p>
 
-            <p>December, 26, 2023</p>
+            <p>
+              {Myclass?.courseStartdate
+                .toLocaleString()
+                .split(" ")
+                .splice(0, 4)
+                .join(" ")}
+            </p>
 
             <p>active</p>
 
-            <p>free</p>
+            <p>
+              {parseInt(Myclass?.coursePrice) === 0
+                ? "free"
+                : Myclass?.coursePrice}
+            </p>
           </div>
         </div>
       );
@@ -615,22 +847,24 @@ export const CreateClass = () => {
         </div>
         <div className="second-head-flex">
           <div className="all-classes-second-head">
-            <div className="second-head" id="all" onClick={handleTypeOfClass}>
+            {/* <div className="second-head" id="all" onClick={handleTypeOfClass}>
               <p>all</p>
-            </div>
-            <div className="second-head" id="draft" onClick={handleTypeOfClass}>
+            </div> */}
+            {/* <div className="second-head" id="draft" onClick={handleTypeOfClass}>
               <p>drafts</p>
-            </div>
-            <div
+            </div> */}
+            {/* <div
               className="second-head"
               id="archived"
               onClick={handleTypeOfClass}
             >
               <p>archived</p>
-            </div>
+            </div> */}
+            <button>view</button>
+            <button>delete</button>
           </div>
 
-          <div className="classes-icons">
+          {/* <div className="classes-icons">
             <FontAwesomeIcon
               icon={faSearch}
               style={{
@@ -655,10 +889,10 @@ export const CreateClass = () => {
                 fontSize: "14px",
               }}
             />
-          </div>
+          </div> */}
         </div>
         <AllClassesHead />
-        {typeOfClass === "all" && (
+        {/* {typeOfClass === "all" && (
           <div className="all-class-sec">
             <AllClassesBody />
             <AllClassesBody />
@@ -675,7 +909,10 @@ export const CreateClass = () => {
           <div className="all-class-sec">
             <AllClassesBody />
           </div>
-        )}
+        )} */}
+        {classArray.map((value, index) => (
+          <AllClassesBody Myclass={value} />
+        ))}
       </div>
     );
   };
@@ -881,9 +1118,25 @@ export const CreateClass = () => {
         )}
         {activeNav === "pricing-planning" && (
           <div className="create-class-sec">
-            <CoursePricing />
+            {!reducerState.toggleOn ? (
+              <CoursePricing />
+            ) : (
+              <p
+                style={{
+                  width: "100%",
+                  textAlign: "center",
+                  marginTop: "0em",
+                  fontSize: "14px",
+                  fontFamily: "Karla, sans-serif",
+                }}
+              >
+                You choose the free option, to create a pricing plan, change it
+              </p>
+            )}
             <div className="create-class-calender-sec">
-              {activeNav === "pricing-planning" && <PricingUi />}
+              {activeNav === "pricing-planning" && !reducerState.toggleOn && (
+                <PricingUi />
+              )}
             </div>
           </div>
         )}

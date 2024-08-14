@@ -18,7 +18,8 @@ import {
   where,
 } from "firebase/firestore";
 import { Homepage } from "./Homepage";
-import { auth, database } from "./backend";
+import { auth, database, storage } from "./backend";
+import { getDownloadURL, ref } from "firebase/storage";
 export const Devices = React.createContext();
 function App() {
   const [countries, setCountries] = useState([]);
@@ -54,6 +55,39 @@ function App() {
   const [fetchedFact, setFetchedFact] = useState(
     JSON.parse(sessionStorage.getItem("dataFact"))
   );
+
+  const [visible, setVisible] = useState(false);
+  const [stateSearchResult, setStateSearchResult] = useState([]);
+  const [searchString, setSearchString] = useState("");
+  const searchInput = useRef(null);
+  const findPeople = async () => {
+    if (searchInput.current.value.trim() !== "") {
+      const removeExtraSpaces = searchInput.current.value.split(" ");
+
+      let NewRemoveExtraSpace = removeExtraSpaces.filter(
+        (value) => value !== ""
+      );
+
+      setSearchString(NewRemoveExtraSpace.join(" "));
+      const searchResults = [];
+      const dataBaseRef = collection(database, "users");
+      const SearchQuery = query(
+        dataBaseRef,
+        where(
+          "fullName",
+          "==",
+          NewRemoveExtraSpace.join(" ").toLocaleLowerCase()
+        )
+      );
+      const Users = await getDocs(SearchQuery);
+      Users.forEach((snap) => {
+        const { password, ...rest } = snap.data();
+        searchResults.push(rest);
+      });
+      setStateSearchResult(searchResults);
+      setVisible(true);
+    }
+  };
 
   function userStateReducer(state, action) {
     switch (action.type) {
@@ -98,6 +132,7 @@ function App() {
     userId: null,
     firstName: null,
     lastName: null,
+    fullName: null,
     gender: null,
     accountType: null,
     dateOfBirth: null,
@@ -352,6 +387,7 @@ function App() {
     const headers = {
       "X-Api-Key": key,
     };
+
     try {
       const response = await fetch(url, { headers });
       const data = await response.json();
@@ -373,12 +409,18 @@ function App() {
         UserState.password
       );
 
+      const coverImageRef = ref(storage, `olive-wood-364426_1280.jpg`);
+      const profileImageref = ref(storage, "OIP.jpeg");
+      const profilePhotoUrl = await getDownloadURL(profileImageref);
+      const coverPhotourl = await getDownloadURL(coverImageRef);
+
       let userId = userCredential.user.uid;
       const firebaseStorageRef = await addDoc(collection(database, "users"), {
         userId: userId,
-        emailAddress: userCredential.user.email,
-        firstName: UserState.firstName,
-        lastName: UserState.lastName,
+        emailAddress: userCredential.user.email.toLocaleLowerCase(),
+        firstName: UserState.firstName.toLocaleLowerCase(),
+        lastName: UserState.lastName.toLocaleLowerCase(),
+        fullName: `${UserState.firstName.toLocaleLowerCase()} ${UserState.lastName.toLocaleLowerCase()}`,
         gender: UserState.gender,
         accountType: UserState.accountType,
         dateOfBirth: UserState.dateOfBirth,
@@ -397,6 +439,8 @@ function App() {
       const userDbRef = doc(database, "users", firebaseStorageRef.id);
       await updateDoc(userDbRef, {
         collectionId: firebaseStorageRef.id,
+        coverUrl: coverPhotourl,
+        profileUrl: profilePhotoUrl,
       });
       const loggedInUser = query(dataBaseRef, where("userId", "==", userId));
 
@@ -568,6 +612,14 @@ function App() {
         ResponsiveEmailRef,
         ResponsiveconfirmPasswordRef,
         ResponsiveFinishFunc,
+        visible,
+        setVisible,
+        stateSearchResult,
+        setStateSearchResult,
+        searchInput,
+        findPeople,
+        setSearchString,
+        searchString,
       }}
     >
       <BrowserRouter>

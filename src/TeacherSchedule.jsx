@@ -5,18 +5,20 @@ import {
   faDollarSign,
   faGraduationCap,
   faMagnifyingGlass,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLaptop } from "@fortawesome/free-solid-svg-icons/faLaptop";
 import { faVideo } from "@fortawesome/free-solid-svg-icons/faVideo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Dates } from "./DateUI";
+import { Devices } from "./App";
 
 export const TeacherSchedule = () => {
   const [independentDay, setIndependentDay] = useState("");
   const [independentMonth, setIndependentMonth] = useState("");
   const [independentDate, setIndependentDate] = useState("");
-
+  const { userDataState, searchInput, findPeople } = useContext(Devices);
   const monthsOfTheYear = {
     0: "january",
     1: "february",
@@ -196,10 +198,23 @@ export const TeacherSchedule = () => {
         <h2>welcome back😊</h2>
         <div className="profileName-img">
           <div className="searchbar-notification">
-            <div className="magnifyingglass">
+            <div className="search">
+              <input
+                type="text"
+                placeholder="search for teachers or fellows"
+                ref={searchInput}
+              />
               <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                style={{ fontSize: "16px" }}
+                icon={faSearch}
+                style={{
+                  position: "absolute",
+                  right: "0.5em",
+                  top: "0.5em",
+                  color: "rgb(41, 41, 41)",
+                  cursor: "pointer",
+                  backgroundColor: "white",
+                }}
+                onClick={findPeople}
               />
             </div>
             <div className="notificationBell">
@@ -208,9 +223,9 @@ export const TeacherSchedule = () => {
           </div>
           <div className="profile-brief">
             <div className="header-img">
-              <img src={require("./images/fb.jpg")} alt="" />
+              <img src={userDataState?.profileUrl} alt="" />
             </div>
-            <h3>hi, darlington!</h3>
+            <h3>hi, {userDataState?.firstName}!</h3>
           </div>
         </div>
       </div>

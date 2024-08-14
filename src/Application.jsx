@@ -22,6 +22,7 @@ import MessageClickProvider from "./MessageClickProvider";
 import { FooterComponent } from "./FooterComponent";
 import { StudentClass } from "./StudentClass";
 import { EditProfile } from "./EditProfile";
+import { SearchUser } from "./SearchUser";
 
 export const Application = ({ handleWheel, handleTarget }) => {
   const {
@@ -31,6 +32,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
     handleClick,
     invisible,
     userDataState,
+    visible,
   } = useContext(Devices);
   useEffect(() => {
     const storedId = sessionStorage.getItem("activeLinkId");
@@ -49,11 +51,19 @@ export const Application = ({ handleWheel, handleTarget }) => {
   }, []);
 
   const AppSide = () => {
-    return userDataState.accountType === "Teacher Account" ? (
-      <TeacherSchedule />
-    ) : (
-      <StudentSchedule />
-    );
+    if (userDataState.accountType === "Teacher Account") {
+      if (visible) {
+        return <SearchUser />;
+      } else {
+        return <TeacherSchedule />;
+      }
+    } else {
+      if (visible) {
+        return <SearchUser />;
+      } else {
+        return <StudentSchedule />;
+      }
+    }
   };
 
   return (

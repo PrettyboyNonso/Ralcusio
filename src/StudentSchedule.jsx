@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import {
   faSearch,
   faCircleCheck,
@@ -7,6 +7,8 @@ import {
   faBook,
   faClock,
   faBell,
+  faAngleLeft,
+  faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { Devices } from "./App";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
@@ -14,21 +16,18 @@ import { useEffect } from "react";
 import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
 import { database } from "./backend";
 export const StudentSchedule = () => {
-  const { userDataState, FetchFacts, fetchedFact, setFetchedFact } =
-    useContext(Devices);
+  const {
+    userDataState,
+    FetchFacts,
+    fetchedFact,
+    setFetchedFact,
+    setVisible,
+    searchInput,
+    findPeople,
+  } = useContext(Devices);
 
   const [loading, setLoading] = useState(false);
   const [lovedQuote, setLovedQuote] = useState(false);
-  const [userInput, setUserInput] = useState("");
-  const findPeople = async (e) => {
-    setUserInput(e.target.value);
-    const dataBaseRef = collection(database, "users");
-    const SearchQuery = query(dataBaseRef, where("firstName", "==", userInput));
-    const Users = await getDocs(SearchQuery);
-    Users.forEach((snap) => {
-      console.log(snap.data());
-    });
-  };
 
   async function MoreQuotes() {
     try {
@@ -139,7 +138,7 @@ export const StudentSchedule = () => {
             <input
               type="text"
               placeholder="search for teachers or fellows"
-              onChange={(e) => findPeople(e)}
+              ref={searchInput}
             />
             <FontAwesomeIcon
               icon={faSearch}
@@ -151,6 +150,7 @@ export const StudentSchedule = () => {
                 cursor: "pointer",
                 backgroundColor: "white",
               }}
+              onClick={findPeople}
             />
           </div>
           <div className=" responsive-search">
@@ -176,7 +176,11 @@ export const StudentSchedule = () => {
         </div>
         <div className="actual-fact">
           <h2>{fetchedFact[0]?.author}</h2>
-          <p>{`"${fetchedFact[0]?.quote}"`}</p>
+          <p>
+            {fetchedFact[0].quote.length <= 221
+              ? `"${fetchedFact[0]?.quote}"`
+              : `"${fetchedFact[0]?.quote.slice(0, 221)}..."`}
+          </p>
         </div>
 
         <div className="next-motivation-flex">
@@ -193,10 +197,16 @@ export const StudentSchedule = () => {
         </div>
       </div>
 
-      <div className="student-groups">
-        <StudentClasses classTime={"previous class"} classObj={Classes[0]} />
-        <StudentClasses classTime={"next class"} classObj={Classes[1]} />
-        {/* <p className = "student-p">No classes, enjoy the silence🥂🥂</p> */}
+      <div style={{ marginTop: "1em" }}>
+        {/* <div className="responsive-cursor">
+          <FontAwesomeIcon icon={faAngleLeft} />
+          <FontAwesomeIcon icon={faAngleRight} />
+        </div> */}
+        <div className="student-groups">
+          <StudentClasses classTime={"previous class"} classObj={Classes[0]} />
+          <StudentClasses classTime={"next class"} classObj={Classes[1]} />
+          {/* <p className = "student-p">No classes, enjoy the silence🥂🥂</p> */}
+        </div>
       </div>
     </div>
   );

@@ -275,7 +275,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
             </div>
           </div>
           <div className="chat-inputs">
-            <div className="addfile">
+            {/* <div className="addfile">
               <FontAwesomeIcon
                 icon={faPlusCircle}
                 style={{
@@ -288,7 +288,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                 icon={faFile}
                 style={{ fontSize: "24px", color: "#ed7014" }}
               />
-            </div>
+            </div> */}
 
             <textarea
               name="typing"
@@ -481,7 +481,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
               </div>
             </div>
             <div className="chat-inputs">
-              <div className="addfile">
+              {/* <div className="addfile">
                 <FontAwesomeIcon
                   icon={faPlusCircle}
                   style={{
@@ -494,7 +494,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
                   icon={faFile}
                   style={{ fontSize: "24px", color: "#ed7014" }}
                 />
-              </div>
+              </div> */}
 
               <textarea
                 name="typing"

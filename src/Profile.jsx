@@ -40,14 +40,7 @@ export const Profile = () => {
       <div className="first-profile-view-flex">
         <div className="first-profile-view">
           <div className="cover-photo">
-            <img
-              src={
-                !userDataState.coverUrl
-                  ? require("./images/olive-wood-364426_1280.jpg")
-                  : userDataState.coverUrl
-              }
-              alt=""
-            />
+            <img src={userDataState.coverUrl} alt="" />
             <FontAwesomeIcon
               icon={faPenToSquare}
               style={{
@@ -68,31 +61,16 @@ export const Profile = () => {
                   position: !userDataState?.profileUrl && "relative",
                 }}
               >
-                {userDataState.profileUrl && (
-                  <img src={`${userDataState?.profileUrl}`} alt="" />
-                )}
-              </div>
-            )}
-
-            {!userDataState.profileUrl && (
-              <div className="camera-icon">
-                <FontAwesomeIcon
-                  icon={faCameraRetro}
-                  style={{
-                    fontSize: "40px",
-                    cursor: "pointer",
-                    // color: "#808080",
-                  }}
-                />
+                <img src={`${userDataState?.profileUrl}`} alt="" />
               </div>
             )}
 
             <div className="name-and-followers">
-              <h2>{`${userDataState.firstName} ${userDataState.lastName}`}</h2>
+              <h2>{`${userDataState?.firstName} ${userDataState?.lastName}`}</h2>
               <div className="followers-following">
-                <p>{`${userDataState.followers} followers`}</p>
+                <p>{`${userDataState?.followers} followers`}</p>
                 <div className="dot"></div>
-                <p>{`${userDataState.following} following`}</p>
+                <p>{`${userDataState?.following} following`}</p>
               </div>
               <button
                 style={{ cursor: "pointer", border: "none" }}

@@ -12,6 +12,10 @@
   display: none;
 }
 
+.responsive-cursor {
+  display: none;
+}
+
 .responsive-search {
   display: none;
 }
@@ -52,6 +56,163 @@
 
 footer {
   display: none;
+}
+
+/* search */
+
+.searchUsers {
+  margin-left: 21em;
+  width: 100%;
+}
+
+.search-head {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+
+.bio-search {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.bio-search p {
+  max-width: 100%;
+}
+
+.search-head h2 {
+  text-transform: capitalize;
+  font-size: 18px;
+  font-family: "Karla", sans-serif;
+}
+
+.searchUsers h3 {
+  margin-top: 1em;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-family: "Karla", sans-serif;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.search-flex {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 0em;
+  margin-top: 2em;
+}
+
+.user-flex-side {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-flex-active {
+  border: 1px solid #ed7014;
+}
+
+.user-flex {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.user-card {
+  width: 100%;
+  height: fit-content;
+  padding: 0.5em;
+  /* border: 1px solid rgb(227, 227, 227); */
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.user-name-followers {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.name-user-search {
+  width: 60%;
+}
+
+.name-user-search h4 {
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.name-user-search p {
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  margin-top: 0.4em;
+}
+
+.image-user-search {
+  width: 25%;
+  height: 5em;
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 50%;
+}
+.image-user-search img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-flex-side {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+.user-profile-details-search {
+  width: 70%;
+}
+
+.profile-search-side-user {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 10px;
+}
+
+.cover-search-photo {
+  width: 100%;
+  height: 10em;
+}
+
+.cover-search-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.profile-photo-search {
+  width: 7em;
+  height: 7em;
+  border: 1px solid rgb(227, 227, 227);
+  margin-top: -2.5em;
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.profile-photo-search img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 @keyframes Spinner {
@@ -1131,7 +1292,7 @@ aside {
 .profileName-img {
   display: flex;
   align-items: center;
-  width: 50%;
+  min-width: 70%;
   justify-content: flex-end;
   gap: 1.5em;
 }
@@ -1665,6 +1826,18 @@ aside {
   border: 1px solid grey;
 
   height: 2.5em;
+}
+
+.searchbar-notification input {
+  width: 25em;
+  outline: none;
+  padding-left: 0.4em;
+  text-transform: capitalize;
+  font-family: "Karla", sans-serif;
+  border-radius: 3px;
+  border: 1px solid grey;
+
+  height: 2.2em;
 }
 
 .search {
@@ -2891,6 +3064,7 @@ aside {
 
 .discount-1 {
   margin-top: 0.5em;
+  padding-right: 0.5em;
 }
 
 .discount-1 p {
@@ -2901,7 +3075,7 @@ aside {
 }
 
 .discount-1 input {
-  width: 48%;
+  width: 100%;
   height: 2em;
   margin-top: 0.4em;
   border: 1px solid gray;
@@ -4441,12 +4615,13 @@ aside {
 
 .first-profile-view-flex {
   display: flex;
-  width: 100%;
+  max-width: 100%;
   gap: 1.5em;
 }
 
 .first-profile-view {
   width: 65%;
+  flex: 0 0 65%;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   padding-bottom: 0.8em;
   border-radius: 5px;
@@ -4732,6 +4907,7 @@ aside {
   height: 100%;
   margin-right: 1em;
   margin-top: 3em;
+  word-break: break-all;
 }
 
 .bio h2 {
@@ -4749,6 +4925,7 @@ aside {
   margin-bottom: 0.2em;
   min-height: 3em;
   max-height: 100%;
+  max-width: 100%;
 }
 
 .bio button {
@@ -4919,6 +5096,12 @@ aside {
     display: none;
   }
 
+  .searchbar-notification .search {
+    position: relative;
+    width: fit-content;
+    display: none;
+  }
+
   .responsive-search {
     border: 1px solid rgb(226, 226, 226);
     display: flex;
@@ -4941,6 +5124,9 @@ aside {
     border-radius: 10px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border: 1px solid rgb(227, 227, 227);
   }
 
   .top-left-corner {
@@ -5044,16 +5230,26 @@ aside {
     font-family: "Karla", sans-serif;
   }
 
+  .responsive-cursor {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    align-items: end;
+    justify-content: flex-end;
+    height: 100%;
+    padding-top: 4em;
+  }
+
   .student-groups {
     width: 100%;
-    margin-top: 4em;
     display: flex;
     scrollbar-width: none;
     overflow-x: scroll;
     -ms-overflow-style: none;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    gap: 1em;
+    row-gap: 1em;
   }
 
   .student-groups::-webkit-scrollbar {
@@ -5926,8 +6122,9 @@ aside {
   }
 
   .chat-inputs textarea {
-    width: 70%;
+    width: 100%;
     height: 3em;
+    margin-left: 1em;
     max-height: 10em;
     padding-left: 0.8em;
     padding-top: 0.5em;

@@ -216,6 +216,7 @@ export const EditProfile = () => {
         await updateDoc(userDbRef, {
           firstName: firstNameEdit.current.value,
           lastName: lastNameEdit.current.value,
+          fullName: `${firstNameEdit.current.value.toLocaleLowerCase()} ${lastNameEdit.current.value.toLocaleLowerCase()}`,
         });
         setLoadingEditProfile("Saved");
         firstNameEdit.current.value = "";
@@ -323,11 +324,7 @@ export const EditProfile = () => {
           <div className="edit-profile-page">
             <div className="edit-cover-photo">
               <img
-                src={
-                  !coverPhotoLink
-                    ? require("./images/olive-wood-364426_1280.jpg")
-                    : coverPhotoLink
-                }
+                src={!coverPhotoLink ? userDataState.coverUrl : coverPhotoLink}
                 alt=""
               />
               <FontAwesomeIcon
