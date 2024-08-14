@@ -157,6 +157,7 @@ export const StudentSchedule = () => {
             <FontAwesomeIcon
               icon={faSearch}
               style={{ fontSize: "16px", cursor: "pointer" }}
+              onClick={findPeople}
             />
           </div>
           <div className="notificationBell">

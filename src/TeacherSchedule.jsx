@@ -217,10 +217,18 @@ export const TeacherSchedule = () => {
                 onClick={findPeople}
               />
             </div>
+            <div className=" responsive-search">
+              <FontAwesomeIcon
+                icon={faSearch}
+                style={{ fontSize: "16px", cursor: "pointer" }}
+                onClick={findPeople}
+              />
+            </div>
             <div className="notificationBell">
               <FontAwesomeIcon icon={faBell} style={{ fontSize: "16px" }} />
             </div>
           </div>
+
           <div className="profile-brief">
             <div className="header-img">
               <img src={userDataState?.profileUrl} alt="" />
@@ -228,6 +236,26 @@ export const TeacherSchedule = () => {
             <h3>hi, {userDataState?.firstName}!</h3>
           </div>
         </div>
+      </div>
+
+      <div className="responsive-search-two">
+        <input
+          type="text"
+          placeholder="search for teachers or fellows"
+          ref={searchInput}
+        />
+        <FontAwesomeIcon
+          icon={faSearch}
+          style={{
+            position: "absolute",
+            right: "0.5em",
+            top: "0.5em",
+            color: "rgb(41, 41, 41)",
+            cursor: "pointer",
+            backgroundColor: "white",
+          }}
+          onClick={findPeople}
+        />
       </div>
       <div className="app-first-body">
         <div className="created-classes">

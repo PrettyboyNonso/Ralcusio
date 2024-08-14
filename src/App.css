@@ -1310,7 +1310,7 @@ aside {
 }
 
 .header-img {
-  width: 2em;
+  width: 2.3em;
   height: 2em;
 }
 
@@ -5045,6 +5045,25 @@ aside {
 /* mobile phones */
 
 @media only screen and (max-width: 767px) {
+  .teacherHeader {
+    align-items: center;
+    gap: 0em;
+    justify-content: unset;
+  }
+
+  .teacherHeader h2 {
+    font-size: 16px;
+    flex: 0 0 50%;
+  }
+
+  .profileName-img {
+    display: flex;
+    align-items: center;
+    min-width: 50%;
+    justify-content: flex-end;
+    gap: 1.5em;
+  }
+
   .app-side {
     display: flex;
     flex-direction: column;
@@ -5097,9 +5116,22 @@ aside {
   }
 
   .searchbar-notification .search {
-    position: relative;
-    width: fit-content;
     display: none;
+  }
+
+  .responsive-search-two {
+    margin-top: 1.5em;
+    position: relative;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  .responsive-search-two input {
+    width: 100%;
+    height: 2.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    font-family: "Karla", sans-serif;
   }
 
   .responsive-search {
