@@ -7,17 +7,28 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserImg from "./images/fb.jpg";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Devices } from "./App";
 export const SearchUser = () => {
   const { setVisible, stateSearchResult, searchString } = useContext(Devices);
   const [currentId, setCurrentId] = useState(stateSearchResult[0]?.userId);
   const [arrayIndex, setArrayIndex] = useState(0);
   const { userDataState } = useContext(Devices);
+  const searchSlide = useRef(null);
   function clickFunc(e) {
-    const targetElem = e.target.closest(".user-flex");
-    setCurrentId(targetElem.id);
-    setArrayIndex(targetElem.className.split(" ")[2]);
+    if (window.innerWidth < 767) {
+      const targetElem = e.target.closest(".user-flex");
+      setCurrentId(targetElem.id);
+      setArrayIndex(targetElem.className.split(" ")[2]);
+      searchSlide?.current.scrollBy({
+        left: searchSlide?.current.offsetWidth * 1,
+        behaviour: "smooth",
+      });
+    } else {
+      const targetElem = e.target.closest(".user-flex");
+      setCurrentId(targetElem.id);
+      setArrayIndex(targetElem.className.split(" ")[2]);
+    }
   }
 
   const shortenBio = (bio) => {
@@ -172,7 +183,7 @@ export const SearchUser = () => {
           unfortunately, there is no result for the search, "{searchString}"
         </p>
       )}
-      <div className="search-flex">
+      <div className="search-flex" ref={searchSlide}>
         <div className="user-flex-side">
           {stateSearchResult.map((value, index) => (
             <UserCard

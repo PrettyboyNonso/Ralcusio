@@ -45,7 +45,7 @@ export const CreateClass = () => {
   const [typeOfClass, setTypeOfClass] = useState("");
   const [coursePlanningError, setCoursePlanningError] = useState(false);
   const [pricePlanningError, setPricePlanningError] = useState(false);
-  const [reducerState, dispatch] = useReducer(reducer, { toggleOn: false });
+  const [reducerState, dispatch] = useReducer(reducer, { toggleOn: true });
   const [reducerStateCurri, dispatchCurri] = useReducer(reducer, {
     toggleOn: false,
   });
@@ -473,7 +473,7 @@ export const CreateClass = () => {
             >
               <p>free course</p>
               <ToggleBtn
-                toggleFunc={() => dispatch()}
+                // toggleFunc={() => dispatch()}
                 toggleState={reducerState.toggleOn}
               />
             </div>

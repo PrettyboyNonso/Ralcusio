@@ -1310,7 +1310,7 @@ aside {
 }
 
 .header-img {
-  width: 2.3em;
+  width: 2.1em;
   height: 2em;
 }
 
@@ -5049,6 +5049,180 @@ aside {
 /* mobile phones */
 
 @media only screen and (max-width: 767px) {
+  .searchUsers {
+    margin-left: 0em;
+    width: 100%;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .search-head {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+  }
+
+  .bio-search {
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  .bio-search p {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  .search-head h2 {
+    text-transform: capitalize;
+    font-size: 16px;
+    font-family: "Karla", sans-serif;
+  }
+
+  .searchUsers h3 {
+    margin-top: 1em;
+    text-transform: capitalize;
+    font-size: 15px;
+    font-family: "Karla", sans-serif;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .search-flex {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 0.5em;
+    margin-top: 2em;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    align-items: flex-start;
+  }
+
+  .search-flex::-webkit-scrollbar {
+    display: none;
+  }
+
+  .user-flex-side {
+    width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+  }
+
+  .user-flex-active {
+    border: 1px solid #ed7014;
+  }
+
+  .user-flex {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+  }
+
+  .user-card {
+    width: 100%;
+    height: fit-content;
+    padding: 0.5em;
+    /* border: 1px solid rgb(227, 227, 227); */
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .user-name-followers {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .name-user-search {
+    width: 100%;
+  }
+
+  .name-user-search h4 {
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+
+  .name-user-search p {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+    margin-top: 0.4em;
+  }
+
+  .image-user-search {
+    width: 28%;
+    height: 5em;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 50%;
+  }
+  .image-user-search img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .profile-flex-side {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex: 0 0 100%;
+    min-height: fit-content;
+    scroll-snap-align: start;
+    padding-bottom: 100%;
+  }
+
+  .user-profile-details-search {
+    width: 100%;
+  }
+
+  .profile-search-side-user {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 10px;
+  }
+
+  .cover-search-photo {
+    width: 100%;
+    height: 10em;
+  }
+
+  .cover-search-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    z-index: 1;
+    object-fit: cover;
+  }
+
+  .profile-photo-search {
+    width: 7em;
+    height: 7em;
+    border: 1px solid rgb(227, 227, 227);
+    margin-top: -2.5em;
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+  }
+
+  .profile-photo-search img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
   .teacherHeader {
     align-items: center;
     gap: 0em;
@@ -7533,6 +7707,7 @@ aside {
   .all-classes-body p:nth-child(1) {
     flex: 0 0 100%;
     font-weight: bold;
+    justify-content: start;
   }
 
   .all-classes-body p:nth-child(2) {
@@ -7613,6 +7788,74 @@ aside {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+  }
+
+  .followers-following {
+    display: flex;
+    gap: 0.4em;
+    align-items: center;
+    margin-top: 0.2em;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .followers-following button {
+    margin-left: -2em;
+  }
+
+  .followers-following p {
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(65, 65, 65);
+  }
+
+  .dot {
+    width: 0.5em;
+    height: 0.5em;
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: 50%;
+    background-color: rgb(112, 112, 112);
+  }
+
+  .profile-bio {
+    margin-top: -2.5em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+  }
+
+  .profile-bio p {
+    line-height: 1.3em;
+    font-family: "Karla", sans-serif;
+    font-size: 14px;
+  }
+
+  .following-people {
+    width: 100%;
+    height: 2em;
+    margin-top: 0.5em;
+    display: flex;
+
+    position: relative;
+  }
+
+  .following-people .img {
+    width: 6.5%;
+    height: 100%;
+  }
+
+  .name-and-followers button {
+    width: 8em;
+    height: 2.5em;
+    text-transform: capitalize;
+    font-family: "Karla", sans-serif;
+    background-color: #ed7014;
+    border: 1px solid gray;
+    color: white;
+    border-radius: 3px;
+
+    margin-top: 0.6em;
   }
 
   .name-and-followers {
@@ -7704,7 +7947,7 @@ aside {
   }
 
   .other-profile-info {
-    margin-top: 0.5em;
+    margin-top: 0.4em;
     padding-left: 1em;
     padding-right: 1em;
   }

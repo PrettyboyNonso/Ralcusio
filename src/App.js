@@ -60,6 +60,7 @@ function App() {
   const [stateSearchResult, setStateSearchResult] = useState([]);
   const [searchString, setSearchString] = useState("");
   const searchInput = useRef(null);
+
   const findPeople = async () => {
     if (searchInput.current.value.trim() !== "") {
       const removeExtraSpaces = searchInput.current.value.split(" ");

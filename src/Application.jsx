@@ -52,6 +52,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
 
   const AppSide = () => {
     if (userDataState.accountType === "Teacher Account") {
+      // return <SearchUser />;
       if (visible) {
         return <SearchUser />;
       } else {
