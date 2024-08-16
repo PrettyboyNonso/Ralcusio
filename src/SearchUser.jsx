@@ -71,6 +71,7 @@ export const SearchUser = () => {
 
                 {userDataState?.userId !== currentId && (
                   <button
+                    className="normal-btn"
                     style={{
                       cursor: "pointer",
                       border: "none",
@@ -82,7 +83,15 @@ export const SearchUser = () => {
                 )}
               </div>
             </div>
-
+            <button
+              style={{
+                cursor: "pointer",
+                border: "none",
+                marginLeft: "2em",
+              }}
+            >
+              follow
+            </button>
             <div
               className="other-profile-info"
               style={{ position: "absolute", marginTop: "5em" }}

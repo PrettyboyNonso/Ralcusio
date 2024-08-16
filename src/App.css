@@ -7799,8 +7799,10 @@ aside {
     flex-wrap: wrap;
   }
 
-  .followers-following button {
+  .normal-btn {
     margin-left: -2em;
+    position: unset;
+    display: none;
   }
 
   .followers-following p {
