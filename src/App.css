@@ -8956,7 +8956,7 @@ aside {
   .logout-responsive {
     position: absolute;
     align-items: center;
-    right: 0.3em;
+    right: 0.2em;
     bottom: 4em;
     border: 1px solid rgb(227, 227, 227);
     border-radius: 5px;
@@ -8967,7 +8967,7 @@ aside {
     font-weight: bold;
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
-    background-color: whitesmoke;
-    color: #ed7014;
+    background-color: #ed7014;
+    color: white;
   }
 }

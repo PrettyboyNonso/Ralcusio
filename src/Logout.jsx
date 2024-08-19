@@ -4,8 +4,9 @@ import React, { useContext } from "react";
 import { Devices } from "./App";
 
 export function Logout() {
+  const { signOutUser } = useContext(Devices);
   return (
-    <div>
+    <div onClick={signOutUser}>
       {/* <p>logout</p> */}
       <FontAwesomeIcon
         icon={faArrowRightToBracket}
