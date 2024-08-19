@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Devices } from "./App";
 import { FiHome } from "react-icons/fi";
 import { TiMessages } from "react-icons/ti";
@@ -10,11 +10,19 @@ import { Logout } from "./Logout";
 export const FooterComponent = () => {
   const { userData, activeLinkId, handleClick } = useContext(Devices);
   const { currentId } = useContext(messageContext);
-
+  const [logout, setLogout] = useState(false);
+  const showLogout = () => {
+    setLogout(!logout);
+  };
   return (
     currentId === "exit" && (
       <footer>
-        {activeLinkId === "more" && <Logout />}
+        <div
+          className="logout-responsive"
+          style={{ display: logout ? "flex" : "none" }}
+        >
+          <Logout />
+        </div>
         <div
           className={`links my-icons ${
             activeLinkId === "house" ? "active" : ""
@@ -45,7 +53,7 @@ export const FooterComponent = () => {
           <p>profile</p>
         </div>
 
-        <div className="my-icons links" id="more" onClick={handleClick}>
+        <div className="my-icons links" id="more" onClick={showLogout}>
           <LuCircleEllipsis />
           <p>more</p>
         </div>

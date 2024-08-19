@@ -1,10 +1,11 @@
 import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
+import { Devices } from "./App";
 
 export function Logout() {
   return (
-    <div className="logout-responsive">
+    <div>
       {/* <p>logout</p> */}
       <FontAwesomeIcon
         icon={faArrowRightToBracket}
