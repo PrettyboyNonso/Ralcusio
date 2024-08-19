@@ -89,7 +89,7 @@ export const SearchUser = () => {
                 style={{
                   cursor: "pointer",
                   border: "none",
-                  marginLeft: "10em",
+                  marginLeft: "9em",
                   marginTop: "5em",
                   // position: "unset",
                 }}
