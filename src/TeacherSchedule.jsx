@@ -120,7 +120,7 @@ export const TeacherSchedule = () => {
           <h1>this month</h1>
         </div>
         <div className="analysis-flex">
-          <div className="analysis-card">
+          {/* <div className="analysis-card">
             <div className="analysis-card-head">
               <FontAwesomeIcon
                 icon={faDollarSign}
@@ -130,8 +130,8 @@ export const TeacherSchedule = () => {
             </div>
             <h3>$4,245</h3>
             <p>last month $10,000</p>
-          </div>
-          <div className="analysis-card">
+          </div> */}
+          {/* <div className="analysis-card">
             <div className="analysis-card-head">
               <FontAwesomeIcon
                 icon={faVideo}
@@ -142,7 +142,7 @@ export const TeacherSchedule = () => {
 
             <h3>61</h3>
             <p>last month 70</p>
-          </div>
+          </div> */}
           <div className="analysis-card">
             <div className="analysis-card-head">
               <FontAwesomeIcon

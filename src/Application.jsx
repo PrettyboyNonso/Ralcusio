@@ -113,7 +113,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
               <p>messages</p>
             </div>
 
-            <div
+            {/* <div
               className={`links ${activeLinkId === "payment" ? "active" : ""}`}
               id="payment"
               onClick={handleClick}
@@ -127,7 +127,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
                 }}
               />
               <p>payments</p>
-            </div>
+            </div> */}
 
             <div className="links" id="book" onClick={handleClick}>
               <FontAwesomeIcon
@@ -185,7 +185,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
           userDataState.accountType === "Teacher Account" && <CreateClass />}
         {activeLinkId === "book" &&
           userDataState?.accountType === "Student Account" && <StudentClass />}
-        {activeLinkId === "payment" && <PaymentPage />}
+        {/* {activeLinkId === "payment" && <PaymentPage />} */}
         {invisible && activeLinkId === "profile" && <Profile />}
         {!invisible && <EditProfile />}
       </div>

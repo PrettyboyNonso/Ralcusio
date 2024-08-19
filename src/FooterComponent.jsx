@@ -3,7 +3,7 @@ import { Devices } from "./App";
 import { FiHome } from "react-icons/fi";
 import { TiMessages } from "react-icons/ti";
 import { FaChalkboardTeacher } from "react-icons/fa";
-import { IoCardOutline } from "react-icons/io5";
+import { LuCircleEllipsis } from "react-icons/lu";
 import { FiUsers } from "react-icons/fi";
 import { messageContext } from "./MessageClickContext";
 export const FooterComponent = () => {
@@ -34,11 +34,6 @@ export const FooterComponent = () => {
           <p>messages</p>
         </div>
 
-        <div className="my-icons links" id="payment" onClick={handleClick}>
-          <IoCardOutline />
-          <p>payments</p>
-        </div>
-
         <div className="my-icons links" id="book" onClick={handleClick}>
           <FaChalkboardTeacher />
           <p>classes</p>
@@ -46,6 +41,11 @@ export const FooterComponent = () => {
         <div className="my-icons links" id="profile" onClick={handleClick}>
           <FiUsers />
           <p>profile</p>
+        </div>
+
+        <div className="my-icons links" id="more" onClick={handleClick}>
+          <LuCircleEllipsis />
+          <p>more</p>
         </div>
       </footer>
     )

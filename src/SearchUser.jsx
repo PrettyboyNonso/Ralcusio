@@ -83,18 +83,23 @@ export const SearchUser = () => {
                 )}
               </div>
             </div>
-            <button
-              style={{
-                cursor: "pointer",
-                border: "none",
-                marginLeft: "2em",
-              }}
-            >
-              follow
-            </button>
+            {userDataState?.userId !== currentId && (
+              <button
+                className="responsive-button"
+                style={{
+                  cursor: "pointer",
+                  border: "none",
+                  marginLeft: "10em",
+                  marginTop: "5em",
+                  // position: "unset",
+                }}
+              >
+                follow
+              </button>
+            )}
             <div
               className="other-profile-info"
-              style={{ position: "absolute", marginTop: "5em" }}
+              style={{ position: "absolute", marginTop: "1em" }}
             >
               {result?.headline && (
                 <div className="category" style={{ alignItems: "center" }}>
