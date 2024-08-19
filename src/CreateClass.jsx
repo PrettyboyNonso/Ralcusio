@@ -559,6 +559,8 @@ export const CreateClass = () => {
             <div className="curri-input-2">
               <p>start date</p>
               <DatePicker
+                showTimeSelect={true}
+                dateFormat={"yy-MM-dd h:mm aa"}
                 showYearDropdown
                 minDate={new Date()}
                 placeholderText={dateState}
@@ -572,6 +574,8 @@ export const CreateClass = () => {
               <p>end date</p>
               {curriculumStartDate ? (
                 <DatePicker
+                  showTimeSelect={true}
+                  dateFormat={"yy-MM-dd h:mm aa"}
                   showYearDropdown
                   minDate={curriculumStartDate}
                   placeholderText={dateState}
@@ -608,6 +612,15 @@ export const CreateClass = () => {
           <div className="schedule-1">
             <p>when does your course start?</p>
             <DatePicker
+              popperModifiers={{
+                preventOverflow: {
+                  enabled: true,
+                  boundariesElement: "viewport",
+                },
+              }}
+              popperPlacement="auto"
+              showTimeSelect={true}
+              dateFormat={"yy-MM-dd h:mm aa"}
               showYearDropdown
               minDate={new Date()}
               placeholderText={dateState}
@@ -621,6 +634,8 @@ export const CreateClass = () => {
             <p>when does your course end?</p>
             {courseStartdate ? (
               <DatePicker
+                showTimeSelect={true}
+                dateFormat={"yy-MM-dd h:mm aa"}
                 showYearDropdown
                 minDate={courseStartdate}
                 placeholderText={dateState}
