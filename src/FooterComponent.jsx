@@ -6,6 +6,7 @@ import { FaChalkboardTeacher } from "react-icons/fa";
 import { LuCircleEllipsis } from "react-icons/lu";
 import { FiUsers } from "react-icons/fi";
 import { messageContext } from "./MessageClickContext";
+import { Logout } from "./Logout";
 export const FooterComponent = () => {
   const { userData, activeLinkId, handleClick } = useContext(Devices);
   const { currentId } = useContext(messageContext);
@@ -13,6 +14,7 @@ export const FooterComponent = () => {
   return (
     currentId === "exit" && (
       <footer>
+        {activeLinkId === "more" && <Logout />}
         <div
           className={`links my-icons ${
             activeLinkId === "house" ? "active" : ""

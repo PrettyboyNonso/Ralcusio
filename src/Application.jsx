@@ -23,6 +23,7 @@ import { FooterComponent } from "./FooterComponent";
 import { StudentClass } from "./StudentClass";
 import { EditProfile } from "./EditProfile";
 import { SearchUser } from "./SearchUser";
+import { Logout } from "./Logout";
 
 export const Application = ({ handleWheel, handleTarget }) => {
   const {
@@ -176,7 +177,9 @@ export const Application = ({ handleWheel, handleTarget }) => {
             />
           </div>
         </aside>
+
         <FooterComponent />
+
         {activeLinkId === "house" && <AppSide />}
         {activeLinkId === "message" && (
           <Message handleTarget={handleTarget} handleWheel={handleWheel} />
@@ -185,7 +188,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
           userDataState.accountType === "Teacher Account" && <CreateClass />}
         {activeLinkId === "book" &&
           userDataState?.accountType === "Student Account" && <StudentClass />}
-        {/* {activeLinkId === "payment" && <PaymentPage />} */}
+
         {invisible && activeLinkId === "profile" && <Profile />}
         {!invisible && <EditProfile />}
       </div>
