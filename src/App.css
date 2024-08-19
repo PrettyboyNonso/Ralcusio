@@ -4876,6 +4876,11 @@ aside {
   border-radius: 50%;
 }
 
+.search-profile-info {
+  position: absolute;
+  top: 15em;
+}
+
 .other-profile-info {
   margin-top: -2.5em;
   padding-left: 1em;
@@ -5193,7 +5198,7 @@ aside {
     width: 100%;
     height: fit-content;
     position: relative;
-    border: 1px solid rgb(227, 227, 227);
+    border: none;
     border-radius: 10px;
   }
 
@@ -7851,8 +7856,8 @@ aside {
 
   .responsive-button {
     display: block;
-    width: 8em;
-    height: 2.5em;
+    width: 9em;
+    height: 3em;
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
     background-color: #ed7014;
