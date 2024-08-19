@@ -6,7 +6,12 @@ export function Logout() {
   return (
     <div className="logout-responsive">
       <p>logout</p>
-      <FontAwesomeIcon icon={faArrowRightToBracket} />
+      <FontAwesomeIcon
+        icon={faArrowRightToBracket}
+        style={{
+          fontSize: "17px",
+        }}
+      />
     </div>
   );
 }
