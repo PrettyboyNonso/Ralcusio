@@ -7856,8 +7856,8 @@ aside {
 
   .responsive-button {
     display: block;
-    width: 9em;
-    height: 3em;
+    width: 8em;
+    height: 2.5em;
     text-transform: capitalize;
     font-family: "Karla", sans-serif;
     background-color: #ed7014;
@@ -7865,6 +7865,7 @@ aside {
     color: white;
     border-radius: 3px;
     margin-top: 0.6em;
+    font-size: 14px;
   }
 
   .name-and-followers button {
