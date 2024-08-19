@@ -4877,9 +4877,7 @@ aside {
 }
 
 .other-profile-info {
-  position: absolute;
-  top: 15em;
-  margin-top: 0em;
+  margin-top: -2.5em;
   padding-left: 1em;
   padding-right: 1em;
 }
@@ -7964,9 +7962,13 @@ aside {
     object-fit: cover;
     border-radius: 50%;
   }
+  .search-profile-info {
+    position: absolute;
+    top: 15.5em;
+  }
 
   .other-profile-info {
-    top: 16em;
+    margin-top: 0em;
     padding-left: 1em;
     padding-right: 1em;
   }

@@ -98,7 +98,7 @@ export const SearchUser = () => {
               </button>
             )}
             <div
-              className="other-profile-info"
+              className="search-profile-info"
               style={{ position: "absolute", marginTop: "1em" }}
             >
               {result?.headline && (
