@@ -5,7 +5,7 @@ import React from "react";
 export function Logout() {
   return (
     <div className="logout-responsive">
-      <p>logout</p>
+      {/* <p>logout</p> */}
       <FontAwesomeIcon
         icon={faArrowRightToBracket}
         style={{
