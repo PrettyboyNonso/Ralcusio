@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Devices } from "./App";
 import { ResponsiveSignIn } from "./ResponsiveLogin";
 import { ResponsiveLogin } from "./ResponsiveLogin";
+import { LOading } from "./ClassComponents/LOading";
 export const Homepage = forwardRef((_, Myref) => {
   const loginEmail = useRef(null);
   const loginPassword = useRef(null);
@@ -39,6 +40,8 @@ export const Homepage = forwardRef((_, Myref) => {
     dispatch,
     logUser,
     dateError,
+    signInLoading,
+    signUpLoading,
   } = useContext(Devices);
 
   const AccountType = () => {
@@ -98,307 +101,315 @@ export const Homepage = forwardRef((_, Myref) => {
                 <h2>login</h2>
                 <p>login into your account</p>
               </div>
-              <form action="" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <label htmlFor="">email</label>
-                  <div className="input-icons">
-                    <input
-                      placeholder="Enter your email address"
-                      type="email"
-                      ref={loginEmail}
-                    />
-                    <FontAwesomeIcon
-                      icon={faUser}
-                      style={{
-                        position: "absolute",
-                        top: "0.8em",
-                        left: "0.3em",
-                        color: "#ed7014",
-                      }}
-                    />
+              {signInLoading ? (
+                <LOading />
+              ) : (
+                <form action="" onSubmit={(e) => e.preventDefault()}>
+                  <div>
+                    <label htmlFor="">email</label>
+                    <div className="input-icons">
+                      <input
+                        placeholder="Enter your email address"
+                        type="email"
+                        ref={loginEmail}
+                      />
+                      <FontAwesomeIcon
+                        icon={faUser}
+                        style={{
+                          position: "absolute",
+                          top: "0.8em",
+                          left: "0.3em",
+                          color: "#ed7014",
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <label htmlFor="">password</label>
-                  <div className="input-icons">
-                    <input
-                      placeholder="Enter your password"
-                      type="password"
-                      ref={loginPassword}
-                    />
-                    <FontAwesomeIcon
-                      icon={faLock}
-                      style={{
-                        position: "absolute",
-                        top: "0.8em",
-                        left: "0.3em",
-                        color: "#ed7014",
-                      }}
-                    />
+                  <div>
+                    <label htmlFor="">password</label>
+                    <div className="input-icons">
+                      <input
+                        placeholder="Enter your password"
+                        type="password"
+                        ref={loginPassword}
+                      />
+                      <FontAwesomeIcon
+                        icon={faLock}
+                        style={{
+                          position: "absolute",
+                          top: "0.8em",
+                          left: "0.3em",
+                          color: "#ed7014",
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-                <button
-                  onClick={() =>
-                    logUser(
-                      loginEmail.current.value,
-                      loginPassword.current.value
-                    )
-                  }
-                >
-                  login
-                </button>
-                <p>forgot password?</p>
-              </form>
+                  <button
+                    onClick={() =>
+                      logUser(
+                        loginEmail.current.value,
+                        loginPassword.current.value
+                      )
+                    }
+                  >
+                    login
+                  </button>
+                  <p>forgot password?</p>
+                </form>
+              )}
             </div>
           )}
           {state.activeBar === "register" && (
             <div className="signin-side">
-              <div
-                className="register-child"
-                style={{ marginLeft: `-${marginState.margin}%` }}
-              >
-                <div className="sign-in-head">
-                  <FontAwesomeIcon
-                    icon={faAngleLeft}
-                    style={{
-                      marginBottom: "1em",
-                      fontSize: "20px",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                    onClick={loginFunc}
-                  />
-                  <h2>register</h2>
-                  <p>
-                    register and explore a unique learning system, connect with
-                    best tutors, friends and learning communities
-                  </p>
-                </div>
-                <div className="signin-btn">
-                  <button onClick={() => dispatchMargin({ type: "INCREASE" })}>
-                    get started
-                  </button>
-                </div>
-              </div>
-              <div className="register-child">
-                <div className="sign-in-head">
-                  <FontAwesomeIcon
-                    icon={faAngleLeft}
-                    style={{
-                      marginBottom: "1em",
-                      fontSize: "20px",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => dispatchMargin({ type: "DECREASE" })}
-                  />
-                  <h2>what is your name?</h2>
-                  <div className="name-form">
-                    <input
-                      type="text"
-                      placeholder="First name"
-                      ref={firstNameRef}
+              <>
+                {signUpLoading && <LOading />}
+                <div
+                  className="register-child"
+                  style={{ marginLeft: `-${marginState.margin}%` }}
+                >
+                  <div className="sign-in-head">
+                    <FontAwesomeIcon
+                      icon={faAngleLeft}
+                      style={{
+                        marginBottom: "1em",
+                        fontSize: "20px",
+                        color: "white",
+                        cursor: "pointer",
+                      }}
+                      onClick={loginFunc}
                     />
-                    <input
-                      type="text"
-                      placeholder="Last name"
-                      ref={lastnameRef}
-                    />
+                    <h2>register</h2>
+                    <p>
+                      register and explore a unique learning system, connect
+                      with best tutors, friends and learning communities
+                    </p>
                   </div>
-                  <p
-                    style={{
-                      color: "red",
-                      textTransform: "unset",
-                      display: nameError ? "block" : "none",
-                    }}
-                  >
-                    You can not have an empty field!
-                  </p>
-                </div>
-                <div className="signin-btn">
-                  <button onClick={NameFunc}>continue</button>
-                </div>
-              </div>
-              <div className="register-child">
-                <div className="sign-in-head">
-                  <FontAwesomeIcon
-                    icon={faAngleLeft}
-                    style={{
-                      marginBottom: "1em",
-                      fontSize: "20px",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => dispatchMargin({ type: "DECREASE" })}
-                  />
-                  <h2>tell us your gender</h2>
-                  <div className="gender-form" ref={genderRef}>
-                    <div>
-                      <label htmlFor="">male</label>
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="male"
-                        id="male"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="">female</label>
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="female"
-                        id="female"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="">I prefer not to say</label>
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="custom"
-                        id="custom"
-                      />
-                    </div>
-                  </div>
-                  <p
-                    style={{
-                      color: "red",
-                      textTransform: "unset",
-                      display: genderError ? "block" : "none",
-                    }}
-                  >
-                    You have to choose a gender!
-                  </p>
-                </div>
-                <div className="signin-btn">
-                  <button onClick={GenderFunc}>continue</button>
-                </div>
-              </div>
-              <div className="register-child">
-                <div className="sign-in-head">
-                  <FontAwesomeIcon
-                    icon={faAngleLeft}
-                    style={{
-                      marginBottom: "1em",
-                      fontSize: "20px",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => dispatchMargin({ type: "DECREASE" })}
-                  />
-                  <h2>choose your preferred account type</h2>
-                  <AccountType />
-                  <p
-                    style={{
-                      color: "red",
-                      textTransform: "unset",
-                      display: accountTypeError ? "block" : "none",
-                      textAlign: "center",
-                    }}
-                  >
-                    You have to choose a preferred account type!
-                  </p>
-                </div>
-
-                <div className="signin-btn">
-                  <button onClick={StateFunc} className="account-type-btn">
-                    continue
-                  </button>
-                </div>
-              </div>
-              <div className="register-child">
-                <div className="sign-in-head">
-                  <FontAwesomeIcon
-                    icon={faAngleLeft}
-                    style={{
-                      marginBottom: "1em",
-                      fontSize: "20px",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => dispatchMargin({ type: "DECREASE" })}
-                  />
-                  <h2>what is your date of birth?</h2>
-
-                  <DatePicker
-                    selected={dateState}
-                    onChange={(dateState) => setDateState(dateState)}
-                    showYearDropdown
-                    maxDate={new Date()}
-                    className="date-picker"
-                    ref={Myref}
-                  />
-                  <p
-                    style={{
-                      color: "red",
-                      textTransform: "unset",
-                      display: dateError ? "block" : "none",
-                    }}
-                  >
-                    You can not have an empty field!
-                  </p>
                   <div className="signin-btn">
-                    <button onClick={DateFunc}>continue</button>
+                    <button
+                      onClick={() => dispatchMargin({ type: "INCREASE" })}
+                    >
+                      get started
+                    </button>
                   </div>
                 </div>
-              </div>
-
-              <div className="register-child">
-                <div className="sign-in-head">
-                  <FontAwesomeIcon
-                    icon={faAngleLeft}
-                    style={{
-                      marginBottom: "1em",
-                      fontSize: "20px",
-                      color: "white",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => dispatchMargin({ type: "DECREASE" })}
-                  />
-                  <h2>enter your email and create a password</h2>
-
-                  <div className="email-form">
-                    <div>
-                      <label htmlFor="">email address</label>
+                <div className="register-child">
+                  <div className="sign-in-head">
+                    <FontAwesomeIcon
+                      icon={faAngleLeft}
+                      style={{
+                        marginBottom: "1em",
+                        fontSize: "20px",
+                        color: "white",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => dispatchMargin({ type: "DECREASE" })}
+                    />
+                    <h2>what is your name?</h2>
+                    <div className="name-form">
                       <input
                         type="text"
-                        placeholder="Enter your email address"
-                        ref={emailRef}
+                        placeholder="First name"
+                        ref={firstNameRef}
                       />
-                    </div>
-                    <div>
-                      <label htmlFor="">password</label>
                       <input
-                        type="password"
-                        placeholder="Create a password"
-                        ref={passwordRef}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="">confirm password</label>
-                      <input
-                        type="password"
-                        placeholder="Confirm password"
-                        ref={confirmPasswordRef}
+                        type="text"
+                        placeholder="Last name"
+                        ref={lastnameRef}
                       />
                     </div>
                     <p
                       style={{
                         color: "red",
-                        display: FinishError ? "block" : "none",
+                        textTransform: "unset",
+                        display: nameError ? "block" : "none",
+                      }}
+                    >
+                      You can not have an empty field!
+                    </p>
+                  </div>
+                  <div className="signin-btn">
+                    <button onClick={NameFunc}>continue</button>
+                  </div>
+                </div>
+                <div className="register-child">
+                  <div className="sign-in-head">
+                    <FontAwesomeIcon
+                      icon={faAngleLeft}
+                      style={{
+                        marginBottom: "1em",
+                        fontSize: "20px",
+                        color: "white",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => dispatchMargin({ type: "DECREASE" })}
+                    />
+                    <h2>tell us your gender</h2>
+                    <div className="gender-form" ref={genderRef}>
+                      <div>
+                        <label htmlFor="">male</label>
+                        <input
+                          type="radio"
+                          name="gender"
+                          value="male"
+                          id="male"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="">female</label>
+                        <input
+                          type="radio"
+                          name="gender"
+                          value="female"
+                          id="female"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="">I prefer not to say</label>
+                        <input
+                          type="radio"
+                          name="gender"
+                          value="custom"
+                          id="custom"
+                        />
+                      </div>
+                    </div>
+                    <p
+                      style={{
+                        color: "red",
+                        textTransform: "unset",
+                        display: genderError ? "block" : "none",
+                      }}
+                    >
+                      You have to choose a gender!
+                    </p>
+                  </div>
+                  <div className="signin-btn">
+                    <button onClick={GenderFunc}>continue</button>
+                  </div>
+                </div>
+                <div className="register-child">
+                  <div className="sign-in-head">
+                    <FontAwesomeIcon
+                      icon={faAngleLeft}
+                      style={{
+                        marginBottom: "1em",
+                        fontSize: "20px",
+                        color: "white",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => dispatchMargin({ type: "DECREASE" })}
+                    />
+                    <h2>choose your preferred account type</h2>
+                    <AccountType />
+                    <p
+                      style={{
+                        color: "red",
+                        textTransform: "unset",
+                        display: accountTypeError ? "block" : "none",
                         textAlign: "center",
                       }}
                     >
-                      you either left an empty field or both passwords are not a
-                      match
+                      You have to choose a preferred account type!
                     </p>
                   </div>
+
+                  <div className="signin-btn">
+                    <button onClick={StateFunc} className="account-type-btn">
+                      continue
+                    </button>
+                  </div>
                 </div>
-                <div className="signin-btn">
-                  <button onClick={FinishFunc}>finish</button>
+                <div className="register-child">
+                  <div className="sign-in-head">
+                    <FontAwesomeIcon
+                      icon={faAngleLeft}
+                      style={{
+                        marginBottom: "1em",
+                        fontSize: "20px",
+                        color: "white",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => dispatchMargin({ type: "DECREASE" })}
+                    />
+                    <h2>what is your date of birth?</h2>
+
+                    <DatePicker
+                      selected={dateState}
+                      onChange={(dateState) => setDateState(dateState)}
+                      showYearDropdown
+                      maxDate={new Date()}
+                      className="date-picker"
+                      ref={Myref}
+                    />
+                    <p
+                      style={{
+                        color: "red",
+                        textTransform: "unset",
+                        display: dateError ? "block" : "none",
+                      }}
+                    >
+                      You can not have an empty field!
+                    </p>
+                    <div className="signin-btn">
+                      <button onClick={DateFunc}>continue</button>
+                    </div>
+                  </div>
                 </div>
-              </div>
+                <div className="register-child">
+                  <div className="sign-in-head">
+                    <FontAwesomeIcon
+                      icon={faAngleLeft}
+                      style={{
+                        marginBottom: "1em",
+                        fontSize: "20px",
+                        color: "white",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => dispatchMargin({ type: "DECREASE" })}
+                    />
+                    <h2>enter your email and create a password</h2>
+
+                    <div className="email-form">
+                      <div>
+                        <label htmlFor="">email address</label>
+                        <input
+                          type="text"
+                          placeholder="Enter your email address"
+                          ref={emailRef}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="">password</label>
+                        <input
+                          type="password"
+                          placeholder="Create a password"
+                          ref={passwordRef}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="">confirm password</label>
+                        <input
+                          type="password"
+                          placeholder="Confirm password"
+                          ref={confirmPasswordRef}
+                        />
+                      </div>
+                      <p
+                        style={{
+                          color: "red",
+                          display: FinishError ? "block" : "none",
+                          textAlign: "center",
+                        }}
+                      >
+                        you either left an empty field or both passwords are not
+                        a match
+                      </p>
+                    </div>
+                  </div>
+                  <div className="signin-btn">
+                    <button onClick={FinishFunc}>finish</button>
+                  </div>
+                </div>{" "}
+              </>
             </div>
           )}
           <div className="undraw-side">

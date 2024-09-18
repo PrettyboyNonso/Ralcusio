@@ -66,9 +66,9 @@ export const Profile = () => {
             <div className="name-and-followers">
               <h2>{`${userDataState?.firstName} ${userDataState?.lastName}`}</h2>
               <div className="followers-following">
-                <p>{`${userDataState?.followers} followers`}</p>
+                <p>{`${userDataState?.followers?.count} followers`}</p>
                 <div className="dot"></div>
-                <p>{`${userDataState?.following} following`}</p>
+                <p>{`${userDataState?.following?.count} following`}</p>
               </div>
               <button
                 style={{ cursor: "pointer", border: "none" }}

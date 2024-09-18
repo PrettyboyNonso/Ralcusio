@@ -14,53 +14,172 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 import { faFile } from "@fortawesome/free-regular-svg-icons";
 import { messageContext } from "./MessageClickContext";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  onSnapshot,
+  query,
+  serverTimestamp,
+  updateDoc,
+  where,
+} from "firebase/firestore";
+import { database } from "./backend";
+import { Devices } from "./App";
+import myImage from "./images/fb.jpg";
 
 export const Message = ({ handleWheel, handleTarget }) => {
   const [elementClickedId, setElementClickedId] = useState("");
   const [inputValue, setInputValue] = useState("");
   const { currentId, setCurrentId, responsiveChatClick, resetClick } =
     useContext(messageContext);
+  const { userDataState } = useContext(Devices);
+  const [queriedChats, setQueriedchat] = useState([]);
+  const [isMounted, setIsMounted] = useState(false);
+  const [messageArray, setMessageArray] = useState([]);
+  const [responsiveMessageArray, setResponsiveMessageArray] = useState([]);
+  const [messageLoading, setMessageLoading] = useState(false);
+  const QueryChats = () => {
+    const chatDb = collection(database, "chats");
+    const chatQuery = query(chatDb);
 
-  const users = {
-    user1: {
-      id: "user1",
-      title: "mosh hamedani",
-      image: "./images/adult-1851571_1280.jpg",
-      titleMessage: "start a conversation",
-      bio: `Dedicated educator with a passion for nurturing young minds. 
-      I create engaging and inclusive classrooms that inspire a love of learning. 
-      My goal is to empower students to reach their full`,
-    },
-    user2: {
-      id: "user2",
-      title: "Fredrick lebron",
-      image: "./images/man-1690965_1280.jpg",
-      titleMessage: "start a conversation",
-      bio: `
-      Experienced teacher committed to fostering a positive learning environment. 
-      I specialize in innovative teaching methods 
-      that support diverse learning styles and help students excel academically.
-      `,
-    },
-    user3: {
-      id: "user3",
-      title: "Rickie Thomas",
-      image: "./images/man-3803551_1280.jpg",
-      titleMessage: "start a conversation",
-      bio: `Enthusiastic teacher with a focus on personalized instruction. 
-      I strive to cultivate critical thinking and problem-solving 
-      skills in my students while fostering a supportive classroom community.`,
-    },
-    user4: {
-      id: "user4",
-      title: "Jane Adolphus",
-      image: "./images/smile-2072907_1280.jpg",
-      titleMessage: "start a conversation",
-      bio: `Passionate educator who believes in the transformative power of education. 
-      I aim to inspire curiosity and creativity, 
-      guiding students toward a lifelong love of learning.`,
-    },
+    // Listen for real-time updates in the chats collection
+    const unsubscribe = onSnapshot(chatQuery, (chatSnapshot) => {
+      let chatArray = [];
+      if (!chatSnapshot.empty) {
+        chatSnapshot.forEach(async (chatDoc) => {
+          const participantsList = chatDoc?.data()?.participants;
+
+          if (participantsList?.includes(userDataState?.userId)) {
+            const otherUserId = participantsList?.find(
+              (value) => value !== userDataState?.userId
+            );
+
+            const userDbRef = collection(database, "users");
+            const userQuery = query(
+              userDbRef,
+              where("userId", "==", otherUserId)
+            );
+
+            const userSnapshot = await getDocs(userQuery);
+
+            if (!userSnapshot.empty) {
+              const userData = userSnapshot.docs[0].data();
+              const { fullName, profileUrl, userId } = userData;
+
+              const chatObject = {
+                fullName,
+                profileUrl,
+                lastMessage: chatDoc?.data()?.lastMessage,
+                otherUserId: userId,
+                Id: chatDoc?.data()?.chatId,
+                chatCollection: chatDoc?.data()?.chatCollectionId,
+                senderId: chatDoc?.data()?.senderId,
+                sentTime: chatDoc?.data()?.sentTime,
+              };
+
+              chatArray.push(chatObject);
+
+              // Update the state after processing each chat
+              setQueriedchat([...chatArray]);
+            }
+          }
+        });
+      }
+    });
+
+    // Clean up the listener when component unmounts
+    return () => unsubscribe();
   };
+
+  const responsiveQueryMessage = () => {
+    let messageArr = [];
+    if (isMounted) {
+      if (currentId) {
+        const chatActive = queriedChats?.filter(
+          (value) => value.Id === currentId
+        );
+        const chatCollectionId = chatActive[0]?.chatCollection;
+
+        if (chatCollectionId) {
+          const databseRef = doc(database, "chats", chatCollectionId);
+          const dbCollection = collection(databseRef, "messages");
+          const messageQuery = query(dbCollection);
+
+          const unsubscribe = onSnapshot(messageQuery, (messageSnapshot) => {
+            messageArr = [];
+
+            messageSnapshot.forEach((doc) => {
+              const messageObject = {
+                senderId: doc?.data()?.senderId,
+                timeSent: doc?.data()?.sentTime?.toMillis(),
+                text: doc?.data()?.text,
+              };
+              messageArr.push(messageObject);
+            });
+
+            const sortedMessage = messageArr.sort(
+              (a, b) => a.timeSent - b.timeSent
+            );
+            setResponsiveMessageArray(sortedMessage);
+          });
+
+          return () => unsubscribe();
+        }
+      }
+    }
+  };
+
+  const QueryMessage = () => {
+    let messageArr = [];
+    if (isMounted) {
+      if (elementClickedId) {
+        const chatActive = queriedChats?.filter(
+          (value) => value.Id === elementClickedId
+        );
+        const chatCollectionId = chatActive[0]?.chatCollection;
+
+        if (chatCollectionId) {
+          const databseRef = doc(database, "chats", chatCollectionId);
+          const dbCollection = collection(databseRef, "messages");
+          const messageQuery = query(dbCollection);
+
+          const unsubscribe = onSnapshot(messageQuery, (messageSnapshot) => {
+            messageArr = [];
+
+            messageSnapshot.forEach((doc) => {
+              const messageObject = {
+                senderId: doc?.data()?.senderId,
+                timeSent: doc?.data()?.sentTime?.toMillis(),
+                text: doc?.data()?.text,
+              };
+              messageArr.push(messageObject);
+            });
+
+            const sortedMessage = messageArr.sort(
+              (a, b) => a.timeSent - b.timeSent
+            );
+            setMessageArray(sortedMessage);
+          });
+
+          return () => unsubscribe();
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    QueryMessage();
+  }, [elementClickedId, queriedChats, isMounted]);
+
+  useEffect(() => {
+    responsiveQueryMessage();
+  }, [currentId, queriedChats, isMounted]);
+
+  useEffect(() => {
+    QueryChats();
+  }, [isMounted]);
 
   const chatClick = (e) => {
     const clickedElement = e.target.closest(".chatscomponents");
@@ -68,9 +187,9 @@ export const Message = ({ handleWheel, handleTarget }) => {
     if (clickedElement) {
       const clickedId = clickedElement.id;
       setElementClickedId(clickedId);
-      // setCurrentId(clickedId);
+
       sessionStorage.setItem("element-clicked-Id", clickedId);
-      // sessionStorage.setItem("currentId", clickedId);
+
       if (clickedElement.classList.contains("chat-active")) {
         // do nothing
       } else if (!clickedElement.classList.contains("chat-active")) {
@@ -87,23 +206,6 @@ export const Message = ({ handleWheel, handleTarget }) => {
     }
   };
 
-  useEffect(() => {
-    const sessionStored = sessionStorage.getItem("element-clicked-Id");
-    const sessionStoredId = sessionStorage.getItem("currentId");
-    if (sessionStored) {
-      setCurrentId(sessionStoredId);
-      setElementClickedId(sessionStored);
-      const activeChat = document.getElementById(sessionStored);
-      if (activeChat) {
-        activeChat.classList.add("chat-active");
-      }
-    } else {
-      // setElementClickedId("user1"); i think it is redundant
-      sessionStorage.setItem("element-clicked-Id", "user1");
-      sessionStorage.setItem("currentId", "exit");
-    }
-  }, []);
-
   const handleTyping = (e) => {
     const textArea = e.target;
     if (inputValue !== "") {
@@ -114,10 +216,78 @@ export const Message = ({ handleWheel, handleTarget }) => {
     }
 
     setInputValue(textArea.value);
-    // console.log(inputValue);
   };
 
-  const ChatComponents = ({ id, title, titleMessage, image }) => {
+  const responsiveSendMessage = async () => {
+    if (inputValue.trim().length > 0) {
+      setMessageLoading(true);
+
+      const activeChat = queriedChats?.find((value) => value?.Id === currentId);
+      const activeChatCollectionId = activeChat?.chatCollection;
+
+      if (activeChatCollectionId) {
+        const databaseRef = doc(database, "chats", activeChatCollectionId);
+        const chatRef = collection(databaseRef, "messages");
+
+        const messageObj = {
+          senderId: userDataState?.userId,
+          text: inputValue,
+          sentTime: serverTimestamp(),
+        };
+        // setResponsiveMessageArray([...responsiveMessageArray, messageObj]);
+        await updateDoc(databaseRef, {
+          lastMessage: inputValue,
+          senderId: userDataState?.userId,
+          sentTime: serverTimestamp(),
+        });
+
+        await addDoc(chatRef, messageObj);
+        setResponsiveMessageArray([...responsiveMessageArray, messageObj]);
+        setInputValue("");
+        setMessageLoading(false);
+      }
+    }
+  };
+
+  const sendMessage = async () => {
+    if (inputValue.trim().length > 0) {
+      setMessageLoading(true);
+
+      const activeChat = queriedChats?.find(
+        (value) => value?.Id === elementClickedId
+      );
+      const activeChatCollectionId = activeChat?.chatCollection;
+
+      if (activeChatCollectionId) {
+        const databaseRef = doc(database, "chats", activeChatCollectionId);
+        const chatRef = collection(databaseRef, "messages");
+
+        const messageObj = {
+          senderId: userDataState?.userId,
+          text: inputValue,
+          sentTime: serverTimestamp(),
+        };
+
+        setMessageArray([...messageArray, messageObj]);
+
+        await updateDoc(databaseRef, {
+          lastMessage: inputValue,
+          senderId: userDataState?.userId,
+          sentTime: serverTimestamp(),
+        });
+
+        await addDoc(chatRef, messageObj);
+        setMessageArray([...messageArray, messageObj]);
+        setInputValue("");
+        setMessageLoading(false);
+      }
+    }
+  };
+
+  const ChatComponents = ({ id, title, titleMessage, image, senderId }) => {
+    useEffect(() => {
+      setIsMounted(true);
+    }, []);
     return (
       <div
         id={id}
@@ -128,46 +298,97 @@ export const Message = ({ handleWheel, handleTarget }) => {
         onTouchStart={chatClick}
       >
         <div className="image">
-          <img src={require(`${image}`)} alt="" />
+          <img src={image} alt="" />
         </div>
         <div className="chat-title">
           <h3>{title}</h3>
-          <p>{titleMessage} </p>
+          <p
+            style={{
+              fontStyle: senderId === userDataState?.userId && "italic",
+              fontWeight: senderId !== userDataState?.userId && "bold",
+            }}
+          >
+            {senderId === userDataState?.userId
+              ? `You: ${
+                  titleMessage.split("").length > 24
+                    ? titleMessage.split("").splice(0, 23).join("") + "..."
+                    : titleMessage
+                }`
+              : titleMessage.split("").length > 24
+              ? titleMessage.split("").splice(0, 23).join("") + "..."
+              : titleMessage}
+          </p>
         </div>
       </div>
     );
   };
-  const ResponsiveChatComponents = ({ id, title, titleMessage, image }) => {
+
+  useEffect(() => {
+    if (isMounted) {
+      const sessionStored = sessionStorage.getItem("element-clicked-Id");
+      const sessionStoredId = sessionStorage.getItem("currentId");
+      if (sessionStored) {
+        setCurrentId(sessionStoredId);
+        setElementClickedId(sessionStored);
+        const activeChat = document.getElementById(sessionStored);
+        if (activeChat) {
+          activeChat.classList.add("chat-active");
+        }
+      } else {
+        const documentArray = document.querySelector(".chatscomponents");
+        const firstElemId = documentArray?.id;
+        setElementClickedId(firstElemId);
+        sessionStorage.setItem("element-clicked-Id", firstElemId);
+        sessionStorage.setItem("currentId", "exit");
+      }
+    }
+  }, [isMounted]);
+
+  const ResponsiveChatComponents = ({
+    id,
+    title,
+    titleMessage,
+    image,
+    sentTime,
+    senderId,
+  }) => {
     return (
       <div id={id} className="chatscomponents" onClick={responsiveChatClick}>
         <div className="image">
-          <img src={require(`${image}`)} alt="" />
+          <img src={image} alt="" />
         </div>
         <div className="chat-title">
           <h3>{title}</h3>
-          <p>{titleMessage} </p>
+          <p
+            style={{
+              fontStyle: senderId === userDataState?.userId && "italic",
+              fontWeight: senderId !== userDataState?.userId && "bold",
+            }}
+          >
+            {senderId === userDataState?.userId
+              ? `You: ${
+                  titleMessage.split("").length > 24
+                    ? titleMessage.split("").splice(0, 23).join("") + "..."
+                    : titleMessage
+                }`
+              : titleMessage.split("").length > 24
+              ? titleMessage.split("").splice(0, 23).join("") + "..."
+              : titleMessage}
+          </p>
         </div>
         <div className="message-time-icon">
-          <p>19:23</p>
-          <FontAwesomeIcon
-            icon={faCheckDouble}
-            style={{
-              fontSize: "18px",
-              color: "#ed7014",
-            }}
-          />
+          <p>
+            {new Date(sentTime?.toMillis())
+              ?.toLocaleTimeString()
+              ?.split(":")
+              ?.splice(0, 2)
+              ?.join(":")}
+          </p>
         </div>
       </div>
     );
   };
 
-  //   const ChatBrief = ({ users }) => {
-  //     const currentUser = users[elementClickedId];
-
-  //     return (
-
-  //     );
-  //   };
   return (
     <>
       <div
@@ -188,34 +409,20 @@ export const Message = ({ handleWheel, handleTarget }) => {
             </div>
             <div className="second-chat-head">
               <div className="search">
-                {/* <FontAwesomeIcon
-                  icon={faSearch}
-                  style={{
-                    position: "absolute",
-                    right: "-.18em",
-                    paddingRight: "0.5em",
-                    paddingLeft: "0.5em",
-                    top: "-.7em",
-                    color: "rgb(41, 41, 41)",
-                    cursor: "pointer",
-                    zIndex: "5",
-                    backgroundColor: "white",
-                  }}
-                /> */}
                 <input type="text" placeholder="Search For Messages" />
               </div>
             </div>
           </div>
 
           <div className="chatcomponent-div">
-            {Object.keys(users).map((userID) => {
-              const user = users[userID];
+            {queriedChats.map((chats, index) => {
               return (
                 <ChatComponents
-                  title={user.title}
-                  image={user.image}
-                  titleMessage={user.titleMessage}
-                  id={user.id}
+                  title={chats?.fullName}
+                  image={chats?.profileUrl}
+                  titleMessage={chats?.lastMessage}
+                  id={chats?.Id}
+                  senderId={chats?.senderId}
                 />
               );
             })}
@@ -236,12 +443,18 @@ export const Message = ({ handleWheel, handleTarget }) => {
                 <img
                   src={
                     elementClickedId &&
-                    require(`${users[elementClickedId].image}`)
+                    queriedChats?.find(
+                      (value) => value?.Id === elementClickedId
+                    )?.profileUrl
                   }
                   alt=""
                 />
               </div>
-              <h2>{elementClickedId && users[elementClickedId].title}</h2>
+              <h2>
+                {elementClickedId &&
+                  queriedChats?.find((value) => value?.Id === elementClickedId)
+                    ?.fullName}
+              </h2>
             </div>
             <FontAwesomeIcon
               icon={faCircleInfo}
@@ -261,35 +474,45 @@ export const Message = ({ handleWheel, handleTarget }) => {
               <img
                 src={
                   elementClickedId &&
-                  require(`${users[elementClickedId].image}`)
+                  queriedChats?.find((value) => value?.Id === elementClickedId)
+                    ?.profileUrl
                 }
                 alt=""
               />
             </div>
             <div className="chatPersonDetails">
-              <h2>{elementClickedId && users[elementClickedId].title}</h2>
-              <p>{elementClickedId && users[elementClickedId].bio}</p>
+              <h2>
+                {elementClickedId &&
+                  queriedChats?.find((value) => value?.Id === elementClickedId)
+                    ?.fullName}
+              </h2>
+              {/* <p>{elementClickedId && users[elementClickedId].bio}</p> */}
             </div>
             <div className="message-receive-body">
-              <div className="received"></div>
+              {messageArray?.map((value, index) => (
+                <div
+                  className="message-box"
+                  style={{
+                    alignSelf:
+                      value?.senderId === userDataState?.userId
+                        ? "end"
+                        : "start",
+                    backgroundColor:
+                      value?.senderId === userDataState?.userId
+                        ? "rgba(237, 112, 20, 0.2)"
+                        : "rgb(237, 112, 20)",
+                    color:
+                      value?.senderId === userDataState?.userId
+                        ? "black"
+                        : "white",
+                  }}
+                >
+                  <p>{value?.text}</p>
+                </div>
+              ))}
             </div>
           </div>
           <div className="chat-inputs">
-            {/* <div className="addfile">
-              <FontAwesomeIcon
-                icon={faPlusCircle}
-                style={{
-                  fontSize: "24px",
-                  color: "#ed7014",
-                  marginRight: "0.4em",
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faFile}
-                style={{ fontSize: "24px", color: "#ed7014" }}
-              />
-            </div> */}
-
             <textarea
               name="typing"
               value={inputValue}
@@ -303,8 +526,10 @@ export const Message = ({ handleWheel, handleTarget }) => {
                 right: "2.8em",
                 bottom: "1em",
                 fontSize: "24px",
+                cursor: "pointer",
                 color: "#ed7014",
               }}
+              onClick={sendMessage}
             />
           </div>
         </div>
@@ -343,7 +568,7 @@ export const Message = ({ handleWheel, handleTarget }) => {
 
             <div className="chatcomponent-div">
               <div className="active-peeps">
-                <div className="active-peeps-child-div">
+                {/* <div className="active-peeps-child-div">
                   <FontAwesomeIcon
                     icon={faPlus}
                     style={{
@@ -351,76 +576,25 @@ export const Message = ({ handleWheel, handleTarget }) => {
                       color: "#4e4e4e",
                     }}
                   />
-                </div>
-                <div className="active-peeps-child-div">
-                  <div className="active-peep-image">
-                    <img
-                      src={require("./images/beard-1845166_1280.jpg")}
-                      alt=""
-                    />
+                </div> */}
+                {queriedChats?.map((value, index) => (
+                  <div className="active-peeps-child-div">
+                    <div className="active-peep-image">
+                      <img src={value?.profileUrl} alt="" />
+                    </div>
+                    <div className="active-status-color"></div>
                   </div>
-                  <div className="active-status-color"></div>
-                </div>
-                <div className="active-peeps-child-div">
-                  <div className="active-peep-image">
-                    <img
-                      src={require("./images/man-1690965_1280.jpg")}
-                      alt=""
-                    />
-                  </div>
-                  <div className="active-status-color"></div>
-                </div>
-                <div className="active-peeps-child-div">
-                  <div className="active-peep-image">
-                    <img
-                      src={require("./images/man-3803551_1280.jpg")}
-                      alt=""
-                    />
-                  </div>
-                  <div className="active-status-color"></div>
-                </div>
-                <div className="active-peeps-child-div">
-                  <div className="active-peep-image">
-                    <img
-                      src={require("./images/girl-2961959_1280.jpg")}
-                      alt=""
-                    />
-                  </div>
-                  <div className="active-status-color"></div>
-                </div>
-                <div className="active-peeps-child-div">
-                  <div className="active-peep-image">
-                    <img
-                      src={require("./images/adult-1851571_1280.jpg")}
-                      alt=""
-                    />
-                  </div>
-                  <div className="active-status-color"></div>
-                </div>
-                <div className="active-peeps-child-div">
-                  <div className="active-peep-image">
-                    <img src={require("./images/fb.jpg")} alt="" />
-                  </div>
-                  <div className="active-status-color"></div>
-                </div>
-                <div className="active-peeps-child-div">
-                  <div className="active-peep-image">
-                    <img
-                      src={require("./images/portrait-3204843_1280.jpg")}
-                      alt=""
-                    />
-                  </div>
-                  <div className="active-status-color"></div>
-                </div>
+                ))}
               </div>
-              {Object.keys(users).map((userID) => {
-                const user = users[userID];
+              {queriedChats.map((chats, index) => {
                 return (
                   <ResponsiveChatComponents
-                    title={user.title}
-                    image={user.image}
-                    titleMessage={user.titleMessage}
-                    id={user.id}
+                    title={chats?.fullName}
+                    image={chats?.profileUrl}
+                    titleMessage={chats?.lastMessage}
+                    id={chats?.Id}
+                    senderId={chats?.senderId}
+                    sentTime={chats?.sentTime}
                   />
                 );
               })}
@@ -443,13 +617,21 @@ export const Message = ({ handleWheel, handleTarget }) => {
                 </div>
                 <div className="imageDiv">
                   <img
-                    src={currentId && require(`${users[currentId].image}`)}
+                    src={
+                      currentId &&
+                      queriedChats?.find((value) => value?.Id === currentId)
+                        ?.profileUrl
+                    }
                     alt=""
                   />
                 </div>
                 <div className="title-online">
-                  <h2>{currentId && users[currentId].title}</h2>
-                  <p>online</p>
+                  <h2>
+                    {currentId &&
+                      queriedChats?.find((value) => value?.Id === currentId)
+                        ?.fullName}
+                  </h2>
+                  {/* <p>online</p> */}
                 </div>
               </div>
               <FontAwesomeIcon
@@ -468,34 +650,47 @@ export const Message = ({ handleWheel, handleTarget }) => {
             <div className="chatBrief">
               <div className="imageDiv">
                 <img
-                  src={currentId && require(`${users[currentId].image}`)}
+                  src={
+                    currentId &&
+                    queriedChats?.find((value) => value?.Id === currentId)
+                      ?.profileUrl
+                  }
                   alt=""
                 />
               </div>
               <div className="chatPersonDetails">
-                <h2>{currentId && users[currentId].title}</h2>
-                <p>{currentId && users[currentId].bio}</p>
+                <h2>
+                  {currentId &&
+                    queriedChats?.find((value) => value?.Id === currentId)
+                      ?.fullName}
+                </h2>
+                {/* <p>{currentId && users[currentId].bio}</p> */}
               </div>
               <div className="message-receive-body">
-                <div className="received"></div>
+                {responsiveMessageArray?.map((value, index) => (
+                  <div
+                    className="message-box"
+                    style={{
+                      alignSelf:
+                        value?.senderId === userDataState?.userId
+                          ? "end"
+                          : "start",
+                      backgroundColor:
+                        value?.senderId === userDataState?.userId
+                          ? "rgba(237, 112, 20, 0.2)"
+                          : "rgb(237, 112, 20)",
+                      color:
+                        value?.senderId === userDataState?.userId
+                          ? "black"
+                          : "white",
+                    }}
+                  >
+                    <p>{value?.text}</p>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="chat-inputs">
-              {/* <div className="addfile">
-                <FontAwesomeIcon
-                  icon={faPlusCircle}
-                  style={{
-                    fontSize: "24px",
-                    color: "#ed7014",
-                    marginRight: "0.4em",
-                  }}
-                />
-                <FontAwesomeIcon
-                  icon={faFile}
-                  style={{ fontSize: "24px", color: "#ed7014" }}
-                />
-              </div> */}
-
               <textarea
                 name="typing"
                 value={inputValue}
@@ -510,7 +705,9 @@ export const Message = ({ handleWheel, handleTarget }) => {
                     position: "static",
                     fontSize: "22px",
                     color: "#ed7014",
+                    cursor: "pointer",
                   }}
+                  onClick={responsiveSendMessage}
                 />
               </div>
             </div>

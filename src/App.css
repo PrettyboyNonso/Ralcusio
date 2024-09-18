@@ -219,6 +219,29 @@ footer {
   object-fit: cover;
 }
 
+@keyframes LoadingApp {
+  0% {
+    width: 2em;
+    height: 2em;
+  }
+
+  100% {
+    width: 2.5em;
+    height: 2.5em;
+  }
+}
+@keyframes OuterLoadingApp {
+  0% {
+    width: 3em;
+    height: 3em;
+  }
+
+  100% {
+    width: 3.5em;
+    height: 3.5em;
+  }
+}
+
 @keyframes Spinner {
   0% {
     transform: rotate(0);
@@ -235,6 +258,14 @@ footer {
   100% {
     transform: rotate(0deg);
   }
+}
+
+.outer-circle {
+  animation: OuterLoadingApp 1s ease-in infinite;
+}
+
+.inner-circle {
+  animation: LoadingApp 1s ease-in infinite;
 }
 
 .spin {
@@ -2146,7 +2177,8 @@ aside {
 }
 
 .chatflex .chatscomponents {
-  width: 100%;
+  min-width: 15em;
+  max-width: 15em;
   margin-bottom: 1.3em;
   padding-top: 0.8em;
   padding-bottom: 0.3em;
@@ -2305,10 +2337,33 @@ aside {
 
 .message-receive-body {
   width: 100%;
-  height: 100vh;
-
+  height: 100%;
+  display: flex;
   margin-bottom: 3em;
   margin-top: 3em;
+  padding-left: 1em;
+  padding-right: 1em;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.message-box {
+  border: 1px solid rgb(227, 227, 227);
+  min-width: fit-content;
+  max-width: 10em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 5px;
+  background-color: rgb(237, 112, 20);
+  color: white;
+  display: flex;
+}
+
+.message-box p {
+  font-family: "Karla", sans-serif;
+  font-size: 14px;
 }
 
 .create-class-teacher {
@@ -3324,6 +3379,18 @@ aside {
   gap: 0.8em;
 }
 
+.all-classes-second-head button {
+  width: fit-content;
+  padding: 0.2em 1em;
+  font-size: 13px;
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  border: 1px solid grey;
+  border-radius: 3px;
+  background-color: #ed7014;
+  color: white;
+}
+
 .all-classes-second-head p {
   font-family: "Karla", sans-serif;
   font-size: 13px;
@@ -3344,7 +3411,6 @@ aside {
   width: 50%;
   display: flex;
   gap: 0.5em;
-  justify-content: flex-end;
   margin-right: 2em;
 }
 
@@ -3359,6 +3425,7 @@ aside {
   color: white;
   cursor: pointer;
   border-radius: 5px;
+  height: 2em;
 }
 
 .all-class-checkbox {
@@ -5055,6 +5122,197 @@ aside {
   display: none;
 }
 
+.class-details-body {
+  width: 70%;
+  position: absolute;
+  top: 11em;
+  height: fit-content;
+  background-color: white;
+  border: 1px solid rgb(227, 227, 227);
+  padding-bottom: 2em;
+  margin-left: 0.5em;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.class-details-head {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.3em;
+}
+
+.class-details-head .courseName-head {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  max-width: 100%;
+  padding: 0.2em 0.5em;
+}
+
+.class-details-head .courseName-head h2 {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 18px;
+}
+
+.class-head-other-detail {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0.2em 2em;
+  gap: 0.5em;
+}
+
+.class-head-other-detail p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
+.curriculum-participants {
+  display: flex;
+  gap: 3em;
+  padding-left: 2em;
+  margin-top: 1em;
+}
+
+.curriculum-sec,
+.participants-sec {
+  /* border: 1px solid black; */
+  flex: 0 0 30%;
+}
+
+.curriculum-sec,
+.participants-sec p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.wrapper-curri-participant {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  cursor: pointer;
+}
+
+.lining-class {
+  width: 100%;
+  height: 0.2em;
+  border-radius: 10px;
+  background-color: #ed7014;
+}
+
+.participants-body {
+  margin-top: 1em;
+  width: 100%;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.participant-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.participant-head input {
+  width: 30%;
+  height: 2em;
+  outline: none;
+  padding-left: 0.5em;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+}
+
+.participant-head p {
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.students-participants {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.students-participants p {
+  min-width: 25%;
+  max-width: fit-content;
+  /* border: 1px solid rgb(227, 227, 227);
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3); */
+  padding: 0.5em;
+  border-radius: 5px;
+  font-family: "Karla", sans-serif;
+  font-size: 13px;
+}
+.curri-class-sec {
+  margin-top: 1em;
+  width: 100%;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.curri-class-sec-head {
+  border: 1px solid rgb(227, 227, 227);
+  padding: 0.5em;
+  display: flex;
+  width: 100%;
+  background-color: whitesmoke;
+  color: black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.curri-class-sec-head p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.curri-details-sec {
+  padding: 0.5em;
+  display: flex;
+  width: 100%;
+  color: black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.curri-description {
+  padding: 0.5em;
+  display: flex;
+  width: 100%;
+  color: black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.curri-description p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
+.start-end-date {
+  align-self: flex-end;
+}
+
+.start-end-date p {
+  font-family: "Karla", sans-serif;
+  text-transform: capitalize;
+  font-size: 13px;
+}
+
 /* mobile phones */
 
 @media only screen and (max-width: 767px) {
@@ -6144,12 +6402,12 @@ aside {
     position: relative;
   }
 
-  .active-peeps-child-div:nth-child(1) {
+  /* .active-peeps-child-div:nth-child(1) {
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px dashed #ed7014;
-  }
+  } */
   .active-peep-image {
     height: 100%;
     width: 100%;

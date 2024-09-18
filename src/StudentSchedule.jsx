@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import {
   faSearch,
   faCircleCheck,
@@ -7,29 +7,28 @@ import {
   faBook,
   faClock,
   faBell,
-  faAngleLeft,
-  faAngleRight,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { Devices } from "./App";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { useEffect } from "react";
-import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
-import { database } from "./backend";
+import { LoadingHome } from "./LoadingHome";
 export const StudentSchedule = () => {
   const {
-    userDataState,
     FetchFacts,
     fetchedFact,
     setFetchedFact,
-    setVisible,
     searchInput,
     findPeople,
+    searchPeopleLoading,
   } = useContext(Devices);
 
   const [loading, setLoading] = useState(false);
   const [lovedQuote, setLovedQuote] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
+  const [StudentClassArray, setStudentClassArray] = useState(
+    JSON.parse(sessionStorage.getItem("studentClass"))
+  );
+  const [upcomming, setUpcomming] = useState(null);
 
   async function MoreQuotes() {
     try {
@@ -43,6 +42,7 @@ export const StudentSchedule = () => {
     }
   }
 
+  //  Dummy Mockup For Previous And Future Classes
   const Classes = [
     {
       title: "Introduction to React",
@@ -63,6 +63,24 @@ export const StudentSchedule = () => {
       classDate: "Wednesday Apr 15",
     },
   ];
+
+  const getUpcommingClasses = () => {
+    const todaysDate = new Date();
+    const upcomingClass = StudentClassArray?.flatMap((value) => {
+      return value?.curriculum?.filter(
+        (myClass) => new Date(myClass?.startDate) >= todaysDate
+      );
+    });
+
+    console.log(upcomingClass);
+    return upcomingClass;
+  };
+
+  // Calls The "getUpcommingClasses" Function
+  useEffect(() => {
+    const upcomming = getUpcommingClasses();
+    setUpcomming(upcomming);
+  }, [StudentClassArray]);
 
   const Spinner = () => {
     return (
@@ -132,11 +150,51 @@ export const StudentSchedule = () => {
   };
 
   return (
-    <div className="app-side">
-      <div className="app-side-head">
-        <h2>welcome back!</h2>
-        <div className="app-second-head">
-          <div className="search">
+    <>
+      {searchPeopleLoading && <LoadingHome />}
+      <div className="app-side">
+        <div className="app-side-head">
+          <h2>welcome back!</h2>
+          <div className="app-second-head">
+            <div className="search">
+              <input
+                type="text"
+                placeholder="search for teachers or fellows"
+                ref={searchInput}
+              />
+              <FontAwesomeIcon
+                icon={faSearch}
+                style={{
+                  position: "absolute",
+                  right: "0.5em",
+                  top: "0.5em",
+                  color: "rgb(41, 41, 41)",
+                  cursor: "pointer",
+                  backgroundColor: "white",
+                }}
+                onClick={findPeople}
+              />
+            </div>
+            <div
+              className=" responsive-search"
+              onClick={() => setOpenSearch(!openSearch)}
+            >
+              <FontAwesomeIcon
+                icon={openSearch ? faXmark : faSearch}
+                style={{ fontSize: "16px", cursor: "pointer" }}
+              />
+            </div>
+            <div className="notificationBell">
+              <FontAwesomeIcon
+                icon={faBell}
+                style={{ fontSize: "16px", cursor: "pointer" }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {openSearch && (
+          <div className="responsive-search-two">
             <input
               type="text"
               placeholder="search for teachers or fellows"
@@ -147,7 +205,7 @@ export const StudentSchedule = () => {
               style={{
                 position: "absolute",
                 right: "0.5em",
-                top: "0.5em",
+                top: "0.8em",
                 color: "rgb(41, 41, 41)",
                 cursor: "pointer",
                 backgroundColor: "white",
@@ -155,86 +213,41 @@ export const StudentSchedule = () => {
               onClick={findPeople}
             />
           </div>
-          <div
-            className=" responsive-search"
-            onClick={() => setOpenSearch(!openSearch)}
-          >
-            <FontAwesomeIcon
-              icon={openSearch ? faXmark : faSearch}
-              style={{ fontSize: "16px", cursor: "pointer" }}
-            />
+        )}
+
+        <div className="motivation-of-the-day">
+          <div className="top-left-corner"></div>
+          <div className="top-left-corner-effect"></div>
+          <div className="facts-head">
+            <p>quote of the day</p>
           </div>
-          <div className="notificationBell">
-            <FontAwesomeIcon
-              icon={faBell}
-              style={{ fontSize: "16px", cursor: "pointer" }}
+          <div className="actual-fact">
+            <h2>{fetchedFact[0]?.author}</h2>
+            <p>
+              {fetchedFact[0].quote.length <= 221
+                ? `"${fetchedFact[0]?.quote}"`
+                : `"${fetchedFact[0]?.quote.slice(0, 221)}..."`}
+            </p>
+          </div>
+
+          <div className="next-motivation-flex">
+            <button onClick={MoreQuotes}>
+              {loading ? <Spinner /> : "more quotes"}
+            </button>
+          </div>
+        </div>
+
+        <div style={{ marginTop: "1em" }}>
+          <div className="student-groups">
+            <StudentClasses
+              classTime={"previous class"}
+              classObj={Classes[0]}
             />
+            <StudentClasses classTime={"next class"} classObj={Classes[1]} />
+            {/* <p className = "student-p">No classes, enjoy the silence🥂🥂</p> */}
           </div>
         </div>
       </div>
-
-      {openSearch && (
-        <div className="responsive-search-two">
-          <input
-            type="text"
-            placeholder="search for teachers or fellows"
-            ref={searchInput}
-          />
-          <FontAwesomeIcon
-            icon={faSearch}
-            style={{
-              position: "absolute",
-              right: "0.5em",
-              top: "0.8em",
-              color: "rgb(41, 41, 41)",
-              cursor: "pointer",
-              backgroundColor: "white",
-            }}
-            onClick={findPeople}
-          />
-        </div>
-      )}
-
-      <div className="motivation-of-the-day">
-        <div className="top-left-corner"></div>
-        <div className="top-left-corner-effect"></div>
-        <div className="facts-head">
-          <p>quote of the day</p>
-        </div>
-        <div className="actual-fact">
-          <h2>{fetchedFact[0]?.author}</h2>
-          <p>
-            {fetchedFact[0].quote.length <= 221
-              ? `"${fetchedFact[0]?.quote}"`
-              : `"${fetchedFact[0]?.quote.slice(0, 221)}..."`}
-          </p>
-        </div>
-
-        <div className="next-motivation-flex">
-          {/* <div className="font-motivation">
-            <FontAwesomeIcon
-              icon={faHeart}
-              style={{ color: lovedQuote ? "red" : "white", cursor: "pointer" }}
-              onClick={quoteFunc}
-            />
-          </div> */}
-          <button onClick={MoreQuotes}>
-            {loading ? <Spinner /> : "more quotes"}
-          </button>
-        </div>
-      </div>
-
-      <div style={{ marginTop: "1em" }}>
-        {/* <div className="responsive-cursor">
-          <FontAwesomeIcon icon={faAngleLeft} />
-          <FontAwesomeIcon icon={faAngleRight} />
-        </div> */}
-        <div className="student-groups">
-          <StudentClasses classTime={"previous class"} classObj={Classes[0]} />
-          <StudentClasses classTime={"next class"} classObj={Classes[1]} />
-          {/* <p className = "student-p">No classes, enjoy the silence🥂🥂</p> */}
-        </div>
-      </div>
-    </div>
+    </>
   );
 };

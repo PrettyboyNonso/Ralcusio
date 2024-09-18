@@ -60,16 +60,23 @@ function App() {
   const [stateSearchResult, setStateSearchResult] = useState([]);
   const [searchString, setSearchString] = useState("");
   const searchInput = useRef(null);
+  const [classArray, setClassArray] = useState(
+    JSON.parse(sessionStorage.getItem("classArray"))
+  );
+  const [searchPeopleLoading, setSearchPeopleLoading] = useState(false);
+  const [signInLoading, setSigninloading] = useState(false);
+  const [signUpLoading, setSignUploading] = useState(false);
 
   const findPeople = async () => {
     if (searchInput.current.value.trim() !== "") {
+      setSearchPeopleLoading(true);
       const removeExtraSpaces = searchInput.current.value.split(" ");
 
-      let NewRemoveExtraSpace = removeExtraSpaces.filter(
+      let NewRemoveExtraSpace = removeExtraSpaces?.filter(
         (value) => value !== ""
       );
 
-      setSearchString(NewRemoveExtraSpace.join(" "));
+      setSearchString(NewRemoveExtraSpace?.join(" "));
       const searchResults = [];
       const dataBaseRef = collection(database, "users");
       const SearchQuery = query(
@@ -77,7 +84,7 @@ function App() {
         where(
           "fullName",
           "==",
-          NewRemoveExtraSpace.join(" ").toLocaleLowerCase()
+          NewRemoveExtraSpace?.join(" ").toLocaleLowerCase()
         )
       );
       const Users = await getDocs(SearchQuery);
@@ -85,6 +92,7 @@ function App() {
         const { password, ...rest } = snap.data();
         searchResults.push(rest);
       });
+      setSearchPeopleLoading(false);
       setStateSearchResult(searchResults);
       setVisible(true);
     }
@@ -141,14 +149,22 @@ function App() {
     password: null,
     profileUrl: null,
     coverUrl: null,
-    followers: 0,
-    following: 0,
+    followers: {
+      count: 0,
+      users: [],
+    },
+    following: {
+      count: 0,
+      users: [],
+    },
     bio: null,
     headline: null,
     education: null,
     countryOfResidence: null,
     countryOfOrigin: null,
   });
+
+  const [allClassesStudent, setAllClassesStudent] = useState([]);
 
   const [state, dispatch] = useReducer(reducerFn, { activeBar: "login" });
 
@@ -398,10 +414,26 @@ function App() {
     }
   };
 
+  const QueryClasses = () => {
+    const dbRef = collection(database, "classes");
+    const ClassesArray = [];
+    const q = query(dbRef);
+    onSnapshot(q, (snaps) => {
+      snaps.forEach((doc) => {
+        if (doc.data().participants.includes(userDataState?.userId)) {
+          ClassesArray.push(doc.data());
+        }
+      });
+      sessionStorage.setItem("studentClass", JSON.stringify(ClassesArray));
+      setAllClassesStudent(ClassesArray);
+    });
+  };
+
   // signs the user in and redirects the user to the application
   const dataBaseRef = collection(database, "users");
   async function handleSignIn() {
     try {
+      setSignUploading(true);
       const dataFact = await FetchFacts();
       sessionStorage.setItem("dataFact", JSON.stringify(dataFact));
       const userCredential = await createUserWithEmailAndPassword(
@@ -415,7 +447,7 @@ function App() {
       const profilePhotoUrl = await getDownloadURL(profileImageref);
       const coverPhotourl = await getDownloadURL(coverImageRef);
 
-      let userId = userCredential.user.uid;
+      let userId = userCredential?.user?.uid;
       const firebaseStorageRef = await addDoc(collection(database, "users"), {
         userId: userId,
         emailAddress: userCredential.user.email.toLocaleLowerCase(),
@@ -428,8 +460,14 @@ function App() {
         password: UserState.password,
         profileUrl: null,
         coverUrl: null,
-        followers: 0,
-        following: 0,
+        followers: {
+          count: 0,
+          users: [],
+        },
+        following: {
+          count: 0,
+          users: [],
+        },
         bio: null,
         headline: null,
         education: null,
@@ -450,15 +488,17 @@ function App() {
         const { password, ...rest } = snap.data();
         sessionStorage.setItem("userData", JSON.stringify(rest));
       });
-
+      setSignUploading(false);
       window.location.href = "./Application";
     } catch (error) {
       console.log("error during sign in process", error);
+      setSignUploading(false);
     }
   }
 
   async function logUser(email, password) {
     try {
+      setSigninloading(true);
       const dataFact = await FetchFacts();
       sessionStorage.setItem("dataFact", JSON.stringify(dataFact));
       const userCred = await signInWithEmailAndPassword(auth, email, password);
@@ -472,16 +512,35 @@ function App() {
         const userData = querySnapshot.docs[0].data();
         const { password, ...rest } = userData;
         sessionStorage.setItem("userData", JSON.stringify(rest));
+        setSigninloading(false);
         window.location.href = "./Application";
       }
     } catch (error) {
       console.error(error);
+      setSigninloading(false);
     }
   }
 
+  function queryClasses() {
+    const collectionRef = collection(database, "classes");
+    const q = query(collectionRef, where("id", "==", userDataState?.userId));
+    onSnapshot(q, (snapshot) => {
+      const classArray = snapshot.docs.map((value) => ({
+        ...value.data(),
+      }));
+      setClassArray(classArray);
+      sessionStorage.setItem("classArray", JSON.stringify(classArray));
+    });
+  }
+
+  useEffect(() => {
+    if (userDataState) {
+      queryClasses();
+    }
+  }, []);
+
   const handleTarget = (e) => {
     setTargetElement(e.target);
-    console.log(targetElement);
   };
 
   const handleWheel = (e) => {
@@ -530,7 +589,6 @@ function App() {
         clickedElement.classList.add("active");
       }
     }
-    console.log(activeLinkId);
   };
 
   const CreateObjectCountries = async () => {
@@ -621,6 +679,13 @@ function App() {
         findPeople,
         setSearchString,
         searchString,
+        setClassArray,
+        classArray,
+        searchPeopleLoading,
+        signInLoading,
+        signUpLoading,
+        QueryClasses,
+        allClassesStudent,
       }}
     >
       <BrowserRouter>

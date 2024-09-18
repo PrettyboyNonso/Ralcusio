@@ -8,22 +8,18 @@ import {
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
 import { faMessage } from "@fortawesome/free-regular-svg-icons";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Message } from "./Message";
-import { Curriculum } from "./Curriculum";
 import { Devices } from "./App";
 import { Profile } from "./Profile";
 import { TeacherSchedule } from "./TeacherSchedule";
-import { faPaypal } from "@fortawesome/free-brands-svg-icons/faPaypal";
 import { StudentSchedule } from "./StudentSchedule";
 import { CreateClass } from "./CreateClass";
-import { PaymentPage } from "./PaymentPage";
 import MessageClickProvider from "./MessageClickProvider";
 import { FooterComponent } from "./FooterComponent";
 import { StudentClass } from "./StudentClass";
 import { EditProfile } from "./EditProfile";
 import { SearchUser } from "./SearchUser";
-import { Logout } from "./Logout";
 
 export const Application = ({ handleWheel, handleTarget }) => {
   const {
@@ -35,6 +31,8 @@ export const Application = ({ handleWheel, handleTarget }) => {
     userDataState,
     visible,
   } = useContext(Devices);
+
+  // Handles Clicked SideBar
   useEffect(() => {
     const storedId = sessionStorage.getItem("activeLinkId");
     if (storedId) {
@@ -53,7 +51,6 @@ export const Application = ({ handleWheel, handleTarget }) => {
 
   const AppSide = () => {
     if (userDataState.accountType === "Teacher Account") {
-      // return <SearchUser />;
       if (visible) {
         return <SearchUser />;
       } else {
@@ -114,22 +111,6 @@ export const Application = ({ handleWheel, handleTarget }) => {
               <p>messages</p>
             </div>
 
-            {/* <div
-              className={`links ${activeLinkId === "payment" ? "active" : ""}`}
-              id="payment"
-              onClick={handleClick}
-            >
-              <FontAwesomeIcon
-                icon={faPaypal}
-                style={{
-                  color:
-                    activeLinkId === "payment" ? "white" : "rgb(78, 78, 78)",
-                  fontSize: "17px",
-                }}
-              />
-              <p>payments</p>
-            </div> */}
-
             <div className="links" id="book" onClick={handleClick}>
               <FontAwesomeIcon
                 icon={faBookBookmark}
@@ -152,17 +133,6 @@ export const Application = ({ handleWheel, handleTarget }) => {
               />
               <p>profile</p>
             </div>
-
-            {/* <div className="links" id="arrow" onClick={handleClick}>
-            <FontAwesomeIcon
-              icon={faPeopleArrows}
-              style={{
-                color: activeLinkId === "arrow" ? "white" : "rgb(78, 78, 78)",
-                fontSize: "17px",
-              }}
-            />
-            <p>Groups</p>
-          </div> */}
           </div>
 
           <div className="logout" onClick={() => signOutUser()}>
@@ -179,7 +149,7 @@ export const Application = ({ handleWheel, handleTarget }) => {
         </aside>
 
         <FooterComponent />
-
+        {/* Replaces The Page Contents According To The ActiveLInkId */}
         {activeLinkId === "house" && <AppSide />}
         {activeLinkId === "message" && (
           <Message handleTarget={handleTarget} handleWheel={handleWheel} />

@@ -1,25 +1,35 @@
-import { useContext, useEffect, useReducer, useState } from "react";
-import { Dates } from "./DateUI";
-import DatePicker from "react-datepicker";
+import { useContext, useEffect, useReducer, useRef, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Select from "react-select";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { Devices } from "./App";
 import {
-  faCalendarDays,
-  faCircleCheck,
-  faCircleXmark,
-  faCreditCard,
-  faPeopleLine,
-  faSearch,
-  faSort,
-} from "@fortawesome/free-solid-svg-icons";
+  arrayUnion,
+  collection,
+  doc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
+import { database } from "./backend";
+import { LoadingHome } from "./LoadingHome";
 
 export const StudentClass = () => {
   const [activeNav, setActiveNav] = useState("");
   const [viewClassState, dispatchClassState] = useReducer(reducerClassState, {
     viewed: false,
   });
+  const [joinClassMessage, setJoinClassMessage] = useState("");
+  const [IsLoading, setLoading] = useState(false);
+  const classIdInput = useRef(null);
   const [typeOfClass, setTypeOfClass] = useState("");
+  const { userDataState, QueryClasses, allClassesStudent } =
+    useContext(Devices);
+
+  useEffect(() => {
+    QueryClasses();
+  }, []);
 
   function reducerClassState(state, action) {
     switch (action.type) {
@@ -32,49 +42,7 @@ export const StudentClass = () => {
     }
   }
 
-  const handleClassNavCursor = (e) => {
-    const clickedElem = e.target.closest(".first-flex-create-type-sec");
-    const activeElementId = clickedElem.id;
-    const activeElem = document.getElementById(activeElementId);
-    if (activeElem) {
-      setActiveNav(activeElementId);
-      sessionStorage.setItem("activeNav", activeElementId);
-      if (activeElem.classList.contains("active-create-navigation")) {
-        // do nothing
-      } else if (!activeElem.classList.contains("active-create-navigation")) {
-        document
-          .querySelectorAll(".first-flex-create-type-sec")
-          .forEach((value, index) => {
-            if (value.classList.contains("active-create-navigation")) {
-              value.classList.remove("active-create-navigation");
-            }
-          });
-        activeElem.classList.add("active-create-navigation");
-      }
-    }
-  };
   const AllClasses = () => {
-    const handleTypeOfClass = (e) => {
-      const targetVal = e.target.closest(".second-head");
-      const targetId = targetVal.id;
-      console.log(targetId);
-      setTypeOfClass(targetId);
-      sessionStorage.setItem("classTypeId", targetId);
-      const clickedElem = document.getElementById(targetId);
-      if (clickedElem) {
-        if (clickedElem.classList.contains("all-class-active")) {
-          // do nothing
-        } else if (!clickedElem.classList.contains("all-class-active")) {
-          document.querySelectorAll(".second-head").forEach((value, index) => {
-            if (value.classList.contains("all-class-active")) {
-              value.classList.remove("all-class-active");
-            }
-          });
-          clickedElem.classList.add("all-class-active");
-        }
-      }
-    };
-
     useEffect(() => {
       const sessionStored = sessionStorage.getItem("classTypeId");
       if (sessionStored) {
@@ -87,14 +55,14 @@ export const StudentClass = () => {
       }
     }, []);
 
-    const AllClassesBody = () => {
+    const AllClassesBody = ({ classDet }) => {
       return (
         <div className="all-class-body-checkbox">
           <input type="checkbox" />
           <div className="all-classes-body">
-            <p>learning and setting example as a leader - full course</p>
+            <p>{classDet?.courseName}</p>
 
-            <p>December, 26, 2023</p>
+            <p>{new Date(classDet?.courseStartdate).toDateString()}</p>
 
             <p>active</p>
 
@@ -130,72 +98,30 @@ export const StudentClass = () => {
             join a class
           </button>
         </div>
-        <div className="student-second-head-flex">
-          <div className="all-classes-second-head">
-            <div
-              className={`second-head ${
-                typeOfClass === "all" && "all-class-active"
-              }`}
-              id="all"
-              onClick={handleTypeOfClass}
-            >
-              <p>all</p>
-            </div>
-            <div
-              className={`second-head ${
-                typeOfClass === "draft" && "all-class-active"
-              }`}
-              id="draft"
-              onClick={handleTypeOfClass}
-            >
-              <p>free </p>
-            </div>
-            <div
-              className={`second-head ${
-                typeOfClass === "archived" && "all-class-active"
-              }`}
-              id="archived"
-              onClick={handleTypeOfClass}
-            >
-              <p>paid </p>
-            </div>
-          </div>
-
-          <div className="classes-icons">
-            <button>View Details</button>
-            <FontAwesomeIcon
-              icon={faSort}
-              style={{
-                // backgroundColor: "#ed7014",
-                border: "1px solid #ed7014",
-                color: "#ed7014",
-                padding: "0.2em 0.6em",
-                borderRadius: "5px",
-                cursor: "pointer",
-                fontSize: "14px",
-              }}
-            />
-          </div>
-        </div>
+        <div className="student-second-head-flex"></div>
         <AllClassesHead />
-        {typeOfClass === "all" && (
-          <div className="all-class-sec">
-            <AllClassesBody />
-            <AllClassesBody />
-            <AllClassesBody />
-          </div>
-        )}
-        {typeOfClass === "draft" && (
-          <div className="all-class-sec">
-            <AllClassesBody />
-            <AllClassesBody />
-          </div>
-        )}
-        {typeOfClass === "archived" && (
-          <div className="all-class-sec">
-            <AllClassesBody />
-          </div>
-        )}
+
+        <div className="all-class-sec">
+          {allClassesStudent?.length >= 1 &&
+            allClassesStudent?.map((value, index) => (
+              <AllClassesBody classDet={value} />
+            ))}
+        </div>
+        <div className="all-class-sec">
+          {allClassesStudent?.length < 1 && (
+            <p
+              style={{
+                textTransform: "capitalize",
+                textAlign: "center",
+                marginTop: "2em",
+                fontSize: "14px",
+                fontFamily: "Karla, sans-serif",
+              }}
+            >
+              no classes at the moment
+            </p>
+          )}
+        </div>
       </div>
     );
   };
@@ -215,9 +141,46 @@ export const StudentClass = () => {
     console.log("re-rendered");
   }, [activeNav]);
 
+  async function joinClassFunc() {
+    if (classIdInput?.current?.value.trim()?.length > 1) {
+      setLoading(true);
+      const dbRef = collection(database, "classes");
+      const q = query(
+        dbRef,
+        where("classId", "==", classIdInput?.current?.value)
+      );
+
+      const snapDocs = await getDocs(q);
+      if (!snapDocs.empty) {
+        const collectionId = snapDocs?.docs[0]?.id;
+        if (
+          snapDocs?.docs[0]
+            ?.data()
+            ?.participants.includes(userDataState?.userId)
+        ) {
+          setLoading(false);
+          setJoinClassMessage("You Already Are A Participant In This Class");
+        } else {
+          await updateDoc(doc(database, "classes", collectionId), {
+            participants: arrayUnion(userDataState?.userId),
+          });
+          setLoading(false);
+          setJoinClassMessage("You Have Successfully Joined The Class");
+        }
+      } else {
+        setLoading(false);
+        setJoinClassMessage("Class ID Does Not Exist");
+      }
+    } else {
+      setLoading(false);
+      setJoinClassMessage("Class ID Does Not Exist");
+    }
+  }
+
   const JoinClass = () => {
     return (
       <div className="join-class">
+        {IsLoading && <LoadingHome />}
         <div className="join-class-head">
           <h2>join class</h2>
           <p>
@@ -235,8 +198,24 @@ export const StudentClass = () => {
               onClick={() => dispatchClassState({ type: "CLOSE" })}
             />
           </div>
-          <input type="text" placeholder="Enter Class Id" />
-          <button>join class</button>
+          <input type="text" placeholder="Enter Class Id" ref={classIdInput} />
+          <button onClick={joinClassFunc} style={{ cursor: "pointer" }}>
+            join class
+          </button>
+          <p
+            style={{
+              textTransform: "capitalize",
+              marginTop: "0.8em",
+              fontSize: "13px",
+              fontFamily: "Karla, sans-serif",
+              color:
+                joinClassMessage === "You Have Successfully Joined The Class"
+                  ? "green"
+                  : "red",
+            }}
+          >
+            {joinClassMessage}
+          </p>
         </div>
       </div>
     );
