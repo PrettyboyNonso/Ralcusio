@@ -221,9 +221,9 @@ export const AllClasses = ({ setTypeOfClass }) => {
               You have no student yet
             </p>
           ) : (
-            classDetails?.participants?.map((value, index) => (
-              <ClassParticipantsDetails key={index} participants={value} />
-            ))
+            <ClassParticipantsDetails
+              participants={classDetails?.participants}
+            />
           ))}
       </div>
     );

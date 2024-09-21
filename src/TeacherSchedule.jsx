@@ -2,6 +2,7 @@ import { faBell } from "@fortawesome/free-regular-svg-icons";
 import {
   faAngleDown,
   faAngleUp,
+  faCircleXmark,
   faGraduationCap,
   faSearch,
   faXmark,
@@ -18,18 +19,27 @@ export const TeacherSchedule = () => {
   const [independentMonth, setIndependentMonth] = useState("");
   const [independentDate, setIndependentDate] = useState("");
   const [openUp, setOpenUp] = useState(false);
-  const { userDataState, searchInput, findPeople, searchPeopleLoading } =
-    useContext(Devices);
+  const {
+    userDataState,
+    searchInput,
+    findPeople,
+    searchPeopleLoading,
+    classArray,
+  } = useContext(Devices);
   const [upcommingClasses, setUpcommingclasses] = useState(null);
-  const [classArray, setClassArray] = useState(
-    JSON.parse(sessionStorage.getItem("classArray"))
-  );
+  // const [classArray, setClassArray] = useState(
+  //   JSON.parse(sessionStorage.getItem("classArray"))
+  // );
 
   const getUpcommingClasses = () => {
     const todaysDate = new Date();
     const upcomingClass = classArray?.flatMap((value) => {
       return value?.curriculum?.filter(
-        (myClass) => new Date(myClass?.startDate) >= todaysDate
+        (myClass) =>
+          (new Date(myClass?.startDate) >= todaysDate &&
+            new Date(myClass?.endDate) > todaysDate) ||
+          (new Date(myClass?.startDate) <= todaysDate &&
+            new Date(myClass?.endDate) > todaysDate)
       );
     });
 
@@ -108,20 +118,37 @@ export const TeacherSchedule = () => {
               style={{ display: classesUp ? "flex" : "none" }}
             >
               {(() => {
-                const now = new Date();
-                const startDate = new Date(classes?.startDate);
-                const timeDiff = startDate - now;
+                if (new Date(classes?.startDate) <= new Date()) {
+                  return (
+                    <div className="start-class">
+                      <FontAwesomeIcon
+                        icon={faCircleXmark}
+                        style={{
+                          fontSize: "25px",
+                          color: "red",
+                          cursor: "pointer",
+                        }}
+                      />
+                      <button>start class</button>
+                    </div>
+                  );
+                } else {
+                  const now = new Date();
+                  const startDate = new Date(classes?.startDate);
 
-                const totalMinutes = Math.round(timeDiff / (1000 * 60));
+                  // Use UTC time to avoid time zone issues
+                  const timeDiff = startDate.getTime() - now.getTime(); // Difference in milliseconds
 
-                const hours = Math.floor(totalMinutes / 60);
-                const minutes = totalMinutes % 60;
+                  const totalMinutes = Math.round(timeDiff / (1000 * 60)); // Convert to minutes
+                  const hours = Math.floor(totalMinutes / 60); // Get the number of hours
+                  const minutes = totalMinutes % 60; // Get the remaining minutes
 
-                return (
-                  <p>{`starts in ${hours} hour${
-                    hours !== 1 ? "s" : ""
-                  } : ${minutes} minute${minutes !== 1 ? "s" : ""}`}</p>
-                );
+                  return (
+                    <p>{`Starts in ${hours} hour${
+                      hours !== 1 ? "s" : ""
+                    } : ${minutes} minute${minutes !== 1 ? "s" : ""}`}</p>
+                  );
+                }
               })()}
             </div>
           </div>
@@ -151,22 +178,38 @@ export const TeacherSchedule = () => {
             </div>
             <div className="timing-starts">
               {(() => {
-                const now = new Date();
-                const startDate = new Date(classes?.startDate);
-                const timeDiff = startDate - now; // Difference in milliseconds
+                if (new Date(classes?.startDate) <= new Date()) {
+                  return (
+                    <div className="start-class">
+                      <FontAwesomeIcon
+                        icon={faCircleXmark}
+                        style={{
+                          fontSize: "25px",
+                          color: "red",
+                          cursor: "pointer",
+                        }}
+                      />
+                      <button>start class</button>
+                    </div>
+                  );
+                } else {
+                  const now = new Date();
+                  const startDate = new Date(classes?.startDate);
+                  const timeDiff = startDate - now; // Difference in milliseconds
 
-                // Convert milliseconds to total minutes
-                const totalMinutes = Math.round(timeDiff / (1000 * 60));
+                  // Convert milliseconds to total minutes
+                  const totalMinutes = Math.round(timeDiff / (1000 * 60));
 
-                // Calculate hours and remaining minutes
-                const hours = Math.floor(totalMinutes / 60);
-                const minutes = totalMinutes % 60;
+                  // Calculate hours and remaining minutes
+                  const hours = Math.floor(totalMinutes / 60);
+                  const minutes = totalMinutes % 60;
 
-                return (
-                  <p>{`starts in ${hours} hour${
-                    hours !== 1 ? "s" : ""
-                  } : ${minutes} minute${minutes !== 1 ? "s" : ""}`}</p>
-                );
+                  return (
+                    <p>{`starts in ${hours} hour${
+                      hours !== 1 ? "s" : ""
+                    } : ${minutes} minute${minutes !== 1 ? "s" : ""}`}</p>
+                  );
+                }
               })()}
             </div>
           </div>

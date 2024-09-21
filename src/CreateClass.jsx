@@ -199,6 +199,7 @@ export const CreateClass = () => {
         // .join(" "),
         endDate: curriculumEndDate,
         classId: currentObj?.classId,
+        tutorId: userDataState?.userId,
       };
       currentObj?.curriculum.push(curriObj);
       setclassObject(currentObj);
@@ -266,28 +267,6 @@ export const CreateClass = () => {
     setclassObject(currentObj);
     sessionStorage.setItem("classObject", JSON.stringify(currentObj));
   }
-
-  // const ScheduleCurriculum = ({ curriculum }) => {
-  //   return (
-  //     <div className="schedule-curriculum">
-  //       <div className="schedule-tag">
-  //         <p>{classObjectState?.batchState}</p>
-  //       </div>
-  //       <div className="course-title">
-  //         <h3>{curriculum?.title}</h3>
-  //         <FontAwesomeIcon
-  //           icon={faTrashCan}
-  //           style={{ color: "#ed7014" }}
-  //           onClick={() => console.log(this)}
-  //         />
-  //       </div>
-  //       <div className="schedule-level">
-  //         <p>{`${curriculum.startDate} - `}</p>
-  //         <p>{curriculum.endDate}</p>
-  //       </div>
-  //     </div>
-  //   );
-  // };
 
   useEffect(() => {
     const sessionStored = sessionStorage.getItem("activeNav");
