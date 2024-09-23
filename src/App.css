@@ -1557,6 +1557,7 @@ aside {
   text-transform: capitalize;
   font-family: "Karla", sans-serif;
   font-size: 13px;
+  margin-top: 1em;
 }
 
 .latest-payments {
@@ -6068,6 +6069,7 @@ aside {
     font-family: "Karla", sans-serif;
     font-size: 13px;
     margin-left: 2.6em;
+    margin-top: 0em;
   }
 
   .calender {

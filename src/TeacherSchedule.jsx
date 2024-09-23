@@ -162,7 +162,7 @@ export const TeacherSchedule = () => {
         </div>
         <div className="second-schedule-flex">
           <div className="people-timing">
-            <div className="people-heads">
+            {/* <div className="people-heads">
               <div className="heads-people">
                 <img src={require("./images/girl-2961959_1280.jpg")} alt="" />
               </div>
@@ -175,7 +175,7 @@ export const TeacherSchedule = () => {
               <div className="heads-people">
                 <img src={require("./images/smile-2072907_1280.jpg")} alt="" />
               </div>
-            </div>
+            </div> */}
             <div className="timing-starts">
               {(() => {
                 if (new Date(classes?.startDate) <= new Date()) {
@@ -327,7 +327,7 @@ export const TeacherSchedule = () => {
           <div className="created-classes">
             <div className="created-class-head">
               <h2>{`${daysOfTheWeek[independentDay]} ${monthsOfTheYear[independentMonth]} ${independentDate}`}</h2>
-              <p>see all schedules</p>
+              {upcommingClasses?.length !== 0 && <p>see all schedules</p>}
             </div>
             {upcommingClasses?.length === 0 ? (
               <p
@@ -346,13 +346,13 @@ export const TeacherSchedule = () => {
                 <ScheduleCOmpo classes={value} />
               ))
             )}
-            <div className=" responsive">
+            {/* <div className=" responsive">
               <Analysis />
-            </div>
+            </div> */}
           </div>
           <div className="calender">
             <Dates color={"rgb(226, 226, 226)"} />
-            <Analysis />
+            {/* <Analysis /> */}
           </div>
         </div>
       </div>
