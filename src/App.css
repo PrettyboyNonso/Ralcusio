@@ -5339,6 +5339,61 @@ aside {
 /* mobile phones */
 
 @media only screen and (max-width: 767px) {
+  .message-receive-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-bottom: 3em;
+    margin-top: 3em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .message-box {
+    border: 1px solid rgb(227, 227, 227);
+    min-width: fit-content;
+    max-width: 10em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 5px;
+    background-color: rgb(237, 112, 20);
+    color: white;
+    display: flex;
+  }
+
+  .message-box p {
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+  }
+
+  .class-details-body {
+    width: 95%;
+    position: absolute;
+    top: 11em;
+    height: fit-content;
+    background-color: white;
+    border: 1px solid rgb(227, 227, 227);
+    padding-bottom: 2em;
+    margin-left: 0.5em;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    left: 0;
+    right: 0;
+  }
+
+  .participant-head input {
+    width: 40%;
+    height: 2em;
+    outline: none;
+    padding-left: 0.5em;
+    font-family: "Karla", sans-serif;
+    font-size: 13px;
+  }
+
   .start-class {
     display: flex;
     gap: 1em;

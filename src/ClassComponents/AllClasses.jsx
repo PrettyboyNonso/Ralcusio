@@ -74,10 +74,6 @@ export const AllClasses = ({ setTypeOfClass }) => {
             classDetails?.participants?.length === 1 ? "student" : "students"
           }`}</p>
         </div>
-
-        {/* <div className="students-participants">
-          <p>Obi Chinonso Fortune</p>
-        </div> */}
       </div>
     );
   };
